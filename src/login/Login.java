@@ -5,12 +5,22 @@
  */
 package login;
 
+import java.awt.HeadlessException;
+import javax.swing.JFrame;
+
 /**
  *
  * @author Asus
  */
-public class Login {
+public class Login  extends JFrame{
     
-    private String name;
+    public Login() throws HeadlessException {
+        
+        this.setVisible(true);
+    }
+    
+    public static void main(String[] args) {
+        new Login();
+    }
     
 }

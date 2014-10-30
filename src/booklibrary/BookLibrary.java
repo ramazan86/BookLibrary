@@ -5,17 +5,34 @@
  */
 package booklibrary;
 
+import db_connection.Verbindung;
+import java.sql.Connection;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
+
 /**
  *
  * @author Asus
  */
 public class BookLibrary {
-
+   
     /**
      * @param args the command line arguments
      */
-    public static void main(String[] args) {
-        // TODO code application logic here
+    public static void main(String[] args) throws SQLException {
+        
+        Verbindung vb = new Verbindung();
+        Statement st = vb.getStatement();
+        
+        String sqlSelect = " select * from login";
+        ResultSet res = st.executeQuery(sqlSelect);
+        
+        if(res.next()) {
+            System.out.println(res.toString());
+        }
+        
+        
     }
     
 }
