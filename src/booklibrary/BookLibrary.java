@@ -25,12 +25,10 @@ public class BookLibrary {
         Verbindung vb = new Verbindung();
         Statement st = vb.getStatement();
         
-        String sqlSelect = " select * from login";
-        ResultSet res = st.executeQuery(sqlSelect);
-        
-        if(res.next()) {
-            System.out.println(res.toString());
-        }
+        String sqlSelect = "Insert into login(name,surname,password) VALUES ('abc','def',12);";
+        //st.executeQuery(sqlSelect);
+        st.execute(sqlSelect);
+      
         
         
     }
