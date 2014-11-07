@@ -3,17 +3,12 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package booklibrary;
-
-import java.util.Date;
+package View;
 
 /**
  *
  * @author ibm
  */
-public class Book {
-    
-    private String title;
-    private Date pulikationsDatum;
-    
-}
+public enum Role {
+    ADMIN,USER;
+    }

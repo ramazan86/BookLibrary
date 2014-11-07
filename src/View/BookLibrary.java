@@ -3,9 +3,9 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package booklibrary;
+package View;
 
-import db_connection.Verbindung;
+import Database.Verbindung;
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
