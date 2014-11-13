@@ -5,7 +5,7 @@
  */
 package View;
 
-import Database.Verbindung;
+import Model.Verbindung;
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
