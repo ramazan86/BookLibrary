@@ -15,5 +15,13 @@ public class Book {
     
     private String title;
     private Date pulikationsDatum;
+
+    Object getTitle() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    String getImglink() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
     
 }

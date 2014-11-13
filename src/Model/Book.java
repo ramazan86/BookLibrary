@@ -3,17 +3,12 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package View;
+package Model;
 
 /**
  *
- * @author ibm
+ * @author Asus
  */
-public class User {
+public class Book {
     
-    private Role role;
-    private String name;
-       
 }
-
-   

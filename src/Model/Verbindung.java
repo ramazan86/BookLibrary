@@ -7,26 +7,20 @@ package Model;
 
 import java.sql.*;
 
-
-
 /**
  * This class 
  * @author Ramazan Cinardere & Ali Hannoun
  */
+
 public class Verbindung {
-    
-    /*####################
-     *#    Attributes    #
-     *###################*/
-    
+   
+    /* Class attributes */
     private Connection cn = null;
     private Statement st  = null;
     
-    /**
-     * 
-     */
-    public Verbindung() {
-        
+    /* Class Methods */
+    public void start() {
+    
         try {
             Class.forName("com.mysql.jdbc.Driver");
             cn = DriverManager.getConnection("jdbc:mysql://localhost:3306/booklibrary","root","");
@@ -35,12 +29,9 @@ public class Verbindung {
         } catch (Exception e) {
             System.out.println(e.getMessage());
         }
+    }
     
-    
-    
-    }//Verbindung()
-    
-    public Connection getConnection() {
+    public Connection getVerbindung() {
         return this.cn;
     }
     
@@ -49,4 +40,4 @@ public class Verbindung {
     }
     
     
-}
+}//Verbindung closing
