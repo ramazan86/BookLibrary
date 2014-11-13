@@ -10,15 +10,21 @@ import java.sql.*;
 
 
 /**
- *
- * @author Asus
+ * This class 
+ * @author Ramazan Cinardere & Ali Hannoun
  */
 public class Verbindung {
+    
+    /*####################
+     *#    Attributes    #
+     *###################*/
     
     private Connection cn = null;
     private Statement st  = null;
     
-    
+    /**
+     * 
+     */
     public Verbindung() {
         
         try {
@@ -33,7 +39,6 @@ public class Verbindung {
     
     
     }//Verbindung()
-    
     
     public Connection getConnection() {
         return this.cn;
