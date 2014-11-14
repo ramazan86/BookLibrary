@@ -6,6 +6,8 @@
 package View;
 
 import java.awt.HeadlessException;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
@@ -40,7 +42,7 @@ public class MainPageV extends javax.swing.JFrame {
         jPasswordField1 = new javax.swing.JPasswordField();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
-        jButton1 = new javax.swing.JButton();
+        jButtonLogin = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
         jButton3 = new javax.swing.JButton();
 
@@ -69,7 +71,7 @@ public class MainPageV extends javax.swing.JFrame {
 
         jLabel2.setText("Username");
 
-        jButton1.setText("Login");
+        jButtonLogin.setText("Login");
 
         jButton2.setText("Registry");
         jButton2.addActionListener(new java.awt.event.ActionListener() {
@@ -93,7 +95,7 @@ public class MainPageV extends javax.swing.JFrame {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(10, 10, 10)
-                        .addComponent(jButton1))
+                        .addComponent(jButtonLogin))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(jPasswordField1, javax.swing.GroupLayout.PREFERRED_SIZE, 1, Short.MAX_VALUE)
@@ -119,7 +121,7 @@ public class MainPageV extends javax.swing.JFrame {
                         .addComponent(jPasswordField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addComponent(jButton3)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jButton1)
+                .addComponent(jButtonLogin)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
@@ -145,7 +147,7 @@ public class MainPageV extends javax.swing.JFrame {
 
 
     public MainPageV(JButton jButton1, JButton jButton2, JButton jButton3, JLabel jLabel1, JLabel jLabel2, JPanel jPanel1, JPasswordField jPasswordField1, JTextField jTextField1) throws HeadlessException {
-        this.jButton1 = jButton1;
+        this.jButtonLogin = jButton1;
         this.jButton2 = jButton2;
         this.jButton3 = jButton3;
         this.jLabel1 = jLabel1;
@@ -153,6 +155,15 @@ public class MainPageV extends javax.swing.JFrame {
         this.jPanel1 = jPanel1;
         this.jPasswordField1 = jPasswordField1;
         this.jTextField1 = jTextField1;
+        
+
+        this.jButtonLogin.addActionListener(new ActionListener() {
+
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+            }
+        });
     }
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
@@ -197,9 +208,9 @@ public class MainPageV extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
+    private javax.swing.JButton jButtonLogin;
     private javax.swing.JDialog jDialog1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
