@@ -55,9 +55,9 @@
               <EmptySpace min="-2" pref="20" max="-2" attributes="0"/>
               <Component id="jComboGenre" min="-2" pref="117" max="-2" attributes="0"/>
               <EmptySpace pref="45" max="32767" attributes="0"/>
-              <Component id="jComboPrice" min="-2" pref="117" max="-2" attributes="0"/>
+              <Component id="jCombo_price" min="-2" pref="117" max="-2" attributes="0"/>
               <EmptySpace pref="44" max="32767" attributes="0"/>
-              <Component id="jComboAgeRating" min="-2" pref="129" max="-2" attributes="0"/>
+              <Component id="jCombo_AgeRating" min="-2" pref="129" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="1" attributes="0">
                   <Group type="102" attributes="0">
                       <EmptySpace max="32767" attributes="0"/>
@@ -115,8 +115,8 @@
               <Group type="103" groupAlignment="0" attributes="0">
                   <Component id="jComboRating" alignment="0" min="-2" max="-2" attributes="0"/>
                   <Group type="103" alignment="0" groupAlignment="3" attributes="0">
-                      <Component id="jComboAgeRating" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="jComboPrice" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="jCombo_AgeRating" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="jCombo_price" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="jComboGenre" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="jComboLanguage" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
@@ -197,7 +197,7 @@
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jComboLanguageActionPerformed"/>
       </Events>
     </Component>
-    <Component class="javax.swing.JComboBox" name="jComboAgeRating">
+    <Component class="javax.swing.JComboBox" name="jCombo_AgeRating">
       <Properties>
         <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
           <StringArray count="6">
@@ -211,7 +211,7 @@
         </Property>
       </Properties>
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jComboAgeRatingActionPerformed"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jCombo_AgeRatingActionPerformed"/>
       </Events>
     </Component>
     <Component class="javax.swing.JComboBox" name="jComboRating">
@@ -233,7 +233,7 @@
         <Property name="text" type="java.lang.String" value="Search:"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JComboBox" name="jComboPrice">
+    <Component class="javax.swing.JComboBox" name="jCombo_price">
       <Properties>
         <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
           <StringArray count="4">
@@ -245,8 +245,8 @@
         </Property>
       </Properties>
       <Events>
-        <EventHandler event="itemStateChanged" listener="java.awt.event.ItemListener" parameters="java.awt.event.ItemEvent" handler="jComboPriceItemStateChanged"/>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jComboPriceActionPerformed"/>
+        <EventHandler event="itemStateChanged" listener="java.awt.event.ItemListener" parameters="java.awt.event.ItemEvent" handler="jCombo_priceItemStateChanged"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jCombo_priceActionPerformed"/>
       </Events>
     </Component>
     <Component class="javax.swing.JPasswordField" name="jPassword">

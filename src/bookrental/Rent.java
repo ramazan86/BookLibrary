@@ -60,7 +60,7 @@ public class Rent extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jLabel2 = new javax.swing.JLabel();
+        jLabel_logo = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
         jLabelBild = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
@@ -76,8 +76,8 @@ public class Rent extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/movierental/Logo.png"))); // NOI18N
-        jLabel2.setText("jLabel2");
+        jLabel_logo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/movierental/Logo.png"))); // NOI18N
+        jLabel_logo.setText("jLabel2");
 
         jLabel5.setFont(new java.awt.Font("Calibri", 0, 24)); // NOI18N
         jLabel5.setText("Rent");
@@ -120,7 +120,7 @@ public class Rent extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 276, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel_logo, javax.swing.GroupLayout.PREFERRED_SIZE, 276, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(layout.createSequentialGroup()
                                 .addGap(47, 47, 47)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -153,7 +153,7 @@ public class Rent extends javax.swing.JFrame {
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 93, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jLabel_logo, javax.swing.GroupLayout.PREFERRED_SIZE, 93, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(29, 29, 29)
                 .addComponent(jLabel5)
                 .addGap(18, 18, 18)
@@ -190,13 +190,13 @@ public class Rent extends javax.swing.JFrame {
             dispose();
             if (Rent.previous == 0) {
                 try {
-                    new MovieInfo(user, movie).setVisible(true);
+                    new BookInfo(user, movie).setVisible(true);
                 } catch (MalformedURLException ex) {
                     Logger.getLogger(Rent.class.getName()).log(Level.SEVERE, null, ex);
                 }
             } else {
                 try {
-                    new VideoLibrary(user).setVisible(true);
+                    new BookLibrary(user).setVisible(true);
                 } catch (SQLException ex) {
                     Logger.getLogger(Rent.class.getName()).log(Level.SEVERE, null, ex);
                 }
@@ -221,14 +221,14 @@ public class Rent extends javax.swing.JFrame {
                             stmtupdate.executeUpdate("UPDATE rents SET deadline = (SELECT DATE_ADD( now() , INTERVAL 2 DAY) ), time = now() where uid = '" + user.getUid() + "' and mid = '" + movie.getMid() + "'");
                             JOptionPane.showMessageDialog(null, "Congratulations! You can now watch the movie in your video library.");
                             dispose();
-                            new VideoLibrary(user).setVisible(true);
+                            new BookLibrary(user).setVisible(true);
                         }
                     } else {
                         if (JOptionPane.showConfirmDialog(null, "Do you want to extend the Deadline of the movie " + movie.getTitle() + "?") == 0) {
                             stmtupdate.executeUpdate("UPDATE rents SET deadline = (SELECT DATE_ADD( deadline , INTERVAL 2 DAY) ), time = now() where uid = '" + user.getUid() + "' and mid = '" + movie.getMid() + "'");
                             JOptionPane.showMessageDialog(null, "Congratulations! You have extended the deadline for two days.");
                             dispose();
-                            new VideoLibrary(user).setVisible(true);
+                            new BookLibrary(user).setVisible(true);
                         }
                     }
                 } else {
@@ -237,7 +237,7 @@ public class Rent extends javax.swing.JFrame {
                         stmt.executeUpdate("INSERT INTO rents (uid, mid, deadline, time) VALUES ('" + user.getUid() + "', '" + movie.getMid() + "', (SELECT DATE_ADD( {fn curdate()} , INTERVAL 2 DAY)), now() )");
                         JOptionPane.showMessageDialog(null, "Congratulations! You can now watch the movie in your video library.");
                         dispose();
-                        new VideoLibrary(user).setVisible(true);
+                        new BookLibrary(user).setVisible(true);
                     }
                 }
             } catch (SQLException ex) {
@@ -293,7 +293,6 @@ public class Rent extends javax.swing.JFrame {
     private javax.swing.JButton jButtonReturn;
     private javax.swing.JCheckBox jCheckDirectDebitPayment;
     private javax.swing.JCheckBox jCheckGTC;
-    private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
@@ -302,5 +301,6 @@ public class Rent extends javax.swing.JFrame {
     private javax.swing.JLabel jLabelDeadline;
     private javax.swing.JLabel jLabelPrice;
     private javax.swing.JLabel jLabelTitle;
+    private javax.swing.JLabel jLabel_logo;
     // End of variables declaration//GEN-END:variables
 }

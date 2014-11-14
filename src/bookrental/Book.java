@@ -41,7 +41,7 @@ public class Book {
         this.title = title;
         this.imglink = imglink;
     }
-    
+    //
     //Connects to the database and inserts the new movie.
     public static void addMovie(String title,String genre,String agerating,String description,String releaseyear,String duration,String streamlink,String imglink,String price,String language,String language2) throws SQLException{
         

@@ -265,10 +265,10 @@ public class Login extends javax.swing.JFrame { // Login, Register and Forgotten
         jLabel_username = new javax.swing.JLabel();
         jComboGenre = new javax.swing.JComboBox();
         jComboLanguage = new javax.swing.JComboBox();
-        jComboAgeRating = new javax.swing.JComboBox();
+        jCombo_AgeRating = new javax.swing.JComboBox();
         jComboRating = new javax.swing.JComboBox();
         jLabel_search = new javax.swing.JLabel();
-        jComboPrice = new javax.swing.JComboBox();
+        jCombo_price = new javax.swing.JComboBox();
         jPassword = new javax.swing.JPasswordField();
         jScrollPane1 = new javax.swing.JScrollPane();
         jText_search = new javax.swing.JTextPane();
@@ -334,10 +334,10 @@ public class Login extends javax.swing.JFrame { // Login, Register and Forgotten
             }
         });
 
-        jComboAgeRating.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Age rating", "0", "6", "12", "16", "18" }));
-        jComboAgeRating.addActionListener(new java.awt.event.ActionListener() {
+        jCombo_AgeRating.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Age rating", "0", "6", "12", "16", "18" }));
+        jCombo_AgeRating.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jComboAgeRatingActionPerformed(evt);
+                jCombo_AgeRatingActionPerformed(evt);
             }
         });
 
@@ -345,15 +345,15 @@ public class Login extends javax.swing.JFrame { // Login, Register and Forgotten
 
         jLabel_search.setText("Search:");
 
-        jComboPrice.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Price", "3.99", "2.99", "1.99" }));
-        jComboPrice.addItemListener(new java.awt.event.ItemListener() {
+        jCombo_price.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Price", "3.99", "2.99", "1.99" }));
+        jCombo_price.addItemListener(new java.awt.event.ItemListener() {
             public void itemStateChanged(java.awt.event.ItemEvent evt) {
-                jComboPriceItemStateChanged(evt);
+                jCombo_priceItemStateChanged(evt);
             }
         });
-        jComboPrice.addActionListener(new java.awt.event.ActionListener() {
+        jCombo_price.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jComboPriceActionPerformed(evt);
+                jCombo_priceActionPerformed(evt);
             }
         });
 
@@ -521,9 +521,9 @@ public class Login extends javax.swing.JFrame { // Login, Register and Forgotten
                 .addGap(20, 20, 20)
                 .addComponent(jComboGenre, javax.swing.GroupLayout.PREFERRED_SIZE, 117, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 45, Short.MAX_VALUE)
-                .addComponent(jComboPrice, javax.swing.GroupLayout.PREFERRED_SIZE, 117, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jCombo_price, javax.swing.GroupLayout.PREFERRED_SIZE, 117, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 44, Short.MAX_VALUE)
-                .addComponent(jComboAgeRating, javax.swing.GroupLayout.PREFERRED_SIZE, 129, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jCombo_AgeRating, javax.swing.GroupLayout.PREFERRED_SIZE, 129, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(layout.createSequentialGroup()
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -570,8 +570,8 @@ public class Login extends javax.swing.JFrame { // Login, Register and Forgotten
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jComboRating, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(jComboAgeRating, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(jComboPrice, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jCombo_AgeRating, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jCombo_price, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addComponent(jComboGenre, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addComponent(jComboLanguage, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -610,17 +610,17 @@ public class Login extends javax.swing.JFrame { // Login, Register and Forgotten
         // TODO add your handling code here:
     }//GEN-LAST:event_jComboLanguageActionPerformed
 
-    private void jComboAgeRatingActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboAgeRatingActionPerformed
+    private void jCombo_AgeRatingActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCombo_AgeRatingActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jComboAgeRatingActionPerformed
+    }//GEN-LAST:event_jCombo_AgeRatingActionPerformed
 
-    private void jComboPriceItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_jComboPriceItemStateChanged
+    private void jCombo_priceItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_jCombo_priceItemStateChanged
         // TODO add your handling code here:
-    }//GEN-LAST:event_jComboPriceItemStateChanged
+    }//GEN-LAST:event_jCombo_priceItemStateChanged
 
-    private void jComboPriceActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboPriceActionPerformed
+    private void jCombo_priceActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCombo_priceActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jComboPriceActionPerformed
+    }//GEN-LAST:event_jCombo_priceActionPerformed
 
     private void jPasswordActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jPasswordActionPerformed
         // TODO add your handling code here:**
@@ -638,8 +638,8 @@ public class Login extends javax.swing.JFrame { // Login, Register and Forgotten
         jButtonReturn.setVisible(true);
         suchetext = jText_search.getText();
         genre = jComboGenre.getSelectedIndex();
-        price = jComboPrice.getSelectedIndex();
-        agerating = jComboAgeRating.getSelectedIndex();
+        price = jCombo_price.getSelectedIndex();
+        agerating = jCombo_AgeRating.getSelectedIndex();
         rating = jComboRating.getSelectedIndex();
         language = jComboLanguage.getSelectedIndex();
 
@@ -768,11 +768,11 @@ public class Login extends javax.swing.JFrame { // Login, Register and Forgotten
     private javax.swing.JButton jButton_login;
     private javax.swing.JButton jButton_registry;
     private javax.swing.JColorChooser jColorChooser1;
-    private javax.swing.JComboBox jComboAgeRating;
     private javax.swing.JComboBox jComboGenre;
     private javax.swing.JComboBox jComboLanguage;
-    private javax.swing.JComboBox jComboPrice;
     private javax.swing.JComboBox jComboRating;
+    private javax.swing.JComboBox jCombo_AgeRating;
+    private javax.swing.JComboBox jCombo_price;
     private javax.swing.JLabel jLabelBild1;
     private javax.swing.JLabel jLabelBild10;
     private javax.swing.JLabel jLabelBild2;
@@ -805,14 +805,14 @@ public class Login extends javax.swing.JFrame { // Login, Register and Forgotten
             Object source = e.getSource();
             if (source == jLabelBild1) {
                 try {
-                    new MovieInfo(user, movies.get(0 + seitenanzahl)).setVisible(true);
+                    new BookInfo(user, movies.get(0 + seitenanzahl)).setVisible(true);
                 } catch (MalformedURLException ex) {
                     Logger.getLogger(Login.class.getName()).log(Level.SEVERE, null, ex);
                 }
             }
             if (source == jLabelBild2) {
                 try {
-                    MovieInfo window = new MovieInfo(user, movies.get(1 + seitenanzahl));
+                    BookInfo window = new BookInfo(user, movies.get(1 + seitenanzahl));
                     window.pack();
                     window.setVisible(true);
                 } catch (MalformedURLException ex) {
@@ -822,7 +822,7 @@ public class Login extends javax.swing.JFrame { // Login, Register and Forgotten
 
             if (source == jLabelBild3) {
                 try {
-                    MovieInfo window = new MovieInfo(user, movies.get(2 + seitenanzahl));
+                    BookInfo window = new BookInfo(user, movies.get(2 + seitenanzahl));
                     window.pack();
                     window.setVisible(true);
                 } catch (MalformedURLException ex) {
@@ -831,7 +831,7 @@ public class Login extends javax.swing.JFrame { // Login, Register and Forgotten
             }
             if (source == jLabelBild4) {
                 try {
-                    MovieInfo window = new MovieInfo(user, movies.get(3 + seitenanzahl));
+                    BookInfo window = new BookInfo(user, movies.get(3 + seitenanzahl));
                     window.pack();
                     window.setVisible(true);
                 } catch (MalformedURLException ex) {
@@ -840,7 +840,7 @@ public class Login extends javax.swing.JFrame { // Login, Register and Forgotten
             }
             if (source == jLabelBild5) {
                 try {
-                    MovieInfo window = new MovieInfo(user, movies.get(4 + seitenanzahl));
+                    BookInfo window = new BookInfo(user, movies.get(4 + seitenanzahl));
                     window.pack();
                     window.setVisible(true);
                 } catch (MalformedURLException ex) {
@@ -849,14 +849,14 @@ public class Login extends javax.swing.JFrame { // Login, Register and Forgotten
             }
             if (source == jLabelBild6) {
                 try {
-                    new MovieInfo(user, movies.get(5 + seitenanzahl)).setVisible(true);
+                    new BookInfo(user, movies.get(5 + seitenanzahl)).setVisible(true);
                 } catch (MalformedURLException ex) {
                     Logger.getLogger(Login.class.getName()).log(Level.SEVERE, null, ex);
                 }
             }
             if (source == jLabelBild7) {
                 try {
-                    MovieInfo window = new MovieInfo(user, movies.get(6 + seitenanzahl));
+                    BookInfo window = new BookInfo(user, movies.get(6 + seitenanzahl));
                     window.pack();
                     window.setVisible(true);
                 } catch (MalformedURLException ex) {
@@ -866,7 +866,7 @@ public class Login extends javax.swing.JFrame { // Login, Register and Forgotten
 
             if (source == jLabelBild8) {
                 try {
-                    MovieInfo window = new MovieInfo(user, movies.get(7 + seitenanzahl));
+                    BookInfo window = new BookInfo(user, movies.get(7 + seitenanzahl));
                     window.pack();
                     window.setVisible(true);
                 } catch (MalformedURLException ex) {
@@ -875,7 +875,7 @@ public class Login extends javax.swing.JFrame { // Login, Register and Forgotten
             }
             if (source == jLabelBild9) {
                 try {
-                    MovieInfo window = new MovieInfo(user, movies.get(8 + seitenanzahl));
+                    BookInfo window = new BookInfo(user, movies.get(8 + seitenanzahl));
                     window.pack();
                     window.setVisible(true);
                 } catch (MalformedURLException ex) {
@@ -884,7 +884,7 @@ public class Login extends javax.swing.JFrame { // Login, Register and Forgotten
             }
             if (source == jLabelBild10) {
                 try {
-                    MovieInfo window = new MovieInfo(user, movies.get(9 + seitenanzahl));
+                    BookInfo window = new BookInfo(user, movies.get(9 + seitenanzahl));
                     window.pack();
                     window.setVisible(true);
                 } catch (MalformedURLException ex) {
@@ -893,14 +893,14 @@ public class Login extends javax.swing.JFrame { // Login, Register and Forgotten
             }
             if (source == jLabelBild11) {
                 try {
-                    new MovieInfo(user, movies.get(10 + seitenanzahl)).setVisible(true);
+                    new BookInfo(user, movies.get(10 + seitenanzahl)).setVisible(true);
                 } catch (MalformedURLException ex) {
                     Logger.getLogger(Login.class.getName()).log(Level.SEVERE, null, ex);
                 }
             }
             if (source == jLabelBild12) {
                 try {
-                    MovieInfo window = new MovieInfo(user, movies.get(11 + seitenanzahl));
+                    BookInfo window = new BookInfo(user, movies.get(11 + seitenanzahl));
                     window.pack();
                     window.setVisible(true);
                 } catch (MalformedURLException ex) {
@@ -910,7 +910,7 @@ public class Login extends javax.swing.JFrame { // Login, Register and Forgotten
 
             if (source == jLabelBild13) {
                 try {
-                    MovieInfo window = new MovieInfo(user, movies.get(12 + seitenanzahl));
+                    BookInfo window = new BookInfo(user, movies.get(12 + seitenanzahl));
                     window.pack();
                     window.setVisible(true);
                 } catch (MalformedURLException ex) {
@@ -919,7 +919,7 @@ public class Login extends javax.swing.JFrame { // Login, Register and Forgotten
             }
             if (source == jLabelBild14) {
                 try {
-                    MovieInfo window = new MovieInfo(user, movies.get(13 + seitenanzahl));
+                    BookInfo window = new BookInfo(user, movies.get(13 + seitenanzahl));
                     window.pack();
                     window.setVisible(true);
                 } catch (MalformedURLException ex) {
@@ -928,7 +928,7 @@ public class Login extends javax.swing.JFrame { // Login, Register and Forgotten
             }
             if (source == jLabelBild15) {
                 try {
-                    MovieInfo window = new MovieInfo(user, movies.get(14 + seitenanzahl));
+                    BookInfo window = new BookInfo(user, movies.get(14 + seitenanzahl));
                     window.pack();
                     window.setVisible(true);
                 } catch (MalformedURLException ex) {
@@ -937,14 +937,14 @@ public class Login extends javax.swing.JFrame { // Login, Register and Forgotten
             }
             if (source == jLabelBild16) {
                 try {
-                    new MovieInfo(user, movies.get(15 + seitenanzahl)).setVisible(true);
+                    new BookInfo(user, movies.get(15 + seitenanzahl)).setVisible(true);
                 } catch (MalformedURLException ex) {
                     Logger.getLogger(Login.class.getName()).log(Level.SEVERE, null, ex);
                 }
             }
             if (source == jLabelBild17) {
                 try {
-                    MovieInfo window = new MovieInfo(user, movies.get(16 + seitenanzahl));
+                    BookInfo window = new BookInfo(user, movies.get(16 + seitenanzahl));
                     window.pack();
                     window.setVisible(true);
                 } catch (MalformedURLException ex) {
@@ -954,7 +954,7 @@ public class Login extends javax.swing.JFrame { // Login, Register and Forgotten
 
             if (source == jLabelBild18) {
                 try {
-                    MovieInfo window = new MovieInfo(user, movies.get(17 + seitenanzahl));
+                    BookInfo window = new BookInfo(user, movies.get(17 + seitenanzahl));
                     window.pack();
                     window.setVisible(true);
                 } catch (MalformedURLException ex) {
@@ -963,7 +963,7 @@ public class Login extends javax.swing.JFrame { // Login, Register and Forgotten
             }
             if (source == jLabelBild19) {
                 try {
-                    MovieInfo window = new MovieInfo(user, movies.get(18 + seitenanzahl));
+                    BookInfo window = new BookInfo(user, movies.get(18 + seitenanzahl));
                     window.pack();
                     window.setVisible(true);
                 } catch (MalformedURLException ex) {
@@ -972,7 +972,7 @@ public class Login extends javax.swing.JFrame { // Login, Register and Forgotten
             }
             if (source == jLabelBild20) {
                 try {
-                    MovieInfo window = new MovieInfo(user, movies.get(19 + seitenanzahl));
+                    BookInfo window = new BookInfo(user, movies.get(19 + seitenanzahl));
                     window.pack();
                     window.setVisible(true);
                 } catch (MalformedURLException ex) {

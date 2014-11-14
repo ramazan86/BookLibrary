@@ -34,7 +34,7 @@
           <Group type="102" attributes="0">
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" alignment="0" attributes="0">
-                      <Component id="jLabel2" min="-2" pref="276" max="-2" attributes="0"/>
+                      <Component id="jLabel_logo" min="-2" pref="276" max="-2" attributes="0"/>
                       <EmptySpace type="separate" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Group type="102" attributes="0">
@@ -86,7 +86,7 @@
               <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="103" alignment="0" groupAlignment="3" attributes="0">
-                      <Component id="jLabel2" alignment="3" min="-2" pref="93" max="-2" attributes="0"/>
+                      <Component id="jLabel_logo" alignment="3" min="-2" pref="93" max="-2" attributes="0"/>
                       <Component id="jButtonAddMovie" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="jButtonChangeMovie" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="jButtonrentedMovies" alignment="3" min="-2" max="-2" attributes="0"/>
@@ -233,7 +233,7 @@
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jComboGenreActionPerformed"/>
       </Events>
     </Component>
-    <Component class="javax.swing.JLabel" name="jLabel2">
+    <Component class="javax.swing.JLabel" name="jLabel_logo">
       <Properties>
         <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
           <Image iconType="3" name="/movierental/Logo.png"/>

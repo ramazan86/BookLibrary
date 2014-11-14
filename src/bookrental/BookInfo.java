@@ -20,12 +20,12 @@ import javax.swing.JOptionPane;
 
 
 
-public class MovieInfo extends javax.swing.JFrame {
+public class BookInfo extends javax.swing.JFrame {
 
     Book movie;
     User user;
     
-    public MovieInfo(User obj, Book obj2) throws MalformedURLException {
+    public BookInfo(User obj, Book obj2) throws MalformedURLException {
         initComponents();
         setLocationRelativeTo(null);
         movie = obj2;
@@ -65,7 +65,7 @@ public class MovieInfo extends javax.swing.JFrame {
     private void initComponents() {
 
         jLabelTitle = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
+        jLabel_logo = new javax.swing.JLabel();
         jLabelImgLink = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
@@ -93,8 +93,8 @@ public class MovieInfo extends javax.swing.JFrame {
         jLabelTitle.setFont(new java.awt.Font("Calibri", 0, 24)); // NOI18N
         jLabelTitle.setText("Turbo - Kleine Schnecke, großer Traum");
 
-        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/movierental/Logo.png"))); // NOI18N
-        jLabel2.setText("jLabel2");
+        jLabel_logo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/movierental/Logo.png"))); // NOI18N
+        jLabel_logo.setText("jLabel2");
 
         jLabelImgLink.setText("jLabel1");
 
@@ -218,13 +218,13 @@ public class MovieInfo extends javax.swing.JFrame {
                         .addComponent(jButtonRentMovie)))
                 .addGap(27, 27, 27))
             .addGroup(layout.createSequentialGroup()
-                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 276, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jLabel_logo, javax.swing.GroupLayout.PREFERRED_SIZE, 276, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 477, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 93, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jLabel_logo, javax.swing.GroupLayout.PREFERRED_SIZE, 93, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabelImgLink, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -297,7 +297,7 @@ public class MovieInfo extends javax.swing.JFrame {
                     JOptionPane.showMessageDialog(null, "Thank you for rating this movie!");
                 }
             } catch (SQLException ex) {
-                Logger.getLogger(MovieInfo.class.getName()).log(Level.SEVERE, null, ex);
+                Logger.getLogger(BookInfo.class.getName()).log(Level.SEVERE, null, ex);
             }
         }
     }//GEN-LAST:event_jButtonRateMovieActionPerformed
@@ -315,7 +315,7 @@ public class MovieInfo extends javax.swing.JFrame {
             try {
                 new Rent(user, movie).setVisible(true);
             } catch (MalformedURLException | SQLException ex) {
-                Logger.getLogger(MovieInfo.class.getName()).log(Level.SEVERE, null, ex);
+                Logger.getLogger(BookInfo.class.getName()).log(Level.SEVERE, null, ex);
             }
 
             dispose();
@@ -339,14 +339,16 @@ public class MovieInfo extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(MovieInfo.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(BookInfo.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(MovieInfo.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(BookInfo.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(MovieInfo.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(BookInfo.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(MovieInfo.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(BookInfo.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
+        //</editor-fold>
         //</editor-fold>
         //</editor-fold>
 
@@ -367,7 +369,6 @@ public class MovieInfo extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel13;
-    private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
@@ -380,6 +381,7 @@ public class MovieInfo extends javax.swing.JFrame {
     private javax.swing.JLabel jLabelRating;
     private javax.swing.JLabel jLabelRelease;
     private javax.swing.JLabel jLabelTitle;
+    private javax.swing.JLabel jLabel_logo;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTextArea jTextAreaDescription;
     // End of variables declaration//GEN-END:variables

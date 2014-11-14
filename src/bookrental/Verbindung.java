@@ -2,7 +2,7 @@ package bookrental;
 
 import com.mysql.jdbc.Connection;   
 import java.sql.*;
-
+//
 
 public class Verbindung {
    public Connection con;

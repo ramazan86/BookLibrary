@@ -10,13 +10,13 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 
-public class VideoLibrary extends javax.swing.JFrame {
+public class BookLibrary extends javax.swing.JFrame {
 
     User user;
     static int count = 0; // Counts at which page the user is
     ArrayList<Book> movies;
 
-    public VideoLibrary(User obj) throws SQLException {
+    public BookLibrary(User obj) throws SQLException {
         initComponents();
         setLocationRelativeTo(null);
         setResizable(false);
@@ -157,7 +157,7 @@ public class VideoLibrary extends javax.swing.JFrame {
     private void initComponents() {
 
         buttonGroup1 = new javax.swing.ButtonGroup();
-        jLabel2 = new javax.swing.JLabel();
+        jLabel_logo = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         jButtonWatchMovie5 = new javax.swing.JButton();
@@ -186,8 +186,8 @@ public class VideoLibrary extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/movierental/Logo.png"))); // NOI18N
-        jLabel2.setText("jLabel2");
+        jLabel_logo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/movierental/Logo.png"))); // NOI18N
+        jLabel_logo.setText("jLabel2");
 
         jLabel1.setFont(new java.awt.Font("Calibri", 0, 24)); // NOI18N
         jLabel1.setText("Personal Video Library");
@@ -309,7 +309,7 @@ public class VideoLibrary extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 276, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addComponent(jLabel_logo, javax.swing.GroupLayout.PREFERRED_SIZE, 276, javax.swing.GroupLayout.PREFERRED_SIZE)
             .addGroup(layout.createSequentialGroup()
                 .addGap(35, 35, 35)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -320,8 +320,7 @@ public class VideoLibrary extends javax.swing.JFrame {
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(jButtonReturn)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jButtonPrevious)
-                                .addGap(0, 0, 0))
+                                .addComponent(jButtonPrevious))
                             .addGroup(layout.createSequentialGroup()
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                     .addComponent(jLabelTitle1, javax.swing.GroupLayout.DEFAULT_SIZE, 204, Short.MAX_VALUE)
@@ -371,7 +370,7 @@ public class VideoLibrary extends javax.swing.JFrame {
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 93, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jLabel_logo, javax.swing.GroupLayout.PREFERRED_SIZE, 93, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(49, 49, 49)
                 .addComponent(jLabel1)
                 .addGap(42, 42, 42)
@@ -428,9 +427,9 @@ public class VideoLibrary extends javax.swing.JFrame {
                 rent.setVisible(true);
             }
         } catch (MalformedURLException ex) {
-            Logger.getLogger(VideoLibrary.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(BookLibrary.class.getName()).log(Level.SEVERE, null, ex);
         } catch (SQLException ex) {
-            Logger.getLogger(VideoLibrary.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(BookLibrary.class.getName()).log(Level.SEVERE, null, ex);
         }
     }//GEN-LAST:event_jButtonExtend1ActionPerformed
 
@@ -445,9 +444,9 @@ public class VideoLibrary extends javax.swing.JFrame {
                 rent.setVisible(true);
             }
         } catch (MalformedURLException ex) {
-            Logger.getLogger(VideoLibrary.class.getName()).log(Level.SEVERE, null, ex);
         } catch (SQLException ex) {
-            Logger.getLogger(VideoLibrary.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (SQLException ex) {
+            Logger.getLogger(BookLibrary.class.getName()).log(Level.SEVERE, null, ex);
         }
     }//GEN-LAST:event_jButtonExtend2ActionPerformed
 
@@ -462,7 +461,7 @@ public class VideoLibrary extends javax.swing.JFrame {
                 rent.setVisible(true);
             }
         } catch (MalformedURLException | SQLException ex) {
-            Logger.getLogger(VideoLibrary.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(BookLibrary.class.getName()).log(Level.SEVERE, null, ex);
         }    }//GEN-LAST:event_jButtonExtend3ActionPerformed
 
     private void jButtonExtend4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonExtend4ActionPerformed
@@ -476,7 +475,7 @@ public class VideoLibrary extends javax.swing.JFrame {
                 rent.setVisible(true);
             }
         } catch (MalformedURLException | SQLException ex) {
-            Logger.getLogger(VideoLibrary.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(BookLibrary.class.getName()).log(Level.SEVERE, null, ex);
         }
     }//GEN-LAST:event_jButtonExtend4ActionPerformed
 
@@ -491,7 +490,7 @@ public class VideoLibrary extends javax.swing.JFrame {
                 rent.setVisible(true);
             }
         } catch (MalformedURLException | SQLException ex) {
-            Logger.getLogger(VideoLibrary.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(BookLibrary.class.getName()).log(Level.SEVERE, null, ex);
         }
     }//GEN-LAST:event_jButtonExtend5ActionPerformed
 
@@ -500,7 +499,7 @@ public class VideoLibrary extends javax.swing.JFrame {
         try {
             listMovies();
         } catch (SQLException ex) {
-            Logger.getLogger(VideoLibrary.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(BookLibrary.class.getName()).log(Level.SEVERE, null, ex);
         }
     }//GEN-LAST:event_jButtonNextActionPerformed
 
@@ -509,7 +508,7 @@ public class VideoLibrary extends javax.swing.JFrame {
         try {
             listMovies();
         } catch (SQLException ex) {
-            Logger.getLogger(VideoLibrary.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(BookLibrary.class.getName()).log(Level.SEVERE, null, ex);
         }
     }//GEN-LAST:event_jButtonPreviousActionPerformed
 
@@ -554,14 +553,16 @@ public class VideoLibrary extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(VideoLibrary.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(BookLibrary.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(VideoLibrary.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(BookLibrary.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(VideoLibrary.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(BookLibrary.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(VideoLibrary.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(BookLibrary.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
+        //</editor-fold>
         //</editor-fold>
         //</editor-fold>
 
@@ -569,9 +570,9 @@ public class VideoLibrary extends javax.swing.JFrame {
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
                 try {
-                    new VideoLibrary(new User()).setVisible(true);
+                    new BookLibrary(new User()).setVisible(true);
                 } catch (SQLException ex) {
-                    Logger.getLogger(VideoLibrary.class.getName()).log(Level.SEVERE, null, ex);
+                    Logger.getLogger(BookLibrary.class.getName()).log(Level.SEVERE, null, ex);
                 }
             }
         });
@@ -593,7 +594,6 @@ public class VideoLibrary extends javax.swing.JFrame {
     private javax.swing.JButton jButtonWatchMovie4;
     private javax.swing.JButton jButtonWatchMovie5;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabelDeadline1;
     private javax.swing.JLabel jLabelDeadline2;
@@ -605,6 +605,7 @@ public class VideoLibrary extends javax.swing.JFrame {
     private javax.swing.JLabel jLabelTitle3;
     private javax.swing.JLabel jLabelTitle4;
     private javax.swing.JLabel jLabelTitle5;
+    private javax.swing.JLabel jLabel_logo;
     // End of variables declaration//GEN-END:variables
 
 }
