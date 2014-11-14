@@ -28,8 +28,8 @@ import javax.swing.UnsupportedLookAndFeelException;
 public class User extends javax.swing.JFrame {
     User user;
     String uid, username, password, email, isAdmin, activCode="123", activated,  lastLogin, birthday, prename, surname, street, zipcode, city, iban, bic;
-    ArrayList<Movie> movies = new ArrayList<>();
-    ArrayList<Movie> movies2 = new ArrayList<>();
+    ArrayList<Book> movies = new ArrayList<>();
+    ArrayList<Book> movies2 = new ArrayList<>();
     String suchetext,gen,pri,age,rate,lang;
     int genre,price,agerating,rating,language,pages;
     Verbindung db;
@@ -50,7 +50,7 @@ public class User extends javax.swing.JFrame {
         this.setSize(870,700);
         setLocationRelativeTo(null);
         user = obj;
-        movies = Movie.getNewestAndTop10(); 
+        movies = Book.getNewestAndTop10(); 
         this.Newest10();
         this.Top10();
         this.setVisible(true);
@@ -371,7 +371,7 @@ public class User extends javax.swing.JFrame {
     }
     
    // Shows the result of the search
-   public void searchResult(ArrayList<Movie> movies2) throws MalformedURLException{
+   public void searchResult(ArrayList<Book> movies2) throws MalformedURLException{
         jLabelBild1.setVisible(false);
         jLabelBild2.setVisible(false);
         jLabelBild3.setVisible(false);
@@ -573,7 +573,7 @@ public class User extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jLabel2 = new javax.swing.JLabel();
+        jLabel_logo = new javax.swing.JLabel();
         jComboPrice = new javax.swing.JComboBox();
         jComboGenre = new javax.swing.JComboBox();
         jComboAgeRating = new javax.swing.JComboBox();
@@ -618,8 +618,8 @@ public class User extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/movierental/Logo.png"))); // NOI18N
-        jLabel2.setText("jLabel2");
+        jLabel_logo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/movierental/Logo.png"))); // NOI18N
+        jLabel_logo.setText("jLabel2");
 
         jComboPrice.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Price", "3.99", "2.99", "1.99" }));
         jComboPrice.addItemListener(new java.awt.event.ItemListener() {
@@ -879,7 +879,7 @@ public class User extends javax.swing.JFrame {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 276, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jLabel_logo, javax.swing.GroupLayout.PREFERRED_SIZE, 276, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -934,7 +934,7 @@ public class User extends javax.swing.JFrame {
                             .addComponent(jButtonAccount)
                             .addComponent(jButtonVideoLibrary)
                             .addComponent(jButtonLogOut)))
-                    .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 93, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jLabel_logo, javax.swing.GroupLayout.PREFERRED_SIZE, 93, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(27, 27, 27)
@@ -991,7 +991,7 @@ public class User extends javax.swing.JFrame {
 
     private void jButtonVideoLibraryActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonVideoLibraryActionPerformed
         try {
-            new VideoLibrary(user).setVisible(true);
+            new BookLibrary(user).setVisible(true);
         } catch (SQLException ex) {
             Logger.getLogger(User.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -1048,12 +1048,12 @@ public class User extends javax.swing.JFrame {
                 if(language2.equals(language1)){
                     language2 = "";
                 }
-                Movie movie = new Movie(rs3.getString("mid"),rs3.getString("title"),rs3.getString("picture"),rs3.getString("average"), rs3.getString("description"),rs3.getString("genre"),rs3.getString("agerating"),rs3.getString("releaseYear"),rs3.getString("duration"),rs3.getString("streamlink"),language1, language2, rs3.getString("price"),"");
+                Book movie = new Book(rs3.getString("mid"),rs3.getString("title"),rs3.getString("picture"),rs3.getString("average"), rs3.getString("description"),rs3.getString("genre"),rs3.getString("agerating"),rs3.getString("releaseYear"),rs3.getString("duration"),rs3.getString("streamlink"),language1, language2, rs3.getString("price"),"");
                 movies.add(movie);
                 }
 
                 while(movies.size() %10 != 0){
-                Movie dump = new Movie("","","",null,"","","","","","","","","","");
+                Book dump = new Book("","","",null,"","","","","","","","","","");
                 movies.add(dump);
                 }
                 this.searchResult(movies);
@@ -1074,11 +1074,11 @@ public class User extends javax.swing.JFrame {
                 if(language2.equals(language1)){
                     language2 = "";
                 }
-                Movie movie = new Movie(rs.getString("mid"),rs.getString("title"),rs.getString("picture"),rs.getString("average"), rs.getString("description"),rs.getString("genre"),rs.getString("agerating"),rs.getString("releaseYear"),rs.getString("duration"),rs.getString("streamlink"),language1, language2, rs.getString("price"),"");
+                Book movie = new Book(rs.getString("mid"),rs.getString("title"),rs.getString("picture"),rs.getString("average"), rs.getString("description"),rs.getString("genre"),rs.getString("agerating"),rs.getString("releaseYear"),rs.getString("duration"),rs.getString("streamlink"),language1, language2, rs.getString("price"),"");
                 movies.add(movie);
                 }
                 while(movies.size() %10 != 0){
-                Movie dump = new Movie("","","http://stefano.bplaced.net/nothing.png",null,"","","","","","","","","","");
+                Book dump = new Book("","","http://stefano.bplaced.net/nothing.png",null,"","","","","","","","","","");
                 movies.add(dump);
                 }
                 this.searchResult(movies);
@@ -1160,7 +1160,6 @@ public class User extends javax.swing.JFrame {
     private javax.swing.JComboBox jComboPrice;
     private javax.swing.JComboBox jComboRating;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabelBild1;
     private javax.swing.JLabel jLabelBild10;
     private javax.swing.JLabel jLabelBild11;
@@ -1184,6 +1183,7 @@ public class User extends javax.swing.JFrame {
     private javax.swing.JLabel jLabelLastLogin;
     private javax.swing.JLabel jLabelNewest;
     private javax.swing.JLabel jLabelTop10;
+    private javax.swing.JLabel jLabel_logo;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
@@ -1198,14 +1198,14 @@ public class User extends javax.swing.JFrame {
         Object source = e.getSource();
         if (source == jLabelBild1) {
             try {
-                new MovieInfo(user,movies.get(0+seitenanzahl)).setVisible(true);
+                new BookInfo(user,movies.get(0+seitenanzahl)).setVisible(true);
             } catch (MalformedURLException ex) {
                 Logger.getLogger(Admin.class.getName()).log(Level.SEVERE, null, ex);
             }
         }
         if (source == jLabelBild2) {
              try {
-                MovieInfo window = new MovieInfo(user,movies.get(1+seitenanzahl));
+                BookInfo window = new BookInfo(user,movies.get(1+seitenanzahl));
                 window.pack();
                 window.setVisible(true);
             } catch (MalformedURLException ex) {
@@ -1215,7 +1215,7 @@ public class User extends javax.swing.JFrame {
 
         if (source == jLabelBild3) {
              try {
-                MovieInfo window = new MovieInfo(user,movies.get(2+seitenanzahl));
+                BookInfo window = new BookInfo(user,movies.get(2+seitenanzahl));
                 window.pack();
                 window.setVisible(true);
             } catch (MalformedURLException ex) {
@@ -1224,7 +1224,7 @@ public class User extends javax.swing.JFrame {
         }
         if (source == jLabelBild4) {
              try {
-                MovieInfo window = new MovieInfo(user,movies.get(3+seitenanzahl));
+                BookInfo window = new BookInfo(user,movies.get(3+seitenanzahl));
                 window.pack();
                 window.setVisible(true);
             } catch (MalformedURLException ex) {
@@ -1233,7 +1233,7 @@ public class User extends javax.swing.JFrame {
         }
         if (source == jLabelBild5) {
              try {
-                MovieInfo window = new MovieInfo(user,movies.get(4+seitenanzahl));
+                BookInfo window = new BookInfo(user,movies.get(4+seitenanzahl));
                 window.pack();
                 window.setVisible(true);
             } catch (MalformedURLException ex) {
@@ -1242,7 +1242,7 @@ public class User extends javax.swing.JFrame {
         }
         if (source == jLabelBild6) {
              try {
-                MovieInfo window = new MovieInfo(user,movies.get(5+seitenanzahl));
+                BookInfo window = new BookInfo(user,movies.get(5+seitenanzahl));
                 window.pack();
                 window.setVisible(true);
             } catch (MalformedURLException ex) {
@@ -1251,7 +1251,7 @@ public class User extends javax.swing.JFrame {
         }
         if (source == jLabelBild7) {
              try {
-                MovieInfo window = new MovieInfo(user,movies.get(6+seitenanzahl));
+                BookInfo window = new BookInfo(user,movies.get(6+seitenanzahl));
                 window.pack();
                 window.setVisible(true);
             } catch (MalformedURLException ex) {
@@ -1260,7 +1260,7 @@ public class User extends javax.swing.JFrame {
         }
         if (source == jLabelBild8) {
              try {
-                MovieInfo window = new MovieInfo(user,movies.get(7+seitenanzahl));
+                BookInfo window = new BookInfo(user,movies.get(7+seitenanzahl));
                 window.pack();
                 window.setVisible(true);
             } catch (MalformedURLException ex) {
@@ -1269,7 +1269,7 @@ public class User extends javax.swing.JFrame {
         }  
         if (source == jLabelBild9) {
              try {
-                MovieInfo window = new MovieInfo(user,movies.get(8+seitenanzahl));
+                BookInfo window = new BookInfo(user,movies.get(8+seitenanzahl));
                 window.pack();
                 window.setVisible(true);
             } catch (MalformedURLException ex) {
@@ -1278,7 +1278,7 @@ public class User extends javax.swing.JFrame {
         }
         if (source == jLabelBild10) {
              try {
-                MovieInfo window = new MovieInfo(user,movies.get(9+seitenanzahl));
+                BookInfo window = new BookInfo(user,movies.get(9+seitenanzahl));
                 window.pack();
                 window.setVisible(true);
             } catch (MalformedURLException ex) {
@@ -1287,14 +1287,14 @@ public class User extends javax.swing.JFrame {
         }
         if (source == jLabelBild11) {
             try {
-                new MovieInfo(user,movies.get(10+seitenanzahl)).setVisible(true);
+                new BookInfo(user,movies.get(10+seitenanzahl)).setVisible(true);
             } catch (MalformedURLException ex) {
                 Logger.getLogger(Admin.class.getName()).log(Level.SEVERE, null, ex);
             }
         }
         if (source == jLabelBild19) {
              try {
-                MovieInfo window = new MovieInfo(user,movies.get(11+seitenanzahl));
+                BookInfo window = new BookInfo(user,movies.get(11+seitenanzahl));
                 window.pack();
                 window.setVisible(true);
             } catch (MalformedURLException ex) {
@@ -1304,7 +1304,7 @@ public class User extends javax.swing.JFrame {
 
         if (source == jLabelBild12) {
              try {
-                MovieInfo window = new MovieInfo(user,movies.get(12+seitenanzahl));
+                BookInfo window = new BookInfo(user,movies.get(12+seitenanzahl));
                 window.pack();
                 window.setVisible(true);
             } catch (MalformedURLException ex) {
@@ -1313,7 +1313,7 @@ public class User extends javax.swing.JFrame {
         }
         if (source == jLabelBild14) {
              try {
-                MovieInfo window = new MovieInfo(user,movies.get(13+seitenanzahl));
+                BookInfo window = new BookInfo(user,movies.get(13+seitenanzahl));
                 window.pack();
                 window.setVisible(true);
             } catch (MalformedURLException ex) {
@@ -1322,7 +1322,7 @@ public class User extends javax.swing.JFrame {
         }
         if (source == jLabelBild15) {
              try {
-                MovieInfo window = new MovieInfo(user,movies.get(14+seitenanzahl));
+                BookInfo window = new BookInfo(user,movies.get(14+seitenanzahl));
                 window.pack();
                 window.setVisible(true);
             } catch (MalformedURLException ex) {
@@ -1331,7 +1331,7 @@ public class User extends javax.swing.JFrame {
         }
         if (source == jLabelBild17) {
              try {
-                MovieInfo window = new MovieInfo(user,movies.get(15+seitenanzahl));
+                BookInfo window = new BookInfo(user,movies.get(15+seitenanzahl));
                 window.pack();
                 window.setVisible(true);
             } catch (MalformedURLException ex) {
@@ -1340,7 +1340,7 @@ public class User extends javax.swing.JFrame {
         }
         if (source == jLabelBild18) {
              try {
-                MovieInfo window = new MovieInfo(user,movies.get(16+seitenanzahl));
+                BookInfo window = new BookInfo(user,movies.get(16+seitenanzahl));
                 window.pack();
                 window.setVisible(true);
             } catch (MalformedURLException ex) {
@@ -1349,7 +1349,7 @@ public class User extends javax.swing.JFrame {
         }
         if (source == jLabelBild20) {
              try {
-                MovieInfo window = new MovieInfo(user,movies.get(17+seitenanzahl));
+                BookInfo window = new BookInfo(user,movies.get(17+seitenanzahl));
                 window.pack();
                 window.setVisible(true);
             } catch (MalformedURLException ex) {
@@ -1358,7 +1358,7 @@ public class User extends javax.swing.JFrame {
         }  
         if (source == jLabelBild13) {
              try {
-                MovieInfo window = new MovieInfo(user,movies.get(18+seitenanzahl));
+                BookInfo window = new BookInfo(user,movies.get(18+seitenanzahl));
                 window.pack();
                 window.setVisible(true);
             } catch (MalformedURLException ex) {
@@ -1367,7 +1367,7 @@ public class User extends javax.swing.JFrame {
         }
         if (source == jLabelBild16) {
              try {
-                MovieInfo window = new MovieInfo(user,movies.get(19+seitenanzahl));
+                BookInfo window = new BookInfo(user,movies.get(19+seitenanzahl));
                 window.pack();
                 window.setVisible(true);
             } catch (MalformedURLException ex) {
