@@ -26,8 +26,8 @@
           <Group type="102" attributes="0">
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" alignment="0" attributes="0">
-                      <Component id="jLabel1" min="-2" pref="134" max="-2" attributes="0"/>
-                      <EmptySpace min="-2" pref="56" max="-2" attributes="0"/>
+                      <Component id="jLabel1" min="-2" pref="180" max="-2" attributes="0"/>
+                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
                       <Component id="changeAccountLabel" min="-2" pref="332" max="-2" attributes="0"/>
                       <EmptySpace min="0" pref="60" max="32767" attributes="0"/>
                   </Group>
@@ -43,7 +43,7 @@
                               <Group type="103" groupAlignment="0" attributes="0">
                                   <Group type="102" attributes="0">
                                       <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                          <Component id="userNameLabel" pref="67" max="32767" attributes="0"/>
+                                          <Component id="jLabel_userName" pref="67" max="32767" attributes="0"/>
                                           <Component id="paswordLabel" max="32767" attributes="0"/>
                                           <Component id="emailLabel" alignment="1" max="32767" attributes="0"/>
                                           <Component id="birthdayLabel" alignment="1" max="32767" attributes="0"/>
@@ -121,7 +121,7 @@
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="userNameTextField" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="nameField" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="userNameLabel" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="jLabel_userName" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="preNameLabel" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace type="separate" max="-2" attributes="0"/>
@@ -247,7 +247,7 @@
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel1">
     </Component>
-    <Component class="javax.swing.JLabel" name="userNameLabel">
+    <Component class="javax.swing.JLabel" name="jLabel_userName">
       <Properties>
         <Property name="text" type="java.lang.String" value="Username"/>
       </Properties>

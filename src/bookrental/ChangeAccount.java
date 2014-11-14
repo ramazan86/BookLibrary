@@ -56,7 +56,7 @@ private void init(){
         changeButton = new javax.swing.JButton();
         returnButton = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
-        userNameLabel = new javax.swing.JLabel();
+        jLabel_userName = new javax.swing.JLabel();
         paswordLabel = new javax.swing.JLabel();
         emailLabel = new javax.swing.JLabel();
         birthdayLabel = new javax.swing.JLabel();
@@ -99,7 +99,7 @@ private void init(){
 
         returnButton.setText("Return");
 
-        userNameLabel.setText("Username");
+        jLabel_userName.setText("Username");
 
         paswordLabel.setText("Pasword");
 
@@ -134,8 +134,8 @@ private void init(){
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 134, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(56, 56, 56)
+                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(changeAccountLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 332, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(0, 60, Short.MAX_VALUE))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
@@ -149,7 +149,7 @@ private void init(){
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addGroup(layout.createSequentialGroup()
                                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                            .addComponent(userNameLabel, javax.swing.GroupLayout.DEFAULT_SIZE, 67, Short.MAX_VALUE)
+                                            .addComponent(jLabel_userName, javax.swing.GroupLayout.DEFAULT_SIZE, 67, Short.MAX_VALUE)
                                             .addComponent(paswordLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                             .addComponent(emailLabel, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                             .addComponent(birthdayLabel, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
@@ -206,7 +206,7 @@ private void init(){
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(userNameTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(nameField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(userNameLabel)
+                    .addComponent(jLabel_userName)
                     .addComponent(preNameLabel))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -305,6 +305,7 @@ private void init(){
     private javax.swing.JTextField ibanField;
     private javax.swing.JLabel ibanLabel;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel_userName;
     private javax.swing.JTextField jTextField1;
     private javax.swing.JLabel mandatoryField;
     private javax.swing.JTextField nameField;
@@ -315,7 +316,6 @@ private void init(){
     private javax.swing.JLabel streetLabel;
     private javax.swing.JLabel sureNameLabel;
     private javax.swing.JTextField surnameField;
-    private javax.swing.JLabel userNameLabel;
     private javax.swing.JTextField userNameTextField;
     // End of variables declaration//GEN-END:variables
 }
