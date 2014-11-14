@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package de.Frankfurt.View;
+package bookrental;
 
 import java.awt.Font;
 import javax.swing.JFrame;
@@ -78,23 +78,18 @@ public class Main extends javax.swing.JFrame {
 
         pswForgottenButton.setText("Pasword Forgotten ");
 
-        jLabel1.setIcon(new javax.swing.ImageIcon("F:\\Programming Excercises\\Book_Library\\buecher_zeitschriften40572208.jpg")); // NOI18N
-
-        image2Button.setIcon(new javax.swing.ImageIcon("F:\\Programming Excercises\\Book_Library\\booksImage\\index2.jpg")); // NOI18N
         image2Button.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 image2ButtonActionPerformed(evt);
             }
         });
 
-        image3Button.setIcon(new javax.swing.ImageIcon("F:\\Programming Excercises\\Book_Library\\booksImage\\index3.jpg")); // NOI18N
         image3Button.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 image3ButtonActionPerformed(evt);
             }
         });
 
-        image1Button.setIcon(new javax.swing.ImageIcon("F:\\Programming Excercises\\Book_Library\\booksImage\\index.jpg")); // NOI18N
         image1Button.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 image1ButtonActionPerformed(evt);
@@ -139,7 +134,7 @@ public class Main extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                    .addComponent(jLabel1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
+                    .addComponent(jLabel1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 0, Short.MAX_VALUE)
                     .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(LoginEmail, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -156,8 +151,8 @@ public class Main extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(image2Button, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
-                    .addComponent(image3Button, javax.swing.GroupLayout.PREFERRED_SIZE, 257, Short.MAX_VALUE)
-                    .addComponent(image1Button, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 257, Short.MAX_VALUE))
+                    .addComponent(image3Button, javax.swing.GroupLayout.DEFAULT_SIZE, 257, Short.MAX_VALUE)
+                    .addComponent(image1Button, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 257, Short.MAX_VALUE))
                 .addContainerGap())
         );
 

@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package de.Frankfurt.View;
+package bookrental;
 
 import java.awt.Font;
 import javax.swing.JFrame;

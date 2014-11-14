@@ -134,38 +134,18 @@
       </Properties>
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel1">
-      <Properties>
-        <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-          <Image iconType="2" name="F:\Programming Excercises\Book_Library\buecher_zeitschriften40572208.jpg"/>
-        </Property>
-      </Properties>
     </Component>
     <Component class="javax.swing.JButton" name="image2Button">
-      <Properties>
-        <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-          <Image iconType="2" name="F:\Programming Excercises\Book_Library\booksImage\index2.jpg"/>
-        </Property>
-      </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="image2ButtonActionPerformed"/>
       </Events>
     </Component>
     <Component class="javax.swing.JButton" name="image3Button">
-      <Properties>
-        <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-          <Image iconType="2" name="F:\Programming Excercises\Book_Library\booksImage\index3.jpg"/>
-        </Property>
-      </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="image3ButtonActionPerformed"/>
       </Events>
     </Component>
     <Component class="javax.swing.JButton" name="image1Button">
-      <Properties>
-        <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-          <Image iconType="2" name="F:\Programming Excercises\Book_Library\booksImage\index.jpg"/>
-        </Property>
-      </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="image1ButtonActionPerformed"/>
       </Events>

@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package de.Frankfurt.View;
+package bookrental;
 
 import java.awt.Font;
 import javax.swing.JFrame;
@@ -98,8 +98,6 @@ private void init(){
         changeButton.setText("Change");
 
         returnButton.setText("Return");
-
-        jLabel1.setIcon(new javax.swing.ImageIcon("F:\\Programming Excercises\\Book_Library\\buecher_zeitschriften40572208.jpg")); // NOI18N
 
         userNameLabel.setText("Username");
 
