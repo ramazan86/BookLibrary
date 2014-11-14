@@ -50,6 +50,10 @@ public class User {
     
     /* class-methods */
 
+    public User() {
+        
+    }
+    
     public User(UserV obj) {
     
         this.uid = "0";
