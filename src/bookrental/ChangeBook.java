@@ -25,10 +25,10 @@ import org.apache.commons.lang.StringEscapeUtils;
 public class ChangeBook extends javax.swing.JFrame {
      
     /*
-     ChangeMovie Variablen 
+     ChangeBook Variablen 
      */
      
-    String movieid,title,genre,imglink,streamlink,description,duration,releaseyear,price,suchetext,agerating,pricecat,answer,language,language2;
+    String bookid,title,genre,imglink,streamlink,description,duration,releaseyear,price,suchetext,agerating,pricecat,answer,language,language2;
     int age,combogenre,comboagerating,combopricecat,combolanguage,combolanguage2;
     
     Verbindung db;
@@ -38,7 +38,7 @@ public class ChangeBook extends javax.swing.JFrame {
     
       
     /*
-    Konstruktor von ChangeMovie
+    Konstruktor von ChangeBook
     */ 
     public ChangeBook() {
         initComponents();
@@ -46,20 +46,20 @@ public class ChangeBook extends javax.swing.JFrame {
         setResizable(false);
     }//ende Konstruktor
     public void releaseArea(){
-        jTextSuchText.setText("");
-        jTextTitle.setText("");
-        jComboGenre.setSelectedIndex(0);
-        jTextDescription.setText("");
-        jTextReleaseYear.setText("");
-        jTextDuration.setText("");
+        jTextField_serch.setText("");
+        jTextField_title.setText("");
+        jCombo_genre.setSelectedIndex(0);
+        jText_description.setText("");
+        jText_releaseYear.setText("");
+        jText_duration.setText("");
         jTextStreamlink.setText("");
-        jTextFieldImgLink.setText("");
-        jComboPriceCategory.setSelectedIndex(0);
-        jComboAgeRating.setSelectedIndex(0);
-        jLabelMovieid.setText("");
-        jLabelMovieid.setVisible(false);
-        jComboLanguage.setSelectedIndex(0); 
-        jComboLanguage2.setSelectedIndex(0);
+        jTextField_imgLink.setText("");
+        jCombo_priceCategory.setSelectedIndex(0);
+        jCombo_ageRating.setSelectedIndex(0);
+        jLabelBookid.setText("");
+        jLabelBookid.setVisible(false);
+        jCombo_language1.setSelectedIndex(0); 
+        jCombo_language2.setSelectedIndex(0);
     }
     /*
     comboGenre ist eine Methode um das ausgewählte genre Objekt aus der Datenbank anzuzeigen
@@ -131,45 +131,45 @@ public class ChangeBook extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jTextFieldImgLink = new javax.swing.JTextField();
-        jLabel8 = new javax.swing.JLabel();
-        jLabel7 = new javax.swing.JLabel();
-        jLabel6 = new javax.swing.JLabel();
+        jTextField_imgLink = new javax.swing.JTextField();
+        jLabel_duration = new javax.swing.JLabel();
+        jLabel_releaseYear = new javax.swing.JLabel();
+        jLabel_ageRating = new javax.swing.JLabel();
         jTextStreamlink = new javax.swing.JTextField();
-        jTextReleaseYear = new javax.swing.JTextField();
-        jLabel15 = new javax.swing.JLabel();
-        jLabel1 = new javax.swing.JLabel();
-        jTextDuration = new javax.swing.JTextField();
-        jLabel3 = new javax.swing.JLabel();
-        jLabel4 = new javax.swing.JLabel();
-        jTextTitle = new javax.swing.JTextField();
+        jText_releaseYear = new javax.swing.JTextField();
+        jLabel_description = new javax.swing.JLabel();
+        jLabel_changeBook = new javax.swing.JLabel();
+        jText_duration = new javax.swing.JTextField();
+        jLabel_genre = new javax.swing.JLabel();
+        jLabel_title = new javax.swing.JLabel();
+        jTextField_title = new javax.swing.JTextField();
         jLabel_logo = new javax.swing.JLabel();
-        jLabel9 = new javax.swing.JLabel();
-        jLabel10 = new javax.swing.JLabel();
-        jLabel11 = new javax.swing.JLabel();
-        jComboGenre = new javax.swing.JComboBox();
-        jComboAgeRating = new javax.swing.JComboBox();
-        jComboPriceCategory = new javax.swing.JComboBox();
-        jButtonReturn = new javax.swing.JButton();
-        jButtonChange = new javax.swing.JButton();
-        jScrollPane1 = new javax.swing.JScrollPane();
-        jTextDescription = new javax.swing.JTextArea();
-        jTextSuchText = new javax.swing.JTextField();
-        jLabel5 = new javax.swing.JLabel();
-        jButtonSuche = new javax.swing.JButton();
+        jLabel_img = new javax.swing.JLabel();
+        jLabel_streamLink = new javax.swing.JLabel();
+        jLabel_priceCat = new javax.swing.JLabel();
+        jCombo_genre = new javax.swing.JComboBox();
+        jCombo_ageRating = new javax.swing.JComboBox();
+        jCombo_priceCategory = new javax.swing.JComboBox();
+        jButton_return = new javax.swing.JButton();
+        jButton_change = new javax.swing.JButton();
+        jScrollPane_discription = new javax.swing.JScrollPane();
+        jText_description = new javax.swing.JTextArea();
+        jTextField_serch = new javax.swing.JTextField();
+        jLabel_search = new javax.swing.JLabel();
+        jButton_search = new javax.swing.JButton();
         jLabelMovieid = new javax.swing.JLabel();
-        jLabel12 = new javax.swing.JLabel();
-        jComboLanguage = new javax.swing.JComboBox();
-        jComboLanguage2 = new javax.swing.JComboBox();
-        jButtonDelete = new javax.swing.JButton();
+        jLabel_language = new javax.swing.JLabel();
+        jCombo_language1 = new javax.swing.JComboBox();
+        jCombo_language2 = new javax.swing.JComboBox();
+        jButton_delete = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jLabel8.setText("Duration :");
+        jLabel_duration.setText("Duration :");
 
-        jLabel7.setText("Release Year :");
+        jLabel_releaseYear.setText("Release Year :");
 
-        jLabel6.setText("Age Rating :");
+        jLabel_ageRating.setText("Age Rating :");
 
         jTextStreamlink.setEnabled(false);
         jTextStreamlink.addActionListener(new java.awt.event.ActionListener() {
@@ -178,96 +178,96 @@ public class ChangeBook extends javax.swing.JFrame {
             }
         });
 
-        jTextReleaseYear.addActionListener(new java.awt.event.ActionListener() {
+        jText_releaseYear.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextReleaseYearActionPerformed(evt);
+                jText_releaseYearActionPerformed(evt);
             }
         });
 
-        jLabel15.setText("Description :");
+        jLabel_description.setText("Description :");
 
-        jLabel1.setFont(new java.awt.Font("Calibri", 0, 24)); // NOI18N
-        jLabel1.setText("Change a Movie");
+        jLabel_changeBook.setFont(new java.awt.Font("Calibri", 0, 24)); // NOI18N
+        jLabel_changeBook.setText("Change a Book");
 
-        jTextDuration.addActionListener(new java.awt.event.ActionListener() {
+        jText_duration.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextDurationActionPerformed(evt);
+                jText_durationActionPerformed(evt);
             }
         });
 
-        jLabel3.setText("Genre :");
+        jLabel_genre.setText("Genre :");
 
-        jLabel4.setText("Title :");
+        jLabel_title.setText("Title :");
 
-        jTextTitle.addActionListener(new java.awt.event.ActionListener() {
+        jTextField_title.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextTitleActionPerformed(evt);
+                jTextField_titleActionPerformed(evt);
             }
         });
 
-        jLabel_logo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/movierental/Logo.png"))); // NOI18N
+        jLabel_logo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/logonnew.png"))); // NOI18N
         jLabel_logo.setText("jLabel2");
 
-        jLabel9.setText("IMG-Link :");
+        jLabel_img.setText("IMG-Link :");
 
-        jLabel10.setText("Streamlink :");
+        jLabel_streamLink.setText("Streamlink :");
 
-        jLabel11.setText("Price Cat. :");
+        jLabel_priceCat.setText("Price Cat. :");
 
-        jComboGenre.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Action", "Adventure", "Thriller", "Fantasy", "Animation", "Comedy" }));
-        jComboGenre.addActionListener(new java.awt.event.ActionListener() {
+        jCombo_genre.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Biographies", "Children", "Computer science ", "Cooking", "History", "Novel and Narratives", "School & Education" }));
+        jCombo_genre.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jComboGenreActionPerformed(evt);
+                jCombo_genreActionPerformed(evt);
             }
         });
 
-        jComboAgeRating.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "0", "6", "12", "16", "18" }));
+        jCombo_ageRating.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "0", "6", "12", "16", "18" }));
 
-        jComboPriceCategory.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "3.99", "2.99", "1.99" }));
-        jComboPriceCategory.addActionListener(new java.awt.event.ActionListener() {
+        jCombo_priceCategory.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "3.99", "2.99", "1.99" }));
+        jCombo_priceCategory.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jComboPriceCategoryActionPerformed(evt);
+                jCombo_priceCategoryActionPerformed(evt);
             }
         });
 
-        jButtonReturn.setText("Return");
-        jButtonReturn.addActionListener(new java.awt.event.ActionListener() {
+        jButton_return.setText("Return");
+        jButton_return.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButtonReturnActionPerformed(evt);
+                jButton_returnActionPerformed(evt);
             }
         });
 
-        jButtonChange.setText("Change");
-        jButtonChange.addActionListener(new java.awt.event.ActionListener() {
+        jButton_change.setText("Change");
+        jButton_change.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButtonChangeActionPerformed(evt);
+                jButton_changeActionPerformed(evt);
             }
         });
 
-        jTextDescription.setColumns(20);
-        jTextDescription.setRows(5);
-        jTextDescription.setText("\n");
-        jScrollPane1.setViewportView(jTextDescription);
+        jText_description.setColumns(20);
+        jText_description.setRows(5);
+        jText_description.setText("\n");
+        jScrollPane_discription.setViewportView(jText_description);
 
-        jLabel5.setText("Suche:");
+        jLabel_search.setText("Search");
 
-        jButtonSuche.setText("Suche");
-        jButtonSuche.addActionListener(new java.awt.event.ActionListener() {
+        jButton_search.setText("Search");
+        jButton_search.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButtonSucheActionPerformed(evt);
+                jButton_searchActionPerformed(evt);
             }
         });
 
-        jLabel12.setText("Language:");
+        jLabel_language.setText("Language:");
 
-        jComboLanguage.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "First", "English", "German", "Spanish" }));
+        jCombo_language1.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "First", "English", "German", "Spanish" }));
 
-        jComboLanguage2.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Second", "English", "German", "Spanish" }));
+        jCombo_language2.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Second", "English", "German", "Spanish" }));
 
-        jButtonDelete.setText("Delete");
-        jButtonDelete.addActionListener(new java.awt.event.ActionListener() {
+        jButton_delete.setText("Delete");
+        jButton_delete.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButtonDeleteActionPerformed(evt);
+                jButton_deleteActionPerformed(evt);
             }
         });
 
@@ -279,66 +279,65 @@ public class ChangeBook extends javax.swing.JFrame {
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel_logo, javax.swing.GroupLayout.PREFERRED_SIZE, 277, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel1))
-                        .addGap(0, 0, Short.MAX_VALUE))
+                        .addComponent(jLabel_changeBook)
+                        .addGap(0, 710, Short.MAX_VALUE))
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabelMovieid)
                             .addGroup(layout.createSequentialGroup()
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLabel7)
-                                    .addComponent(jLabel8)
-                                    .addComponent(jLabel12))
+                                    .addComponent(jLabel_releaseYear)
+                                    .addComponent(jLabel_duration)
+                                    .addComponent(jLabel_language))
                                 .addGap(18, 18, 18)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jTextDuration, javax.swing.GroupLayout.PREFERRED_SIZE, 67, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jTextReleaseYear, javax.swing.GroupLayout.PREFERRED_SIZE, 67, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jText_duration, javax.swing.GroupLayout.PREFERRED_SIZE, 67, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jText_releaseYear, javax.swing.GroupLayout.PREFERRED_SIZE, 67, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addGroup(layout.createSequentialGroup()
-                                        .addComponent(jComboLanguage, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(jCombo_language1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                         .addGap(18, 18, 18)
-                                        .addComponent(jComboLanguage2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                            .addComponent(jButtonReturn)
+                                        .addComponent(jCombo_language2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                            .addComponent(jButton_return)
                             .addGroup(layout.createSequentialGroup()
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 81, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jLabel3)
-                                    .addComponent(jLabel6))
+                                    .addComponent(jLabel_title, javax.swing.GroupLayout.PREFERRED_SIZE, 81, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jLabel_genre)
+                                    .addComponent(jLabel_ageRating))
                                 .addGap(23, 23, 23)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jComboGenre, javax.swing.GroupLayout.PREFERRED_SIZE, 178, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jComboAgeRating, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jTextTitle, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 37, Short.MAX_VALUE)
+                                    .addComponent(jCombo_genre, javax.swing.GroupLayout.PREFERRED_SIZE, 178, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jCombo_ageRating, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jTextField_title, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addComponent(jLabel_logo, javax.swing.GroupLayout.PREFERRED_SIZE, 208, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
-                                .addComponent(jLabel11)
+                                .addComponent(jLabel_priceCat)
                                 .addGap(18, 18, 18)
-                                .addComponent(jComboPriceCategory, 0, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addComponent(jCombo_priceCategory, 0, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                                 .addGroup(layout.createSequentialGroup()
-                                    .addComponent(jButtonDelete)
+                                    .addComponent(jButton_delete)
                                     .addGap(18, 18, 18)
-                                    .addComponent(jButtonChange))
+                                    .addComponent(jButton_change))
                                 .addGroup(layout.createSequentialGroup()
-                                    .addComponent(jLabel15)
+                                    .addComponent(jLabel_description)
                                     .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 323, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                    .addComponent(jScrollPane_discription, javax.swing.GroupLayout.PREFERRED_SIZE, 323, javax.swing.GroupLayout.PREFERRED_SIZE)))
                             .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                                 .addGroup(layout.createSequentialGroup()
-                                    .addComponent(jLabel5)
+                                    .addComponent(jLabel_search)
                                     .addGap(24, 24, 24)
-                                    .addComponent(jTextSuchText, javax.swing.GroupLayout.PREFERRED_SIZE, 185, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jTextField_serch, javax.swing.GroupLayout.PREFERRED_SIZE, 185, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addGap(18, 18, 18)
-                                    .addComponent(jButtonSuche, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addComponent(jButton_search, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE))
                                 .addGroup(layout.createSequentialGroup()
                                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addComponent(jLabel10)
-                                        .addComponent(jLabel9))
+                                        .addComponent(jLabel_streamLink)
+                                        .addComponent(jLabel_img))
                                     .addGap(18, 18, 18)
                                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                        .addComponent(jTextFieldImgLink, javax.swing.GroupLayout.PREFERRED_SIZE, 318, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(jTextField_imgLink, javax.swing.GroupLayout.PREFERRED_SIZE, 318, javax.swing.GroupLayout.PREFERRED_SIZE)
                                         .addComponent(jTextStreamlink)))))
                         .addGap(72, 72, 72))))
         );
@@ -346,115 +345,115 @@ public class ChangeBook extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel_logo, javax.swing.GroupLayout.PREFERRED_SIZE, 93, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(layout.createSequentialGroup()
                         .addGap(45, 45, 45)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jTextSuchText, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel5)
-                            .addComponent(jButtonSuche, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 28, Short.MAX_VALUE)
-                .addComponent(jLabel1)
+                            .addComponent(jTextField_serch, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel_search)
+                            .addComponent(jButton_search, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addComponent(jLabel_logo, javax.swing.GroupLayout.PREFERRED_SIZE, 118, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jLabel_changeBook)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jTextTitle, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel4))
+                            .addComponent(jTextField_title, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel_title))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel3)
-                            .addComponent(jComboGenre, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(jLabel_genre)
+                            .addComponent(jCombo_genre, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel6)
-                            .addComponent(jComboAgeRating, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(jLabel_ageRating)
+                            .addComponent(jCombo_ageRating, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel7)
-                            .addComponent(jTextReleaseYear, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(jLabel_releaseYear)
+                            .addComponent(jText_releaseYear, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jTextDuration, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(jLabel_duration, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jText_duration, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(18, 18, 18)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel12)
-                            .addComponent(jComboLanguage, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jComboLanguage2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(jLabel_language)
+                            .addComponent(jCombo_language1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jCombo_language2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jLabelMovieid))
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jTextFieldImgLink, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel9))
+                            .addComponent(jTextField_imgLink, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel_img))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel10)
+                            .addComponent(jLabel_streamLink)
                             .addComponent(jTextStreamlink, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel11, javax.swing.GroupLayout.PREFERRED_SIZE, 16, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jComboPriceCategory, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(jLabel_priceCat, javax.swing.GroupLayout.PREFERRED_SIZE, 16, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jCombo_priceCategory, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel15)
-                            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 83, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                            .addComponent(jLabel_description)
+                            .addComponent(jScrollPane_discription, javax.swing.GroupLayout.PREFERRED_SIZE, 83, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addGap(23, 23, 23)
-                        .addComponent(jButtonReturn))
+                        .addComponent(jButton_return))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(18, 18, 18)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jButtonChange)
-                            .addComponent(jButtonDelete))))
+                            .addComponent(jButton_change)
+                            .addComponent(jButton_delete))))
                 .addContainerGap())
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jTextReleaseYearActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextReleaseYearActionPerformed
+    private void jText_releaseYearActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jText_releaseYearActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextReleaseYearActionPerformed
+    }//GEN-LAST:event_jText_releaseYearActionPerformed
 
-    private void jComboGenreActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboGenreActionPerformed
+    private void jCombo_genreActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCombo_genreActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jComboGenreActionPerformed
+    }//GEN-LAST:event_jCombo_genreActionPerformed
 
-    private void jButtonReturnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonReturnActionPerformed
+    private void jButton_returnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton_returnActionPerformed
         this.dispose();
         
-    }//GEN-LAST:event_jButtonReturnActionPerformed
+    }//GEN-LAST:event_jButton_returnActionPerformed
 
-    private void jTextTitleActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextTitleActionPerformed
+    private void jTextField_titleActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField_titleActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextTitleActionPerformed
+    }//GEN-LAST:event_jTextField_titleActionPerformed
 
-    private void jTextDurationActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextDurationActionPerformed
+    private void jText_durationActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jText_durationActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextDurationActionPerformed
+    }//GEN-LAST:event_jText_durationActionPerformed
 
     private void jTextStreamlinkActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextStreamlinkActionPerformed
     }//GEN-LAST:event_jTextStreamlinkActionPerformed
 
-    private void jButtonChangeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonChangeActionPerformed
+    private void jButton_changeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton_changeActionPerformed
        
-       if(evt.getSource() == jButtonChange){
+       if(evt.getSource() == jButton_change){
        
-       title = jTextTitle.getText();
-       genre = (String) jComboGenre.getSelectedItem();
-       agerating = (String) jComboAgeRating.getSelectedItem();
-       duration = jTextDuration.getText();
-       releaseyear = jTextReleaseYear.getText();
-       description = StringEscapeUtils.escapeJavaScript(jTextDescription.getText());
-       pricecat = (String) jComboPriceCategory.getSelectedItem();
-       imglink = jTextFieldImgLink.getText();
+       title = jTextField_title.getText();
+       genre = (String) jCombo_genre.getSelectedItem();
+       agerating = (String) jCombo_ageRating.getSelectedItem();
+       duration = jText_duration.getText();
+       releaseyear = jText_releaseYear.getText();
+       description = StringEscapeUtils.escapeJavaScript(jText_description.getText());
+       pricecat = (String) jCombo_priceCategory.getSelectedItem();
+       imglink = jTextField_imgLink.getText();
        streamlink = jTextStreamlink.getText();
-       movieid = jLabelMovieid.getText();
-       language = (String)jComboLanguage.getSelectedItem();
-       language2 = (String)jComboLanguage2.getSelectedItem();
+       bookid = jLabelBookid.getText();
+       language = (String)jCombo_language1.getSelectedItem();
+       language2 = (String)jCombo_language2.getSelectedItem();
           
        db = new Verbindung();
        db.start();
@@ -463,8 +462,8 @@ public class ChangeBook extends javax.swing.JFrame {
        
            try {
                stmt2 = conn.createStatement();
-               stmt2.executeUpdate("UPDATE movie SET title='"+ title + "', genre='"+ genre +"', ageRating='"+ agerating +"', description='"+ description 
-                                   + "', releaseYear='"+ releaseyear +"', duration='"+ duration + "', streamlink='"+ streamlink + "', Picture='"+ imglink + "', price='"+ pricecat + "' WHERE mid = '"+ movieid + "'");
+               stmt2.executeUpdate("UPDATE book SET title='"+ title + "', genre='"+ genre +"', ageRating='"+ agerating +"', description='"+ description 
+                                   + "', releaseYear='"+ releaseyear +"', duration='"+ duration + "', streamlink='"+ streamlink + "', Picture='"+ imglink + "', price='"+ pricecat + "' WHERE mid = '"+ bookid + "'");
                JOptionPane.showMessageDialog(null, "Change was succesfull.");
                this.dispose();
                
@@ -473,32 +472,32 @@ public class ChangeBook extends javax.swing.JFrame {
                
            }
        }else{
-           JOptionPane.showMessageDialog(null, "You must search a movie before you can change one. ");
+           JOptionPane.showMessageDialog(null, "You must search a book before you can change one. ");
        }
        }   
-    }//GEN-LAST:event_jButtonChangeActionPerformed
+    }//GEN-LAST:event_jButton_changeActionPerformed
 
-    private void jButtonSucheActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonSucheActionPerformed
+    private void jButton_searchActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton_searchActionPerformed
         
-        suchetext = jTextSuchText.getText();
+        suchetext = jTextField_serch.getText();
     
             db = new Verbindung();
             db.start();
             conn = db.getVerbindung();
-        if(evt.getSource() == jButtonSuche){
+        if(evt.getSource() == jButton_search){
             
                 ArrayList<String> liste = new ArrayList();
                
             try {
                 stmt = conn.createStatement();
-                rs = stmt.executeQuery("SELECT * FROM movie WHERE title LIKE '%"+ suchetext +"%' ");
+                rs = stmt.executeQuery("SELECT * FROM book WHERE title LIKE '%"+ suchetext +"%' ");
                 
                 rs.last();
                
                 if(rs.getRow() <= 1){
                 
                     
-                    movieid = rs.getString("mid");
+                    bookid = rs.getString("mid");
                     title = rs.getString("title");
                     genre = rs.getString("genre");
                     age = rs.getInt("agerating");
@@ -510,14 +509,14 @@ public class ChangeBook extends javax.swing.JFrame {
                     price = rs.getString("price");
                     
                     stmt4 = conn.createStatement();
-                    rs3 = stmt4.executeQuery("SELECT Language FROM haslang WHERE Mid = '"+ movieid+"' ");
+                    rs3 = stmt4.executeQuery("SELECT Language FROM haslang WHERE Mid = '"+ bookid+"' ");
                     
                     rs3.first();
                     language = rs3.getString("Language");
                     if(rs3.next()){
                     language2 = rs3.getString("Language");
                     combolanguage2 = comboLanguage(language2);
-                    jComboLanguage2.setSelectedIndex(combolanguage2);
+                    jCombo_language2.setSelectedIndex(combolanguage2);
                     }
                     
                     combogenre = comboGenre(genre);
@@ -526,18 +525,18 @@ public class ChangeBook extends javax.swing.JFrame {
                     combolanguage = comboLanguage(language);
                     
                     
-                    jTextTitle.setText(title);
-                    jComboGenre.setSelectedIndex(combogenre);
-                    jTextDescription.setText(description);
-                    jTextReleaseYear.setText(releaseyear);
-                    jTextDuration.setText(duration);
+                    jTextField_title.setText(title);
+                    jCombo_genre.setSelectedIndex(combogenre);
+                    jText_description.setText(description);
+                    jText_releaseYear.setText(releaseyear);
+                    jText_duration.setText(duration);
                     jTextStreamlink.setText(streamlink);
-                    jTextFieldImgLink.setText(imglink);
-                    jComboPriceCategory.setSelectedIndex(combopricecat);
-                    jComboAgeRating.setSelectedIndex(comboagerating);
-                    jLabelMovieid.setText(movieid);
-                    jLabelMovieid.setVisible(false);
-                    jComboLanguage.setSelectedIndex(combolanguage);
+                    jTextField_imgLink.setText(imglink);
+                    jCombo_priceCategory.setSelectedIndex(combopricecat);
+                    jCombo_ageRating.setSelectedIndex(comboagerating);
+                    jLabelBookid.setText(bookid);
+                    jLabelBookid.setVisible(false);
+                    jCombo_language1.setSelectedIndex(combolanguage);
                    
                     
                     
@@ -598,11 +597,11 @@ public class ChangeBook extends javax.swing.JFrame {
                     }
                     
                     stmt3 = conn.createStatement();
-                    rs2 = stmt3.executeQuery("SELECT * FROM movie WHERE title = '" + answer +"'");
+                    rs2 = stmt3.executeQuery("SELECT * FROM book WHERE title = '" + answer +"'");
                    
                     if(rs2.next()){
                         
-                        movieid = rs2.getString("mid");
+                        bookid = rs2.getString("mid");
                         title = rs2.getString("title");
                         genre = rs2.getString("genre");
                         age = rs2.getInt("ageRating");
@@ -614,14 +613,14 @@ public class ChangeBook extends javax.swing.JFrame {
                         price = rs2.getString("price");
 
                         stmt4 = conn.createStatement();
-                        rs3 = stmt4.executeQuery("SELECT Language FROM haslang WHERE Mid = '"+movieid+"' ");
+                        rs3 = stmt4.executeQuery("SELECT Language FROM haslang WHERE Mid = '"+bookid+"' ");
 
                         rs3.first();
                         language = rs3.getString("Language");
                         if(rs3.next()){
                             language2 = rs3.getString("Language");
                             combolanguage2 = comboLanguage(language2);
-                            jComboLanguage2.setSelectedIndex(combolanguage2);
+                            jCombo_language2.setSelectedIndex(combolanguage2);
                         }
                         combogenre = comboGenre(genre);
                         comboagerating = comboAgerating(age);
@@ -629,18 +628,18 @@ public class ChangeBook extends javax.swing.JFrame {
                         combolanguage = comboLanguage(language);
 
 
-                        jTextTitle.setText(title);
-                        jComboGenre.setSelectedIndex(combogenre);
-                        jTextDescription.setText(description);
-                        jTextReleaseYear.setText(releaseyear);
-                        jTextDuration.setText(duration);
+                        jTextField_title.setText(title);
+                        jCombo_genre.setSelectedIndex(combogenre);
+                        jText_description.setText(description);
+                        jText_releaseYear.setText(releaseyear);
+                        jText_duration.setText(duration);
                         jTextStreamlink.setText(streamlink);
-                        jTextFieldImgLink.setText(imglink);
-                        jComboPriceCategory.setSelectedIndex(combopricecat);
-                        jComboAgeRating.setSelectedIndex(comboagerating);
-                        jLabelMovieid.setText(movieid);
-                        jLabelMovieid.setVisible(false);
-                        jComboLanguage.setSelectedIndex(combolanguage);
+                        jTextField_imgLink.setText(imglink);
+                        jCombo_priceCategory.setSelectedIndex(combopricecat);
+                        jCombo_ageRating.setSelectedIndex(comboagerating);
+                        jLabelBookid.setText(bookid);
+                        jLabelBookid.setVisible(false);
+                        jCombo_language1.setSelectedIndex(combolanguage);
 
                         }
                }
@@ -651,16 +650,16 @@ public class ChangeBook extends javax.swing.JFrame {
             }
             }
         
-    }//GEN-LAST:event_jButtonSucheActionPerformed
+    }//GEN-LAST:event_jButton_searchActionPerformed
 
-    private void jButtonDeleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonDeleteActionPerformed
-        if(evt.getSource() == jButtonDelete){
-            if(!(movieid.equals(""))){
+    private void jButton_deleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton_deleteActionPerformed
+        if(evt.getSource() == jButton_delete){
+            if(!(bookid.equals(""))){
                 try {
-                    if(JOptionPane.showConfirmDialog(null, "Do you really want to delete this movie?") == 0){
+                    if(JOptionPane.showConfirmDialog(null, "Do you really want to delete this book?") == 0){
                     stmtDelete = conn.createStatement();
-                    stmtDelete.executeUpdate("UPDATE movie SET inactive = '1' where mid = '"+movieid+"'");
-                    JOptionPane.showMessageDialog(null,"Movie was succesfully deleted.");
+                    stmtDelete.executeUpdate("UPDATE book SET inactive = '1' where mid = '"+bookid+"'");
+                    JOptionPane.showMessageDialog(null,"Book was succesfully deleted.");
                     this.releaseArea();
                     }
                 } catch (SQLException ex) {
@@ -668,11 +667,11 @@ public class ChangeBook extends javax.swing.JFrame {
                 }
             }
         }
-    }//GEN-LAST:event_jButtonDeleteActionPerformed
+    }//GEN-LAST:event_jButton_deleteActionPerformed
 
-    private void jComboPriceCategoryActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboPriceCategoryActionPerformed
+    private void jCombo_priceCategoryActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCombo_priceCategoryActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jComboPriceCategoryActionPerformed
+    }//GEN-LAST:event_jCombo_priceCategoryActionPerformed
 
     /**
      * @param args the command line arguments
@@ -703,6 +702,18 @@ public class ChangeBook extends javax.swing.JFrame {
         //</editor-fold>
         //</editor-fold>
         //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
@@ -715,36 +726,36 @@ public class ChangeBook extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButtonChange;
-    private javax.swing.JButton jButtonDelete;
-    private javax.swing.JButton jButtonReturn;
-    private javax.swing.JButton jButtonSuche;
-    private javax.swing.JComboBox jComboAgeRating;
-    private javax.swing.JComboBox jComboGenre;
-    private javax.swing.JComboBox jComboLanguage;
-    private javax.swing.JComboBox jComboLanguage2;
-    private javax.swing.JComboBox jComboPriceCategory;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel10;
-    private javax.swing.JLabel jLabel11;
-    private javax.swing.JLabel jLabel12;
-    private javax.swing.JLabel jLabel15;
-    private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel5;
-    private javax.swing.JLabel jLabel6;
-    private javax.swing.JLabel jLabel7;
-    private javax.swing.JLabel jLabel8;
-    private javax.swing.JLabel jLabel9;
+    private javax.swing.JButton jButton_change;
+    private javax.swing.JButton jButton_delete;
+    private javax.swing.JButton jButton_return;
+    private javax.swing.JButton jButton_search;
+    private javax.swing.JComboBox jCombo_ageRating;
+    private javax.swing.JComboBox jCombo_genre;
+    private javax.swing.JComboBox jCombo_language1;
+    private javax.swing.JComboBox jCombo_language2;
+    private javax.swing.JComboBox jCombo_priceCategory;
     private javax.swing.JLabel jLabelMovieid;
+    private javax.swing.JLabel jLabel_ageRating;
+    private javax.swing.JLabel jLabel_changeBook;
+    private javax.swing.JLabel jLabel_description;
+    private javax.swing.JLabel jLabel_duration;
+    private javax.swing.JLabel jLabel_genre;
+    private javax.swing.JLabel jLabel_img;
+    private javax.swing.JLabel jLabel_language;
     private javax.swing.JLabel jLabel_logo;
-    private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTextArea jTextDescription;
-    private javax.swing.JTextField jTextDuration;
-    private javax.swing.JTextField jTextFieldImgLink;
-    private javax.swing.JTextField jTextReleaseYear;
+    private javax.swing.JLabel jLabel_priceCat;
+    private javax.swing.JLabel jLabel_releaseYear;
+    private javax.swing.JLabel jLabel_search;
+    private javax.swing.JLabel jLabel_streamLink;
+    private javax.swing.JLabel jLabel_title;
+    private javax.swing.JScrollPane jScrollPane_discription;
+    private javax.swing.JTextField jTextField_imgLink;
+    private javax.swing.JTextField jTextField_serch;
+    private javax.swing.JTextField jTextField_title;
     private javax.swing.JTextField jTextStreamlink;
-    private javax.swing.JTextField jTextSuchText;
-    private javax.swing.JTextField jTextTitle;
+    private javax.swing.JTextArea jText_description;
+    private javax.swing.JTextField jText_duration;
+    private javax.swing.JTextField jText_releaseYear;
     // End of variables declaration//GEN-END:variables
 }

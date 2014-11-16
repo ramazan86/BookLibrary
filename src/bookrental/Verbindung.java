@@ -10,7 +10,7 @@ public class Verbindung {
     public void start(){
         try{
                Class.forName("com.mysql.jdbc.Driver").newInstance();
-               con = (Connection) DriverManager.getConnection("jdbc:mysql://localhost/movierental_new","root","");
+               con = (Connection) DriverManager.getConnection("jdbc:mysql://localhost/bookrental_new","root","");
                
                
         }catch(Exception e){

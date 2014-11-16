@@ -28,7 +28,7 @@ import javax.swing.JOptionPane;
  */
 public class Rent extends javax.swing.JFrame {
 
-    Book movie;
+    Book book;
     User user;
     static int previous = 0;
 
@@ -37,12 +37,12 @@ public class Rent extends javax.swing.JFrame {
         setLocationRelativeTo(null);
         setResizable(false);
         user = obj;
-        movie = obj2;
+        book = obj2;
         Date now = new Date();
         Calendar calendar = new GregorianCalendar();
         calendar.setTime(now);         // add 5 days to calendar instance
-        if (!movie.getDeadline().equals("")) {
-            calendar.add(Calendar.DAY_OF_MONTH, Integer.valueOf(movie.getDeadline()) + 2);
+        if (!book.getDeadline().equals("")) {
+            calendar.add(Calendar.DAY_OF_MONTH, Integer.valueOf(book.getDeadline()) + 2);
         } else {
             calendar.add(Calendar.DAY_OF_MONTH, 2);
         }
@@ -51,9 +51,9 @@ public class Rent extends javax.swing.JFrame {
         DateFormat dateFormat = new SimpleDateFormat("dd.MM.yyyy");         // print out the dates...
 
         jLabelDeadline.setText(dateFormat.format(future));
-        jLabelBild.setIcon(new ImageIcon(new URL(movie.getImglink())));
-        jLabelTitle.setText(movie.getTitle());
-        jLabelPrice.setText(movie.getPrice() + "€");
+        jLabel_image.setIcon(new ImageIcon(new URL(book.getImglink())));
+        jLabel_title.setText(book.getTitle());
+        jLabelPrice.setText(book.getPrice() + "€");
     }
 
     @SuppressWarnings("unchecked")
@@ -61,51 +61,53 @@ public class Rent extends javax.swing.JFrame {
     private void initComponents() {
 
         jLabel_logo = new javax.swing.JLabel();
-        jLabel5 = new javax.swing.JLabel();
-        jLabelBild = new javax.swing.JLabel();
+        jLabel_rent = new javax.swing.JLabel();
+        jLabel_image = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
-        jLabelTitle = new javax.swing.JLabel();
-        jLabel6 = new javax.swing.JLabel();
-        jLabel7 = new javax.swing.JLabel();
-        jButtonRent = new javax.swing.JButton();
-        jButtonReturn = new javax.swing.JButton();
-        jCheckGTC = new javax.swing.JCheckBox();
-        jCheckDirectDebitPayment = new javax.swing.JCheckBox();
+        jLabel_title = new javax.swing.JLabel();
+        jLabel_deadline = new javax.swing.JLabel();
+        jLabel_price = new javax.swing.JLabel();
+        jButton_rent = new javax.swing.JButton();
+        jButton_return = new javax.swing.JButton();
+        jCheck_GTC = new javax.swing.JCheckBox();
+        jCheck_directDebitPayment = new javax.swing.JCheckBox();
         jLabelDeadline = new javax.swing.JLabel();
         jLabelPrice = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jLabel_logo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/movierental/Logo.png"))); // NOI18N
+        jLabel_logo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/logo.png"))); // NOI18N
         jLabel_logo.setText("jLabel2");
 
-        jLabel5.setFont(new java.awt.Font("Calibri", 0, 24)); // NOI18N
-        jLabel5.setText("Rent");
+        jLabel_rent.setFont(new java.awt.Font("Calibri", 0, 24)); // NOI18N
+        jLabel_rent.setText("Rent");
 
-        jLabelTitle.setFont(new java.awt.Font("Calibri", 0, 24)); // NOI18N
-        jLabelTitle.setText("Turbo - Kleine Schnecke, großer Traum");
+        jLabel_image.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/graphicsUderC2.png"))); // NOI18N
 
-        jLabel6.setText("Deadline: ");
+        jLabel_title.setFont(new java.awt.Font("Calibri", 0, 24)); // NOI18N
+        jLabel_title.setText("Graphics under C");
 
-        jLabel7.setText("Price:");
+        jLabel_deadline.setText("Deadline: ");
 
-        jButtonRent.setText("Rent");
-        jButtonRent.addActionListener(new java.awt.event.ActionListener() {
+        jLabel_price.setText("Price:");
+
+        jButton_rent.setText("Rent");
+        jButton_rent.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButtonRentActionPerformed(evt);
+                jButton_rentActionPerformed(evt);
             }
         });
 
-        jButtonReturn.setText("Return");
-        jButtonReturn.addActionListener(new java.awt.event.ActionListener() {
+        jButton_return.setText("Return");
+        jButton_return.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButtonReturnActionPerformed(evt);
+                jButton_returnActionPerformed(evt);
             }
         });
 
-        jCheckGTC.setText("GTC");
+        jCheck_GTC.setText("GTC");
 
-        jCheckDirectDebitPayment.setText("Direct Debit Payment");
+        jCheck_directDebitPayment.setText("Direct Debit Payment");
 
         jLabelDeadline.setText("jLabel4");
 
@@ -120,77 +122,78 @@ public class Rent extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel_logo, javax.swing.GroupLayout.PREFERRED_SIZE, 276, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(layout.createSequentialGroup()
                                 .addGap(47, 47, 47)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLabel5)
-                                    .addComponent(jCheckDirectDebitPayment)
-                                    .addComponent(jCheckGTC)
+                                    .addComponent(jLabel_rent)
+                                    .addComponent(jCheck_directDebitPayment)
+                                    .addComponent(jCheck_GTC)
                                     .addGroup(layout.createSequentialGroup()
                                         .addGap(147, 147, 147)
                                         .addComponent(jLabel3))))
                             .addGroup(layout.createSequentialGroup()
-                                .addComponent(jLabelBild, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(18, 18, 18)
+                                .addComponent(jLabel_image, javax.swing.GroupLayout.PREFERRED_SIZE, 172, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addGroup(layout.createSequentialGroup()
                                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                            .addComponent(jLabel7, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                            .addComponent(jLabel6))
+                                            .addComponent(jLabel_price, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                            .addComponent(jLabel_deadline))
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                             .addComponent(jLabelDeadline, javax.swing.GroupLayout.DEFAULT_SIZE, 61, Short.MAX_VALUE)
                                             .addComponent(jLabelPrice, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-                                    .addComponent(jLabelTitle, javax.swing.GroupLayout.PREFERRED_SIZE, 361, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                                    .addComponent(jLabel_title, javax.swing.GroupLayout.PREFERRED_SIZE, 361, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addComponent(jLabel_logo, javax.swing.GroupLayout.PREFERRED_SIZE, 238, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addContainerGap(89, Short.MAX_VALUE))
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(jButtonReturn)
+                        .addComponent(jButton_return)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jButtonRent)
+                        .addComponent(jButton_rent)
                         .addGap(40, 40, 40))))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addComponent(jLabel_logo, javax.swing.GroupLayout.PREFERRED_SIZE, 93, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(29, 29, 29)
-                .addComponent(jLabel5)
+                .addComponent(jLabel_logo, javax.swing.GroupLayout.PREFERRED_SIZE, 126, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jLabel_rent)
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(jLabelTitle)
+                        .addComponent(jLabel_title)
                         .addGap(34, 34, 34)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel6)
+                            .addComponent(jLabel_deadline)
                             .addComponent(jLabelDeadline))
                         .addGap(18, 18, 18)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel7)
-                            .addComponent(jLabelPrice)))
-                    .addComponent(jLabelBild, javax.swing.GroupLayout.PREFERRED_SIZE, 219, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(17, 17, 17)
+                            .addComponent(jLabel_price)
+                            .addComponent(jLabelPrice))
+                        .addGap(0, 138, Short.MAX_VALUE))
+                    .addComponent(jLabel_image, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel3)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jCheckGTC)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jCheck_GTC)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jCheckDirectDebitPayment)
+                .addComponent(jCheck_directDebitPayment)
                 .addGap(22, 22, 22)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButtonRent)
-                    .addComponent(jButtonReturn))
+                    .addComponent(jButton_rent)
+                    .addComponent(jButton_return))
                 .addGap(21, 21, 21))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButtonReturnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonReturnActionPerformed
-        if (evt.getSource() == jButtonReturn) {
+    private void jButton_returnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton_returnActionPerformed
+        if (evt.getSource() == jButton_return) {
             dispose();
             if (Rent.previous == 0) {
                 try {
-                    new BookInfo(user, movie).setVisible(true);
+                    new BookInfo(user, book).setVisible(true);
                 } catch (MalformedURLException ex) {
                     Logger.getLogger(Rent.class.getName()).log(Level.SEVERE, null, ex);
                 }
@@ -202,40 +205,40 @@ public class Rent extends javax.swing.JFrame {
                 }
             }
         }
-    }//GEN-LAST:event_jButtonReturnActionPerformed
+    }//GEN-LAST:event_jButton_returnActionPerformed
 
-    private void jButtonRentActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonRentActionPerformed
+    private void jButton_rentActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton_rentActionPerformed
 
         Verbindung db = new Verbindung();
         db.start();
         Connection conn = db.getVerbindung();
-        if (jCheckDirectDebitPayment.isSelected() && jCheckGTC.isSelected()) {
+        if (jCheck_directDebitPayment.isSelected() && jCheck_GTC.isSelected()) {
             JOptionPane.setDefaultLocale(Locale.ENGLISH);
             try {
                 Statement stmt = conn.createStatement();
-                ResultSet rs = stmt.executeQuery("Select *,DATEDIFF(deadline,now()) as deadlinex from rents where uid = '" + user.getUid() + "' and mid = '" + movie.getMid() + "'");
+                ResultSet rs = stmt.executeQuery("Select *,DATEDIFF(deadline,now()) as deadlinex from rents where uid = '" + user.getUid() + "' and mid = '" + book.getMid() + "'");
                 if (rs.next()) {
                     Statement stmtupdate = conn.createStatement();
                     if (Integer.parseInt(rs.getString("deadlinex")) < 0) {
-                        if (JOptionPane.showConfirmDialog(null, "Do you want to rent the movie " + movie.getTitle() + "?") == 0) {
-                            stmtupdate.executeUpdate("UPDATE rents SET deadline = (SELECT DATE_ADD( now() , INTERVAL 2 DAY) ), time = now() where uid = '" + user.getUid() + "' and mid = '" + movie.getMid() + "'");
-                            JOptionPane.showMessageDialog(null, "Congratulations! You can now watch the movie in your video library.");
+                        if (JOptionPane.showConfirmDialog(null, "Do you want to rent the book " + book.getTitle() + "?") == 0) {
+                            stmtupdate.executeUpdate("UPDATE rents SET deadline = (SELECT DATE_ADD( now() , INTERVAL 2 DAY) ), time = now() where uid = '" + user.getUid() + "' and mid = '" + book.getMid() + "'");
+                            JOptionPane.showMessageDialog(null, "Congratulations! You can now watch the book in your video library.");
                             dispose();
                             new BookLibrary(user).setVisible(true);
                         }
                     } else {
-                        if (JOptionPane.showConfirmDialog(null, "Do you want to extend the Deadline of the movie " + movie.getTitle() + "?") == 0) {
-                            stmtupdate.executeUpdate("UPDATE rents SET deadline = (SELECT DATE_ADD( deadline , INTERVAL 2 DAY) ), time = now() where uid = '" + user.getUid() + "' and mid = '" + movie.getMid() + "'");
+                        if (JOptionPane.showConfirmDialog(null, "Do you want to extend the Deadline of the book " + book.getTitle() + "?") == 0) {
+                            stmtupdate.executeUpdate("UPDATE rents SET deadline = (SELECT DATE_ADD( deadline , INTERVAL 2 DAY) ), time = now() where uid = '" + user.getUid() + "' and mid = '" + book.getMid() + "'");
                             JOptionPane.showMessageDialog(null, "Congratulations! You have extended the deadline for two days.");
                             dispose();
                             new BookLibrary(user).setVisible(true);
                         }
                     }
                 } else {
-                    if (JOptionPane.showConfirmDialog(null, "Do you want to rent the movie " + movie.getTitle() + "?") == 0) {
+                    if (JOptionPane.showConfirmDialog(null, "Do you want to rent the book " + book.getTitle() + "?") == 0) {
                         Statement stmtinsert = conn.createStatement();
-                        stmt.executeUpdate("INSERT INTO rents (uid, mid, deadline, time) VALUES ('" + user.getUid() + "', '" + movie.getMid() + "', (SELECT DATE_ADD( {fn curdate()} , INTERVAL 2 DAY)), now() )");
-                        JOptionPane.showMessageDialog(null, "Congratulations! You can now watch the movie in your video library.");
+                        stmt.executeUpdate("INSERT INTO rents (uid, mid, deadline, time) VALUES ('" + user.getUid() + "', '" + book.getMid() + "', (SELECT DATE_ADD( {fn curdate()} , INTERVAL 2 DAY)), now() )");
+                        JOptionPane.showMessageDialog(null, "Congratulations! You can now watch the book in your video library.");
                         dispose();
                         new BookLibrary(user).setVisible(true);
                     }
@@ -247,7 +250,7 @@ public class Rent extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null, "Please accept the Direct Debit Payment and the GTC!");
         }
 
-    }//GEN-LAST:event_jButtonRentActionPerformed
+    }//GEN-LAST:event_jButton_rentActionPerformed
 
     public static void setPrevious(int previous) {
         Rent.previous = previous;
@@ -289,18 +292,18 @@ public class Rent extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButtonRent;
-    private javax.swing.JButton jButtonReturn;
-    private javax.swing.JCheckBox jCheckDirectDebitPayment;
-    private javax.swing.JCheckBox jCheckGTC;
+    private javax.swing.JButton jButton_rent;
+    private javax.swing.JButton jButton_return;
+    private javax.swing.JCheckBox jCheck_GTC;
+    private javax.swing.JCheckBox jCheck_directDebitPayment;
     private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel5;
-    private javax.swing.JLabel jLabel6;
-    private javax.swing.JLabel jLabel7;
-    private javax.swing.JLabel jLabelBild;
     private javax.swing.JLabel jLabelDeadline;
     private javax.swing.JLabel jLabelPrice;
-    private javax.swing.JLabel jLabelTitle;
+    private javax.swing.JLabel jLabel_deadline;
+    private javax.swing.JLabel jLabel_image;
     private javax.swing.JLabel jLabel_logo;
+    private javax.swing.JLabel jLabel_price;
+    private javax.swing.JLabel jLabel_rent;
+    private javax.swing.JLabel jLabel_title;
     // End of variables declaration//GEN-END:variables
 }

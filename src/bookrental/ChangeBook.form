@@ -27,82 +27,80 @@
               <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" attributes="0">
-                      <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="jLabel_logo" alignment="0" min="-2" pref="277" max="-2" attributes="0"/>
-                          <Component id="jLabel1" alignment="0" min="-2" max="-2" attributes="0"/>
-                      </Group>
-                      <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                      <Component id="jLabel_changeBook" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace min="0" pref="710" max="32767" attributes="0"/>
                   </Group>
                   <Group type="102" alignment="0" attributes="0">
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Component id="jLabelMovieid" alignment="0" min="-2" max="-2" attributes="0"/>
                           <Group type="102" alignment="0" attributes="0">
                               <Group type="103" groupAlignment="0" attributes="0">
-                                  <Component id="jLabel7" alignment="0" min="-2" max="-2" attributes="0"/>
-                                  <Component id="jLabel8" alignment="0" min="-2" max="-2" attributes="0"/>
-                                  <Component id="jLabel12" alignment="0" min="-2" max="-2" attributes="0"/>
+                                  <Component id="jLabel_releaseYear" alignment="0" min="-2" max="-2" attributes="0"/>
+                                  <Component id="jLabel_duration" alignment="0" min="-2" max="-2" attributes="0"/>
+                                  <Component id="jLabel_language" alignment="0" min="-2" max="-2" attributes="0"/>
                               </Group>
                               <EmptySpace type="separate" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="0" attributes="0">
-                                  <Component id="jTextDuration" min="-2" pref="67" max="-2" attributes="0"/>
-                                  <Component id="jTextReleaseYear" min="-2" pref="67" max="-2" attributes="0"/>
+                                  <Component id="jText_duration" min="-2" pref="67" max="-2" attributes="0"/>
+                                  <Component id="jText_releaseYear" min="-2" pref="67" max="-2" attributes="0"/>
                                   <Group type="102" alignment="0" attributes="0">
-                                      <Component id="jComboLanguage" min="-2" max="-2" attributes="0"/>
+                                      <Component id="jCombo_language1" min="-2" max="-2" attributes="0"/>
                                       <EmptySpace type="separate" max="-2" attributes="0"/>
-                                      <Component id="jComboLanguage2" min="-2" max="-2" attributes="0"/>
+                                      <Component id="jCombo_language2" min="-2" max="-2" attributes="0"/>
                                   </Group>
                               </Group>
                           </Group>
-                          <Component id="jButtonReturn" alignment="0" min="-2" max="-2" attributes="0"/>
+                          <Component id="jButton_return" alignment="0" min="-2" max="-2" attributes="0"/>
                           <Group type="102" alignment="0" attributes="0">
                               <Group type="103" groupAlignment="0" attributes="0">
-                                  <Component id="jLabel4" min="-2" pref="81" max="-2" attributes="0"/>
-                                  <Component id="jLabel3" alignment="0" min="-2" max="-2" attributes="0"/>
-                                  <Component id="jLabel6" alignment="0" min="-2" max="-2" attributes="0"/>
+                                  <Component id="jLabel_title" min="-2" pref="81" max="-2" attributes="0"/>
+                                  <Component id="jLabel_genre" alignment="0" min="-2" max="-2" attributes="0"/>
+                                  <Component id="jLabel_ageRating" alignment="0" min="-2" max="-2" attributes="0"/>
                               </Group>
                               <EmptySpace min="-2" pref="23" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="0" attributes="0">
-                                  <Component id="jComboGenre" min="-2" pref="178" max="-2" attributes="0"/>
-                                  <Component id="jComboAgeRating" min="-2" max="-2" attributes="0"/>
-                                  <Component id="jTextTitle" min="-2" pref="250" max="-2" attributes="0"/>
+                                  <Component id="jCombo_genre" min="-2" pref="178" max="-2" attributes="0"/>
+                                  <Component id="jCombo_ageRating" min="-2" max="-2" attributes="0"/>
+                                  <Component id="jTextField_title" min="-2" pref="250" max="-2" attributes="0"/>
                               </Group>
                           </Group>
+                          <Component id="jLabel_logo" alignment="0" min="-2" pref="208" max="-2" attributes="0"/>
                       </Group>
-                      <EmptySpace pref="37" max="32767" attributes="0"/>
+                      <EmptySpace max="32767" attributes="0"/>
                       <Group type="103" groupAlignment="1" attributes="0">
                           <Group type="102" alignment="0" attributes="0">
-                              <Component id="jLabel11" min="-2" max="-2" attributes="0"/>
+                              <Component id="jLabel_priceCat" min="-2" max="-2" attributes="0"/>
                               <EmptySpace type="separate" max="-2" attributes="0"/>
-                              <Component id="jComboPriceCategory" max="-2" attributes="0"/>
+                              <Component id="jCombo_priceCategory" max="-2" attributes="0"/>
                           </Group>
                           <Group type="103" alignment="0" groupAlignment="1" attributes="0">
                               <Group type="102" attributes="0">
-                                  <Component id="jButtonDelete" min="-2" max="-2" attributes="0"/>
+                                  <Component id="jButton_delete" min="-2" max="-2" attributes="0"/>
                                   <EmptySpace type="separate" max="-2" attributes="0"/>
-                                  <Component id="jButtonChange" min="-2" max="-2" attributes="0"/>
+                                  <Component id="jButton_change" min="-2" max="-2" attributes="0"/>
                               </Group>
                               <Group type="102" alignment="1" attributes="0">
-                                  <Component id="jLabel15" min="-2" max="-2" attributes="0"/>
+                                  <Component id="jLabel_description" min="-2" max="-2" attributes="0"/>
                                   <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                                  <Component id="jScrollPane1" min="-2" pref="323" max="-2" attributes="0"/>
+                                  <Component id="jScrollPane_discription" min="-2" pref="323" max="-2" attributes="0"/>
                               </Group>
                           </Group>
                           <Group type="103" alignment="0" groupAlignment="1" attributes="0">
                               <Group type="102" attributes="0">
-                                  <Component id="jLabel5" min="-2" max="-2" attributes="0"/>
+                                  <Component id="jLabel_search" min="-2" max="-2" attributes="0"/>
                                   <EmptySpace min="-2" pref="24" max="-2" attributes="0"/>
-                                  <Component id="jTextSuchText" min="-2" pref="185" max="-2" attributes="0"/>
+                                  <Component id="jTextField_serch" min="-2" pref="185" max="-2" attributes="0"/>
                                   <EmptySpace type="separate" max="-2" attributes="0"/>
-                                  <Component id="jButtonSuche" min="-2" pref="75" max="-2" attributes="0"/>
+                                  <Component id="jButton_search" min="-2" pref="75" max="-2" attributes="0"/>
                               </Group>
                               <Group type="102" attributes="0">
                                   <Group type="103" groupAlignment="0" attributes="0">
-                                      <Component id="jLabel10" alignment="0" min="-2" max="-2" attributes="0"/>
-                                      <Component id="jLabel9" alignment="0" min="-2" max="-2" attributes="0"/>
+                                      <Component id="jLabel_streamLink" alignment="0" min="-2" max="-2" attributes="0"/>
+                                      <Component id="jLabel_img" alignment="0" min="-2" max="-2" attributes="0"/>
                                   </Group>
                                   <EmptySpace type="separate" max="-2" attributes="0"/>
                                   <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                      <Component id="jTextFieldImgLink" min="-2" pref="318" max="-2" attributes="0"/>
+                                      <Component id="jTextField_imgLink" min="-2" pref="318" max="-2" attributes="0"/>
                                       <Component id="jTextStreamlink" max="32767" attributes="0"/>
                                   </Group>
                               </Group>
@@ -118,86 +116,86 @@
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" alignment="1" attributes="0">
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Component id="jLabel_logo" min="-2" pref="93" max="-2" attributes="0"/>
-                  <Group type="102" alignment="0" attributes="0">
+                  <Group type="102" attributes="0">
                       <EmptySpace min="-2" pref="45" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="jTextSuchText" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="jLabel5" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="jButtonSuche" alignment="3" min="-2" pref="28" max="-2" attributes="0"/>
+                          <Component id="jTextField_serch" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="jLabel_search" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="jButton_search" alignment="3" min="-2" pref="28" max="-2" attributes="0"/>
                       </Group>
                   </Group>
+                  <Component id="jLabel_logo" min="-2" pref="118" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace pref="28" max="32767" attributes="0"/>
-              <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
+              <EmptySpace max="32767" attributes="0"/>
+              <Component id="jLabel_changeBook" min="-2" max="-2" attributes="0"/>
               <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" alignment="0" attributes="0">
                       <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="jTextTitle" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="jLabel4" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="jTextField_title" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="jLabel_title" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="jLabel3" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="jComboGenre" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="jLabel_genre" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="jCombo_genre" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace min="-2" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="jLabel6" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="jComboAgeRating" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="jLabel_ageRating" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="jCombo_ageRating" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace type="unrelated" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="jLabel7" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="jTextReleaseYear" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="jLabel_releaseYear" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="jText_releaseYear" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="jLabel8" alignment="3" min="-2" pref="28" max="-2" attributes="0"/>
-                          <Component id="jTextDuration" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="jLabel_duration" alignment="3" min="-2" pref="28" max="-2" attributes="0"/>
+                          <Component id="jText_duration" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace type="separate" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="jLabel12" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="jComboLanguage" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="jComboLanguage2" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="jLabel_language" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="jCombo_language1" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="jCombo_language2" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace max="-2" attributes="0"/>
                       <Component id="jLabelMovieid" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <Group type="102" alignment="0" attributes="0">
                       <Group type="103" groupAlignment="1" attributes="0">
-                          <Component id="jTextFieldImgLink" alignment="1" min="-2" max="-2" attributes="0"/>
-                          <Component id="jLabel9" alignment="1" min="-2" max="-2" attributes="0"/>
+                          <Component id="jTextField_imgLink" alignment="1" min="-2" max="-2" attributes="0"/>
+                          <Component id="jLabel_img" alignment="1" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace type="unrelated" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="jLabel10" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="jLabel_streamLink" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="jTextStreamlink" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace type="unrelated" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="jLabel11" alignment="3" min="-2" pref="16" max="-2" attributes="0"/>
-                          <Component id="jComboPriceCategory" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="jLabel_priceCat" alignment="3" min="-2" pref="16" max="-2" attributes="0"/>
+                          <Component id="jCombo_priceCategory" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace type="unrelated" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="jLabel15" min="-2" max="-2" attributes="0"/>
-                          <Component id="jScrollPane1" min="-2" pref="83" max="-2" attributes="0"/>
+                          <Component id="jLabel_description" min="-2" max="-2" attributes="0"/>
+                          <Component id="jScrollPane_discription" min="-2" pref="83" max="-2" attributes="0"/>
                       </Group>
                   </Group>
               </Group>
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" attributes="0">
                       <EmptySpace min="-2" pref="23" max="-2" attributes="0"/>
-                      <Component id="jButtonReturn" min="-2" max="-2" attributes="0"/>
+                      <Component id="jButton_return" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <Group type="102" alignment="0" attributes="0">
                       <EmptySpace type="separate" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="jButtonChange" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="jButtonDelete" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="jButton_change" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="jButton_delete" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
                   </Group>
               </Group>
@@ -207,19 +205,19 @@
     </DimensionLayout>
   </Layout>
   <SubComponents>
-    <Component class="javax.swing.JTextField" name="jTextFieldImgLink">
+    <Component class="javax.swing.JTextField" name="jTextField_imgLink">
     </Component>
-    <Component class="javax.swing.JLabel" name="jLabel8">
+    <Component class="javax.swing.JLabel" name="jLabel_duration">
       <Properties>
         <Property name="text" type="java.lang.String" value="Duration :"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JLabel" name="jLabel7">
+    <Component class="javax.swing.JLabel" name="jLabel_releaseYear">
       <Properties>
         <Property name="text" type="java.lang.String" value="Release Year :"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JLabel" name="jLabel6">
+    <Component class="javax.swing.JLabel" name="jLabel_ageRating">
       <Properties>
         <Property name="text" type="java.lang.String" value="Age Rating :"/>
       </Properties>
@@ -232,85 +230,86 @@
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jTextStreamlinkActionPerformed"/>
       </Events>
     </Component>
-    <Component class="javax.swing.JTextField" name="jTextReleaseYear">
+    <Component class="javax.swing.JTextField" name="jText_releaseYear">
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jTextReleaseYearActionPerformed"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jText_releaseYearActionPerformed"/>
       </Events>
     </Component>
-    <Component class="javax.swing.JLabel" name="jLabel15">
+    <Component class="javax.swing.JLabel" name="jLabel_description">
       <Properties>
         <Property name="text" type="java.lang.String" value="Description :"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JLabel" name="jLabel1">
+    <Component class="javax.swing.JLabel" name="jLabel_changeBook">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Calibri" size="24" style="0"/>
         </Property>
-        <Property name="text" type="java.lang.String" value="Change a Movie"/>
+        <Property name="text" type="java.lang.String" value="Change a Book"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JTextField" name="jTextDuration">
+    <Component class="javax.swing.JTextField" name="jText_duration">
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jTextDurationActionPerformed"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jText_durationActionPerformed"/>
       </Events>
     </Component>
-    <Component class="javax.swing.JLabel" name="jLabel3">
+    <Component class="javax.swing.JLabel" name="jLabel_genre">
       <Properties>
         <Property name="text" type="java.lang.String" value="Genre :"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JLabel" name="jLabel4">
+    <Component class="javax.swing.JLabel" name="jLabel_title">
       <Properties>
         <Property name="text" type="java.lang.String" value="Title :"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JTextField" name="jTextTitle">
+    <Component class="javax.swing.JTextField" name="jTextField_title">
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jTextTitleActionPerformed"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jTextField_titleActionPerformed"/>
       </Events>
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel_logo">
       <Properties>
         <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-          <Image iconType="3" name="/movierental/Logo.png"/>
+          <Image iconType="3" name="/Images/logonnew.png"/>
         </Property>
         <Property name="text" type="java.lang.String" value="jLabel2"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JLabel" name="jLabel9">
+    <Component class="javax.swing.JLabel" name="jLabel_img">
       <Properties>
         <Property name="text" type="java.lang.String" value="IMG-Link :"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JLabel" name="jLabel10">
+    <Component class="javax.swing.JLabel" name="jLabel_streamLink">
       <Properties>
         <Property name="text" type="java.lang.String" value="Streamlink :"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JLabel" name="jLabel11">
+    <Component class="javax.swing.JLabel" name="jLabel_priceCat">
       <Properties>
         <Property name="text" type="java.lang.String" value="Price Cat. :"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JComboBox" name="jComboGenre">
+    <Component class="javax.swing.JComboBox" name="jCombo_genre">
       <Properties>
         <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-          <StringArray count="6">
-            <StringItem index="0" value="Action"/>
-            <StringItem index="1" value="Adventure"/>
-            <StringItem index="2" value="Thriller"/>
-            <StringItem index="3" value="Fantasy"/>
-            <StringItem index="4" value="Animation"/>
-            <StringItem index="5" value="Comedy"/>
+          <StringArray count="7">
+            <StringItem index="0" value="Biographies"/>
+            <StringItem index="1" value="Children"/>
+            <StringItem index="2" value="Computer science "/>
+            <StringItem index="3" value="Cooking"/>
+            <StringItem index="4" value="History"/>
+            <StringItem index="5" value="Novel and Narratives"/>
+            <StringItem index="6" value="School &amp; Education"/>
           </StringArray>
         </Property>
       </Properties>
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jComboGenreActionPerformed"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jCombo_genreActionPerformed"/>
       </Events>
     </Component>
-    <Component class="javax.swing.JComboBox" name="jComboAgeRating">
+    <Component class="javax.swing.JComboBox" name="jCombo_ageRating">
       <Properties>
         <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
           <StringArray count="5">
@@ -323,7 +322,7 @@
         </Property>
       </Properties>
     </Component>
-    <Component class="javax.swing.JComboBox" name="jComboPriceCategory">
+    <Component class="javax.swing.JComboBox" name="jCombo_priceCategory">
       <Properties>
         <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
           <StringArray count="3">
@@ -334,33 +333,33 @@
         </Property>
       </Properties>
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jComboPriceCategoryActionPerformed"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jCombo_priceCategoryActionPerformed"/>
       </Events>
     </Component>
-    <Component class="javax.swing.JButton" name="jButtonReturn">
+    <Component class="javax.swing.JButton" name="jButton_return">
       <Properties>
         <Property name="text" type="java.lang.String" value="Return"/>
       </Properties>
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButtonReturnActionPerformed"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton_returnActionPerformed"/>
       </Events>
     </Component>
-    <Component class="javax.swing.JButton" name="jButtonChange">
+    <Component class="javax.swing.JButton" name="jButton_change">
       <Properties>
         <Property name="text" type="java.lang.String" value="Change"/>
       </Properties>
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButtonChangeActionPerformed"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton_changeActionPerformed"/>
       </Events>
     </Component>
-    <Container class="javax.swing.JScrollPane" name="jScrollPane1">
+    <Container class="javax.swing.JScrollPane" name="jScrollPane_discription">
       <AuxValues>
         <AuxValue name="autoScrollPane" type="java.lang.Boolean" value="true"/>
       </AuxValues>
 
       <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
       <SubComponents>
-        <Component class="javax.swing.JTextArea" name="jTextDescription">
+        <Component class="javax.swing.JTextArea" name="jText_description">
           <Properties>
             <Property name="columns" type="int" value="20"/>
             <Property name="rows" type="int" value="5"/>
@@ -369,29 +368,29 @@
         </Component>
       </SubComponents>
     </Container>
-    <Component class="javax.swing.JTextField" name="jTextSuchText">
+    <Component class="javax.swing.JTextField" name="jTextField_serch">
     </Component>
-    <Component class="javax.swing.JLabel" name="jLabel5">
+    <Component class="javax.swing.JLabel" name="jLabel_search">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Suche:"/>
+        <Property name="text" type="java.lang.String" value="Search"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JButton" name="jButtonSuche">
+    <Component class="javax.swing.JButton" name="jButton_search">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Suche"/>
+        <Property name="text" type="java.lang.String" value="Search"/>
       </Properties>
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButtonSucheActionPerformed"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton_searchActionPerformed"/>
       </Events>
     </Component>
     <Component class="javax.swing.JLabel" name="jLabelMovieid">
     </Component>
-    <Component class="javax.swing.JLabel" name="jLabel12">
+    <Component class="javax.swing.JLabel" name="jLabel_language">
       <Properties>
         <Property name="text" type="java.lang.String" value="Language:"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JComboBox" name="jComboLanguage">
+    <Component class="javax.swing.JComboBox" name="jCombo_language1">
       <Properties>
         <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
           <StringArray count="4">
@@ -403,7 +402,7 @@
         </Property>
       </Properties>
     </Component>
-    <Component class="javax.swing.JComboBox" name="jComboLanguage2">
+    <Component class="javax.swing.JComboBox" name="jCombo_language2">
       <Properties>
         <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
           <StringArray count="4">
@@ -415,12 +414,12 @@
         </Property>
       </Properties>
     </Component>
-    <Component class="javax.swing.JButton" name="jButtonDelete">
+    <Component class="javax.swing.JButton" name="jButton_delete">
       <Properties>
         <Property name="text" type="java.lang.String" value="Delete"/>
       </Properties>
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButtonDeleteActionPerformed"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton_deleteActionPerformed"/>
       </Events>
     </Component>
   </SubComponents>

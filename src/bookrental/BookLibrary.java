@@ -14,7 +14,7 @@ public class BookLibrary extends javax.swing.JFrame {
 
     User user;
     static int count = 0; // Counts at which page the user is
-    ArrayList<Book> movies;
+    ArrayList<Book> books;
 
     public BookLibrary(User obj) throws SQLException {
         initComponents();
@@ -22,132 +22,132 @@ public class BookLibrary extends javax.swing.JFrame {
         setResizable(false);
         user = obj;
 
-        this.listMovies();
+        this.listBooks();
     }
 
-    //Connects to the database, get's all rented movies of this user and shows them.
-    public void listMovies() throws SQLException {
-        jButtonNext.setVisible(false);
-        jButtonPrevious.setVisible(false);
-        movies = new ArrayList<>();
+    //Connects to the database, get's all rented Books of this user and shows them.
+    public void listBooks() throws SQLException {
+        jButton_next.setVisible(false);
+        jButton_previous.setVisible(false);
+        books = new ArrayList<>();
         Verbindung db = new Verbindung();
         db.start();
         Connection conn = db.getVerbindung();
         Statement stmt = conn.createStatement();
-        ResultSet rs = stmt.executeQuery("Select *,DATEDIFF(deadline,now()) as deadlinex from rents natural join movie natural join user where uid = '" + user.getUid() + "' having deadlinex >= 0 order by deadlinex");
+        ResultSet rs = stmt.executeQuery("Select *,DATEDIFF(deadline,now()) as deadlinex from rents natural join book natural join user where uid = '" + user.getUid() + "' having deadlinex >= 0 order by deadlinex");
 
         while (rs.next()) {
-            Book movie = new Book(rs.getString("mid"), rs.getString("title"), rs.getString("picture"), null, rs.getString("description"), rs.getString("genre"), rs.getString("agerating"), rs.getString("releaseYear"), rs.getString("duration"), rs.getString("streamlink"), "", "", rs.getString("price"), rs.getString("deadlinex"));
-            movies.add(movie);
+            Book book = new Book(rs.getString("mid"), rs.getString("title"), rs.getString("picture"), null, rs.getString("description"), rs.getString("genre"), rs.getString("agerating"), rs.getString("releaseYear"), rs.getString("duration"), rs.getString("streamlink"), "", "", rs.getString("price"), rs.getString("deadlinex"));
+            books.add(book);
         }
 
-        //Fill up the Arraylist with dump movies
-        while (movies.size() % 5 != 0 || movies.isEmpty()) {
+        //Fill up the Arraylist with dump books
+        while (books.size() % 5 != 0 || books.isEmpty()) {
             Book dump = new Book("", "", "", null, "", "", "", "", "", "", "", "", "", "");
-            movies.add(dump);
+            books.add(dump);
         }
 
-        jLabelTitle1.setVisible(true);
-        jLabelDeadline1.setVisible(true);
-        jButtonExtend1.setVisible(true);
-        jButtonWatchMovie1.setVisible(true);
-        jLabelTitle2.setVisible(true);
-        jLabelDeadline2.setVisible(true);
-        jButtonExtend2.setVisible(true);
-        jButtonWatchMovie2.setVisible(true);
-        jLabelTitle3.setVisible(true);
-        jLabelDeadline3.setVisible(true);
-        jButtonExtend3.setVisible(true);
-        jButtonWatchMovie3.setVisible(true);
-        jLabelTitle4.setVisible(true);
-        jLabelDeadline4.setVisible(true);
-        jButtonExtend4.setVisible(true);
-        jButtonWatchMovie4.setVisible(true);
-        jLabelTitle5.setVisible(true);
-        jLabelDeadline5.setVisible(true);
-        jButtonExtend5.setVisible(true);
-        jButtonWatchMovie5.setVisible(true);
+        jLabel_title1.setVisible(true);
+        jLabel_deadline1.setVisible(true);
+        jButton_extend1.setVisible(true);
+        jButton_readBook1.setVisible(true);
+        jLabel_title2.setVisible(true);
+        jLabel_deadline2.setVisible(true);
+        jButton_extend2.setVisible(true);
+        jButton_readBook2.setVisible(true);
+        jLabel_title3.setVisible(true);
+        jLabel_deadline3.setVisible(true);
+        jButton_extend3.setVisible(true);
+        jButton_readBook3.setVisible(true);
+        jLabel_title4.setVisible(true);
+        jLabel_deadline4.setVisible(true);
+        jButton_extend4.setVisible(true);
+        jButton_readBook4.setVisible(true);
+        jLabel_title5.setVisible(true);
+        jLabel_deadline5.setVisible(true);
+        jButton_extend5.setVisible(true);
+        jButton_readBook5.setVisible(true);
 
-        if (movies.get(0 + count).getTitle().isEmpty()) {
-            jLabelTitle1.setVisible(false);
-            jLabelDeadline1.setVisible(false);
-            jButtonExtend1.setVisible(false);
-            jButtonWatchMovie1.setVisible(false);
+        if (books.get(0 + count).getTitle().isEmpty()) {
+            jLabel_title1.setVisible(false);
+            jLabel_deadline1.setVisible(false);
+            jButton_extend1.setVisible(false);
+            jButton_readBook1.setVisible(false);
         } else {
-            jLabelTitle1.setText(movies.get(0 + count).getTitle());
-            if (movies.get(0 + count).getDeadline().equals("1")) {
-                jLabelDeadline1.setText(movies.get(0 + count).getDeadline() + " Day left");
+            jLabel_title1.setText(books.get(0 + count).getTitle());
+            if (books.get(0 + count).getDeadline().equals("1")) {
+                jLabel_deadline1.setText(books.get(0 + count).getDeadline() + " Day left");
             } else {
-                jLabelDeadline1.setText(movies.get(0 + count).getDeadline() + " Days left");
+                jLabel_deadline1.setText(books.get(0 + count).getDeadline() + " Days left");
             }
         }
 
-        if (movies.get(1 + count).getTitle().isEmpty()) {
-            jLabelTitle2.setVisible(false);
-            jLabelDeadline2.setVisible(false);
-            jButtonExtend2.setVisible(false);
-            jButtonWatchMovie2.setVisible(false);
+        if (books.get(1 + count).getTitle().isEmpty()) {
+            jLabel_title2.setVisible(false);
+            jLabel_deadline2.setVisible(false);
+            jButton_extend2.setVisible(false);
+            jButton_readBook2.setVisible(false);
         } else {
-            jLabelTitle2.setText(movies.get(1 + count).getTitle());
-            if (movies.get(1 + count).getDeadline().equals("1")) {
-                jLabelDeadline2.setText(movies.get(1 + count).getDeadline() + " Day left");
+            jLabel_title2.setText(books.get(1 + count).getTitle());
+            if (books.get(1 + count).getDeadline().equals("1")) {
+                jLabel_deadline2.setText(books.get(1 + count).getDeadline() + " Day left");
             } else {
-                jLabelDeadline2.setText(movies.get(1 + count).getDeadline() + " Days left");
+                jLabel_deadline2.setText(books.get(1 + count).getDeadline() + " Days left");
             }
         }
 
-        if (movies.get(2 + count).getTitle().isEmpty()) {
-            jLabelTitle3.setVisible(false);
-            jLabelDeadline3.setVisible(false);
-            jButtonExtend3.setVisible(false);
-            jButtonWatchMovie3.setVisible(false);
+        if (books.get(2 + count).getTitle().isEmpty()) {
+            jLabel_title3.setVisible(false);
+            jLabel_deadline3.setVisible(false);
+            jButton_extend3.setVisible(false);
+            jButton_readBook3.setVisible(false);
         } else {
-            jLabelTitle3.setText(movies.get(2 + count).getTitle());
-            if (movies.get(2 + count).getDeadline().equals("1")) {
-                jLabelDeadline3.setText(movies.get(2 + count).getDeadline() + " Day left");
+            jLabel_title3.setText(books.get(2 + count).getTitle());
+            if (books.get(2 + count).getDeadline().equals("1")) {
+                jLabel_deadline3.setText(books.get(2 + count).getDeadline() + " Day left");
             } else {
-                jLabelDeadline3.setText(movies.get(2 + count).getDeadline() + " Days left");
+                jLabel_deadline3.setText(books.get(2 + count).getDeadline() + " Days left");
             }
         }
 
-        if (movies.get(3 + count).getTitle().isEmpty()) {
-            jLabelTitle4.setVisible(false);
-            jLabelDeadline4.setVisible(false);
-            jButtonExtend4.setVisible(false);
-            jButtonWatchMovie4.setVisible(false);
+        if (books.get(3 + count).getTitle().isEmpty()) {
+            jLabel_title4.setVisible(false);
+            jLabel_deadline4.setVisible(false);
+            jButton_extend4.setVisible(false);
+            jButton_readBook4.setVisible(false);
         } else {
-            jLabelTitle4.setText(movies.get(3 + count).getTitle());
-            if (movies.get(3 + count).getDeadline().equals("1")) {
-                jLabelDeadline4.setText(movies.get(3 + count).getDeadline() + " Day left");
+            jLabel_title4.setText(books.get(3 + count).getTitle());
+            if (books.get(3 + count).getDeadline().equals("1")) {
+                jLabel_deadline4.setText(books.get(3 + count).getDeadline() + " Day left");
             } else {
-                jLabelDeadline4.setText(movies.get(3 + count).getDeadline() + " Days left");
+                jLabel_deadline4.setText(books.get(3 + count).getDeadline() + " Days left");
             }
         }
 
-        if (movies.get(4 + count).getTitle().isEmpty()) {
-            jLabelTitle5.setVisible(false);
-            jLabelDeadline5.setVisible(false);
-            jButtonExtend5.setVisible(false);
-            jButtonWatchMovie5.setVisible(false);
+        if (books.get(4 + count).getTitle().isEmpty()) {
+            jLabel_title5.setVisible(false);
+            jLabel_deadline5.setVisible(false);
+            jButton_extend5.setVisible(false);
+            jButton_readBook5.setVisible(false);
         } else {
-            jLabelTitle5.setText(movies.get(4 + count).getTitle());
-            if (movies.get(4 + count).getDeadline().equals("1")) {
-                jLabelDeadline5.setText(movies.get(4 + count).getDeadline() + " Day left");
+            jLabel_title5.setText(books.get(4 + count).getTitle());
+            if (books.get(4 + count).getDeadline().equals("1")) {
+                jLabel_deadline5.setText(books.get(4 + count).getDeadline() + " Day left");
             } else {
-                jLabelDeadline5.setText(movies.get(4 + count).getDeadline() + " Days left");
+                jLabel_deadline5.setText(books.get(4 + count).getDeadline() + " Days left");
             }
         }
 
-        if (movies.size() - count > 5) {
-            jButtonNext.setVisible(true);
+        if (books.size() - count > 5) {
+            jButton_next.setVisible(true);
         } else {
-            jButtonNext.setVisible(false);
+            jButton_next.setVisible(false);
         }
 
         if (count != 0) {
-            jButtonPrevious.setVisible(true);
+            jButton_previous.setVisible(true);
         } else {
-            jButtonPrevious.setVisible(false);
+            jButton_previous.setVisible(false);
         }
 
     }
@@ -158,150 +158,150 @@ public class BookLibrary extends javax.swing.JFrame {
 
         buttonGroup1 = new javax.swing.ButtonGroup();
         jLabel_logo = new javax.swing.JLabel();
-        jLabel1 = new javax.swing.JLabel();
-        jLabel3 = new javax.swing.JLabel();
-        jButtonWatchMovie5 = new javax.swing.JButton();
-        jLabelTitle5 = new javax.swing.JLabel();
-        jLabelDeadline5 = new javax.swing.JLabel();
-        jButtonExtend5 = new javax.swing.JButton();
-        jButtonReturn = new javax.swing.JButton();
-        jButtonWatchMovie1 = new javax.swing.JButton();
-        jLabelTitle1 = new javax.swing.JLabel();
-        jLabelDeadline1 = new javax.swing.JLabel();
-        jButtonExtend1 = new javax.swing.JButton();
-        jButtonWatchMovie2 = new javax.swing.JButton();
-        jLabelTitle2 = new javax.swing.JLabel();
-        jLabelDeadline2 = new javax.swing.JLabel();
-        jButtonExtend2 = new javax.swing.JButton();
-        jButtonWatchMovie3 = new javax.swing.JButton();
-        jLabelTitle3 = new javax.swing.JLabel();
-        jLabelDeadline3 = new javax.swing.JLabel();
-        jButtonExtend3 = new javax.swing.JButton();
-        jButtonWatchMovie4 = new javax.swing.JButton();
-        jLabelTitle4 = new javax.swing.JLabel();
-        jLabelDeadline4 = new javax.swing.JLabel();
-        jButtonExtend4 = new javax.swing.JButton();
-        jButtonNext = new javax.swing.JButton();
-        jButtonPrevious = new javax.swing.JButton();
+        jLabel_personalLibrary = new javax.swing.JLabel();
+        jLabel_rentedBooks = new javax.swing.JLabel();
+        jButton_readBook5 = new javax.swing.JButton();
+        jLabel_title5 = new javax.swing.JLabel();
+        jLabel_deadline5 = new javax.swing.JLabel();
+        jButton_extend5 = new javax.swing.JButton();
+        jButton_return = new javax.swing.JButton();
+        jButton_readBook1 = new javax.swing.JButton();
+        jLabel_title1 = new javax.swing.JLabel();
+        jLabel_deadline1 = new javax.swing.JLabel();
+        jButton_extend1 = new javax.swing.JButton();
+        jButton_readBook2 = new javax.swing.JButton();
+        jLabel_title2 = new javax.swing.JLabel();
+        jLabel_deadline2 = new javax.swing.JLabel();
+        jButton_extend2 = new javax.swing.JButton();
+        jButton_readBook3 = new javax.swing.JButton();
+        jLabel_title3 = new javax.swing.JLabel();
+        jLabel_deadline3 = new javax.swing.JLabel();
+        jButton_extend3 = new javax.swing.JButton();
+        jButton_readBook4 = new javax.swing.JButton();
+        jLabel_title4 = new javax.swing.JLabel();
+        jLabel_deadline4 = new javax.swing.JLabel();
+        jButton_extend4 = new javax.swing.JButton();
+        jButton_next = new javax.swing.JButton();
+        jButton_previous = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jLabel_logo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/movierental/Logo.png"))); // NOI18N
+        jLabel_logo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/logo.png"))); // NOI18N
         jLabel_logo.setText("jLabel2");
 
-        jLabel1.setFont(new java.awt.Font("Calibri", 0, 24)); // NOI18N
-        jLabel1.setText("Personal Video Library");
+        jLabel_personalLibrary.setFont(new java.awt.Font("Calibri", 0, 24)); // NOI18N
+        jLabel_personalLibrary.setText("Personal  Library");
 
-        jLabel3.setText("Rented Movies:");
+        jLabel_rentedBooks.setText("Rented Books:");
 
-        jButtonWatchMovie5.setText("Watch Movie");
-        jButtonWatchMovie5.addActionListener(new java.awt.event.ActionListener() {
+        jButton_readBook5.setText("Read Book");
+        jButton_readBook5.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButtonWatchMovie5ActionPerformed(evt);
+                jButton_readBook5ActionPerformed(evt);
             }
         });
 
-        jLabelTitle5.setText("Turbo - Kleine Schnecke, großer Traum");
+        jLabel_title5.setText("Graphics under C");
 
-        jLabelDeadline5.setText("1 day left");
+        jLabel_deadline5.setText("1 day left");
 
-        jButtonExtend5.setText("Extend");
-        jButtonExtend5.addActionListener(new java.awt.event.ActionListener() {
+        jButton_extend5.setText("Extend");
+        jButton_extend5.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButtonExtend5ActionPerformed(evt);
+                jButton_extend5ActionPerformed(evt);
             }
         });
 
-        jButtonReturn.setText("Return");
-        jButtonReturn.addActionListener(new java.awt.event.ActionListener() {
+        jButton_return.setText("Return");
+        jButton_return.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButtonReturnActionPerformed(evt);
+                jButton_returnActionPerformed(evt);
             }
         });
 
-        jButtonWatchMovie1.setText("Watch Movie");
-        jButtonWatchMovie1.addActionListener(new java.awt.event.ActionListener() {
+        jButton_readBook1.setText("Read Book");
+        jButton_readBook1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButtonWatchMovie1ActionPerformed(evt);
+                jButton_readBook1ActionPerformed(evt);
             }
         });
 
-        jLabelTitle1.setText("Turbo - Kleine Schnecke, großer Traum");
+        jLabel_title1.setText("Graphics under C");
 
-        jLabelDeadline1.setText("1 day left");
+        jLabel_deadline1.setText("1 day left");
 
-        jButtonExtend1.setText("Extend");
-        jButtonExtend1.addActionListener(new java.awt.event.ActionListener() {
+        jButton_extend1.setText("Extend");
+        jButton_extend1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButtonExtend1ActionPerformed(evt);
+                jButton_extend1ActionPerformed(evt);
             }
         });
 
-        jButtonWatchMovie2.setText("Watch Movie");
-        jButtonWatchMovie2.addActionListener(new java.awt.event.ActionListener() {
+        jButton_readBook2.setText("Read Book");
+        jButton_readBook2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButtonWatchMovie2ActionPerformed(evt);
+                jButton_readBook2ActionPerformed(evt);
             }
         });
 
-        jLabelTitle2.setText("Turbo - Kleine Schnecke, großer Traum");
+        jLabel_title2.setText("Graphics under C");
 
-        jLabelDeadline2.setText("1 day left");
+        jLabel_deadline2.setText("1 day left");
 
-        jButtonExtend2.setText("Extend");
-        jButtonExtend2.addActionListener(new java.awt.event.ActionListener() {
+        jButton_extend2.setText("Extend");
+        jButton_extend2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButtonExtend2ActionPerformed(evt);
+                jButton_extend2ActionPerformed(evt);
             }
         });
 
-        jButtonWatchMovie3.setText("Watch Movie");
-        jButtonWatchMovie3.addActionListener(new java.awt.event.ActionListener() {
+        jButton_readBook3.setText("Read Book");
+        jButton_readBook3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButtonWatchMovie3ActionPerformed(evt);
+                jButton_readBook3ActionPerformed(evt);
             }
         });
 
-        jLabelTitle3.setText("Turbo - Kleine Schnecke, großer Traum");
+        jLabel_title3.setText("Graphics under C");
 
-        jLabelDeadline3.setText("1 day left");
+        jLabel_deadline3.setText("1 day left");
 
-        jButtonExtend3.setText("Extend");
-        jButtonExtend3.addActionListener(new java.awt.event.ActionListener() {
+        jButton_extend3.setText("Extend");
+        jButton_extend3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButtonExtend3ActionPerformed(evt);
+                jButton_extend3ActionPerformed(evt);
             }
         });
 
-        jButtonWatchMovie4.setText("Watch Movie");
-        jButtonWatchMovie4.addActionListener(new java.awt.event.ActionListener() {
+        jButton_readBook4.setText("Read Book");
+        jButton_readBook4.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButtonWatchMovie4ActionPerformed(evt);
+                jButton_readBook4ActionPerformed(evt);
             }
         });
 
-        jLabelTitle4.setText("Turbo - Kleine Schnecke, großer Traum");
+        jLabel_title4.setText("Graphics under C");
 
-        jLabelDeadline4.setText("1 day left");
+        jLabel_deadline4.setText("1 day left");
 
-        jButtonExtend4.setText("Extend");
-        jButtonExtend4.addActionListener(new java.awt.event.ActionListener() {
+        jButton_extend4.setText("Extend");
+        jButton_extend4.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButtonExtend4ActionPerformed(evt);
+                jButton_extend4ActionPerformed(evt);
             }
         });
 
-        jButtonNext.setText("Next");
-        jButtonNext.addActionListener(new java.awt.event.ActionListener() {
+        jButton_next.setText("Next");
+        jButton_next.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButtonNextActionPerformed(evt);
+                jButton_nextActionPerformed(evt);
             }
         });
 
-        jButtonPrevious.setText("Previous");
-        jButtonPrevious.addActionListener(new java.awt.event.ActionListener() {
+        jButton_previous.setText("Previous");
+        jButton_previous.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButtonPreviousActionPerformed(evt);
+                jButton_previousActionPerformed(evt);
             }
         });
 
@@ -309,120 +309,122 @@ public class BookLibrary extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jLabel_logo, javax.swing.GroupLayout.PREFERRED_SIZE, 276, javax.swing.GroupLayout.PREFERRED_SIZE)
             .addGroup(layout.createSequentialGroup()
                 .addGap(35, 35, 35)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel3)
-                    .addComponent(jLabel1)
+                    .addComponent(jLabel_rentedBooks)
+                    .addComponent(jLabel_personalLibrary)
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
-                                .addComponent(jButtonReturn)
+                                .addComponent(jButton_return)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jButtonPrevious))
+                                .addComponent(jButton_previous))
                             .addGroup(layout.createSequentialGroup()
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(jLabelTitle1, javax.swing.GroupLayout.DEFAULT_SIZE, 204, Short.MAX_VALUE)
-                                    .addComponent(jLabelTitle2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(jLabelTitle3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(jLabel_title1, javax.swing.GroupLayout.DEFAULT_SIZE, 204, Short.MAX_VALUE)
+                                    .addComponent(jLabel_title2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(jLabel_title3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 18, Short.MAX_VALUE)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addGroup(layout.createSequentialGroup()
-                                        .addComponent(jLabelDeadline1, javax.swing.GroupLayout.PREFERRED_SIZE, 66, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(jLabel_deadline1, javax.swing.GroupLayout.PREFERRED_SIZE, 66, javax.swing.GroupLayout.PREFERRED_SIZE)
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(jButtonWatchMovie1))
+                                        .addComponent(jButton_readBook1))
                                     .addGroup(layout.createSequentialGroup()
                                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                            .addComponent(jLabelDeadline3, javax.swing.GroupLayout.DEFAULT_SIZE, 66, Short.MAX_VALUE)
-                                            .addComponent(jLabelDeadline2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                            .addComponent(jLabel_deadline3, javax.swing.GroupLayout.DEFAULT_SIZE, 66, Short.MAX_VALUE)
+                                            .addComponent(jLabel_deadline2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addComponent(jButtonWatchMovie2, javax.swing.GroupLayout.Alignment.TRAILING)
-                                            .addComponent(jButtonWatchMovie3, javax.swing.GroupLayout.Alignment.TRAILING)))))
+                                            .addComponent(jButton_readBook2, javax.swing.GroupLayout.Alignment.TRAILING)
+                                            .addComponent(jButton_readBook3, javax.swing.GroupLayout.Alignment.TRAILING)))))
                             .addGroup(layout.createSequentialGroup()
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLabelTitle4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(jLabelTitle5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                    .addComponent(jLabel_title4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(jLabel_title5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                                     .addGroup(layout.createSequentialGroup()
-                                        .addComponent(jLabelDeadline4, javax.swing.GroupLayout.PREFERRED_SIZE, 66, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(jLabel_deadline4, javax.swing.GroupLayout.PREFERRED_SIZE, 66, javax.swing.GroupLayout.PREFERRED_SIZE)
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(jButtonWatchMovie4))
+                                        .addComponent(jButton_readBook4))
                                     .addGroup(layout.createSequentialGroup()
-                                        .addComponent(jLabelDeadline5, javax.swing.GroupLayout.PREFERRED_SIZE, 66, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(jLabel_deadline5, javax.swing.GroupLayout.PREFERRED_SIZE, 66, javax.swing.GroupLayout.PREFERRED_SIZE)
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(jButtonWatchMovie5)))))
+                                        .addComponent(jButton_readBook5)))))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                             .addGroup(layout.createSequentialGroup()
                                 .addGap(12, 12, 12)
-                                .addComponent(jButtonNext))
+                                .addComponent(jButton_next))
                             .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(jButtonExtend2, javax.swing.GroupLayout.Alignment.TRAILING)
-                                .addComponent(jButtonExtend1)
-                                .addComponent(jButtonExtend3, javax.swing.GroupLayout.Alignment.TRAILING)
-                                .addComponent(jButtonExtend4, javax.swing.GroupLayout.Alignment.TRAILING)
-                                .addComponent(jButtonExtend5, javax.swing.GroupLayout.Alignment.TRAILING)))))
+                                .addComponent(jButton_extend2, javax.swing.GroupLayout.Alignment.TRAILING)
+                                .addComponent(jButton_extend1)
+                                .addComponent(jButton_extend3, javax.swing.GroupLayout.Alignment.TRAILING)
+                                .addComponent(jButton_extend4, javax.swing.GroupLayout.Alignment.TRAILING)
+                                .addComponent(jButton_extend5, javax.swing.GroupLayout.Alignment.TRAILING)))))
                 .addGap(45, 45, 45))
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(jLabel_logo, javax.swing.GroupLayout.PREFERRED_SIZE, 239, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addComponent(jLabel_logo, javax.swing.GroupLayout.PREFERRED_SIZE, 93, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(49, 49, 49)
-                .addComponent(jLabel1)
+                .addComponent(jLabel_logo, javax.swing.GroupLayout.PREFERRED_SIZE, 131, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jLabel_personalLibrary)
                 .addGap(42, 42, 42)
-                .addComponent(jLabel3)
+                .addComponent(jLabel_rentedBooks)
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButtonWatchMovie1)
-                    .addComponent(jLabelTitle1)
-                    .addComponent(jLabelDeadline1)
-                    .addComponent(jButtonExtend1))
+                    .addComponent(jButton_readBook1)
+                    .addComponent(jLabel_title1)
+                    .addComponent(jLabel_deadline1)
+                    .addComponent(jButton_extend1))
                 .addGap(11, 11, 11)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButtonWatchMovie2)
-                    .addComponent(jLabelTitle2)
-                    .addComponent(jLabelDeadline2)
-                    .addComponent(jButtonExtend2))
+                    .addComponent(jButton_readBook2)
+                    .addComponent(jLabel_title2)
+                    .addComponent(jLabel_deadline2)
+                    .addComponent(jButton_extend2))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButtonWatchMovie3)
-                    .addComponent(jLabelTitle3)
-                    .addComponent(jLabelDeadline3)
-                    .addComponent(jButtonExtend3))
+                    .addComponent(jButton_readBook3)
+                    .addComponent(jLabel_title3)
+                    .addComponent(jLabel_deadline3)
+                    .addComponent(jButton_extend3))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButtonWatchMovie4)
-                    .addComponent(jLabelTitle4)
-                    .addComponent(jLabelDeadline4)
-                    .addComponent(jButtonExtend4))
+                    .addComponent(jButton_readBook4)
+                    .addComponent(jLabel_title4)
+                    .addComponent(jLabel_deadline4)
+                    .addComponent(jButton_extend4))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButtonWatchMovie5)
-                    .addComponent(jLabelTitle5)
-                    .addComponent(jLabelDeadline5)
-                    .addComponent(jButtonExtend5))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 43, Short.MAX_VALUE)
+                    .addComponent(jButton_readBook5)
+                    .addComponent(jLabel_title5)
+                    .addComponent(jLabel_deadline5)
+                    .addComponent(jButton_extend5))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 28, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButtonReturn)
-                    .addComponent(jButtonNext)
-                    .addComponent(jButtonPrevious))
+                    .addComponent(jButton_return)
+                    .addComponent(jButton_next)
+                    .addComponent(jButton_previous))
                 .addGap(40, 40, 40))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButtonExtend1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonExtend1ActionPerformed
+    private void jButton_extend1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton_extend1ActionPerformed
         try {
             if (user.getPrename().equals("") || user.getSurname().equals("") || user.getStreet().equals("") || user.getZipcode().equals("") || user.getCity().equals("") || user.getIban() == null || user.getBic() == null || user.getIban().equals("") || user.getBic().equals("")) {
                 JOptionPane.showMessageDialog(null, "You have to change your account information and fill in all fields.");
             } else {
                 dispose();
-                Rent rent = new Rent(user, movies.get(0 + count));
+                Rent rent = new Rent(user, books.get(0 + count));
                 rent.setPrevious(1);
                 rent.setVisible(true);
             }
@@ -431,110 +433,109 @@ public class BookLibrary extends javax.swing.JFrame {
         } catch (SQLException ex) {
             Logger.getLogger(BookLibrary.class.getName()).log(Level.SEVERE, null, ex);
         }
-    }//GEN-LAST:event_jButtonExtend1ActionPerformed
+    }//GEN-LAST:event_jButton_extend1ActionPerformed
 
-    private void jButtonExtend2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonExtend2ActionPerformed
+    private void jButton_extend2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton_extend2ActionPerformed
         try {
             if (user.getPrename().equals("") || user.getSurname().equals("") || user.getStreet().equals("") || user.getZipcode().equals("") || user.getCity().equals("") || user.getIban() == null || user.getBic() == null || user.getIban().equals("") || user.getBic().equals("")) {
                 JOptionPane.showMessageDialog(null, "You have to change your account information and fill in all fields.");
             } else {
                 dispose();
-                Rent rent = new Rent(user, movies.get(1 + count));
+                Rent rent = new Rent(user,books.get(1 + count));
                 rent.setPrevious(1);
                 rent.setVisible(true);
             }
         } catch (MalformedURLException ex) {
-        } catch (SQLException ex) {
-        } catch (SQLException ex) {
+        }  catch (SQLException ex) {
             Logger.getLogger(BookLibrary.class.getName()).log(Level.SEVERE, null, ex);
         }
-    }//GEN-LAST:event_jButtonExtend2ActionPerformed
+    }//GEN-LAST:event_jButton_extend2ActionPerformed
 
-    private void jButtonExtend3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonExtend3ActionPerformed
+    private void jButton_extend3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton_extend3ActionPerformed
         try {
             if (user.getPrename().equals("") || user.getSurname().equals("") || user.getStreet().equals("") || user.getZipcode().equals("") || user.getCity().equals("") || user.getIban() == null || user.getBic() == null || user.getIban().equals("") || user.getBic().equals("")) {
                 JOptionPane.showMessageDialog(null, "You have to change your account information and fill in all fields.");
             } else {
                 dispose();
-                Rent rent = new Rent(user, movies.get(2 + count));
+                Rent rent = new Rent(user, books.get(2 + count));
                 rent.setPrevious(1);
                 rent.setVisible(true);
             }
         } catch (MalformedURLException | SQLException ex) {
             Logger.getLogger(BookLibrary.class.getName()).log(Level.SEVERE, null, ex);
-        }    }//GEN-LAST:event_jButtonExtend3ActionPerformed
+        }    }//GEN-LAST:event_jButton_extend3ActionPerformed
 
-    private void jButtonExtend4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonExtend4ActionPerformed
+    private void jButton_extend4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton_extend4ActionPerformed
         try {
             if (user.getPrename().equals("") || user.getSurname().equals("") || user.getStreet().equals("") || user.getZipcode().equals("") || user.getCity().equals("") || user.getIban() == null || user.getBic() == null || user.getIban().equals("") || user.getBic().equals("")) {
                 JOptionPane.showMessageDialog(null, "You have to change your account information and fill in all fields.");
             } else {
                 dispose();
-                Rent rent = new Rent(user, movies.get(3 + count));
-                rent.setPrevious(1);
-                rent.setVisible(true);
-            }
-        } catch (MalformedURLException | SQLException ex) {
-            Logger.getLogger(BookLibrary.class.getName()).log(Level.SEVERE, null, ex);
-        }
-    }//GEN-LAST:event_jButtonExtend4ActionPerformed
-
-    private void jButtonExtend5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonExtend5ActionPerformed
-        try {
-            if (user.getPrename().equals("") || user.getSurname().equals("") || user.getStreet().equals("") || user.getZipcode().equals("") || user.getCity().equals("") || user.getIban() == null || user.getBic() == null || user.getIban().equals("") || user.getBic().equals("")) {
-                JOptionPane.showMessageDialog(null, "You have to change your account information and fill in all fields.");
-            } else {
-                dispose();
-                Rent rent = new Rent(user, movies.get(4 + count));
+                Rent rent = new Rent(user, books.get(3 + count));
                 rent.setPrevious(1);
                 rent.setVisible(true);
             }
         } catch (MalformedURLException | SQLException ex) {
             Logger.getLogger(BookLibrary.class.getName()).log(Level.SEVERE, null, ex);
         }
-    }//GEN-LAST:event_jButtonExtend5ActionPerformed
+    }//GEN-LAST:event_jButton_extend4ActionPerformed
 
-    private void jButtonNextActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonNextActionPerformed
+    private void jButton_extend5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton_extend5ActionPerformed
+        try {
+            if (user.getPrename().equals("") || user.getSurname().equals("") || user.getStreet().equals("") || user.getZipcode().equals("") || user.getCity().equals("") || user.getIban() == null || user.getBic() == null || user.getIban().equals("") || user.getBic().equals("")) {
+                JOptionPane.showMessageDialog(null, "You have to change your account information and fill in all fields.");
+            } else {
+                dispose();
+                Rent rent = new Rent(user, books.get(4 + count));
+                rent.setPrevious(1);
+                rent.setVisible(true);
+            }
+        } catch (MalformedURLException | SQLException ex) {
+            Logger.getLogger(BookLibrary.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_jButton_extend5ActionPerformed
+
+    private void jButton_nextActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton_nextActionPerformed
         count += 5;
         try {
-            listMovies();
+            listBooks();
         } catch (SQLException ex) {
             Logger.getLogger(BookLibrary.class.getName()).log(Level.SEVERE, null, ex);
         }
-    }//GEN-LAST:event_jButtonNextActionPerformed
+    }//GEN-LAST:event_jButton_nextActionPerformed
 
-    private void jButtonPreviousActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonPreviousActionPerformed
+    private void jButton_previousActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton_previousActionPerformed
         count -= 5;
         try {
-            listMovies();
+            listBooks();
         } catch (SQLException ex) {
             Logger.getLogger(BookLibrary.class.getName()).log(Level.SEVERE, null, ex);
         }
-    }//GEN-LAST:event_jButtonPreviousActionPerformed
+    }//GEN-LAST:event_jButton_previousActionPerformed
 
-    private void jButtonWatchMovie1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonWatchMovie1ActionPerformed
+    private void jButton_readBook1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton_readBook1ActionPerformed
         JOptionPane.showMessageDialog(null, "This function is not included in this version.");
-    }//GEN-LAST:event_jButtonWatchMovie1ActionPerformed
+    }//GEN-LAST:event_jButton_readBook1ActionPerformed
 
-    private void jButtonWatchMovie2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonWatchMovie2ActionPerformed
+    private void jButton_readBook2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton_readBook2ActionPerformed
         JOptionPane.showMessageDialog(null, "This function is not included in this version.");
-    }//GEN-LAST:event_jButtonWatchMovie2ActionPerformed
+    }//GEN-LAST:event_jButton_readBook2ActionPerformed
 
-    private void jButtonWatchMovie3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonWatchMovie3ActionPerformed
+    private void jButton_readBook3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton_readBook3ActionPerformed
         JOptionPane.showMessageDialog(null, "This function is not included in this version.");
-    }//GEN-LAST:event_jButtonWatchMovie3ActionPerformed
+    }//GEN-LAST:event_jButton_readBook3ActionPerformed
 
-    private void jButtonWatchMovie4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonWatchMovie4ActionPerformed
+    private void jButton_readBook4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton_readBook4ActionPerformed
         JOptionPane.showMessageDialog(null, "This function is not included in this version.");
-    }//GEN-LAST:event_jButtonWatchMovie4ActionPerformed
+    }//GEN-LAST:event_jButton_readBook4ActionPerformed
 
-    private void jButtonWatchMovie5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonWatchMovie5ActionPerformed
+    private void jButton_readBook5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton_readBook5ActionPerformed
         JOptionPane.showMessageDialog(null, "This function is not included in this version.");
-    }//GEN-LAST:event_jButtonWatchMovie5ActionPerformed
+    }//GEN-LAST:event_jButton_readBook5ActionPerformed
 
-    private void jButtonReturnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonReturnActionPerformed
+    private void jButton_returnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton_returnActionPerformed
         this.dispose();
-    }//GEN-LAST:event_jButtonReturnActionPerformed
+    }//GEN-LAST:event_jButton_returnActionPerformed
 
     /**
      * @param args the command line arguments
@@ -580,32 +581,32 @@ public class BookLibrary extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.ButtonGroup buttonGroup1;
-    private javax.swing.JButton jButtonExtend1;
-    private javax.swing.JButton jButtonExtend2;
-    private javax.swing.JButton jButtonExtend3;
-    private javax.swing.JButton jButtonExtend4;
-    private javax.swing.JButton jButtonExtend5;
-    private javax.swing.JButton jButtonNext;
-    private javax.swing.JButton jButtonPrevious;
-    private javax.swing.JButton jButtonReturn;
-    private javax.swing.JButton jButtonWatchMovie1;
-    private javax.swing.JButton jButtonWatchMovie2;
-    private javax.swing.JButton jButtonWatchMovie3;
-    private javax.swing.JButton jButtonWatchMovie4;
-    private javax.swing.JButton jButtonWatchMovie5;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabelDeadline1;
-    private javax.swing.JLabel jLabelDeadline2;
-    private javax.swing.JLabel jLabelDeadline3;
-    private javax.swing.JLabel jLabelDeadline4;
-    private javax.swing.JLabel jLabelDeadline5;
-    private javax.swing.JLabel jLabelTitle1;
-    private javax.swing.JLabel jLabelTitle2;
-    private javax.swing.JLabel jLabelTitle3;
-    private javax.swing.JLabel jLabelTitle4;
-    private javax.swing.JLabel jLabelTitle5;
+    private javax.swing.JButton jButton_extend1;
+    private javax.swing.JButton jButton_extend2;
+    private javax.swing.JButton jButton_extend3;
+    private javax.swing.JButton jButton_extend4;
+    private javax.swing.JButton jButton_extend5;
+    private javax.swing.JButton jButton_next;
+    private javax.swing.JButton jButton_previous;
+    private javax.swing.JButton jButton_readBook1;
+    private javax.swing.JButton jButton_readBook2;
+    private javax.swing.JButton jButton_readBook3;
+    private javax.swing.JButton jButton_readBook4;
+    private javax.swing.JButton jButton_readBook5;
+    private javax.swing.JButton jButton_return;
+    private javax.swing.JLabel jLabel_deadline1;
+    private javax.swing.JLabel jLabel_deadline2;
+    private javax.swing.JLabel jLabel_deadline3;
+    private javax.swing.JLabel jLabel_deadline4;
+    private javax.swing.JLabel jLabel_deadline5;
     private javax.swing.JLabel jLabel_logo;
+    private javax.swing.JLabel jLabel_personalLibrary;
+    private javax.swing.JLabel jLabel_rentedBooks;
+    private javax.swing.JLabel jLabel_title1;
+    private javax.swing.JLabel jLabel_title2;
+    private javax.swing.JLabel jLabel_title3;
+    private javax.swing.JLabel jLabel_title4;
+    private javax.swing.JLabel jLabel_title5;
     // End of variables declaration//GEN-END:variables
 
 }

@@ -23,35 +23,32 @@
   <Layout>
     <DimensionLayout dim="0">
       <Group type="103" groupAlignment="0" attributes="0">
-          <Group type="102" alignment="0" attributes="0">
-              <Component id="jLabel_logo" min="-2" pref="276" max="-2" attributes="0"/>
-              <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
-          </Group>
           <Group type="102" attributes="0">
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" attributes="0">
                       <EmptySpace min="-2" pref="44" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
+                          <Component id="jLabel_overview" min="-2" max="-2" attributes="0"/>
                           <Group type="102" alignment="0" attributes="0">
                               <Group type="103" groupAlignment="0" attributes="0">
-                                  <Component id="jLabel6" alignment="0" min="-2" pref="181" max="-2" attributes="0"/>
-                                  <Component id="jLabel4" alignment="0" min="-2" max="-2" attributes="0"/>
-                                  <Component id="jLabel5" alignment="0" min="-2" max="-2" attributes="0"/>
+                                  <Component id="jLabel_amountBooksInactiv" alignment="0" min="-2" pref="181" max="-2" attributes="0"/>
+                                  <Component id="jLabel_amountBooksActiv" alignment="0" min="-2" max="-2" attributes="0"/>
+                                  <Component id="jLabel_amountOfUsers" alignment="0" min="-2" max="-2" attributes="0"/>
                               </Group>
                               <EmptySpace type="separate" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="0" attributes="0">
-                                  <Component id="jLabelActive" min="-2" max="-2" attributes="0"/>
-                                  <Component id="jLabelUsers" min="-2" max="-2" attributes="0"/>
-                                  <Component id="jLabelInactive" min="-2" max="-2" attributes="0"/>
+                                  <Component id="jLabel_booksAktiv" min="-2" max="-2" attributes="0"/>
+                                  <Component id="jLabel_ammountOfUser" min="-2" max="-2" attributes="0"/>
+                                  <Component id="jLabel_booksInaktiv" min="-2" max="-2" attributes="0"/>
                               </Group>
                           </Group>
                       </Group>
                   </Group>
                   <Group type="102" alignment="0" attributes="0">
                       <EmptySpace min="-2" pref="25" max="-2" attributes="0"/>
-                      <Component id="jButton1" min="-2" max="-2" attributes="0"/>
+                      <Component id="jButton_return" min="-2" max="-2" attributes="0"/>
                   </Group>
+                  <Component id="jLabel_logo" alignment="0" min="-2" pref="238" max="-2" attributes="0"/>
               </Group>
               <EmptySpace pref="368" max="32767" attributes="0"/>
           </Group>
@@ -60,26 +57,26 @@
     <DimensionLayout dim="1">
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" alignment="0" attributes="0">
-              <Component id="jLabel_logo" min="-2" pref="93" max="-2" attributes="0"/>
-              <EmptySpace min="-2" pref="82" max="-2" attributes="0"/>
-              <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
+              <Component id="jLabel_logo" min="-2" pref="157" max="-2" attributes="0"/>
+              <EmptySpace type="separate" max="-2" attributes="0"/>
+              <Component id="jLabel_overview" min="-2" max="-2" attributes="0"/>
               <EmptySpace min="-2" pref="41" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="jLabel5" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="jLabelUsers" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="jLabel_amountOfUsers" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="jLabel_ammountOfUser" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace min="-2" pref="39" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="jLabel4" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="jLabelActive" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="jLabel_amountBooksActiv" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="jLabel_booksAktiv" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace min="-2" pref="39" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="jLabel6" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="jLabelInactive" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="jLabel_amountBooksInactiv" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="jLabel_booksInaktiv" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace pref="90" max="32767" attributes="0"/>
-              <Component id="jButton1" min="-2" max="-2" attributes="0"/>
+              <Component id="jButton_return" min="-2" max="-2" attributes="0"/>
               <EmptySpace min="-2" pref="18" max="-2" attributes="0"/>
           </Group>
       </Group>
@@ -89,12 +86,12 @@
     <Component class="javax.swing.JLabel" name="jLabel_logo">
       <Properties>
         <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-          <Image iconType="3" name="/movierental/Logo.png"/>
+          <Image iconType="3" name="/Images/logo.png"/>
         </Property>
         <Property name="text" type="java.lang.String" value="jLabel2"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JLabel" name="jLabel1">
+    <Component class="javax.swing.JLabel" name="jLabel_overview">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Calibri" size="24" style="0"/>
@@ -102,40 +99,40 @@
         <Property name="text" type="java.lang.String" value="Overview"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JLabel" name="jLabel4">
+    <Component class="javax.swing.JLabel" name="jLabel_amountBooksActiv">
       <Properties>
         <Property name="text" type="java.lang.String" value="Amount of movies(only active): "/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JLabel" name="jLabel5">
+    <Component class="javax.swing.JLabel" name="jLabel_amountOfUsers">
       <Properties>
         <Property name="text" type="java.lang.String" value="Amount of users: "/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JLabel" name="jLabelActive">
+    <Component class="javax.swing.JLabel" name="jLabel_booksAktiv">
       <Properties>
-        <Property name="text" type="java.lang.String" value="34 Movies"/>
+        <Property name="text" type="java.lang.String" value="34 Books"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JLabel" name="jLabelUsers">
+    <Component class="javax.swing.JLabel" name="jLabel_ammountOfUser">
       <Properties>
-        <Property name="text" type="java.lang.String" value="8 Movies"/>
+        <Property name="text" type="java.lang.String" value="8 Books"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JButton" name="jButton1">
+    <Component class="javax.swing.JButton" name="jButton_return">
       <Properties>
         <Property name="text" type="java.lang.String" value="Return"/>
       </Properties>
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton1ActionPerformed"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton_returnActionPerformed"/>
       </Events>
     </Component>
-    <Component class="javax.swing.JLabel" name="jLabel6">
+    <Component class="javax.swing.JLabel" name="jLabel_amountBooksInactiv">
       <Properties>
         <Property name="text" type="java.lang.String" value="Amount of movies(with inactive): "/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JLabel" name="jLabelInactive">
+    <Component class="javax.swing.JLabel" name="jLabel_booksInaktiv">
       <Properties>
         <Property name="text" type="java.lang.String" value="34 Movies"/>
       </Properties>

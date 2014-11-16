@@ -21,7 +21,7 @@ import javax.swing.JLabel;
 public class Overview extends javax.swing.JFrame {
 
     /**
-     * Creates new form RentedMovies
+     * Creates new form RentedBookovies
      */
     public Overview() throws SQLException {
         initComponents();
@@ -35,19 +35,19 @@ public class Overview extends javax.swing.JFrame {
         Statement stmt = conn.createStatement();
         ResultSet rs = stmt.executeQuery("SELECT count(*) as amount FROM user");
         rs.next();
-        jLabelUsers.setText(rs.getString("amount") + " Users");
+        jLabel_ammountOfUser.setText(rs.getString("amount") + " Users");
         
-        // Amount of active movies
+        // Amount of active books
         Statement stmt2 = conn.createStatement();
-        ResultSet rs2 = stmt2.executeQuery("SELECT count(*) as amount FROM movie where inactive = 0");
+        ResultSet rs2 = stmt2.executeQuery("SELECT count(*) as amount FROM book where inactive = 0");
         rs2.next();
-        jLabelActive.setText(rs2.getString("amount") + " Movies");
+        jLabel_booksAktiv.setText(rs2.getString("amount") + " books");
         
-        // Amount of all movies
+        // Amount of all books
         Statement stmt3 = conn.createStatement();
-        ResultSet rs3 = stmt3.executeQuery("SELECT count(*) as amount FROM movie");
+        ResultSet rs3 = stmt3.executeQuery("SELECT count(*) as amount FROM book");
         rs3.next();
-        jLabelInactive.setText(rs3.getString("amount") + " Movies");
+        jLabel_booksInaktiv.setText(rs3.getString("amount") + " books");
     }
 
     /**
@@ -60,99 +60,97 @@ public class Overview extends javax.swing.JFrame {
     private void initComponents() {
 
         jLabel_logo = new javax.swing.JLabel();
-        jLabel1 = new javax.swing.JLabel();
-        jLabel4 = new javax.swing.JLabel();
-        jLabel5 = new javax.swing.JLabel();
-        jLabelActive = new javax.swing.JLabel();
-        jLabelUsers = new javax.swing.JLabel();
-        jButton1 = new javax.swing.JButton();
-        jLabel6 = new javax.swing.JLabel();
-        jLabelInactive = new javax.swing.JLabel();
+        jLabel_overview = new javax.swing.JLabel();
+        jLabel_amountBooksActiv = new javax.swing.JLabel();
+        jLabel_amountOfUsers = new javax.swing.JLabel();
+        jLabel_booksAktiv = new javax.swing.JLabel();
+        jLabel_ammountOfUser = new javax.swing.JLabel();
+        jButton_return = new javax.swing.JButton();
+        jLabel_amountBooksInactiv = new javax.swing.JLabel();
+        jLabel_booksInaktiv = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jLabel_logo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/movierental/Logo.png"))); // NOI18N
+        jLabel_logo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/logo.png"))); // NOI18N
         jLabel_logo.setText("jLabel2");
 
-        jLabel1.setFont(new java.awt.Font("Calibri", 0, 24)); // NOI18N
-        jLabel1.setText("Overview");
+        jLabel_overview.setFont(new java.awt.Font("Calibri", 0, 24)); // NOI18N
+        jLabel_overview.setText("Overview");
 
-        jLabel4.setText("Amount of movies(only active): ");
+        jLabel_amountBooksActiv.setText("Amount of movies(only active): ");
 
-        jLabel5.setText("Amount of users: ");
+        jLabel_amountOfUsers.setText("Amount of users: ");
 
-        jLabelActive.setText("34 Movies");
+        jLabel_booksAktiv.setText("34 Books");
 
-        jLabelUsers.setText("8 Movies");
+        jLabel_ammountOfUser.setText("8 Books");
 
-        jButton1.setText("Return");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        jButton_return.setText("Return");
+        jButton_return.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                jButton_returnActionPerformed(evt);
             }
         });
 
-        jLabel6.setText("Amount of movies(with inactive): ");
+        jLabel_amountBooksInactiv.setText("Amount of movies(with inactive): ");
 
-        jLabelInactive.setText("34 Movies");
+        jLabel_booksInaktiv.setText("34 Movies");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addComponent(jLabel_logo, javax.swing.GroupLayout.PREFERRED_SIZE, 276, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
-            .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addGap(44, 44, 44)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel1)
+                            .addComponent(jLabel_overview)
                             .addGroup(layout.createSequentialGroup()
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 181, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jLabel4)
-                                    .addComponent(jLabel5))
+                                    .addComponent(jLabel_amountBooksInactiv, javax.swing.GroupLayout.PREFERRED_SIZE, 181, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jLabel_amountBooksActiv)
+                                    .addComponent(jLabel_amountOfUsers))
                                 .addGap(18, 18, 18)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLabelActive)
-                                    .addComponent(jLabelUsers)
-                                    .addComponent(jLabelInactive)))))
+                                    .addComponent(jLabel_booksAktiv)
+                                    .addComponent(jLabel_ammountOfUser)
+                                    .addComponent(jLabel_booksInaktiv)))))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(25, 25, 25)
-                        .addComponent(jButton1)))
+                        .addComponent(jButton_return))
+                    .addComponent(jLabel_logo, javax.swing.GroupLayout.PREFERRED_SIZE, 238, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(368, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addComponent(jLabel_logo, javax.swing.GroupLayout.PREFERRED_SIZE, 93, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(82, 82, 82)
-                .addComponent(jLabel1)
+                .addComponent(jLabel_logo, javax.swing.GroupLayout.PREFERRED_SIZE, 157, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(jLabel_overview)
                 .addGap(41, 41, 41)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel5)
-                    .addComponent(jLabelUsers))
+                    .addComponent(jLabel_amountOfUsers)
+                    .addComponent(jLabel_ammountOfUser))
                 .addGap(39, 39, 39)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel4)
-                    .addComponent(jLabelActive))
+                    .addComponent(jLabel_amountBooksActiv)
+                    .addComponent(jLabel_booksAktiv))
                 .addGap(39, 39, 39)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel6)
-                    .addComponent(jLabelInactive))
+                    .addComponent(jLabel_amountBooksInactiv)
+                    .addComponent(jLabel_booksInaktiv))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 90, Short.MAX_VALUE)
-                .addComponent(jButton1)
+                .addComponent(jButton_return)
                 .addGap(18, 18, 18))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void jButton_returnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton_returnActionPerformed
         dispose();
-    }//GEN-LAST:event_jButton1ActionPerformed
+    }//GEN-LAST:event_jButton_returnActionPerformed
 
     /**
      * @param args the command line arguments
@@ -171,14 +169,14 @@ public class Overview extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel5;
-    private javax.swing.JLabel jLabel6;
-    private javax.swing.JLabel jLabelActive;
-    private javax.swing.JLabel jLabelInactive;
-    private javax.swing.JLabel jLabelUsers;
+    private javax.swing.JButton jButton_return;
+    private javax.swing.JLabel jLabel_ammountOfUser;
+    private javax.swing.JLabel jLabel_amountBooksActiv;
+    private javax.swing.JLabel jLabel_amountBooksInactiv;
+    private javax.swing.JLabel jLabel_amountOfUsers;
+    private javax.swing.JLabel jLabel_booksAktiv;
+    private javax.swing.JLabel jLabel_booksInaktiv;
     private javax.swing.JLabel jLabel_logo;
+    private javax.swing.JLabel jLabel_overview;
     // End of variables declaration//GEN-END:variables
 }

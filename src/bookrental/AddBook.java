@@ -6,7 +6,7 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 
-import static movierental.Movie.addMovie;
+import static bookrental.Book.addBook;
 import org.apache.commons.lang.StringEscapeUtils;
 
 public class AddBook extends javax.swing.JFrame {
@@ -21,17 +21,17 @@ public class AddBook extends javax.swing.JFrame {
     }
     
     public void releaseArea(){
-        jTextTitle.setText("");
-        jComboGenre.setSelectedIndex(0);
-        jComboAgeRating.setSelectedIndex(0);
-        jTextImg.setText("");
-        jTextStreamlink.setText("");
-        jTextAreaDescription.setText("");
-        jTextDuration.setText("");
-        jTextReleaseYear.setText("");
-        jComboPriceCat.setSelectedIndex(0);
-        jComboLanguage.setSelectedIndex(0);
-        jComboLanguage2.setSelectedIndex(0);
+        jTextField_title.setText("");
+        jCombo_genre.setSelectedIndex(0);
+        jCombo_ageRating.setSelectedIndex(0);
+        jTextField_ImgLink.setText("");
+        jTextField_streamlink.setText("");
+        jTextArea_description.setText("");
+        jTextField_duration.setText("");
+        jTextField_releaseYear.setText("");
+        jCombo_priceCat.setSelectedIndex(0);
+        jCombo_language.setSelectedIndex(0);
+        jCombo_language2.setSelectedIndex(0);
     }
     /**
      * This method is called from within the constructor to initialize the form.
@@ -42,101 +42,109 @@ public class AddBook extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jTextImg = new javax.swing.JTextField();
-        jLabel8 = new javax.swing.JLabel();
-        jLabel7 = new javax.swing.JLabel();
-        jLabel6 = new javax.swing.JLabel();
-        jTextStreamlink = new javax.swing.JTextField();
-        jTextReleaseYear = new javax.swing.JTextField();
-        jLabel15 = new javax.swing.JLabel();
-        jLabel1 = new javax.swing.JLabel();
-        jTextDuration = new javax.swing.JTextField();
-        jLabel3 = new javax.swing.JLabel();
-        jLabel4 = new javax.swing.JLabel();
-        jTextTitle = new javax.swing.JTextField();
+        jComboBox1 = new javax.swing.JComboBox();
+        jTextField_ImgLink = new javax.swing.JTextField();
+        jLabel_duration = new javax.swing.JLabel();
+        jLabel_relaseyear = new javax.swing.JLabel();
+        jLabel_agerating = new javax.swing.JLabel();
+        jTextField_streamlink = new javax.swing.JTextField();
+        jTextField_releaseYear = new javax.swing.JTextField();
+        jLabel_description = new javax.swing.JLabel();
+        jLabel_addBook = new javax.swing.JLabel();
+        jTextField_duration = new javax.swing.JTextField();
+        jLabel_genre = new javax.swing.JLabel();
+        jLabel_title = new javax.swing.JLabel();
+        jTextField_title = new javax.swing.JTextField();
         jLabel_logo = new javax.swing.JLabel();
-        jLabel9 = new javax.swing.JLabel();
-        jLabel10 = new javax.swing.JLabel();
-        jLabel11 = new javax.swing.JLabel();
-        jComboGenre = new javax.swing.JComboBox();
-        jComboAgeRating = new javax.swing.JComboBox();
-        jComboPriceCat = new javax.swing.JComboBox();
-        jButtonReturn = new javax.swing.JButton();
-        jButtonAdd = new javax.swing.JButton();
-        jScrollPane1 = new javax.swing.JScrollPane();
-        jTextAreaDescription = new javax.swing.JTextArea();
-        jLabel5 = new javax.swing.JLabel();
-        jComboLanguage = new javax.swing.JComboBox();
-        jComboLanguage2 = new javax.swing.JComboBox();
+        jLabel_ImgLink = new javax.swing.JLabel();
+        jLabel_streamlink = new javax.swing.JLabel();
+        jLabel_price = new javax.swing.JLabel();
+        jCombo_genre = new javax.swing.JComboBox();
+        jCombo_ageRating = new javax.swing.JComboBox();
+        jCombo_priceCat = new javax.swing.JComboBox();
+        jButton_return = new javax.swing.JButton();
+        jButton_add = new javax.swing.JButton();
+        jScrollPane_discription = new javax.swing.JScrollPane();
+        jTextArea_description = new javax.swing.JTextArea();
+        jLabel_lanuage = new javax.swing.JLabel();
+        jCombo_language = new javax.swing.JComboBox();
+        jCombo_language2 = new javax.swing.JComboBox();
+
+        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jLabel8.setText("Duration :");
+        jLabel_duration.setText("Duration :");
 
-        jLabel7.setText("Release Year :");
+        jLabel_relaseyear.setText("Release Year :");
 
-        jLabel6.setText("Age Rating :");
+        jLabel_agerating.setText("Age Rating :");
 
-        jTextStreamlink.setEnabled(false);
+        jTextField_streamlink.setEnabled(false);
 
-        jTextReleaseYear.addActionListener(new java.awt.event.ActionListener() {
+        jTextField_releaseYear.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextReleaseYearActionPerformed(evt);
+                jTextField_releaseYearActionPerformed(evt);
             }
         });
 
-        jLabel15.setText("Description :");
+        jLabel_description.setText("Description :");
 
-        jLabel1.setFont(new java.awt.Font("Calibri", 0, 24)); // NOI18N
-        jLabel1.setText("Add a Movie");
+        jLabel_addBook.setFont(new java.awt.Font("Calibri", 0, 24)); // NOI18N
+        jLabel_addBook.setText("Add a Book");
 
-        jLabel3.setText("Genre :");
+        jLabel_genre.setText("Genre :");
 
-        jLabel4.setText("Title :");
+        jLabel_title.setText("Title :");
 
-        jLabel_logo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/movierental/Logo.png"))); // NOI18N
+        jLabel_logo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/logo.png"))); // NOI18N
         jLabel_logo.setText("jLabel2");
 
-        jLabel9.setText("IMG-Link :");
+        jLabel_ImgLink.setText("IMG-Link :");
 
-        jLabel10.setText("Streamlink :");
+        jLabel_streamlink.setText("Streamlink :");
 
-        jLabel11.setText("Price Cat. :");
+        jLabel_price.setText("Price Cat. :");
 
-        jComboGenre.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Action", "Adventure", "Thriller", "Fantasy", "Animation", "Comedy" }));
-        jComboGenre.addActionListener(new java.awt.event.ActionListener() {
+        jCombo_genre.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Biographies", "Children", "Computer science ", "Cooking", "History", "Novel and Narratives", "School & Education" }));
+        jCombo_genre.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jComboGenreActionPerformed(evt);
+                jCombo_genreActionPerformed(evt);
             }
         });
 
-        jComboAgeRating.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "0", "6", "12", "16", "18" }));
-
-        jComboPriceCat.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "3.99", "2.99", "1.99" }));
-
-        jButtonReturn.setText("Return");
-        jButtonReturn.addActionListener(new java.awt.event.ActionListener() {
+        jCombo_ageRating.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "0", "6", "12", "16", "18" }));
+        jCombo_ageRating.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButtonReturnActionPerformed(evt);
+                jCombo_ageRatingActionPerformed(evt);
             }
         });
 
-        jButtonAdd.setText("Add");
-        jButtonAdd.addActionListener(new java.awt.event.ActionListener() {
+        jCombo_priceCat.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "3.99", "2.99", "1.99" }));
+
+        jButton_return.setText("Return");
+        jButton_return.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButtonAddActionPerformed(evt);
+                jButton_returnActionPerformed(evt);
             }
         });
 
-        jTextAreaDescription.setColumns(20);
-        jTextAreaDescription.setRows(5);
-        jScrollPane1.setViewportView(jTextAreaDescription);
+        jButton_add.setText("Add");
+        jButton_add.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton_addActionPerformed(evt);
+            }
+        });
 
-        jLabel5.setText("Language:");
+        jTextArea_description.setColumns(20);
+        jTextArea_description.setRows(5);
+        jScrollPane_discription.setViewportView(jTextArea_description);
 
-        jComboLanguage.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "First", "English", "German", "Spanish" }));
+        jLabel_lanuage.setText("Language:");
 
-        jComboLanguage2.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Second", "English", "German", "Spanish" }));
+        jCombo_language.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "First", "English", "German", "Spanish" }));
+
+        jCombo_language2.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Second", "English", "German", "Spanish" }));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -146,154 +154,148 @@ public class AddBook extends javax.swing.JFrame {
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(jLabel1)
-                        .addContainerGap(683, Short.MAX_VALUE))
+                        .addComponent(jLabel_addBook)
+                        .addContainerGap(696, Short.MAX_VALUE))
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jButtonReturn)
+                            .addComponent(jButton_return)
                             .addGroup(layout.createSequentialGroup()
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 81, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jLabel3)
-                                    .addComponent(jLabel6))
+                                    .addComponent(jLabel_title, javax.swing.GroupLayout.PREFERRED_SIZE, 81, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jLabel_genre)
+                                    .addComponent(jLabel_agerating))
                                 .addGap(23, 23, 23)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jComboGenre, javax.swing.GroupLayout.PREFERRED_SIZE, 178, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jComboAgeRating, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jTextTitle, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                    .addComponent(jCombo_genre, javax.swing.GroupLayout.PREFERRED_SIZE, 178, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jCombo_ageRating, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jTextField_title, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE)))
                             .addGroup(layout.createSequentialGroup()
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLabel7)
-                                    .addComponent(jLabel8)
-                                    .addComponent(jLabel5))
+                                    .addComponent(jLabel_relaseyear)
+                                    .addComponent(jLabel_duration)
+                                    .addComponent(jLabel_lanuage))
                                 .addGap(18, 18, 18)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jTextDuration, javax.swing.GroupLayout.PREFERRED_SIZE, 67, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jTextReleaseYear, javax.swing.GroupLayout.PREFERRED_SIZE, 67, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jTextField_duration, javax.swing.GroupLayout.PREFERRED_SIZE, 67, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jTextField_releaseYear, javax.swing.GroupLayout.PREFERRED_SIZE, 67, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addGroup(layout.createSequentialGroup()
-                                        .addComponent(jComboLanguage, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(jCombo_language, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(jComboLanguage2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                                        .addComponent(jCombo_language2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))))
                         .addGap(18, 18, 18)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
                                 .addGap(341, 341, 341)
-                                .addComponent(jButtonAdd))
+                                .addComponent(jButton_add))
                             .addGroup(layout.createSequentialGroup()
-                                .addComponent(jLabel11)
+                                .addComponent(jLabel_price)
                                 .addGap(18, 18, 18)
-                                .addComponent(jComboPriceCat, 0, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addComponent(jCombo_priceCat, 0, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(layout.createSequentialGroup()
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLabel10)
-                                    .addComponent(jLabel9))
+                                    .addComponent(jLabel_streamlink)
+                                    .addComponent(jLabel_ImgLink))
                                 .addGap(18, 18, 18)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(jTextImg)
-                                    .addComponent(jTextStreamlink, javax.swing.GroupLayout.PREFERRED_SIZE, 318, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                    .addComponent(jTextField_ImgLink)
+                                    .addComponent(jTextField_streamlink, javax.swing.GroupLayout.PREFERRED_SIZE, 318, javax.swing.GroupLayout.PREFERRED_SIZE)))
                             .addGroup(layout.createSequentialGroup()
-                                .addComponent(jLabel15)
+                                .addComponent(jLabel_description)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 323, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addComponent(jScrollPane_discription, javax.swing.GroupLayout.PREFERRED_SIZE, 323, javax.swing.GroupLayout.PREFERRED_SIZE)))
                         .addGap(0, 0, Short.MAX_VALUE))))
-            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(layout.createSequentialGroup()
-                    .addContainerGap()
-                    .addComponent(jLabel_logo, javax.swing.GroupLayout.PREFERRED_SIZE, 277, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addContainerGap(530, Short.MAX_VALUE)))
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(jLabel_logo, javax.swing.GroupLayout.PREFERRED_SIZE, 238, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(108, Short.MAX_VALUE)
-                .addComponent(jLabel1)
+                .addComponent(jLabel_logo)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jLabel_addBook)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jTextTitle, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel4))
+                            .addComponent(jTextField_title, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel_title))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel3)
-                            .addComponent(jComboGenre, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(jLabel_genre)
+                            .addComponent(jCombo_genre, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel6)
-                            .addComponent(jComboAgeRating, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(jLabel_agerating)
+                            .addComponent(jCombo_ageRating, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel7)
-                            .addComponent(jTextReleaseYear, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(jLabel_relaseyear)
+                            .addComponent(jTextField_releaseYear, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jTextDuration, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(jLabel_duration, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jTextField_duration, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel5)
-                            .addComponent(jComboLanguage, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jComboLanguage2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addComponent(jLabel_lanuage)
+                            .addComponent(jCombo_language, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jCombo_language2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jTextImg, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel9))
+                            .addComponent(jTextField_ImgLink, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel_ImgLink))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel10)
-                            .addComponent(jTextStreamlink, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(jLabel_streamlink)
+                            .addComponent(jTextField_streamlink, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel11, javax.swing.GroupLayout.PREFERRED_SIZE, 16, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jComboPriceCat, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(jLabel_price, javax.swing.GroupLayout.PREFERRED_SIZE, 16, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jCombo_priceCat, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel15)
-                            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 83, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                            .addComponent(jLabel_description)
+                            .addComponent(jScrollPane_discription, javax.swing.GroupLayout.PREFERRED_SIZE, 83, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addGap(40, 40, 40)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(jButtonReturn)
+                        .addComponent(jButton_return)
                         .addContainerGap())
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addComponent(jButtonAdd)
+                        .addComponent(jButton_add)
                         .addGap(14, 14, 14))))
-            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(layout.createSequentialGroup()
-                    .addContainerGap()
-                    .addComponent(jLabel_logo, javax.swing.GroupLayout.PREFERRED_SIZE, 93, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addContainerGap(335, Short.MAX_VALUE)))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jTextReleaseYearActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextReleaseYearActionPerformed
+    private void jTextField_releaseYearActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField_releaseYearActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextReleaseYearActionPerformed
+    }//GEN-LAST:event_jTextField_releaseYearActionPerformed
 
-    private void jComboGenreActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboGenreActionPerformed
+    private void jCombo_genreActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCombo_genreActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jComboGenreActionPerformed
+    }//GEN-LAST:event_jCombo_genreActionPerformed
 
-    private void jButtonReturnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonReturnActionPerformed
+    private void jButton_returnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton_returnActionPerformed
        this.dispose();
-    }//GEN-LAST:event_jButtonReturnActionPerformed
+    }//GEN-LAST:event_jButton_returnActionPerformed
 
-    private void jButtonAddActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonAddActionPerformed
-       title = jTextTitle.getText();
-       genre = (String) jComboGenre.getSelectedItem();
-       agerating = (String) jComboAgeRating.getSelectedItem();
-       duration = jTextDuration.getText();
-       releaseyear = jTextReleaseYear.getText();
-       description = StringEscapeUtils.escapeJavaScript(jTextAreaDescription.getText());
-       price = (String) jComboPriceCat.getSelectedItem();
-       imglink = jTextImg.getText();
-       streamlink = jTextStreamlink.getText();
-       language =  (String) jComboLanguage.getSelectedItem();
-       language2 = (String) jComboLanguage2.getSelectedItem();
+    private void jButton_addActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton_addActionPerformed
+       title = jTextField_title.getText();
+       genre = (String) jCombo_genre.getSelectedItem();
+       agerating = (String) jCombo_ageRating.getSelectedItem();
+       duration = jTextField_duration.getText();
+       releaseyear = jTextField_releaseYear.getText();
+       description = StringEscapeUtils.escapeJavaScript(jTextArea_description.getText());
+       price = (String) jCombo_priceCat.getSelectedItem();
+       imglink = jTextField_ImgLink.getText();
+       streamlink = jTextField_streamlink.getText();
+       language =  (String) jCombo_language.getSelectedItem();
+       language2 = (String) jCombo_language2.getSelectedItem();
        
-       if(evt.getSource() == jButtonAdd){
+       if(evt.getSource() == jButton_add){
           
        if(title.equals("") || genre.equals("") || agerating.equals("") || duration.equals("") || releaseyear.equals("") || description.equals("") || price.equals("") || imglink.equals("") || language.equals("First") )
        {    
@@ -301,14 +303,18 @@ public class AddBook extends javax.swing.JFrame {
            
        }else{
           try {
-               addMovie(title,genre,agerating,description,releaseyear,duration,streamlink,imglink,price,language,language2);
+               addBook(title,genre,agerating,description,releaseyear,duration,streamlink,imglink,price,language,language2);
            } catch (SQLException ex) {
                Logger.getLogger(AddBook.class.getName()).log(Level.SEVERE, null, ex);
            }
           releaseArea();
         }
        }
-    }//GEN-LAST:event_jButtonAddActionPerformed
+    }//GEN-LAST:event_jButton_addActionPerformed
+
+    private void jCombo_ageRatingActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCombo_ageRatingActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jCombo_ageRatingActionPerformed
 
     public static void main(String args[]) {
         try {
@@ -332,31 +338,32 @@ public class AddBook extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButtonAdd;
-    private javax.swing.JButton jButtonReturn;
-    private javax.swing.JComboBox jComboAgeRating;
-    private javax.swing.JComboBox jComboGenre;
-    private javax.swing.JComboBox jComboLanguage;
-    private javax.swing.JComboBox jComboLanguage2;
-    private javax.swing.JComboBox jComboPriceCat;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel10;
-    private javax.swing.JLabel jLabel11;
-    private javax.swing.JLabel jLabel15;
-    private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel5;
-    private javax.swing.JLabel jLabel6;
-    private javax.swing.JLabel jLabel7;
-    private javax.swing.JLabel jLabel8;
-    private javax.swing.JLabel jLabel9;
+    private javax.swing.JButton jButton_add;
+    private javax.swing.JButton jButton_return;
+    private javax.swing.JComboBox jComboBox1;
+    private javax.swing.JComboBox jCombo_ageRating;
+    private javax.swing.JComboBox jCombo_genre;
+    private javax.swing.JComboBox jCombo_language;
+    private javax.swing.JComboBox jCombo_language2;
+    private javax.swing.JComboBox jCombo_priceCat;
+    private javax.swing.JLabel jLabel_ImgLink;
+    private javax.swing.JLabel jLabel_addBook;
+    private javax.swing.JLabel jLabel_agerating;
+    private javax.swing.JLabel jLabel_description;
+    private javax.swing.JLabel jLabel_duration;
+    private javax.swing.JLabel jLabel_genre;
+    private javax.swing.JLabel jLabel_lanuage;
     private javax.swing.JLabel jLabel_logo;
-    private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTextArea jTextAreaDescription;
-    private javax.swing.JTextField jTextDuration;
-    private javax.swing.JTextField jTextImg;
-    private javax.swing.JTextField jTextReleaseYear;
-    private javax.swing.JTextField jTextStreamlink;
-    private javax.swing.JTextField jTextTitle;
+    private javax.swing.JLabel jLabel_price;
+    private javax.swing.JLabel jLabel_relaseyear;
+    private javax.swing.JLabel jLabel_streamlink;
+    private javax.swing.JLabel jLabel_title;
+    private javax.swing.JScrollPane jScrollPane_discription;
+    private javax.swing.JTextArea jTextArea_description;
+    private javax.swing.JTextField jTextField_ImgLink;
+    private javax.swing.JTextField jTextField_duration;
+    private javax.swing.JTextField jTextField_releaseYear;
+    private javax.swing.JTextField jTextField_streamlink;
+    private javax.swing.JTextField jTextField_title;
     // End of variables declaration//GEN-END:variables
 }

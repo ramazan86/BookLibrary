@@ -37,15 +37,15 @@ public class Account extends javax.swing.JFrame {
         user = obj;
         setLocationRelativeTo(getParent());
         setResizable(false);
-        jLabelUsername.setText(user.getUsername());
+        jLabel_userName.setText(user.getUsername());
         jLabelPassword.setText("******");
-        jLabelEmail.setText(user.getEmail());
-        jLabelBirthday.setText(user.getBirthday());
-        jLabelPrename.setText(user.getPrename());
-        jLabelSurname.setText(user.getSurname());
-        jLabelAddress.setText(user.getStreet());
-        jLabelZipcode.setText(user.getZipcode());
-        jLabelCity.setText(user.getCity());
+        jLabel_Email.setText(user.getEmail());
+        jLabel_Birthday.setText(user.getBirthday());
+        jLabel_Prename.setText(user.getPrename());
+        jLabel_Surname.setText(user.getSurname());
+        jLabel_Address.setText(user.getStreet());
+        jLabel_Zipcode.setText(user.getZipcode());
+        jLabel_City.setText(user.getCity());
         if(user.getIban() != null && !(user.getIban().equals(""))){
             iban = user.getIban();
             iban = "******************" + iban.substring(iban.length()-4,iban.length());
@@ -59,8 +59,8 @@ public class Account extends javax.swing.JFrame {
         else{
             bic = "";
         }
-        jLabelIban.setText(iban);
-        jLabelBic.setText(bic);
+        jLabel_Iban.setText(iban);
+        jLabel_Bic.setText(bic);
         
         
        
@@ -72,223 +72,223 @@ public class Account extends javax.swing.JFrame {
     private void initComponents() {
 
         jLabel_logo = new javax.swing.JLabel();
-        jLabel1 = new javax.swing.JLabel();
-        jLabel3 = new javax.swing.JLabel();
-        jLabel4 = new javax.swing.JLabel();
-        jLabel5 = new javax.swing.JLabel();
-        jLabel6 = new javax.swing.JLabel();
-        jLabel7 = new javax.swing.JLabel();
-        jLabel8 = new javax.swing.JLabel();
-        jLabel9 = new javax.swing.JLabel();
-        jLabel10 = new javax.swing.JLabel();
-        jLabel11 = new javax.swing.JLabel();
-        jLabelUsername = new javax.swing.JLabel();
+        jLabel_account = new javax.swing.JLabel();
+        jLabel_username = new javax.swing.JLabel();
+        jLabel_passWord = new javax.swing.JLabel();
+        jLabel_eMail = new javax.swing.JLabel();
+        jLabel_birthday = new javax.swing.JLabel();
+        jLabel_preName = new javax.swing.JLabel();
+        jLabel_surname = new javax.swing.JLabel();
+        jLabel_adress = new javax.swing.JLabel();
+        jLabel_iban = new javax.swing.JLabel();
+        jLabel_bic = new javax.swing.JLabel();
+        jLabel_userName = new javax.swing.JLabel();
         jLabelPassword = new javax.swing.JLabel();
-        jLabelEmail = new javax.swing.JLabel();
-        jLabelBirthday = new javax.swing.JLabel();
-        jLabelPrename = new javax.swing.JLabel();
-        jLabelSurname = new javax.swing.JLabel();
-        jLabelAddress = new javax.swing.JLabel();
-        jLabelIban = new javax.swing.JLabel();
-        jLabelBic = new javax.swing.JLabel();
-        jButtonChange = new javax.swing.JButton();
-        jButtonReturn = new javax.swing.JButton();
-        jLabel21 = new javax.swing.JLabel();
-        jLabelCity = new javax.swing.JLabel();
-        jLabel23 = new javax.swing.JLabel();
-        jLabelZipcode = new javax.swing.JLabel();
+        jLabel_Email = new javax.swing.JLabel();
+        jLabel_Birthday = new javax.swing.JLabel();
+        jLabel_Prename = new javax.swing.JLabel();
+        jLabel_Surname = new javax.swing.JLabel();
+        jLabel_Address = new javax.swing.JLabel();
+        jLabel_Iban = new javax.swing.JLabel();
+        jLabel_Bic = new javax.swing.JLabel();
+        jButton_change = new javax.swing.JButton();
+        jButton_return = new javax.swing.JButton();
+        jLabel_city = new javax.swing.JLabel();
+        jLabel_City = new javax.swing.JLabel();
+        jLabel_zipCode = new javax.swing.JLabel();
+        jLabel_Zipcode = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jLabel_logo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/movierental/Logo.png"))); // NOI18N
+        jLabel_logo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/logo.png"))); // NOI18N
         jLabel_logo.setText("jLabel2");
 
-        jLabel1.setFont(new java.awt.Font("Calibri", 0, 24)); // NOI18N
-        jLabel1.setText("Account");
+        jLabel_account.setFont(new java.awt.Font("Calibri", 0, 24)); // NOI18N
+        jLabel_account.setText("Account");
 
-        jLabel3.setText("Username:");
+        jLabel_username.setText("Username:");
 
-        jLabel4.setText("Password:");
+        jLabel_passWord.setText("Password:");
 
-        jLabel5.setText("Email:");
+        jLabel_eMail.setText("Email:");
 
-        jLabel6.setText("Birthday:");
+        jLabel_birthday.setText("Birthday:");
 
-        jLabel7.setText("Prename:");
+        jLabel_preName.setText("Prename:");
 
-        jLabel8.setText("Surname:");
+        jLabel_surname.setText("Surname:");
 
-        jLabel9.setText("Address:");
+        jLabel_adress.setText("Address:");
 
-        jLabel10.setText("IBAN:");
+        jLabel_iban.setText("IBAN:");
 
-        jLabel11.setText("BIC:");
+        jLabel_bic.setText("BIC:");
 
-        jLabelUsername.setText("Halloo123");
+        jLabel_userName.setText("Halloo123");
 
         jLabelPassword.setText("******");
 
-        jLabelEmail.setText("Hallo@gmail.de");
+        jLabel_Email.setText("Hallo@gmail.de");
 
-        jLabelBirthday.setText("12.05.1983");
+        jLabel_Birthday.setText("12.05.1983");
 
-        jLabelPrename.setText("Max");
+        jLabel_Prename.setText("Max");
 
-        jLabelSurname.setText("Musterman");
+        jLabel_Surname.setText("Musterman");
 
-        jLabelAddress.setText("hallostr.19");
+        jLabel_Address.setText("hallostr.19");
 
-        jLabelIban.setText("DE23100000001234567890");
+        jLabel_Iban.setText("DE23100000001234567890");
 
-        jLabelBic.setText("DEUTDEDB110");
+        jLabel_Bic.setText("DEUTDEDB110");
 
-        jButtonChange.setText("Change");
-        jButtonChange.addActionListener(new java.awt.event.ActionListener() {
+        jButton_change.setText("Change");
+        jButton_change.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButtonChangeActionPerformed(evt);
+                jButton_changeActionPerformed(evt);
             }
         });
 
-        jButtonReturn.setText("Return");
-        jButtonReturn.addActionListener(new java.awt.event.ActionListener() {
+        jButton_return.setText("Return");
+        jButton_return.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButtonReturnActionPerformed(evt);
+                jButton_returnActionPerformed(evt);
             }
         });
 
-        jLabel21.setText("City:");
+        jLabel_city.setText("City:");
 
-        jLabelCity.setText("Frankfurt");
+        jLabel_City.setText("Frankfurt");
 
-        jLabel23.setText("Zipcode:");
+        jLabel_zipCode.setText("Zipcode:");
 
-        jLabelZipcode.setText("60487");
+        jLabel_Zipcode.setText("60487");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addComponent(jLabel_logo, javax.swing.GroupLayout.PREFERRED_SIZE, 277, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
-            .addGroup(layout.createSequentialGroup()
                 .addGap(30, 30, 30)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(jLabel1)
+                        .addComponent(jLabel_account)
                         .addGap(94, 491, Short.MAX_VALUE))
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(jButtonReturn)
+                        .addComponent(jButton_return)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jButtonChange)
+                        .addComponent(jButton_change)
                         .addGap(29, 29, 29))
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel3)
-                            .addComponent(jLabel4)
-                            .addComponent(jLabel5)
-                            .addComponent(jLabel6))
+                            .addComponent(jLabel_username)
+                            .addComponent(jLabel_passWord)
+                            .addComponent(jLabel_eMail)
+                            .addComponent(jLabel_birthday))
                         .addGap(29, 29, 29)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabelBirthday)
-                            .addComponent(jLabelEmail)
+                            .addComponent(jLabel_Birthday)
+                            .addComponent(jLabel_Email)
                             .addComponent(jLabelPassword)
-                            .addComponent(jLabelUsername))
+                            .addComponent(jLabel_userName))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
-                                .addComponent(jLabel7)
+                                .addComponent(jLabel_preName)
                                 .addGap(18, 18, 18)
-                                .addComponent(jLabelPrename))
+                                .addComponent(jLabel_Prename))
                             .addGroup(layout.createSequentialGroup()
-                                .addComponent(jLabel8)
+                                .addComponent(jLabel_surname)
                                 .addGap(18, 18, 18)
-                                .addComponent(jLabelSurname))
+                                .addComponent(jLabel_Surname))
                             .addGroup(layout.createSequentialGroup()
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLabel9)
-                                    .addComponent(jLabel23)
-                                    .addComponent(jLabel21)
-                                    .addComponent(jLabel10)
-                                    .addComponent(jLabel11))
+                                    .addComponent(jLabel_adress)
+                                    .addComponent(jLabel_zipCode)
+                                    .addComponent(jLabel_city)
+                                    .addComponent(jLabel_iban)
+                                    .addComponent(jLabel_bic))
                                 .addGap(21, 21, 21)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addGroup(layout.createSequentialGroup()
                                         .addGap(2, 2, 2)
-                                        .addComponent(jLabelAddress))
-                                    .addComponent(jLabelCity)
-                                    .addComponent(jLabelZipcode)
-                                    .addComponent(jLabelBic)
-                                    .addComponent(jLabelIban))))
+                                        .addComponent(jLabel_Address))
+                                    .addComponent(jLabel_City)
+                                    .addComponent(jLabel_Zipcode)
+                                    .addComponent(jLabel_Bic)
+                                    .addComponent(jLabel_Iban))))
                         .addGap(76, 76, 76))))
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(jLabel_logo, javax.swing.GroupLayout.PREFERRED_SIZE, 237, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addComponent(jLabel_logo, javax.swing.GroupLayout.PREFERRED_SIZE, 93, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(42, 42, 42)
-                .addComponent(jLabel1)
+                .addComponent(jLabel_logo, javax.swing.GroupLayout.PREFERRED_SIZE, 124, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jLabel_account)
                 .addGap(41, 41, 41)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel3)
-                            .addComponent(jLabelUsername))
+                            .addComponent(jLabel_username)
+                            .addComponent(jLabel_userName))
                         .addGap(18, 18, 18)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel4)
+                            .addComponent(jLabel_passWord)
                             .addComponent(jLabelPassword))
                         .addGap(18, 18, 18)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel5)
-                            .addComponent(jLabelEmail))
+                            .addComponent(jLabel_eMail)
+                            .addComponent(jLabel_Email))
                         .addGap(14, 14, 14)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel6)
-                            .addComponent(jLabelBirthday))
+                            .addComponent(jLabel_birthday)
+                            .addComponent(jLabel_Birthday))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 138, Short.MAX_VALUE)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jButtonReturn)
-                            .addComponent(jButtonChange))
+                            .addComponent(jButton_return)
+                            .addComponent(jButton_change))
                         .addGap(31, 31, 31))
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel7)
-                            .addComponent(jLabelPrename))
+                            .addComponent(jLabel_preName)
+                            .addComponent(jLabel_Prename))
                         .addGap(18, 18, 18)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel8)
-                            .addComponent(jLabelSurname))
+                            .addComponent(jLabel_surname)
+                            .addComponent(jLabel_Surname))
                         .addGap(18, 18, 18)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
-                                .addComponent(jLabel9)
+                                .addComponent(jLabel_adress)
                                 .addGap(14, 14, 14)
-                                .addComponent(jLabel23)
+                                .addComponent(jLabel_zipCode)
                                 .addGap(18, 18, 18)
-                                .addComponent(jLabel21)
+                                .addComponent(jLabel_city)
                                 .addGap(18, 18, 18)
-                                .addComponent(jLabel10)
+                                .addComponent(jLabel_iban)
                                 .addGap(18, 18, 18)
-                                .addComponent(jLabel11))
+                                .addComponent(jLabel_bic))
                             .addGroup(layout.createSequentialGroup()
-                                .addComponent(jLabelAddress)
+                                .addComponent(jLabel_Address)
                                 .addGap(14, 14, 14)
-                                .addComponent(jLabelZipcode)
+                                .addComponent(jLabel_Zipcode)
                                 .addGap(18, 18, 18)
-                                .addComponent(jLabelCity)
+                                .addComponent(jLabel_City)
                                 .addGap(18, 18, 18)
-                                .addComponent(jLabelIban)
+                                .addComponent(jLabel_Iban)
                                 .addGap(18, 18, 18)
-                                .addComponent(jLabelBic)))
+                                .addComponent(jLabel_Bic)))
                         .addContainerGap(96, Short.MAX_VALUE))))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButtonChangeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonChangeActionPerformed
-        if(evt.getSource() == jButtonChange){
+    private void jButton_changeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton_changeActionPerformed
+        if(evt.getSource() == jButton_change){
             JPanel panel = new JPanel();
             JLabel label = new JLabel("Enter your password:");
             JPasswordField pass = new JPasswordField(20);
@@ -314,11 +314,11 @@ public class Account extends javax.swing.JFrame {
                 }
             }
         }    
-    }//GEN-LAST:event_jButtonChangeActionPerformed
+    }//GEN-LAST:event_jButton_changeActionPerformed
 
-    private void jButtonReturnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonReturnActionPerformed
+    private void jButton_returnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton_returnActionPerformed
         setVisible(false);
-    }//GEN-LAST:event_jButtonReturnActionPerformed
+    }//GEN-LAST:event_jButton_returnActionPerformed
 
     /**
      * @param args the command line arguments
@@ -355,31 +355,31 @@ public class Account extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButtonChange;
-    private javax.swing.JButton jButtonReturn;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel10;
-    private javax.swing.JLabel jLabel11;
-    private javax.swing.JLabel jLabel21;
-    private javax.swing.JLabel jLabel23;
-    private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel5;
-    private javax.swing.JLabel jLabel6;
-    private javax.swing.JLabel jLabel7;
-    private javax.swing.JLabel jLabel8;
-    private javax.swing.JLabel jLabel9;
-    private javax.swing.JLabel jLabelAddress;
-    private javax.swing.JLabel jLabelBic;
-    private javax.swing.JLabel jLabelBirthday;
-    private javax.swing.JLabel jLabelCity;
-    private javax.swing.JLabel jLabelEmail;
-    private javax.swing.JLabel jLabelIban;
+    private javax.swing.JButton jButton_change;
+    private javax.swing.JButton jButton_return;
     private javax.swing.JLabel jLabelPassword;
-    private javax.swing.JLabel jLabelPrename;
-    private javax.swing.JLabel jLabelSurname;
-    private javax.swing.JLabel jLabelUsername;
-    private javax.swing.JLabel jLabelZipcode;
+    private javax.swing.JLabel jLabel_Address;
+    private javax.swing.JLabel jLabel_Bic;
+    private javax.swing.JLabel jLabel_Birthday;
+    private javax.swing.JLabel jLabel_City;
+    private javax.swing.JLabel jLabel_Email;
+    private javax.swing.JLabel jLabel_Iban;
+    private javax.swing.JLabel jLabel_Prename;
+    private javax.swing.JLabel jLabel_Surname;
+    private javax.swing.JLabel jLabel_Zipcode;
+    private javax.swing.JLabel jLabel_account;
+    private javax.swing.JLabel jLabel_adress;
+    private javax.swing.JLabel jLabel_bic;
+    private javax.swing.JLabel jLabel_birthday;
+    private javax.swing.JLabel jLabel_city;
+    private javax.swing.JLabel jLabel_eMail;
+    private javax.swing.JLabel jLabel_iban;
     private javax.swing.JLabel jLabel_logo;
+    private javax.swing.JLabel jLabel_passWord;
+    private javax.swing.JLabel jLabel_preName;
+    private javax.swing.JLabel jLabel_surname;
+    private javax.swing.JLabel jLabel_userName;
+    private javax.swing.JLabel jLabel_username;
+    private javax.swing.JLabel jLabel_zipCode;
     // End of variables declaration//GEN-END:variables
 }
