@@ -9,18 +9,30 @@ import javax.swing.JOptionPane;
 import static bookrental.Book.addBook;
 import org.apache.commons.lang.StringEscapeUtils;
 
+
+/**
+ * @author Ali Hannoun & Ramazan Cinardere
+ */
+
 public class AddBook extends javax.swing.JFrame {
+    
+    /*Class - Attributes*/
+    
     String title,genre,agerating,imglink,streamlink,description,duration,releaseyear,price,language,language2;
     
     
+    /*Class - Methods*/
+    
     public AddBook() {
         initComponents();
+        
         setLocationRelativeTo(null);
         setResizable(false);
 
     }
     
     public void releaseArea(){
+        
         jTextField_title.setText("");
         jCombo_genre.setSelectedIndex(0);
         jCombo_ageRating.setSelectedIndex(0);
@@ -55,7 +67,6 @@ public class AddBook extends javax.swing.JFrame {
         jLabel_genre = new javax.swing.JLabel();
         jLabel_title = new javax.swing.JLabel();
         jTextField_title = new javax.swing.JTextField();
-        jLabel_logo = new javax.swing.JLabel();
         jLabel_ImgLink = new javax.swing.JLabel();
         jLabel_streamlink = new javax.swing.JLabel();
         jLabel_price = new javax.swing.JLabel();
@@ -97,9 +108,6 @@ public class AddBook extends javax.swing.JFrame {
 
         jLabel_title.setText("Title :");
 
-        jLabel_logo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/logo.png"))); // NOI18N
-        jLabel_logo.setText("jLabel2");
-
         jLabel_ImgLink.setText("IMG-Link :");
 
         jLabel_streamlink.setText("Streamlink :");
@@ -121,6 +129,11 @@ public class AddBook extends javax.swing.JFrame {
         });
 
         jCombo_priceCat.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "3.99", "2.99", "1.99" }));
+        jCombo_priceCat.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jCombo_priceCatActionPerformed(evt);
+            }
+        });
 
         jButton_return.setText("Return");
         jButton_return.addActionListener(new java.awt.event.ActionListener() {
@@ -204,15 +217,11 @@ public class AddBook extends javax.swing.JFrame {
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                 .addComponent(jScrollPane_discription, javax.swing.GroupLayout.PREFERRED_SIZE, 323, javax.swing.GroupLayout.PREFERRED_SIZE)))
                         .addGap(0, 0, Short.MAX_VALUE))))
-            .addGroup(layout.createSequentialGroup()
-                .addComponent(jLabel_logo, javax.swing.GroupLayout.PREFERRED_SIZE, 238, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addComponent(jLabel_logo)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap(132, Short.MAX_VALUE)
                 .addComponent(jLabel_addBook)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -316,6 +325,10 @@ public class AddBook extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jCombo_ageRatingActionPerformed
 
+    private void jCombo_priceCatActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCombo_priceCatActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jCombo_priceCatActionPerformed
+
     public static void main(String args[]) {
         try {
             for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
@@ -335,6 +348,8 @@ public class AddBook extends javax.swing.JFrame {
                 
             }
         });
+        
+        
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -353,7 +368,6 @@ public class AddBook extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel_duration;
     private javax.swing.JLabel jLabel_genre;
     private javax.swing.JLabel jLabel_lanuage;
-    private javax.swing.JLabel jLabel_logo;
     private javax.swing.JLabel jLabel_price;
     private javax.swing.JLabel jLabel_relaseyear;
     private javax.swing.JLabel jLabel_streamlink;

@@ -3,7 +3,6 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-
 package bookrental;
 
 import java.sql.Connection;
@@ -16,36 +15,33 @@ import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 import org.apache.commons.lang.StringEscapeUtils;
 
-
-
 /**
  *
  * @author stefano
  */
 public class ChangeBook extends javax.swing.JFrame {
-     
+
     /*
      ChangeBook Variablen 
      */
-     
-    String bookid,title,genre,imglink,streamlink,description,duration,releaseyear,price,suchetext,agerating,pricecat,answer,language,language2;
-    int age,combogenre,comboagerating,combopricecat,combolanguage,combolanguage2;
-    
+    String bookid, title, genre, imglink, streamlink, description, duration, releaseyear, price, suchetext, agerating, pricecat, answer, language, language2;
+    int age, combogenre, comboagerating, combopricecat, combolanguage, combolanguage2;
+
     Verbindung db;
     Connection conn;
-    Statement stmt,stmt2,stmt3,stmt4,stmtDelete;
-    ResultSet rs,rs2,rs3,rsDelete;
-    
-      
+    Statement stmt, stmt2, stmt3, stmt4, stmtDelete;
+    ResultSet rs, rs2, rs3, rsDelete;
+
     /*
-    Konstruktor von ChangeBook
-    */ 
+     Konstruktor von ChangeBook
+     */
     public ChangeBook() {
         initComponents();
         setLocationRelativeTo(null);
         setResizable(false);
     }//ende Konstruktor
-    public void releaseArea(){
+
+    public void releaseArea() {
         jTextField_serch.setText("");
         jTextField_title.setText("");
         jCombo_genre.setSelectedIndex(0);
@@ -56,63 +52,68 @@ public class ChangeBook extends javax.swing.JFrame {
         jTextField_imgLink.setText("");
         jCombo_priceCategory.setSelectedIndex(0);
         jCombo_ageRating.setSelectedIndex(0);
-        jLabelBookid.setText("");
-        jLabelBookid.setVisible(false);
-        jCombo_language1.setSelectedIndex(0); 
+        //jLabelBookid.setText("");
+        //jLabelBookid.setVisible(false);
+        jCombo_language1.setSelectedIndex(0);
         jCombo_language2.setSelectedIndex(0);
+        
+        jLabelMovieid.setSize(300,500);
+        jLabelMovieid.setText("Ich bin hier");
     }
     /*
-    comboGenre ist eine Methode um das ausgewählte genre Objekt aus der Datenbank anzuzeigen
-    */
-    public static int comboGenre(String combo){
-         switch (combo) {
-             case "Action":
-                 return 0;
-             case "Adventure":
-                 return 1;
-             case "Thriller":
-                 return 2;
-             case "Fantasy":
-                 return 3;
-             case "Animation":
-                 return 4;
-             default:
-                 return 5;
-         }// ende switch
-    
+     comboGenre ist eine Methode um das ausgewählte genre Objekt aus der Datenbank anzuzeigen
+     */
+
+    public static int comboGenre(String combo) {
+        switch (combo) {
+            case "Action":
+                return 0;
+            case "Adventure":
+                return 1;
+            case "Thriller":
+                return 2;
+            case "Fantasy":
+                return 3;
+            case "Animation":
+                return 4;
+            default:
+                return 5;
+        }// ende switch
+
     }//ende methode comboGenre
-    
+
     /*
-    comboAgerating ist eine Methode um das ausgewählte agerating Objekt aus der Datenbank anzuzeigen
-    */
-    public static int comboAgerating(int combo){
-        if(combo == 0){
-       return 0;
-       }else if(combo == 6){
-       return 1;
-       }else if(combo == 12){
-       return 2;
-       }else if(combo == 16){
-       return 3;
-       }else {
-       return 4;
-       }// ende if bedingung
-    }// ende methode comboAgerating
-    
-    /*
-    comboPricecat ist eine Methode um das ausgewählte Pricecat Objekt aus der Datenbank anzuzeigen
-    */
-    public static int comboPricecat(String combo){
-       if(combo.equals("3.99")){
+     comboAgerating ist eine Methode um das ausgewählte agerating Objekt aus der Datenbank anzuzeigen
+     */
+    public static int comboAgerating(int combo) {
+        if (combo == 0) {
             return 0;
-       }else if(combo.equals("2.99")){
+        } else if (combo == 6) {
             return 1;
-       }else{ 
+        } else if (combo == 12) {
             return 2;
-       }// ende if bedingung
+        } else if (combo == 16) {
+            return 3;
+        } else {
+            return 4;
+        }// ende if bedingung
+    }// ende methode comboAgerating
+
+    /*
+     comboPricecat ist eine Methode um das ausgewählte Pricecat Objekt aus der Datenbank anzuzeigen
+     */
+    public static int comboPricecat(String combo) {
+        if (combo.equals("3.99")) {
+            return 0;
+        } else if (combo.equals("2.99")) {
+            return 1;
+        } else {
+            return 2;
+        }// ende if bedingung
     }// ende der methode comboPricecat
-    public static int comboLanguage(String lang){
-        switch(lang){
+
+    public static int comboLanguage(String lang) {
+        switch (lang) {
             case "English":
                 return 1;
             case "German":
@@ -123,9 +124,10 @@ public class ChangeBook extends javax.swing.JFrame {
                 return 0;
         }
     }
+
     /**
      * This method is called from within the constructor to initialize the form.
-     
+     *
      */
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
@@ -143,7 +145,6 @@ public class ChangeBook extends javax.swing.JFrame {
         jLabel_genre = new javax.swing.JLabel();
         jLabel_title = new javax.swing.JLabel();
         jTextField_title = new javax.swing.JTextField();
-        jLabel_logo = new javax.swing.JLabel();
         jLabel_img = new javax.swing.JLabel();
         jLabel_streamLink = new javax.swing.JLabel();
         jLabel_priceCat = new javax.swing.JLabel();
@@ -204,9 +205,6 @@ public class ChangeBook extends javax.swing.JFrame {
                 jTextField_titleActionPerformed(evt);
             }
         });
-
-        jLabel_logo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/logonnew.png"))); // NOI18N
-        jLabel_logo.setText("jLabel2");
 
         jLabel_img.setText("IMG-Link :");
 
@@ -307,8 +305,7 @@ public class ChangeBook extends javax.swing.JFrame {
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(jCombo_genre, javax.swing.GroupLayout.PREFERRED_SIZE, 178, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(jCombo_ageRating, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jTextField_title, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                            .addComponent(jLabel_logo, javax.swing.GroupLayout.PREFERRED_SIZE, 208, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addComponent(jTextField_title, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE))))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
@@ -344,15 +341,12 @@ public class ChangeBook extends javax.swing.JFrame {
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(45, 45, 45)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jTextField_serch, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel_search)
-                            .addComponent(jButton_search, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addComponent(jLabel_logo, javax.swing.GroupLayout.PREFERRED_SIZE, 118, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGap(45, 45, 45)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jTextField_serch, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel_search)
+                    .addComponent(jButton_search, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 51, Short.MAX_VALUE)
                 .addComponent(jLabel_changeBook)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -395,7 +389,7 @@ public class ChangeBook extends javax.swing.JFrame {
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel_priceCat, javax.swing.GroupLayout.PREFERRED_SIZE, 16, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jCombo_priceCategory, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGap(18, 18, 18)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel_description)
                             .addComponent(jScrollPane_discription, javax.swing.GroupLayout.PREFERRED_SIZE, 83, javax.swing.GroupLayout.PREFERRED_SIZE))))
@@ -424,7 +418,7 @@ public class ChangeBook extends javax.swing.JFrame {
 
     private void jButton_returnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton_returnActionPerformed
         this.dispose();
-        
+
     }//GEN-LAST:event_jButton_returnActionPerformed
 
     private void jTextField_titleActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField_titleActionPerformed
@@ -439,64 +433,63 @@ public class ChangeBook extends javax.swing.JFrame {
     }//GEN-LAST:event_jTextStreamlinkActionPerformed
 
     private void jButton_changeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton_changeActionPerformed
-       
-       if(evt.getSource() == jButton_change){
-       
-       title = jTextField_title.getText();
-       genre = (String) jCombo_genre.getSelectedItem();
-       agerating = (String) jCombo_ageRating.getSelectedItem();
-       duration = jText_duration.getText();
-       releaseyear = jText_releaseYear.getText();
-       description = StringEscapeUtils.escapeJavaScript(jText_description.getText());
-       pricecat = (String) jCombo_priceCategory.getSelectedItem();
-       imglink = jTextField_imgLink.getText();
-       streamlink = jTextStreamlink.getText();
-       bookid = jLabelBookid.getText();
-       language = (String)jCombo_language1.getSelectedItem();
-       language2 = (String)jCombo_language2.getSelectedItem();
-          
-       db = new Verbindung();
-       db.start();
-       conn = db.getVerbindung();
-       if(suchetext != null){
-       
-           try {
-               stmt2 = conn.createStatement();
-               stmt2.executeUpdate("UPDATE book SET title='"+ title + "', genre='"+ genre +"', ageRating='"+ agerating +"', description='"+ description 
-                                   + "', releaseYear='"+ releaseyear +"', duration='"+ duration + "', streamlink='"+ streamlink + "', Picture='"+ imglink + "', price='"+ pricecat + "' WHERE mid = '"+ bookid + "'");
-               JOptionPane.showMessageDialog(null, "Change was succesfull.");
-               this.dispose();
-               
-           } catch (SQLException ex) {
-               Logger.getLogger(ChangeBook.class.getName()).log(Level.SEVERE, null, ex);
-               
-           }
-       }else{
-           JOptionPane.showMessageDialog(null, "You must search a book before you can change one. ");
-       }
-       }   
-    }//GEN-LAST:event_jButton_changeActionPerformed
 
-    private void jButton_searchActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton_searchActionPerformed
-        
-        suchetext = jTextField_serch.getText();
-    
+        if (evt.getSource() == jButton_change) {
+
+            title = jTextField_title.getText();
+            genre = (String) jCombo_genre.getSelectedItem();
+            agerating = (String) jCombo_ageRating.getSelectedItem();
+            duration = jText_duration.getText();
+            releaseyear = jText_releaseYear.getText();
+            description = StringEscapeUtils.escapeJavaScript(jText_description.getText());
+            pricecat = (String) jCombo_priceCategory.getSelectedItem();
+            imglink = jTextField_imgLink.getText();
+            streamlink = jTextStreamlink.getText();
+//            bookid = jLabelBookid.getText();
+            language = (String) jCombo_language1.getSelectedItem();
+            language2 = (String) jCombo_language2.getSelectedItem();
+
             db = new Verbindung();
             db.start();
             conn = db.getVerbindung();
-        if(evt.getSource() == jButton_search){
-            
-                ArrayList<String> liste = new ArrayList();
-               
+            if (suchetext != null) {
+
+                try {
+                    stmt2 = conn.createStatement();
+                    stmt2.executeUpdate("UPDATE book SET title='" + title + "', genre='" + genre + "', ageRating='" + agerating + "', description='" + description
+                            + "', releaseYear='" + releaseyear + "', duration='" + duration + "', streamlink='" + streamlink + "', Picture='" + imglink + "', price='" + pricecat + "' WHERE mid = '" + bookid + "'");
+                    JOptionPane.showMessageDialog(null, "Change was succesfull.");
+                    this.dispose();
+
+                } catch (SQLException ex) {
+                    Logger.getLogger(ChangeBook.class.getName()).log(Level.SEVERE, null, ex);
+
+                }
+            } else {
+                JOptionPane.showMessageDialog(null, "You must search a book before you can change one. ");
+            }
+        }
+    }//GEN-LAST:event_jButton_changeActionPerformed
+
+    private void jButton_searchActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton_searchActionPerformed
+
+        suchetext = jTextField_serch.getText();
+
+        db = new Verbindung();
+        db.start();
+        conn = db.getVerbindung();
+        if (evt.getSource() == jButton_search) {
+
+            ArrayList<String> liste = new ArrayList();
+
             try {
                 stmt = conn.createStatement();
-                rs = stmt.executeQuery("SELECT * FROM book WHERE title LIKE '%"+ suchetext +"%' ");
-                
+                rs = stmt.executeQuery("SELECT * FROM book WHERE title LIKE '%" + suchetext + "%' ");
+
                 rs.last();
-               
-                if(rs.getRow() <= 1){
-                
-                    
+
+                if (rs.getRow() <= 1) {
+
                     bookid = rs.getString("mid");
                     title = rs.getString("title");
                     genre = rs.getString("genre");
@@ -507,24 +500,23 @@ public class ChangeBook extends javax.swing.JFrame {
                     streamlink = rs.getString("streamlink");
                     imglink = rs.getString("picture");
                     price = rs.getString("price");
-                    
+
                     stmt4 = conn.createStatement();
-                    rs3 = stmt4.executeQuery("SELECT Language FROM haslang WHERE Mid = '"+ bookid+"' ");
-                    
+                    rs3 = stmt4.executeQuery("SELECT Language FROM haslang WHERE Mid = '" + bookid + "' ");
+
                     rs3.first();
                     language = rs3.getString("Language");
-                    if(rs3.next()){
-                    language2 = rs3.getString("Language");
-                    combolanguage2 = comboLanguage(language2);
-                    jCombo_language2.setSelectedIndex(combolanguage2);
+                    if (rs3.next()) {
+                        language2 = rs3.getString("Language");
+                        combolanguage2 = comboLanguage(language2);
+                        jCombo_language2.setSelectedIndex(combolanguage2);
                     }
-                    
+
                     combogenre = comboGenre(genre);
                     comboagerating = comboAgerating(age);
                     combopricecat = comboPricecat(price);
                     combolanguage = comboLanguage(language);
-                    
-                    
+
                     jTextField_title.setText(title);
                     jCombo_genre.setSelectedIndex(combogenre);
                     jText_description.setText(description);
@@ -534,73 +526,71 @@ public class ChangeBook extends javax.swing.JFrame {
                     jTextField_imgLink.setText(imglink);
                     jCombo_priceCategory.setSelectedIndex(combopricecat);
                     jCombo_ageRating.setSelectedIndex(comboagerating);
-                    jLabelBookid.setText(bookid);
-                    jLabelBookid.setVisible(false);
+ //                   jLabelBookid.setText(bookid);
+ //                   jLabelBookid.setVisible(false);
                     jCombo_language1.setSelectedIndex(combolanguage);
-                   
-                    
-                    
-               }else{
+
+                } else {
                     rs.beforeFirst();
-                    while(rs.next()){
+                    while (rs.next()) {
                         liste.add(rs.getString("title"));
-                         }
-                    switch (liste.size()){
-                    case 2:
-                        Object Res = JOptionPane.showInputDialog(null,
-                        "Choose One?", "More than 1 hit",
-                        JOptionPane.QUESTION_MESSAGE, null, new String[] { liste.get(0), liste.get(1) },
-                        liste.get(0));
-                        if(!(Res == null)){
-                        answer = Res.toString();
-                        }else{
-                            JOptionPane.showMessageDialog(null, "Search operation aborted");
-                        }
-                        break;
-                    case 3:
-                        Object Resp = JOptionPane.showInputDialog(null,
-                        "Choose One?", "More than 1 hit",
-                        JOptionPane.QUESTION_MESSAGE, null, new String[] { liste.get(0), liste.get(1),liste.get(2) },
-                        liste.get(0));
-                        if(!(Resp == null)){
-                        answer = Resp.toString();
-                        }else{
-                            JOptionPane.showMessageDialog(null, "Search operation aborted");
-                        }
+                    }
+                    switch (liste.size()) {
+                        case 2:
+                            Object Res = JOptionPane.showInputDialog(null,
+                                    "Choose One?", "More than 1 hit",
+                                    JOptionPane.QUESTION_MESSAGE, null, new String[]{liste.get(0), liste.get(1)},
+                                    liste.get(0));
+                            if (!(Res == null)) {
+                                answer = Res.toString();
+                            } else {
+                                JOptionPane.showMessageDialog(null, "Search operation aborted");
+                            }
                             break;
-                    case 4:
-                        Object Respo = JOptionPane.showInputDialog(null,
-                        "Choose One?", "More than 1 hit",
-                        JOptionPane.QUESTION_MESSAGE, null, new String[] { liste.get(0), liste.get(1),liste.get(2),liste.get(3) },
-                        liste.get(0));
-                        if(!(Respo == null)){
-                        answer = Respo.toString();
-                        }else{
-                            JOptionPane.showMessageDialog(null, "Search operation aborted");
-                        }
-                         break;
-                    case 5:
-                        Object Respon = JOptionPane.showInputDialog(null,
-                        "Choose One?", "More than 1 hit",
-                        JOptionPane.QUESTION_MESSAGE, null, new String[] { liste.get(0), liste.get(1),liste.get(2),liste.get(3),liste.get(4) },
-                        liste.get(0));
-                        if(!(Respon == null)){
-                        answer = Respon.toString();
-                    }else{
-                        JOptionPane.showMessageDialog(null, "Search operation aborted");
+                        case 3:
+                            Object Resp = JOptionPane.showInputDialog(null,
+                                    "Choose One?", "More than 1 hit",
+                                    JOptionPane.QUESTION_MESSAGE, null, new String[]{liste.get(0), liste.get(1), liste.get(2)},
+                                    liste.get(0));
+                            if (!(Resp == null)) {
+                                answer = Resp.toString();
+                            } else {
+                                JOptionPane.showMessageDialog(null, "Search operation aborted");
+                            }
+                            break;
+                        case 4:
+                            Object Respo = JOptionPane.showInputDialog(null,
+                                    "Choose One?", "More than 1 hit",
+                                    JOptionPane.QUESTION_MESSAGE, null, new String[]{liste.get(0), liste.get(1), liste.get(2), liste.get(3)},
+                                    liste.get(0));
+                            if (!(Respo == null)) {
+                                answer = Respo.toString();
+                            } else {
+                                JOptionPane.showMessageDialog(null, "Search operation aborted");
+                            }
+                            break;
+                        case 5:
+                            Object Respon = JOptionPane.showInputDialog(null,
+                                    "Choose One?", "More than 1 hit",
+                                    JOptionPane.QUESTION_MESSAGE, null, new String[]{liste.get(0), liste.get(1), liste.get(2), liste.get(3), liste.get(4)},
+                                    liste.get(0));
+                            if (!(Respon == null)) {
+                                answer = Respon.toString();
+                            } else {
+                                JOptionPane.showMessageDialog(null, "Search operation aborted");
+                            }
+                            break;
+                        case 6:
+                            JOptionPane.showMessageDialog(null, "Please be more accurate.");
+
+                            break;
                     }
-                         break;
-                    case 6:
-                        JOptionPane.showMessageDialog(null, "Please be more accurate.");
-                    
-                         break;
-                    }
-                    
+
                     stmt3 = conn.createStatement();
-                    rs2 = stmt3.executeQuery("SELECT * FROM book WHERE title = '" + answer +"'");
-                   
-                    if(rs2.next()){
-                        
+                    rs2 = stmt3.executeQuery("SELECT * FROM book WHERE title = '" + answer + "'");
+
+                    if (rs2.next()) {
+
                         bookid = rs2.getString("mid");
                         title = rs2.getString("title");
                         genre = rs2.getString("genre");
@@ -613,11 +603,11 @@ public class ChangeBook extends javax.swing.JFrame {
                         price = rs2.getString("price");
 
                         stmt4 = conn.createStatement();
-                        rs3 = stmt4.executeQuery("SELECT Language FROM haslang WHERE Mid = '"+bookid+"' ");
+                        rs3 = stmt4.executeQuery("SELECT Language FROM haslang WHERE Mid = '" + bookid + "' ");
 
                         rs3.first();
                         language = rs3.getString("Language");
-                        if(rs3.next()){
+                        if (rs3.next()) {
                             language2 = rs3.getString("Language");
                             combolanguage2 = comboLanguage(language2);
                             jCombo_language2.setSelectedIndex(combolanguage2);
@@ -626,7 +616,6 @@ public class ChangeBook extends javax.swing.JFrame {
                         comboagerating = comboAgerating(age);
                         combopricecat = comboPricecat(price);
                         combolanguage = comboLanguage(language);
-
 
                         jTextField_title.setText(title);
                         jCombo_genre.setSelectedIndex(combogenre);
@@ -637,30 +626,29 @@ public class ChangeBook extends javax.swing.JFrame {
                         jTextField_imgLink.setText(imglink);
                         jCombo_priceCategory.setSelectedIndex(combopricecat);
                         jCombo_ageRating.setSelectedIndex(comboagerating);
-                        jLabelBookid.setText(bookid);
-                        jLabelBookid.setVisible(false);
+    //                    jLabelBookid.setText(bookid);
+    //                    jLabelBookid.setVisible(false);
                         jCombo_language1.setSelectedIndex(combolanguage);
 
-                        }
-               }
-              
-             
+                    }
+                }
+
             } catch (SQLException ex) {
                 JOptionPane.showMessageDialog(null, "No match found");
             }
-            }
-        
+        }
+
     }//GEN-LAST:event_jButton_searchActionPerformed
 
     private void jButton_deleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton_deleteActionPerformed
-        if(evt.getSource() == jButton_delete){
-            if(!(bookid.equals(""))){
+        if (evt.getSource() == jButton_delete) {
+            if (!(bookid.equals(""))) {
                 try {
-                    if(JOptionPane.showConfirmDialog(null, "Do you really want to delete this book?") == 0){
-                    stmtDelete = conn.createStatement();
-                    stmtDelete.executeUpdate("UPDATE book SET inactive = '1' where mid = '"+bookid+"'");
-                    JOptionPane.showMessageDialog(null,"Book was succesfully deleted.");
-                    this.releaseArea();
+                    if (JOptionPane.showConfirmDialog(null, "Do you really want to delete this book?") == 0) {
+                        stmtDelete = conn.createStatement();
+                        stmtDelete.executeUpdate("UPDATE book SET inactive = '1' where mid = '" + bookid + "'");
+                        JOptionPane.showMessageDialog(null, "Book was succesfully deleted.");
+                        this.releaseArea();
                     }
                 } catch (SQLException ex) {
                     Logger.getLogger(ChangeBook.class.getName()).log(Level.SEVERE, null, ex);
@@ -682,6 +670,10 @@ public class ChangeBook extends javax.swing.JFrame {
         /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
          * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
          */
+        
+        
+        
+        
         try {
             for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
                 if ("Nimbus".equals(info.getName())) {
@@ -719,7 +711,7 @@ public class ChangeBook extends javax.swing.JFrame {
         java.awt.EventQueue.invokeLater(new Runnable() {
             @Override
             public void run() {
-              
+
                 new ChangeBook().setVisible(true);
             }
         });
@@ -743,7 +735,6 @@ public class ChangeBook extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel_genre;
     private javax.swing.JLabel jLabel_img;
     private javax.swing.JLabel jLabel_language;
-    private javax.swing.JLabel jLabel_logo;
     private javax.swing.JLabel jLabel_priceCat;
     private javax.swing.JLabel jLabel_releaseYear;
     private javax.swing.JLabel jLabel_search;

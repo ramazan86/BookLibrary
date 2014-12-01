@@ -22,21 +22,29 @@ import javax.swing.JPasswordField;
 
 /**
  *
- * @author stefano
+ * @author Ali Hannoun & Ramazan Cinardere
  */
 public class Account extends javax.swing.JFrame {
 
+    /*Class Attributes*/
     
     User user;
     String password, iban, bic;
+    
+    /*Class Methods*/
+    
     public Account() {
         initComponents();
     }
+    
     public Account(User obj) {
+        
         initComponents();
+        
         user = obj;
         setLocationRelativeTo(getParent());
         setResizable(false);
+        
         jLabel_userName.setText(user.getUsername());
         jLabelPassword.setText("******");
         jLabel_Email.setText(user.getEmail());
@@ -46,6 +54,7 @@ public class Account extends javax.swing.JFrame {
         jLabel_Address.setText(user.getStreet());
         jLabel_Zipcode.setText(user.getZipcode());
         jLabel_City.setText(user.getCity());
+        
         if(user.getIban() != null && !(user.getIban().equals(""))){
             iban = user.getIban();
             iban = "******************" + iban.substring(iban.length()-4,iban.length());
@@ -61,10 +70,8 @@ public class Account extends javax.swing.JFrame {
         }
         jLabel_Iban.setText(iban);
         jLabel_Bic.setText(bic);
-        
-        
-       
-    }
+             
+    }//Account(User obj) closing
     
 
     @SuppressWarnings("unchecked")
