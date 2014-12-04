@@ -42,43 +42,49 @@
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" attributes="0">
                       <Component id="jLabel_addBook" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace pref="696" max="32767" attributes="0"/>
+                      <EmptySpace max="32767" attributes="0"/>
                   </Group>
                   <Group type="102" attributes="0">
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="jButton_return" alignment="0" min="-2" max="-2" attributes="0"/>
-                          <Group type="102" alignment="0" attributes="0">
-                              <Group type="103" groupAlignment="0" attributes="0">
-                                  <Component id="jLabel_title" min="-2" pref="81" max="-2" attributes="0"/>
-                                  <Component id="jLabel_genre" alignment="0" min="-2" max="-2" attributes="0"/>
-                                  <Component id="jLabel_agerating" alignment="0" min="-2" max="-2" attributes="0"/>
-                              </Group>
-                              <EmptySpace min="-2" pref="23" max="-2" attributes="0"/>
-                              <Group type="103" groupAlignment="0" attributes="0">
-                                  <Component id="jCombo_genre" min="-2" pref="178" max="-2" attributes="0"/>
-                                  <Component id="jCombo_ageRating" min="-2" max="-2" attributes="0"/>
-                                  <Component id="jTextField_title" min="-2" pref="250" max="-2" attributes="0"/>
-                              </Group>
+                          <Group type="102" attributes="0">
+                              <Component id="jButton_return" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace min="-2" pref="106" max="-2" attributes="0"/>
                           </Group>
-                          <Group type="102" alignment="0" attributes="0">
-                              <Group type="103" groupAlignment="0" attributes="0">
-                                  <Component id="jLabel_relaseyear" alignment="0" min="-2" max="-2" attributes="0"/>
-                                  <Component id="jLabel_duration" alignment="0" min="-2" max="-2" attributes="0"/>
-                                  <Component id="jLabel_lanuage" alignment="0" min="-2" max="-2" attributes="0"/>
-                              </Group>
-                              <EmptySpace type="separate" max="-2" attributes="0"/>
-                              <Group type="103" groupAlignment="0" attributes="0">
-                                  <Component id="jTextField_duration" min="-2" pref="67" max="-2" attributes="0"/>
-                                  <Component id="jTextField_releaseYear" min="-2" pref="67" max="-2" attributes="0"/>
-                                  <Group type="102" attributes="0">
-                                      <Component id="jCombo_language" min="-2" max="-2" attributes="0"/>
-                                      <EmptySpace max="-2" attributes="0"/>
-                                      <Component id="jCombo_language2" min="-2" max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="0" attributes="0">
+                              <Group type="102" alignment="0" attributes="0">
+                                  <Group type="103" groupAlignment="0" attributes="0">
+                                      <Component id="jLabel_title" min="-2" pref="81" max="-2" attributes="0"/>
+                                      <Component id="jLabel_genre" alignment="0" min="-2" max="-2" attributes="0"/>
+                                      <Component id="jLabel_agerating" alignment="0" min="-2" max="-2" attributes="0"/>
                                   </Group>
+                                  <EmptySpace min="-2" pref="7" max="-2" attributes="0"/>
+                                  <Group type="103" groupAlignment="0" attributes="0">
+                                      <Component id="jCombo_genre" min="-2" pref="178" max="-2" attributes="0"/>
+                                      <Component id="jCombo_ageRating" min="-2" max="-2" attributes="0"/>
+                                      <Component id="jTextField_title" min="-2" pref="253" max="-2" attributes="0"/>
+                                  </Group>
+                                  <EmptySpace min="-2" pref="74" max="-2" attributes="0"/>
+                              </Group>
+                              <Group type="102" alignment="0" attributes="0">
+                                  <Group type="103" groupAlignment="0" attributes="0">
+                                      <Component id="jLabel_relaseyear" alignment="0" min="-2" max="-2" attributes="0"/>
+                                      <Component id="jLabel_author" alignment="0" min="-2" max="-2" attributes="0"/>
+                                      <Component id="jLabel_lanuage" alignment="0" min="-2" max="-2" attributes="0"/>
+                                  </Group>
+                                  <EmptySpace type="separate" max="-2" attributes="0"/>
+                                  <Group type="103" groupAlignment="0" attributes="0">
+                                      <Component id="jTextField_releaseYear" min="-2" pref="67" max="-2" attributes="0"/>
+                                      <Group type="102" attributes="0">
+                                          <Component id="jCombo_language" min="-2" max="-2" attributes="0"/>
+                                          <EmptySpace max="-2" attributes="0"/>
+                                          <Component id="jCombo_language2" min="-2" max="-2" attributes="0"/>
+                                      </Group>
+                                      <Component id="jTextField_Author" alignment="0" max="32767" attributes="0"/>
+                                  </Group>
+                                  <EmptySpace type="separate" max="-2" attributes="0"/>
                               </Group>
                           </Group>
                       </Group>
-                      <EmptySpace type="separate" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Group type="102" alignment="0" attributes="0">
                               <EmptySpace min="341" pref="341" max="-2" attributes="0"/>
@@ -91,13 +97,13 @@
                           </Group>
                           <Group type="102" alignment="0" attributes="0">
                               <Group type="103" groupAlignment="0" attributes="0">
-                                  <Component id="jLabel_streamlink" alignment="0" min="-2" max="-2" attributes="0"/>
+                                  <Component id="jLabel_PDFLink" alignment="0" min="-2" max="-2" attributes="0"/>
                                   <Component id="jLabel_ImgLink" alignment="0" min="-2" max="-2" attributes="0"/>
                               </Group>
                               <EmptySpace type="separate" max="-2" attributes="0"/>
-                              <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                  <Component id="jTextField_ImgLink" max="32767" attributes="0"/>
-                                  <Component id="jTextField_streamlink" min="-2" pref="318" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Component id="jTextField_ImgLink" min="-2" pref="318" max="-2" attributes="0"/>
+                                  <Component id="jTextField_PDFLink" min="-2" pref="318" max="-2" attributes="0"/>
                               </Group>
                           </Group>
                           <Group type="102" alignment="0" attributes="0">
@@ -106,7 +112,6 @@
                               <Component id="jScrollPane_discription" min="-2" pref="323" max="-2" attributes="0"/>
                           </Group>
                       </Group>
-                      <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                   </Group>
               </Group>
           </Group>
@@ -141,8 +146,8 @@
                       </Group>
                       <EmptySpace max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="jLabel_duration" alignment="3" min="-2" pref="28" max="-2" attributes="0"/>
-                          <Component id="jTextField_duration" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="jLabel_author" alignment="3" min="-2" pref="28" max="-2" attributes="0"/>
+                          <Component id="jTextField_Author" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace type="unrelated" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
@@ -158,8 +163,8 @@
                       </Group>
                       <EmptySpace type="unrelated" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="jLabel_streamlink" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="jTextField_streamlink" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="jLabel_PDFLink" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="jTextField_PDFLink" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace type="unrelated" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
@@ -191,9 +196,9 @@
   <SubComponents>
     <Component class="javax.swing.JTextField" name="jTextField_ImgLink">
     </Component>
-    <Component class="javax.swing.JLabel" name="jLabel_duration">
+    <Component class="javax.swing.JLabel" name="jLabel_author">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Duration :"/>
+        <Property name="text" type="java.lang.String" value="Author :"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel_relaseyear">
@@ -204,11 +209,6 @@
     <Component class="javax.swing.JLabel" name="jLabel_agerating">
       <Properties>
         <Property name="text" type="java.lang.String" value="Age Rating :"/>
-      </Properties>
-    </Component>
-    <Component class="javax.swing.JTextField" name="jTextField_streamlink">
-      <Properties>
-        <Property name="enabled" type="boolean" value="false"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JTextField" name="jTextField_releaseYear">
@@ -229,7 +229,7 @@
         <Property name="text" type="java.lang.String" value="Add a Book"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JTextField" name="jTextField_duration">
+    <Component class="javax.swing.JTextField" name="jTextField_Author">
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel_genre">
       <Properties>
@@ -248,9 +248,9 @@
         <Property name="text" type="java.lang.String" value="IMG-Link :"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JLabel" name="jLabel_streamlink">
+    <Component class="javax.swing.JLabel" name="jLabel_PDFLink">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Streamlink :"/>
+        <Property name="text" type="java.lang.String" value="PDFLink"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel_price">
@@ -365,6 +365,8 @@
           </StringArray>
         </Property>
       </Properties>
+    </Component>
+    <Component class="javax.swing.JTextField" name="jTextField_PDFLink">
     </Component>
   </SubComponents>
 </Form>

@@ -15,10 +15,17 @@ import java.util.logging.Logger;
 import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
 
+/**
+ *@author Ali Hannoun & Ramazan Cinardere 
+ */
+ 
 
 public class Admin extends javax.swing.JFrame {
+    
+    /* Class Attributes */
+    
         User user;
-        ArrayList<Book> movies,movies2;
+        ArrayList<Book> books,books2;
         String suchetext,gen,pri,age,rate,lang;
         int genre,price,agerating,rating,language,pages;
         Verbindung db;
@@ -26,12 +33,14 @@ public class Admin extends javax.swing.JFrame {
         Statement stmt,stmt2,stmt3,stmt4,stmtNewest,stmtNewest2,stmtSearch,stmtTop10,stmt2Top10;
         ResultSet rs,rs2,rs3,rsNewest,rsNewest2,rsSearch,rsTop10,rs2Top10;
         static int seitenanzahl = 0;
-       
+    
+    /* Class Methods */    
+        
     public Admin(User user) throws SQLException, MalformedURLException, IOException {
         this.user = user;
         initComponents();
         this.setSize(870,700);
-        movies = Book.getNewestAndTop10();
+        books = Book.getNewestAndTop10();
         this.Newest10();
         this.Top10();
         setLocationRelativeTo(null);
@@ -45,17 +54,19 @@ public class Admin extends javax.swing.JFrame {
     public static String getGenre(int g){
         switch(g){
             case 1:
-                return "Action";
+                return "Biographies"; 
             case 2:
-                return "Adventure";
+                return "Children";
             case 3:
-                return "Thriller";
+                return "Computer Science";
             case 4:
-                return "Fantasy";
+                return "Cooking";
             case 5:
-                return "Animation";
+                return "History";
             case 6:
-                return "Comedy";
+                return "Novel and Narratives";
+            case 7: 
+                return "School & Education";
             default:
                 return "%";
         }
@@ -114,7 +125,7 @@ public class Admin extends javax.swing.JFrame {
         
         }
     }
-    public void searchResult(ArrayList<Book> movies2) throws MalformedURLException{
+    public void searchResult(ArrayList<Book> books2) throws MalformedURLException{
         
         jLabel_img1.setVisible(false);
         jLabel_img2.setVisible(false);
@@ -140,80 +151,80 @@ public class Admin extends javax.swing.JFrame {
         jLabel_top10.setVisible(false);
         jLabel_newest.setText("Search Result for '"+ suchetext +"':");
         
-        if(!(movies2.get(0+seitenanzahl).getTitle().equals(""))){
-        jLabel_img1.setIcon(new ImageIcon(new URL(movies2.get(0+seitenanzahl).getImglink())));
+        if(!(books2.get(0+seitenanzahl).getTitle().equals(""))){
+        jLabel_img1.setIcon(new ImageIcon(new URL(books2.get(0+seitenanzahl).getImglink())));
         jLabel_img1.setText(null);
         jLabel_img1.setVisible(true);
         }else{
         jLabel_img1.setVisible(false);
         }
-        if(!(movies2.get(1+seitenanzahl).getTitle().equals(""))){
-        jLabel_img2.setIcon(new ImageIcon(new URL(movies2.get(1+seitenanzahl).getImglink())));
+        if(!(books2.get(1+seitenanzahl).getTitle().equals(""))){
+        jLabel_img2.setIcon(new ImageIcon(new URL(books2.get(1+seitenanzahl).getImglink())));
         jLabel_img2.setText(null);
         jLabel_img2.setVisible(true);
         }else{
         jLabel_img2.setVisible(false);
         }
-        if(!(movies2.get(2+seitenanzahl).getTitle().equals(""))){
-        jLabel_img3.setIcon(new ImageIcon(new URL(movies2.get(2+seitenanzahl).getImglink())));
+        if(!(books2.get(2+seitenanzahl).getTitle().equals(""))){
+        jLabel_img3.setIcon(new ImageIcon(new URL(books2.get(2+seitenanzahl).getImglink())));
         jLabel_img3.setText(null);
         jLabel_img3.setVisible(true);
         }else{
         jLabel_img3.setVisible(false);
         }
-        if(!(movies2.get(3+seitenanzahl).getTitle().equals(""))){
-        jLabel_img4.setIcon(new ImageIcon(new URL(movies2.get(3+seitenanzahl).getImglink())));
+        if(!(books2.get(3+seitenanzahl).getTitle().equals(""))){
+        jLabel_img4.setIcon(new ImageIcon(new URL(books2.get(3+seitenanzahl).getImglink())));
         jLabel_img4.setText(null);
         jLabel_img4.setVisible(true);
         }else{
         jLabel_img4.setVisible(false);
         }
-        if(!(movies2.get(4+seitenanzahl).getTitle().equals(""))){
-        jLabel_img5.setIcon(new ImageIcon(new URL(movies2.get(4+seitenanzahl).getImglink())));
+        if(!(books2.get(4+seitenanzahl).getTitle().equals(""))){
+        jLabel_img5.setIcon(new ImageIcon(new URL(books2.get(4+seitenanzahl).getImglink())));
         jLabel_img5.setText(null);
         jLabel_img5.setVisible(true);
         }else{
         jLabel_img5.setVisible(false);
         }
-        if(!(movies2.get(5+seitenanzahl).getTitle().equals(""))){
-        jLabel_img6.setIcon(new ImageIcon(new URL(movies2.get(5+seitenanzahl).getImglink())));
+        if(!(books2.get(5+seitenanzahl).getTitle().equals(""))){
+        jLabel_img6.setIcon(new ImageIcon(new URL(books2.get(5+seitenanzahl).getImglink())));
         jLabel_img6.setText(null);
         jLabel_img6.setVisible(true);
         }else{
         jLabel_img6.setVisible(false);
         }
-        if(!(movies2.get(6+seitenanzahl).getTitle().equals(""))){
-        jLabel_img7.setIcon(new ImageIcon(new URL(movies2.get(6+seitenanzahl).getImglink())));
+        if(!(books2.get(6+seitenanzahl).getTitle().equals(""))){
+        jLabel_img7.setIcon(new ImageIcon(new URL(books2.get(6+seitenanzahl).getImglink())));
         jLabel_img7.setText(null);
         jLabel_img7.setVisible(true);
         }else{
         jLabel_img7.setVisible(false);
         }
-        if(!(movies2.get(7+seitenanzahl).getTitle().equals(""))){
-        jLabel_img8.setIcon(new ImageIcon(new URL(movies2.get(7+seitenanzahl).getImglink())));
+        if(!(books2.get(7+seitenanzahl).getTitle().equals(""))){
+        jLabel_img8.setIcon(new ImageIcon(new URL(books2.get(7+seitenanzahl).getImglink())));
         jLabel_img8.setText(null);
         jLabel_img8.setVisible(true);
         }else{
         jLabel_img8.setVisible(false);
         }
-        if(!(movies2.get(8+seitenanzahl).getTitle().equals(""))){
-        jLabel_img9.setIcon(new ImageIcon(new URL(movies2.get(8+seitenanzahl).getImglink())));
+        if(!(books2.get(8+seitenanzahl).getTitle().equals(""))){
+        jLabel_img9.setIcon(new ImageIcon(new URL(books2.get(8+seitenanzahl).getImglink())));
         jLabel_img9.setText(null);
         jLabel_img9.setVisible(true);
         }else{
         jLabel_img9.setVisible(false);
         }
-        if(!(movies2.get(9+seitenanzahl).getTitle().equals(""))){
-        jLabel_img10.setIcon(new ImageIcon(new URL(movies2.get(9+seitenanzahl).getImglink())));
+        if(!(books2.get(9+seitenanzahl).getTitle().equals(""))){
+        jLabel_img10.setIcon(new ImageIcon(new URL(books2.get(9+seitenanzahl).getImglink())));
         jLabel_img10.setText(null);
         jLabel_img10.setVisible(true);
         }else{
         jLabel_img10.setVisible(false);
         }
-         if(movies2.size() > 10){
+         if(books2.size() > 10){
             jButton_next.setVisible(true);
          }
-         if(movies2.size() == seitenanzahl+10){
+         if(books2.size() == seitenanzahl+10){
             jButton_next.setVisible(false);
          }
          if(seitenanzahl != 0){
@@ -226,43 +237,43 @@ public class Admin extends javax.swing.JFrame {
     public void Newest10() throws SQLException, MalformedURLException, IOException{
        MouseAdapter listener = new MouseImpl();
         
-        jLabel_img1.setIcon(new ImageIcon(new URL(movies.get(0).getImglink())));
+        jLabel_img1.setIcon(new ImageIcon(new URL(books.get(0).getImglink())));
         jLabel_img1.setText(null);
         jLabel_img1.addMouseListener(listener);
         
-        jLabel_img2.setIcon(new ImageIcon(new URL(movies.get(1).getImglink())));
+        jLabel_img2.setIcon(new ImageIcon(new URL(books.get(1).getImglink())));
         jLabel_img2.setText(null);
         jLabel_img2.addMouseListener(listener);
         
-        jLabel_img3.setIcon(new ImageIcon(new URL(movies.get(2).getImglink())));
+        jLabel_img3.setIcon(new ImageIcon(new URL(books.get(2).getImglink())));
         jLabel_img3.setText(null);
         jLabel_img3.addMouseListener(listener);
 
-        jLabel_img4.setIcon(new ImageIcon(new URL(movies.get(3).getImglink())));
+        jLabel_img4.setIcon(new ImageIcon(new URL(books.get(3).getImglink())));
         jLabel_img4.setText(null);
         jLabel_img4.addMouseListener(listener);
         
-        jLabel_img5.setIcon(new ImageIcon(new URL(movies.get(4).getImglink())));
+        jLabel_img5.setIcon(new ImageIcon(new URL(books.get(4).getImglink())));
         jLabel_img5.setText(null);
         jLabel_img5.addMouseListener(listener);
         
-        jLabel_img6.setIcon(new ImageIcon(new URL(movies.get(5).getImglink())));
+        jLabel_img6.setIcon(new ImageIcon(new URL(books.get(5).getImglink())));
         jLabel_img6.setText(null);
         jLabel_img6.addMouseListener(listener);
         
-        jLabel_img7.setIcon(new ImageIcon(new URL(movies.get(6).getImglink())));
+        jLabel_img7.setIcon(new ImageIcon(new URL(books.get(6).getImglink())));
         jLabel_img7.setText(null);
         jLabel_img7.addMouseListener(listener);
         
-        jLabel_img8.setIcon(new ImageIcon(new URL(movies.get(7).getImglink())));
+        jLabel_img8.setIcon(new ImageIcon(new URL(books.get(7).getImglink())));
         jLabel_img8.setText(null);
         jLabel_img8.addMouseListener(listener);
         
-        jLabel_img9.setIcon(new ImageIcon(new URL(movies.get(8).getImglink())));
+        jLabel_img9.setIcon(new ImageIcon(new URL(books.get(8).getImglink())));
         jLabel_img9.setText(null);
         jLabel_img9.addMouseListener(listener);
         
-        jLabel_img10.setIcon(new ImageIcon(new URL(movies.get(9).getImglink())));
+        jLabel_img10.setIcon(new ImageIcon(new URL(books.get(9).getImglink())));
         jLabel_img10.setText(null);
         jLabel_img10.addMouseListener(listener);
     }
@@ -270,43 +281,43 @@ public class Admin extends javax.swing.JFrame {
     public void Top10() throws SQLException, MalformedURLException{
        MouseAdapter listener = new MouseImpl();
        
-        jLabel_img11.setIcon(new ImageIcon(new URL(movies.get(10).getImglink())));
+        jLabel_img11.setIcon(new ImageIcon(new URL(books.get(10).getImglink())));
         jLabel_img11.setText(null);
         jLabel_img11.addMouseListener(listener);
 
-        jLabel_img19.setIcon(new ImageIcon(new URL(movies.get(11).getImglink())));
+        jLabel_img19.setIcon(new ImageIcon(new URL(books.get(11).getImglink())));
         jLabel_img19.setText(null);
         jLabel_img19.addMouseListener(listener);
         
-        jLabel_img12.setIcon(new ImageIcon(new URL(movies.get(12).getImglink())));
+        jLabel_img12.setIcon(new ImageIcon(new URL(books.get(12).getImglink())));
         jLabel_img12.setText(null);
         jLabel_img12.addMouseListener(listener);
         
-        jLabel_img14.setIcon(new ImageIcon(new URL(movies.get(13).getImglink())));
+        jLabel_img14.setIcon(new ImageIcon(new URL(books.get(13).getImglink())));
         jLabel_img14.setText(null);
         jLabel_img14.addMouseListener(listener);
         
-        jLabel_img15.setIcon(new ImageIcon(new URL(movies.get(14).getImglink())));
+        jLabel_img15.setIcon(new ImageIcon(new URL(books.get(14).getImglink())));
         jLabel_img15.setText(null);
         jLabel_img15.addMouseListener(listener);
         
-        jLabel_img17.setIcon(new ImageIcon(new URL(movies.get(15).getImglink())));
+        jLabel_img17.setIcon(new ImageIcon(new URL(books.get(15).getImglink())));
         jLabel_img17.setText(null);
         jLabel_img17.addMouseListener(listener);
         
-        jLabel_img18.setIcon(new ImageIcon(new URL(movies.get(16).getImglink())));
+        jLabel_img18.setIcon(new ImageIcon(new URL(books.get(16).getImglink())));
         jLabel_img18.setText(null);
         jLabel_img18.addMouseListener(listener);
         
-        jLabel_img20.setIcon(new ImageIcon(new URL(movies.get(17).getImglink())));
+        jLabel_img20.setIcon(new ImageIcon(new URL(books.get(17).getImglink())));
         jLabel_img20.setText(null);
         jLabel_img20.addMouseListener(listener);
         
-        jLabel_img13.setIcon(new ImageIcon(new URL(movies.get(18).getImglink())));
+        jLabel_img13.setIcon(new ImageIcon(new URL(books.get(18).getImglink())));
         jLabel_img13.setText(null);
         jLabel_img13.addMouseListener(listener);
         
-        jLabel_img16.setIcon(new ImageIcon(new URL(movies.get(19).getImglink())));
+        jLabel_img16.setIcon(new ImageIcon(new URL(books.get(19).getImglink())));
         jLabel_img16.setText(null);
         jLabel_img16.addMouseListener(listener);
     }
@@ -326,7 +337,6 @@ public class Admin extends javax.swing.JFrame {
         jButton_logOut = new javax.swing.JButton();
         jSeparator1 = new javax.swing.JSeparator();
         jCombo_genre = new javax.swing.JComboBox();
-        jLabel_logo = new javax.swing.JLabel();
         jButton_changeBook = new javax.swing.JButton();
         jButton_addBook = new javax.swing.JButton();
         jButton_search = new javax.swing.JButton();
@@ -415,9 +425,6 @@ public class Admin extends javax.swing.JFrame {
                 jCombo_genreActionPerformed(evt);
             }
         });
-
-        jLabel_logo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/logo.png"))); // NOI18N
-        jLabel_logo.setText("jLabel2");
 
         jButton_changeBook.setText("Change Book");
         jButton_changeBook.addActionListener(new java.awt.event.ActionListener() {
@@ -639,8 +646,7 @@ public class Admin extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(jLabel_logo, javax.swing.GroupLayout.PREFERRED_SIZE, 237, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGap(243, 243, 243)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
                                 .addGap(0, 75, Short.MAX_VALUE)
@@ -683,19 +689,14 @@ public class Admin extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jLabelLastLogin)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(52, 52, 52)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jButton_addBook)
-                            .addComponent(jButton_changeBook)
-                            .addComponent(jButton_rentalBook)
-                            .addComponent(jButton_logOut)
-                            .addComponent(jButton_overwiew)))
-                    .addGroup(layout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jLabel_logo, javax.swing.GroupLayout.PREFERRED_SIZE, 126, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGap(52, 52, 52)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jButton_addBook)
+                    .addComponent(jButton_changeBook)
+                    .addComponent(jButton_rentalBook)
+                    .addComponent(jButton_logOut)
+                    .addComponent(jButton_overwiew))
+                .addGap(63, 63, 63)
                 .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 12, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
@@ -777,7 +778,7 @@ public class Admin extends javax.swing.JFrame {
             language = jCombo_language.getSelectedIndex();
      
             if(evt.getSource() == jButton_search){
-                movies = new ArrayList<>();
+                books = new ArrayList<>();
                 try {
                     gen = getGenre(genre);
                     pri = getPrice(price);
@@ -787,11 +788,11 @@ public class Admin extends javax.swing.JFrame {
 
                     if(!(rate.equals("%"))){
                     stmt4 = conn.createStatement();
-                    rs3 = stmt4.executeQuery("SELECT *,avg(rating) as average FROM movie natural left join rates natural join haslang WHERE title LIKE '%"+ suchetext +"%' and genre LIKE '%" + gen + "%' and price <= '" + pri + "'  and ageRating <= '"+ age +"' and Language LIKE '%"+ lang +"%' and inactive = 0 group by mid having average >= "+rate+"");
+                    rs3 = stmt4.executeQuery("SELECT *,avg(rating) as average FROM book natural left join rates natural join haslang WHERE title LIKE '%"+ suchetext +"%' and genre LIKE '%" + gen + "%' and price <= '" + pri + "'  and ageRating <= '"+ age +"' and Language LIKE '%"+ lang +"%' and inactive = 0 group by mid having average >= "+rate+"");
                     stmtSearch = conn.createStatement();
 
                     while(rs3.next()){
-                    rsSearch = stmtSearch.executeQuery("Select * from movie natural join haslang where mid = "+rs3.getString("mid")+" ");
+                    rsSearch = stmtSearch.executeQuery("Select * from book natural join haslang where mid = "+rs3.getString("mid")+" ");
                     rsSearch.next();
                     String language1 = rsSearch.getString("Language");
                     rsSearch.last();
@@ -800,24 +801,24 @@ public class Admin extends javax.swing.JFrame {
                     if(language2.equals(language1)){
                         language2 = "";
                     }
-                    Book movie = new Book(rs3.getString("mid"),rs3.getString("title"),rs3.getString("picture"),rs3.getString("average"), rs3.getString("description"),rs3.getString("genre"),rs3.getString("agerating"),rs3.getString("releaseYear"),rs3.getString("duration"),rs3.getString("streamlink"),language1, language2, rs3.getString("price"),"");
-                    movies.add(movie);
+                    Book book = new Book(rs3.getString("mid"),rs3.getString("title"),rs3.getString("picture"),rs3.getString("average"), rs3.getString("description"),rs3.getString("genre"),rs3.getString("agerating"),rs3.getString("releaseYear"),rs3.getString("duration"),rs3.getString("pdflink"),language1, language2, rs3.getString("price"),"");
+                    books.add(book);
                     }
 
-                    while(movies.size() %10 != 0){
-                    Book dump = new Book("","","http://stefano.bplaced.net/nothing.png",null,"","","","","","","","","","");
-                    movies.add(dump);
+                    while(books.size() %10 != 0){
+                    Book dump = new Book("","","http://ramazan.bplaced.net/BookLibrary/knowledge.png",null,"","","","","","","","","","");
+                    books.add(dump);
                     }
-                    this.searchResult(movies);
+                    this.searchResult(books);
 
                     }else{
                     stmt = conn.createStatement();
-                    rs = stmt.executeQuery("SELECT *,avg(rating) as average FROM movie natural join haslang natural left join rates WHERE title LIKE '%"+ suchetext +"%' and genre LIKE '%" + gen + "%' and price <= '" + pri + "'  and ageRating <= '"+ age +"' and Language LIKE '%"+ lang +"%' and inactive = 0 group by mid");
+                    rs = stmt.executeQuery("SELECT *,avg(rating) as average FROM book natural join haslang natural left join rates WHERE title LIKE '%"+ suchetext +"%' and genre LIKE '%" + gen + "%' and price <= '" + pri + "'  and ageRating <= '"+ age +"' and Language LIKE '%"+ lang +"%' and inactive = 0 group by mid");
                     stmtSearch = conn.createStatement();
 
                     while(rs.next()){
 
-                    rsSearch = stmtSearch.executeQuery("Select * from movie natural join haslang where mid = "+rs.getString("mid")+" ");
+                    rsSearch = stmtSearch.executeQuery("Select * from book natural join haslang where mid = "+rs.getString("mid")+" ");
                     rsSearch.next();
                     String language1 = rsSearch.getString("Language");
                     rsSearch.last();
@@ -826,17 +827,17 @@ public class Admin extends javax.swing.JFrame {
                     if(language2.equals(language1)){
                         language2 = "";
                     }
-                    Book movie = new Book(rs.getString("mid"),rs.getString("title"),rs.getString("picture"),rs.getString("average"), rs.getString("description"),rs.getString("genre"),rs.getString("agerating"),rs.getString("releaseYear"),rs.getString("duration"),rs.getString("streamlink"),language1, language2, rs.getString("price"),"");
-                    movies.add(movie);
+                    Book movie = new Book(rs.getString("mid"),rs.getString("title"),rs.getString("picture"),rs.getString("average"), rs.getString("description"),rs.getString("genre"),rs.getString("agerating"),rs.getString("releaseYear"),rs.getString("duration"),rs.getString("plink"),language1, language2, rs.getString("price"),"");
+                    books.add(movie);
                     }
-                    while(movies.size() %10 != 0){
-                    Book dump = new Book("","","http://stefano.bplaced.net/nothing.png",null,"","","","","","","","","","");
-                    movies.add(dump);
+                    while(books.size() %10 != 0){
+                    Book dump = new Book("","","http://ramazan.bplaced.net/BookLibrary/knowledge.png",null,"","","","","","","","","","");
+                    books.add(dump);
                     }
-                    this.searchResult(movies);
+                    this.searchResult(books);
                     }
 
-                } catch (        SQLException | MalformedURLException ex) {
+                } catch (SQLException | MalformedURLException ex) {
                     Logger.getLogger(Admin.class.getName()).log(Level.SEVERE, null, ex);
                 }
             }
@@ -846,7 +847,7 @@ public class Admin extends javax.swing.JFrame {
         if(jButton_next == evt.getSource()){
             seitenanzahl = seitenanzahl + 10;
                 try {
-                    this.searchResult(movies);
+                    this.searchResult(books);
                 } catch (MalformedURLException ex) {
                     Logger.getLogger(Admin.class.getName()).log(Level.SEVERE, null, ex);
                 }
@@ -857,7 +858,7 @@ public class Admin extends javax.swing.JFrame {
         if(jButton_previous == evt.getSource()){
             seitenanzahl = seitenanzahl - 10;
            try {
-                    this.searchResult(movies);
+                    this.searchResult(books);
                 } catch (MalformedURLException ex) {
                     Logger.getLogger(Admin.class.getName()).log(Level.SEVERE, null, ex);
                 }
@@ -964,7 +965,6 @@ public class Admin extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel_img7;
     private javax.swing.JLabel jLabel_img8;
     private javax.swing.JLabel jLabel_img9;
-    private javax.swing.JLabel jLabel_logo;
     private javax.swing.JLabel jLabel_newest;
     private javax.swing.JLabel jLabel_search;
     private javax.swing.JLabel jLabel_top10;
@@ -981,14 +981,14 @@ class MouseImpl extends MouseAdapter {
             Object source = e.getSource();
             if (source == jLabel_img1) {
             try {
-                new BookInfo(user,movies.get(0+seitenanzahl)).setVisible(true);
+                new BookInfo(user,books.get(0+seitenanzahl)).setVisible(true);
             } catch (MalformedURLException ex) {
                 Logger.getLogger(Admin.class.getName()).log(Level.SEVERE, null, ex);
             }
         }
         if (source == jLabel_img2) {
              try {
-                BookInfo window = new BookInfo(user,movies.get(1+seitenanzahl));
+                BookInfo window = new BookInfo(user,books.get(1+seitenanzahl));
                 window.pack();
                 window.setVisible(true);
             } catch (MalformedURLException ex) {
@@ -998,7 +998,7 @@ class MouseImpl extends MouseAdapter {
 
         if (source == jLabel_img3) {
              try {
-                BookInfo window = new BookInfo(user,movies.get(2+seitenanzahl));
+                BookInfo window = new BookInfo(user,books.get(2+seitenanzahl));
                 window.pack();
                 window.setVisible(true);
             } catch (MalformedURLException ex) {
@@ -1007,7 +1007,7 @@ class MouseImpl extends MouseAdapter {
         }
         if (source == jLabel_img4) {
              try {
-                BookInfo window = new BookInfo(user,movies.get(3+seitenanzahl));
+                BookInfo window = new BookInfo(user,books.get(3+seitenanzahl));
                 window.pack();
                 window.setVisible(true);
             } catch (MalformedURLException ex) {
@@ -1016,7 +1016,7 @@ class MouseImpl extends MouseAdapter {
         }
         if (source == jLabel_img5) {
              try {
-                BookInfo window = new BookInfo(user,movies.get(4+seitenanzahl));
+                BookInfo window = new BookInfo(user,books.get(4+seitenanzahl));
                 window.pack();
                 window.setVisible(true);
             } catch (MalformedURLException ex) {
@@ -1025,7 +1025,7 @@ class MouseImpl extends MouseAdapter {
         }
         if (source == jLabel_img6) {
              try {
-                BookInfo window = new BookInfo(user,movies.get(5+seitenanzahl));
+                BookInfo window = new BookInfo(user,books.get(5+seitenanzahl));
                 window.pack();
                 window.setVisible(true);
             } catch (MalformedURLException ex) {
@@ -1034,7 +1034,7 @@ class MouseImpl extends MouseAdapter {
         }
         if (source == jLabel_img7) {
              try {
-                BookInfo window = new BookInfo(user,movies.get(6+seitenanzahl));
+                BookInfo window = new BookInfo(user,books.get(6+seitenanzahl));
                 window.pack();
                 window.setVisible(true);
             } catch (MalformedURLException ex) {
@@ -1043,7 +1043,7 @@ class MouseImpl extends MouseAdapter {
         }
         if (source == jLabel_img8) {
              try {
-                BookInfo window = new BookInfo(user,movies.get(7+seitenanzahl));
+                BookInfo window = new BookInfo(user,books.get(7+seitenanzahl));
                 window.pack();
                 window.setVisible(true);
             } catch (MalformedURLException ex) {
@@ -1052,7 +1052,7 @@ class MouseImpl extends MouseAdapter {
         }  
         if (source == jLabel_img9) {
              try {
-                BookInfo window = new BookInfo(user,movies.get(8+seitenanzahl));
+                BookInfo window = new BookInfo(user,books.get(8+seitenanzahl));
                 window.pack();
                 window.setVisible(true);
             } catch (MalformedURLException ex) {
@@ -1061,7 +1061,7 @@ class MouseImpl extends MouseAdapter {
         }
         if (source == jLabel_img10) {
              try {
-                BookInfo window = new BookInfo(user,movies.get(9+seitenanzahl));
+                BookInfo window = new BookInfo(user,books.get(9+seitenanzahl));
                 window.pack();
                 window.setVisible(true);
             } catch (MalformedURLException ex) {
@@ -1070,14 +1070,14 @@ class MouseImpl extends MouseAdapter {
         }
         if (source == jLabel_img11) {
             try {
-                new BookInfo(user,movies.get(10+seitenanzahl)).setVisible(true);
+                new BookInfo(user,books.get(10+seitenanzahl)).setVisible(true);
             } catch (MalformedURLException ex) {
                 Logger.getLogger(Admin.class.getName()).log(Level.SEVERE, null, ex);
             }
         }
         if (source == jLabel_img19) {
              try {
-                BookInfo window = new BookInfo(user,movies.get(11+seitenanzahl));
+                BookInfo window = new BookInfo(user,books.get(11+seitenanzahl));
                 window.pack();
                 window.setVisible(true);
             } catch (MalformedURLException ex) {
@@ -1087,7 +1087,7 @@ class MouseImpl extends MouseAdapter {
 
         if (source == jLabel_img12) {
              try {
-                BookInfo window = new BookInfo(user,movies.get(12+seitenanzahl));
+                BookInfo window = new BookInfo(user,books.get(12+seitenanzahl));
                 window.pack();
                 window.setVisible(true);
             } catch (MalformedURLException ex) {
@@ -1096,7 +1096,7 @@ class MouseImpl extends MouseAdapter {
         }
         if (source == jLabel_img14) {
              try {
-                BookInfo window = new BookInfo(user,movies.get(13+seitenanzahl));
+                BookInfo window = new BookInfo(user,books.get(13+seitenanzahl));
                 window.pack();
                 window.setVisible(true);
             } catch (MalformedURLException ex) {
@@ -1105,7 +1105,7 @@ class MouseImpl extends MouseAdapter {
         }
         if (source == jLabel_img15) {
              try {
-                BookInfo window = new BookInfo(user,movies.get(14+seitenanzahl));
+                BookInfo window = new BookInfo(user,books.get(14+seitenanzahl));
                 window.pack();
                 window.setVisible(true);
             } catch (MalformedURLException ex) {
@@ -1114,7 +1114,7 @@ class MouseImpl extends MouseAdapter {
         }
         if (source == jLabel_img17) {
              try {
-                BookInfo window = new BookInfo(user,movies.get(15+seitenanzahl));
+                BookInfo window = new BookInfo(user,books.get(15+seitenanzahl));
                 window.pack();
                 window.setVisible(true);
             } catch (MalformedURLException ex) {
@@ -1123,7 +1123,7 @@ class MouseImpl extends MouseAdapter {
         }
         if (source == jLabel_img18) {
              try {
-                BookInfo window = new BookInfo(user,movies.get(16+seitenanzahl));
+                BookInfo window = new BookInfo(user,books.get(16+seitenanzahl));
                 window.pack();
                 window.setVisible(true);
             } catch (MalformedURLException ex) {
@@ -1132,7 +1132,7 @@ class MouseImpl extends MouseAdapter {
         }
         if (source == jLabel_img20) {
              try {
-                BookInfo window = new BookInfo(user,movies.get(17+seitenanzahl));
+                BookInfo window = new BookInfo(user,books.get(17+seitenanzahl));
                 window.pack();
                 window.setVisible(true);
             } catch (MalformedURLException ex) {
@@ -1141,7 +1141,7 @@ class MouseImpl extends MouseAdapter {
         }  
         if (source == jLabel_img13) {
              try {
-                BookInfo window = new BookInfo(user,movies.get(18+seitenanzahl));
+                BookInfo window = new BookInfo(user,books.get(18+seitenanzahl));
                 window.pack();
                 window.setVisible(true);
             } catch (MalformedURLException ex) {
@@ -1150,7 +1150,7 @@ class MouseImpl extends MouseAdapter {
         }
         if (source == jLabel_img16) {
              try {
-                BookInfo window = new BookInfo(user,movies.get(19+seitenanzahl));
+                BookInfo window = new BookInfo(user,books.get(19+seitenanzahl));
                 window.pack();
                 window.setVisible(true);
             } catch (MalformedURLException ex) {

@@ -31,25 +31,25 @@
                       <EmptySpace min="0" pref="710" max="32767" attributes="0"/>
                   </Group>
                   <Group type="102" alignment="0" attributes="0">
-                      <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="jLabelMovieid" alignment="0" min="-2" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="0" max="-2" attributes="0">
                           <Group type="102" alignment="0" attributes="0">
                               <Group type="103" groupAlignment="0" attributes="0">
                                   <Component id="jLabel_releaseYear" alignment="0" min="-2" max="-2" attributes="0"/>
-                                  <Component id="jLabel_duration" alignment="0" min="-2" max="-2" attributes="0"/>
+                                  <Component id="jLabel_author" alignment="0" min="-2" max="-2" attributes="0"/>
                                   <Component id="jLabel_language" alignment="0" min="-2" max="-2" attributes="0"/>
                               </Group>
                               <EmptySpace type="separate" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="0" attributes="0">
-                                  <Component id="jText_duration" min="-2" pref="67" max="-2" attributes="0"/>
                                   <Component id="jText_releaseYear" min="-2" pref="67" max="-2" attributes="0"/>
                                   <Group type="102" alignment="0" attributes="0">
                                       <Component id="jCombo_language1" min="-2" max="-2" attributes="0"/>
                                       <EmptySpace type="separate" max="-2" attributes="0"/>
                                       <Component id="jCombo_language2" min="-2" max="-2" attributes="0"/>
                                   </Group>
+                                  <Component id="jText_Author" alignment="0" max="32767" attributes="0"/>
                               </Group>
                           </Group>
+                          <Component id="jLabelMovieid" alignment="0" min="-2" max="-2" attributes="0"/>
                           <Component id="jButton_return" alignment="0" min="-2" max="-2" attributes="0"/>
                           <Group type="102" alignment="0" attributes="0">
                               <Group type="103" groupAlignment="0" attributes="0">
@@ -57,11 +57,11 @@
                                   <Component id="jLabel_genre" alignment="0" min="-2" max="-2" attributes="0"/>
                                   <Component id="jLabel_ageRating" alignment="0" min="-2" max="-2" attributes="0"/>
                               </Group>
-                              <EmptySpace min="-2" pref="23" max="-2" attributes="0"/>
+                              <EmptySpace min="-2" pref="7" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="0" attributes="0">
+                                  <Component id="jTextField_title" min="-2" pref="253" max="-2" attributes="0"/>
                                   <Component id="jCombo_genre" min="-2" pref="178" max="-2" attributes="0"/>
                                   <Component id="jCombo_ageRating" min="-2" max="-2" attributes="0"/>
-                                  <Component id="jTextField_title" min="-2" pref="250" max="-2" attributes="0"/>
                               </Group>
                           </Group>
                       </Group>
@@ -88,19 +88,19 @@
                               <Group type="102" attributes="0">
                                   <Component id="jLabel_search" min="-2" max="-2" attributes="0"/>
                                   <EmptySpace min="-2" pref="24" max="-2" attributes="0"/>
-                                  <Component id="jTextField_serch" min="-2" pref="185" max="-2" attributes="0"/>
+                                  <Component id="jTextField_search" min="-2" pref="185" max="-2" attributes="0"/>
                                   <EmptySpace type="separate" max="-2" attributes="0"/>
                                   <Component id="jButton_search" min="-2" pref="75" max="-2" attributes="0"/>
                               </Group>
                               <Group type="102" attributes="0">
                                   <Group type="103" groupAlignment="0" attributes="0">
-                                      <Component id="jLabel_streamLink" alignment="0" min="-2" max="-2" attributes="0"/>
+                                      <Component id="jLabel_pdfLink" alignment="0" min="-2" max="-2" attributes="0"/>
                                       <Component id="jLabel_img" alignment="0" min="-2" max="-2" attributes="0"/>
                                   </Group>
                                   <EmptySpace type="separate" max="-2" attributes="0"/>
-                                  <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                                  <Group type="103" groupAlignment="1" attributes="0">
                                       <Component id="jTextField_imgLink" min="-2" pref="318" max="-2" attributes="0"/>
-                                      <Component id="jTextStreamlink" max="32767" attributes="0"/>
+                                      <Component id="jTextField_PDFLink" min="-2" pref="318" max="-2" attributes="0"/>
                                   </Group>
                               </Group>
                           </Group>
@@ -116,7 +116,7 @@
           <Group type="102" alignment="1" attributes="0">
               <EmptySpace min="-2" pref="45" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="jTextField_serch" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="jTextField_search" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="jLabel_search" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="jButton_search" alignment="3" min="-2" pref="28" max="-2" attributes="0"/>
               </Group>
@@ -146,8 +146,8 @@
                       </Group>
                       <EmptySpace max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="jLabel_duration" alignment="3" min="-2" pref="28" max="-2" attributes="0"/>
-                          <Component id="jText_duration" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="jLabel_author" alignment="3" min="-2" pref="28" max="-2" attributes="0"/>
+                          <Component id="jText_Author" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace type="separate" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
@@ -165,8 +165,8 @@
                       </Group>
                       <EmptySpace type="unrelated" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="jLabel_streamLink" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="jTextStreamlink" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="jLabel_pdfLink" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="jTextField_PDFLink" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace type="unrelated" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
@@ -201,9 +201,9 @@
   <SubComponents>
     <Component class="javax.swing.JTextField" name="jTextField_imgLink">
     </Component>
-    <Component class="javax.swing.JLabel" name="jLabel_duration">
+    <Component class="javax.swing.JLabel" name="jLabel_author">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Duration :"/>
+        <Property name="text" type="java.lang.String" value="Author :"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel_releaseYear">
@@ -215,14 +215,6 @@
       <Properties>
         <Property name="text" type="java.lang.String" value="Age Rating :"/>
       </Properties>
-    </Component>
-    <Component class="javax.swing.JTextField" name="jTextStreamlink">
-      <Properties>
-        <Property name="enabled" type="boolean" value="false"/>
-      </Properties>
-      <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jTextStreamlinkActionPerformed"/>
-      </Events>
     </Component>
     <Component class="javax.swing.JTextField" name="jText_releaseYear">
       <Events>
@@ -242,9 +234,9 @@
         <Property name="text" type="java.lang.String" value="Change a Book"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JTextField" name="jText_duration">
+    <Component class="javax.swing.JTextField" name="jText_Author">
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jText_durationActionPerformed"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jText_AuthorActionPerformed"/>
       </Events>
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel_genre">
@@ -267,9 +259,9 @@
         <Property name="text" type="java.lang.String" value="IMG-Link :"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JLabel" name="jLabel_streamLink">
+    <Component class="javax.swing.JLabel" name="jLabel_pdfLink">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Streamlink :"/>
+        <Property name="text" type="java.lang.String" value="Pdf-Link"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel_priceCat">
@@ -354,7 +346,7 @@
         </Component>
       </SubComponents>
     </Container>
-    <Component class="javax.swing.JTextField" name="jTextField_serch">
+    <Component class="javax.swing.JTextField" name="jTextField_search">
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel_search">
       <Properties>
@@ -407,6 +399,8 @@
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton_deleteActionPerformed"/>
       </Events>
+    </Component>
+    <Component class="javax.swing.JTextField" name="jTextField_PDFLink">
     </Component>
   </SubComponents>
 </Form>

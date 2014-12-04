@@ -36,18 +36,20 @@
                               <Group type="103" groupAlignment="0" attributes="0">
                                   <Component id="jLabel_ageRating" alignment="0" min="-2" max="-2" attributes="0"/>
                                   <Component id="jLabel_rating" alignment="0" min="-2" max="-2" attributes="0"/>
+                                  <Component id="jLabel_price" alignment="0" min="-2" max="-2" attributes="0"/>
                               </Group>
                               <EmptySpace min="-2" pref="23" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="0" attributes="0">
                                   <Component id="jLabelRating" min="-2" pref="141" max="-2" attributes="0"/>
                                   <Component id="jLabelAgeRating" min="-2" pref="141" max="-2" attributes="0"/>
+                                  <Component id="jLabelPrice" min="-2" pref="141" max="-2" attributes="0"/>
                               </Group>
                           </Group>
                           <Group type="103" alignment="0" groupAlignment="1" attributes="0">
-                              <Component id="jLabelDuration" min="-2" pref="141" max="-2" attributes="0"/>
+                              <Component id="jLabelAuthor" min="-2" pref="141" max="-2" attributes="0"/>
                               <Group type="102" attributes="0">
                                   <Group type="103" groupAlignment="0" attributes="0">
-                                      <Component id="jLabel_duration" alignment="0" min="-2" max="-2" attributes="0"/>
+                                      <Component id="jLabel_author" alignment="0" min="-2" max="-2" attributes="0"/>
                                       <Component id="jLabel_genre" alignment="0" min="-2" max="-2" attributes="0"/>
                                       <Component id="jLabel_release" alignment="0" min="-2" max="-2" attributes="0"/>
                                   </Group>
@@ -85,7 +87,7 @@
                       <EmptySpace max="-2" attributes="0"/>
                       <Component id="jButton_rateBook" min="-2" max="-2" attributes="0"/>
                       <EmptySpace min="-2" pref="30" max="-2" attributes="0"/>
-                      <Component id="jButton_rentBook" min="-2" max="-2" attributes="0"/>
+                      <Component id="jButton_buyBook" min="-2" max="-2" attributes="0"/>
                   </Group>
               </Group>
               <EmptySpace min="-2" pref="27" max="-2" attributes="0"/>
@@ -100,10 +102,10 @@
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" alignment="0" attributes="0">
               <EmptySpace max="-2" attributes="0"/>
-              <Component id="jLabel_logo" max="32767" attributes="0"/>
+              <Component id="jLabel_logo" pref="224" max="32767" attributes="0"/>
               <EmptySpace type="separate" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Component id="jLabel_imgLink" max="32767" attributes="0"/>
+                  <Component id="jLabel_imgLink" pref="368" max="32767" attributes="0"/>
                   <Group type="102" attributes="0">
                       <EmptySpace min="-2" pref="86" max="-2" attributes="0"/>
                       <Component id="jLabel5" min="-2" max="-2" attributes="0"/>
@@ -118,8 +120,8 @@
                       </Group>
                       <EmptySpace type="separate" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="jLabel_duration" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="jLabelDuration" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="jLabel_author" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="jLabelAuthor" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace type="separate" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
@@ -138,7 +140,12 @@
                       </Group>
                   </Group>
               </Group>
-              <EmptySpace min="-2" pref="314" max="-2" attributes="0"/>
+              <EmptySpace max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="3" attributes="0">
+                  <Component id="jLabel_price" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="jLabelPrice" alignment="3" min="-2" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace min="-2" pref="114" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="jLabel_language" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="jLabelLanguage" alignment="3" min="-2" max="-2" attributes="0"/>
@@ -150,7 +157,7 @@
               </Group>
               <EmptySpace min="-2" pref="11" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="jButton_rentBook" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="jButton_buyBook" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="jButton_return" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="jCombo_rating" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="jButton_rateBook" alignment="3" min="-2" max="-2" attributes="0"/>
@@ -211,12 +218,12 @@
         <Property name="text" type="java.lang.String" value="Description:"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JButton" name="jButton_rentBook">
+    <Component class="javax.swing.JButton" name="jButton_buyBook">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Rent Book"/>
+        <Property name="text" type="java.lang.String" value="Buy Book"/>
       </Properties>
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton_rentBookActionPerformed"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton_buyBookActionPerformed"/>
       </Events>
     </Component>
     <Component class="javax.swing.JButton" name="jButton_return">
@@ -237,9 +244,9 @@
         <Property name="text" type="java.lang.String" value="Release:"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JLabel" name="jLabel_duration">
+    <Component class="javax.swing.JLabel" name="jLabel_author">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Duration:"/>
+        <Property name="text" type="java.lang.String" value="Author:"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JComboBox" name="jCombo_rating">
@@ -271,7 +278,7 @@
         <Property name="text" type="java.lang.String" value="jLabel1"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JLabel" name="jLabelDuration">
+    <Component class="javax.swing.JLabel" name="jLabelAuthor">
       <Properties>
         <Property name="text" type="java.lang.String" value="jLabel1"/>
       </Properties>
@@ -322,5 +329,15 @@
         </Component>
       </SubComponents>
     </Container>
+    <Component class="javax.swing.JLabel" name="jLabel_price">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Price:"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="jLabelPrice">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="jLabel1"/>
+      </Properties>
+    </Component>
   </SubComponents>
 </Form>

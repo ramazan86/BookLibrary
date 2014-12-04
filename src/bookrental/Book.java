@@ -11,30 +11,48 @@ import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 
 public class Book {
-    String mid, title, imglink, rating, description, genre, agerating, releaseYear, duration, link, language, language2, price, deadline;
+  
+    /*Class-attributes*/
+    
+    String mid, title, imglink,author, rating, description, genre, agerating, releaseYear, link, language, language2, price, PDFLink;
     ArrayList<Book> books;
     static Verbindung db;
     static Connection conn;
-    Book(String mid,String title,String imglink, String rating, String description,String genre,String agerating,String releaseYear,String duration,String link, String language, String language2, String price, String deadline){
-    this.mid = mid;
-    this.title = title;
-    this.imglink = imglink;
-    if(rating == null)    
-        this.rating = "N/A";
-    else    
-        this.rating = rating.substring(0, 3);
-        
-    this.description = description;
-    this.genre = genre;
-    this.agerating = agerating;
-    this.releaseYear = releaseYear;
-    this.duration = duration;
-    this.link = link;
-    this.language = language;
-    this.language2 = language2;
-    this.price = price;
-    this.deadline = deadline;
+    
+    /*Class-Methods*/
+    
+    
+    Book(String mid,String title,String imglink, String rating, String description,String genre,String agerating,String releaseYear,String link,String language, String language2, String price, String PDFLink, String author){ 
+    
+        this(mid, title, imglink, rating, description, genre, agerating, releaseYear, link, language, language2, price, PDFLink);
+        this.author = author;
     }
+    
+    
+    Book(String mid,String title,String imglink, String rating, 
+         String description,String genre,String agerating,
+         String releaseYear,String link, 
+         String language, String language2, String price, String PDFLink){
+   
+        this.mid = mid;
+        this.title = title;
+        this.imglink = imglink;
+
+        if(rating == null)    
+            this.rating = "N/A";
+        else    
+            this.rating = rating.substring(0, 3);
+
+        this.description = description;
+        this.genre = genre;
+        this.agerating = agerating;
+        this.releaseYear = releaseYear;
+        this.link = link;
+        this.language = language;
+        this.language2 = language2;
+        this.price = price;
+        this.PDFLink = PDFLink;
+    }//Book(String ...) closing 
 
     
     public Book(String title, String imglink){
@@ -43,15 +61,22 @@ public class Book {
     }
     //
     //Connects to the database and inserts the new book.
-    public static void addBook(String title,String genre,String agerating,String description,String releaseyear,String duration,String streamlink,String imglink,String price,String language,String language2) throws SQLException{
+    public static void addBook(String title, String genre, String agerating,String description,
+                                String releaseyear, String author, String imglink,String price,
+                                String language, String language2, String PDFlink) throws SQLException{
+        
+        System.out.println("title: " +title+ " genre: " + genre + " age: " +agerating +" description: " +description+ 
+                " year:" +releaseyear +" img: "+imglink + " lang: " +language + " lang2: " + language2 + 
+                " author: " +author + " PDF: " +PDFlink + " price: " +price);
+        
         
         Verbindung db = new Verbindung();
         db.start();
         Connection conn = db.getVerbindung();
 
         Statement stmt = conn.createStatement();
-        stmt.executeUpdate("INSERT INTO book(`title`, `genre`, `ageRating`, `description`, `releaseYear`, `duration`, `picture`, `price`) VALUES "
-                           + "('" + title + "','" + genre + "','" + agerating + "',\"" + description + "\",'" +  releaseyear + "','" + duration + "','" + imglink + "','" + price +"')");
+        stmt.executeUpdate("INSERT INTO book(`title`, `genre`, `ageRating`, `description`, `releaseYear`, `author`, `picture`, `price`, `pdflink`, `language`, `language2`) VALUES "
+                           + "('" + title + "', '" + genre + "', '" + agerating + "', \"" + description + "\"," +  releaseyear + ",'" + author + "','" + imglink + "'," + price + ",'" + PDFlink + "', '" +language +"', " + "'" +language2 +"')");
 
         Statement stmt2 = conn.createStatement();
         stmt2.executeUpdate("INSERT INTO haslang (`Mid`,`Language`) VALUES ((SELECT mid FROM book WHERE title = '"+ title +"'),'"+ language + "')");
@@ -64,16 +89,16 @@ public class Book {
         }
     }
     
-    //Connects to the database and 
-    public static void changebook(String title,String genre,String agerating,String description,String releaseyear,String duration,String streamlink,String imglink,String price){
+    //Connects to the database and update
+    public static void changebook(String title,String genre,String agerating,String description,String releaseyear,String PDFlink, String imglink, String price, String author, String PDFLink){
         Verbindung db = new Verbindung();
         db.start();
         Connection conn = db.getVerbindung();
 
         try {
            Statement stmt = conn.createStatement();
-            stmt.executeUpdate("INSERT INTO `book`(`title`, `genre`, `ageRating`, `description`, `releaseYear`, `duration`, `picture`, `price`) VALUES "
-            + "('" + title + "','" + genre + "','" + agerating + "','" + description + "','" +  releaseyear + "','" + duration + "','" + imglink + "','" + price +"')");
+            stmt.executeUpdate("INSERT INTO `book`(`title`, `genre`, `ageRating`, `description`, `releaseYear`, `author`, `picture`, `price`, `pdflink`) VALUES "
+            + "('" + title + "','" + genre + "','" + agerating + "','" + description + "','" +  releaseyear + "','" + author + "','" + imglink + "','" + price + "','"+ PDFLink +"')");
            
         } catch (SQLException ex) {
             Logger.getLogger(AddBook.class.getName()).log(Level.SEVERE, null, ex);
@@ -88,7 +113,7 @@ public class Book {
        db.start();
        conn = db.getVerbindung();
        Statement stmt = conn.createStatement();     
-       ResultSet rs = stmt.executeQuery("Select *, avg(rating) as average from book natural left join rates where inactive = 0 group by mid order by mid desc LIMIT 0,10");
+       ResultSet rs = stmt.executeQuery("Select *, avg(rating) as average from book natural left join rates group by mid order by mid desc LIMIT 0,10");
        
        Statement stmt2 = conn.createStatement();
        while(rs.next()){
@@ -102,14 +127,19 @@ public class Book {
         if(lang2.equals(lang))
             lang2 = "";
         
-        Book book = new Book(rs.getString("mid"),rs.getString("title"),rs.getString("picture"),rs.getString("average"), rs.getString("description"),rs.getString("genre"),rs.getString("agerating"),rs.getString("releaseyear"),rs.getString("duration"),rs.getString("streamlink"),lang, lang2, rs.getString("price"),"");
+       Book book = new Book(rs.getString("mid"),
+                            rs.getString("title"),rs.getString("picture"),
+                            rs.getString("average"), rs.getString("description"),
+                            rs.getString("genre"),rs.getString("agerating"),
+                            rs.getString("releaseyear"),
+                            rs.getString("pdflink"),lang, lang2, rs.getString("price"), rs.getString("pdflink"));
         books.add(book);
        }
        
        //Top10 are stored in "books"
    
        Statement stmt3 = conn.createStatement();     
-       ResultSet rs2 = stmt3.executeQuery("Select *, avg(rating) as average from book natural left join rates where inactive = 0 group by mid order by average desc LIMIT 0,10");
+       ResultSet rs2 = stmt3.executeQuery("Select *, avg(rating) as average from book natural left join rates group by mid order by average desc LIMIT 0,10");
        
        Statement stmt4 = conn.createStatement();
        while(rs2.next()){
@@ -123,7 +153,12 @@ public class Book {
         if(lang2.equals(lang))
             lang2 = "";
         
-        Book book = new Book(rs2.getString("mid"),rs2.getString("title"),rs2.getString("picture"),rs2.getString("average"), rs2.getString("description"),rs2.getString("genre"),rs2.getString("agerating"),rs2.getString("releaseyear"),rs2.getString("duration"),rs2.getString("streamlink"),lang, lang2, rs2.getString("price"),"");
+        Book book = new Book(rs.getString("mid"),
+                            rs.getString("title"),rs.getString("picture"),
+                            rs.getString("average"), rs.getString("description"),
+                            rs.getString("genre"),rs.getString("agerating"),
+                            rs.getString("releaseyear"),
+                            rs.getString("pdflink"),lang, lang2, rs.getString("price"), rs.getString("pdflink"));
         books.add(book);
        }
        return books;
@@ -161,8 +196,8 @@ public class Book {
         return releaseYear;
     }
 
-    public String getDuration() {
-        return duration;
+    public String getPDFLink() {
+        return PDFLink;
     }
 
     public String getLink() {
@@ -181,8 +216,8 @@ public class Book {
         return price;
     }
 
-    public String getDeadline() {
-        return deadline;
+    public String getAuthor() {
+        return author;
     }
     
 }

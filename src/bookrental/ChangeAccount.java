@@ -12,6 +12,11 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 
+
+/**
+ * @author Ali Hannoun & Ramazan Cinardere
+ */
+
 public class ChangeAccount extends javax.swing.JFrame {
     
     User user;
@@ -45,6 +50,7 @@ public class ChangeAccount extends javax.swing.JFrame {
         jTextField_address.setText(user.getStreet());
         jTextField_zipcode.setText(user.getZipcode());
         jTextField_city.setText(user.getCity());
+       
         if(user.getIban() != null && !(user.getIban().equals(""))){
             iban = user.getIban();
             ibanhidden = "******************" + iban.substring(iban.length()-4,iban.length());
@@ -90,7 +96,6 @@ public class ChangeAccount extends javax.swing.JFrame {
         jTextField_eMail = new javax.swing.JTextField();
         jLabel_mandatoryField = new javax.swing.JLabel();
         jLabel_optionalField = new javax.swing.JLabel();
-        jLabel_logo = new javax.swing.JLabel();
         jLabel_surname = new javax.swing.JLabel();
         jLabel_adress = new javax.swing.JLabel();
         jLabel_zipcode = new javax.swing.JLabel();
@@ -140,9 +145,6 @@ public class ChangeAccount extends javax.swing.JFrame {
 
         jLabel_optionalField.setFont(new java.awt.Font("Lucida Grande", 0, 18)); // NOI18N
         jLabel_optionalField.setText("Optional Fields");
-
-        jLabel_logo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/logo.png"))); // NOI18N
-        jLabel_logo.setText("jLabel2");
 
         jLabel_surname.setText("Surname :");
 
@@ -261,10 +263,7 @@ public class ChangeAccount extends javax.swing.JFrame {
                 .addGroup(layout.createSequentialGroup()
                     .addGap(15, 15, 15)
                     .addComponent(jLabel_changeAccountInf)
-                    .addContainerGap(296, Short.MAX_VALUE))
-                .addGroup(layout.createSequentialGroup()
-                    .addComponent(jLabel_logo, javax.swing.GroupLayout.PREFERRED_SIZE, 237, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGap(0, 0, Short.MAX_VALUE)))
+                    .addContainerGap(296, Short.MAX_VALUE)))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -341,8 +340,7 @@ public class ChangeAccount extends javax.swing.JFrame {
                 .addContainerGap())
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(layout.createSequentialGroup()
-                    .addComponent(jLabel_logo, javax.swing.GroupLayout.PREFERRED_SIZE, 137, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                    .addGap(143, 143, 143)
                     .addComponent(jLabel_changeAccountInf)
                     .addContainerGap(327, Short.MAX_VALUE)))
         );
@@ -365,6 +363,7 @@ public class ChangeAccount extends javax.swing.JFrame {
         city = jTextField_city.getText();
         iban = jTextField_iban.getText();
         bic = jTextField_bic.getText();
+       
         if(password.equals("") || email.equals("")){
                 JOptionPane.showMessageDialog(null, "Please fill in all mandatory fields.");
             }else{
@@ -483,7 +482,6 @@ public class ChangeAccount extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel_city;
     private javax.swing.JLabel jLabel_eMail;
     private javax.swing.JLabel jLabel_iban;
-    private javax.swing.JLabel jLabel_logo;
     private javax.swing.JLabel jLabel_mandatoryField;
     private javax.swing.JLabel jLabel_optionalField;
     private javax.swing.JLabel jLabel_password;

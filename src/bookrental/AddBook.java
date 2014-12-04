@@ -18,7 +18,7 @@ public class AddBook extends javax.swing.JFrame {
     
     /*Class - Attributes*/
     
-    String title,genre,agerating,imglink,streamlink,description,duration,releaseyear,price,language,language2;
+    String title,genre,agerating,pdflink,imglink,description,author,releaseyear,price,language,language2;
     
     
     /*Class - Methods*/
@@ -37,9 +37,9 @@ public class AddBook extends javax.swing.JFrame {
         jCombo_genre.setSelectedIndex(0);
         jCombo_ageRating.setSelectedIndex(0);
         jTextField_ImgLink.setText("");
-        jTextField_streamlink.setText("");
+        jTextField_PDFLink.setText("");
         jTextArea_description.setText("");
-        jTextField_duration.setText("");
+        jTextField_Author.setText("");
         jTextField_releaseYear.setText("");
         jCombo_priceCat.setSelectedIndex(0);
         jCombo_language.setSelectedIndex(0);
@@ -56,19 +56,18 @@ public class AddBook extends javax.swing.JFrame {
 
         jComboBox1 = new javax.swing.JComboBox();
         jTextField_ImgLink = new javax.swing.JTextField();
-        jLabel_duration = new javax.swing.JLabel();
+        jLabel_author = new javax.swing.JLabel();
         jLabel_relaseyear = new javax.swing.JLabel();
         jLabel_agerating = new javax.swing.JLabel();
-        jTextField_streamlink = new javax.swing.JTextField();
         jTextField_releaseYear = new javax.swing.JTextField();
         jLabel_description = new javax.swing.JLabel();
         jLabel_addBook = new javax.swing.JLabel();
-        jTextField_duration = new javax.swing.JTextField();
+        jTextField_Author = new javax.swing.JTextField();
         jLabel_genre = new javax.swing.JLabel();
         jLabel_title = new javax.swing.JLabel();
         jTextField_title = new javax.swing.JTextField();
         jLabel_ImgLink = new javax.swing.JLabel();
-        jLabel_streamlink = new javax.swing.JLabel();
+        jLabel_PDFLink = new javax.swing.JLabel();
         jLabel_price = new javax.swing.JLabel();
         jCombo_genre = new javax.swing.JComboBox();
         jCombo_ageRating = new javax.swing.JComboBox();
@@ -80,18 +79,17 @@ public class AddBook extends javax.swing.JFrame {
         jLabel_lanuage = new javax.swing.JLabel();
         jCombo_language = new javax.swing.JComboBox();
         jCombo_language2 = new javax.swing.JComboBox();
+        jTextField_PDFLink = new javax.swing.JTextField();
 
         jComboBox1.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jLabel_duration.setText("Duration :");
+        jLabel_author.setText("Author :");
 
         jLabel_relaseyear.setText("Release Year :");
 
         jLabel_agerating.setText("Age Rating :");
-
-        jTextField_streamlink.setEnabled(false);
 
         jTextField_releaseYear.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -110,7 +108,7 @@ public class AddBook extends javax.swing.JFrame {
 
         jLabel_ImgLink.setText("IMG-Link :");
 
-        jLabel_streamlink.setText("Streamlink :");
+        jLabel_PDFLink.setText("PDFLink");
 
         jLabel_price.setText("Price Cat. :");
 
@@ -168,34 +166,38 @@ public class AddBook extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(jLabel_addBook)
-                        .addContainerGap(696, Short.MAX_VALUE))
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jButton_return)
                             .addGroup(layout.createSequentialGroup()
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLabel_title, javax.swing.GroupLayout.PREFERRED_SIZE, 81, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jLabel_genre)
-                                    .addComponent(jLabel_agerating))
-                                .addGap(23, 23, 23)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jCombo_genre, javax.swing.GroupLayout.PREFERRED_SIZE, 178, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jCombo_ageRating, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jTextField_title, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                            .addGroup(layout.createSequentialGroup()
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLabel_relaseyear)
-                                    .addComponent(jLabel_duration)
-                                    .addComponent(jLabel_lanuage))
-                                .addGap(18, 18, 18)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jTextField_duration, javax.swing.GroupLayout.PREFERRED_SIZE, 67, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jTextField_releaseYear, javax.swing.GroupLayout.PREFERRED_SIZE, 67, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addComponent(jCombo_language, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(jCombo_language2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))))
-                        .addGap(18, 18, 18)
+                                .addComponent(jButton_return)
+                                .addGap(106, 106, 106))
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addGroup(layout.createSequentialGroup()
+                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addComponent(jLabel_title, javax.swing.GroupLayout.PREFERRED_SIZE, 81, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(jLabel_genre)
+                                        .addComponent(jLabel_agerating))
+                                    .addGap(7, 7, 7)
+                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addComponent(jCombo_genre, javax.swing.GroupLayout.PREFERRED_SIZE, 178, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(jCombo_ageRating, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(jTextField_title, javax.swing.GroupLayout.PREFERRED_SIZE, 253, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addGap(74, 74, 74))
+                                .addGroup(layout.createSequentialGroup()
+                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addComponent(jLabel_relaseyear)
+                                        .addComponent(jLabel_author)
+                                        .addComponent(jLabel_lanuage))
+                                    .addGap(18, 18, 18)
+                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addComponent(jTextField_releaseYear, javax.swing.GroupLayout.PREFERRED_SIZE, 67, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGroup(layout.createSequentialGroup()
+                                            .addComponent(jCombo_language, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                            .addComponent(jCombo_language2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                        .addComponent(jTextField_Author))
+                                    .addGap(18, 18, 18))))
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
                                 .addGap(341, 341, 341)
@@ -206,17 +208,16 @@ public class AddBook extends javax.swing.JFrame {
                                 .addComponent(jCombo_priceCat, 0, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(layout.createSequentialGroup()
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLabel_streamlink)
+                                    .addComponent(jLabel_PDFLink)
                                     .addComponent(jLabel_ImgLink))
                                 .addGap(18, 18, 18)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(jTextField_ImgLink)
-                                    .addComponent(jTextField_streamlink, javax.swing.GroupLayout.PREFERRED_SIZE, 318, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jTextField_ImgLink, javax.swing.GroupLayout.PREFERRED_SIZE, 318, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jTextField_PDFLink, javax.swing.GroupLayout.PREFERRED_SIZE, 318, javax.swing.GroupLayout.PREFERRED_SIZE)))
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(jLabel_description)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(jScrollPane_discription, javax.swing.GroupLayout.PREFERRED_SIZE, 323, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addGap(0, 0, Short.MAX_VALUE))))
+                                .addComponent(jScrollPane_discription, javax.swing.GroupLayout.PREFERRED_SIZE, 323, javax.swing.GroupLayout.PREFERRED_SIZE))))))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -243,8 +244,8 @@ public class AddBook extends javax.swing.JFrame {
                             .addComponent(jTextField_releaseYear, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel_duration, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jTextField_duration, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(jLabel_author, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jTextField_Author, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel_lanuage)
@@ -256,8 +257,8 @@ public class AddBook extends javax.swing.JFrame {
                             .addComponent(jLabel_ImgLink))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel_streamlink)
-                            .addComponent(jTextField_streamlink, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(jLabel_PDFLink)
+                            .addComponent(jTextField_PDFLink, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel_price, javax.swing.GroupLayout.PREFERRED_SIZE, 16, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -295,24 +296,24 @@ public class AddBook extends javax.swing.JFrame {
        title = jTextField_title.getText();
        genre = (String) jCombo_genre.getSelectedItem();
        agerating = (String) jCombo_ageRating.getSelectedItem();
-       duration = jTextField_duration.getText();
        releaseyear = jTextField_releaseYear.getText();
        description = StringEscapeUtils.escapeJavaScript(jTextArea_description.getText());
+       author = jTextField_Author.getText();
        price = (String) jCombo_priceCat.getSelectedItem();
        imglink = jTextField_ImgLink.getText();
-       streamlink = jTextField_streamlink.getText();
+       pdflink = jTextField_PDFLink.getText();
        language =  (String) jCombo_language.getSelectedItem();
        language2 = (String) jCombo_language2.getSelectedItem();
        
        if(evt.getSource() == jButton_add){
           
-       if(title.equals("") || genre.equals("") || agerating.equals("") || duration.equals("") || releaseyear.equals("") || description.equals("") || price.equals("") || imglink.equals("") || language.equals("First") )
+       if(title.equals("") || genre.equals("") || agerating.equals("") || author.equals("") || releaseyear.equals("") || description.equals("") || price.equals("") || imglink.equals("") || language.equals("First") )
        {    
            JOptionPane.showMessageDialog(null, "Please fill all fields.");
            
        }else{
           try {
-               addBook(title,genre,agerating,description,releaseyear,duration,streamlink,imglink,price,language,language2);
+               addBook(title,genre,agerating,description,releaseyear,author,imglink,price,language,language2, pdflink);
            } catch (SQLException ex) {
                Logger.getLogger(AddBook.class.getName()).log(Level.SEVERE, null, ex);
            }
@@ -362,22 +363,22 @@ public class AddBook extends javax.swing.JFrame {
     private javax.swing.JComboBox jCombo_language2;
     private javax.swing.JComboBox jCombo_priceCat;
     private javax.swing.JLabel jLabel_ImgLink;
+    private javax.swing.JLabel jLabel_PDFLink;
     private javax.swing.JLabel jLabel_addBook;
     private javax.swing.JLabel jLabel_agerating;
+    private javax.swing.JLabel jLabel_author;
     private javax.swing.JLabel jLabel_description;
-    private javax.swing.JLabel jLabel_duration;
     private javax.swing.JLabel jLabel_genre;
     private javax.swing.JLabel jLabel_lanuage;
     private javax.swing.JLabel jLabel_price;
     private javax.swing.JLabel jLabel_relaseyear;
-    private javax.swing.JLabel jLabel_streamlink;
     private javax.swing.JLabel jLabel_title;
     private javax.swing.JScrollPane jScrollPane_discription;
     private javax.swing.JTextArea jTextArea_description;
+    private javax.swing.JTextField jTextField_Author;
     private javax.swing.JTextField jTextField_ImgLink;
-    private javax.swing.JTextField jTextField_duration;
+    private javax.swing.JTextField jTextField_PDFLink;
     private javax.swing.JTextField jTextField_releaseYear;
-    private javax.swing.JTextField jTextField_streamlink;
     private javax.swing.JTextField jTextField_title;
     // End of variables declaration//GEN-END:variables
 }

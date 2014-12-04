@@ -4,6 +4,14 @@
   <NonVisualComponents>
     <Component class="javax.swing.ButtonGroup" name="buttonGroup1">
     </Component>
+    <Component class="javax.swing.JButton" name="jButton_readBook8">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Read in Browser"/>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton_readBook8ActionPerformed"/>
+      </Events>
+    </Component>
   </NonVisualComponents>
   <Properties>
     <Property name="defaultCloseOperation" type="int" value="3"/>
@@ -30,90 +38,95 @@
           <Group type="102" attributes="0">
               <EmptySpace min="-2" pref="35" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Component id="jLabel_rentedBooks" min="-2" max="-2" attributes="0"/>
-                  <Component id="jLabel_personalLibrary" min="-2" max="-2" attributes="0"/>
                   <Group type="102" alignment="0" attributes="0">
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <Group type="102" alignment="0" attributes="0">
+                          <Component id="jLabel_rentedBooks" min="-2" max="-2" attributes="0"/>
+                          <Component id="jLabel_personalLibrary" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace min="-2" pref="45" max="-2" attributes="0"/>
+                  </Group>
+                  <Group type="102" alignment="0" attributes="0">
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Group type="102" attributes="0">
                               <Component id="jButton_return" min="-2" max="-2" attributes="0"/>
                               <EmptySpace max="-2" attributes="0"/>
                               <Component id="jButton_previous" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace max="32767" attributes="0"/>
+                              <Component id="jButton_next" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace min="-2" pref="8" max="-2" attributes="0"/>
                           </Group>
-                          <Group type="102" alignment="0" attributes="0">
-                              <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                  <Component id="jLabel_title1" pref="204" max="32767" attributes="0"/>
-                                  <Component id="jLabel_title2" alignment="0" max="32767" attributes="0"/>
-                                  <Component id="jLabel_title3" alignment="0" max="32767" attributes="0"/>
-                              </Group>
-                              <EmptySpace pref="18" max="32767" attributes="0"/>
+                          <Group type="102" attributes="0">
                               <Group type="103" groupAlignment="0" attributes="0">
-                                  <Group type="102" attributes="0">
-                                      <Component id="jLabel_deadline1" min="-2" pref="66" max="-2" attributes="0"/>
-                                      <EmptySpace max="-2" attributes="0"/>
-                                      <Component id="jButton_readBook1" min="-2" max="-2" attributes="0"/>
+                                  <Group type="103" alignment="0" groupAlignment="0" max="-2" attributes="0">
+                                      <Component id="jLabel_title1" pref="204" max="32767" attributes="0"/>
+                                      <Component id="jLabel_title2" alignment="0" max="32767" attributes="0"/>
+                                      <Component id="jLabel_title3" alignment="0" max="32767" attributes="0"/>
                                   </Group>
-                                  <Group type="102" attributes="0">
-                                      <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                          <Component id="jLabel_deadline3" pref="66" max="32767" attributes="0"/>
-                                          <Component id="jLabel_deadline2" max="32767" attributes="0"/>
-                                      </Group>
-                                      <EmptySpace max="-2" attributes="0"/>
-                                      <Group type="103" groupAlignment="0" attributes="0">
-                                          <Component id="jButton_readBook2" alignment="1" min="-2" max="-2" attributes="0"/>
-                                          <Component id="jButton_readBook3" alignment="1" min="-2" max="-2" attributes="0"/>
-                                      </Group>
-                                  </Group>
-                              </Group>
-                          </Group>
-                          <Group type="102" alignment="0" attributes="0">
-                              <Group type="103" groupAlignment="0" attributes="0">
-                                  <Component id="jLabel_title4" max="32767" attributes="0"/>
+                                  <Component id="jLabel_title4" pref="232" max="32767" attributes="0"/>
                                   <Component id="jLabel_title5" max="32767" attributes="0"/>
                               </Group>
                               <EmptySpace max="-2" attributes="0"/>
-                              <Group type="103" groupAlignment="1" attributes="0">
-                                  <Group type="102" attributes="0">
-                                      <Component id="jLabel_deadline4" min="-2" pref="66" max="-2" attributes="0"/>
-                                      <EmptySpace max="-2" attributes="0"/>
-                                      <Component id="jButton_readBook4" min="-2" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Group type="102" alignment="0" attributes="0">
+                                      <Group type="103" groupAlignment="0" attributes="0">
+                                          <Component id="jLabel_dayOfBought2" max="32767" attributes="0"/>
+                                          <Component id="jLabel_dayOfBought3" max="32767" attributes="0"/>
+                                      </Group>
+                                      <EmptySpace min="-2" pref="20" max="-2" attributes="0"/>
+                                      <Group type="103" groupAlignment="1" attributes="0">
+                                          <Group type="102" alignment="1" attributes="0">
+                                              <Component id="jButton_readBook3" min="-2" pref="115" max="-2" attributes="0"/>
+                                              <EmptySpace type="separate" max="-2" attributes="0"/>
+                                              <Component id="jButton_Download3" min="-2" pref="79" max="-2" attributes="0"/>
+                                          </Group>
+                                          <Group type="102" alignment="1" attributes="0">
+                                              <Component id="jButton_readBook2" min="-2" pref="115" max="-2" attributes="0"/>
+                                              <EmptySpace type="separate" max="-2" attributes="0"/>
+                                              <Component id="jButton_Download2" min="-2" pref="79" max="-2" attributes="0"/>
+                                          </Group>
+                                      </Group>
                                   </Group>
-                                  <Group type="102" attributes="0">
-                                      <Component id="jLabel_deadline5" min="-2" pref="66" max="-2" attributes="0"/>
-                                      <EmptySpace max="-2" attributes="0"/>
-                                      <Component id="jButton_readBook5" min="-2" max="-2" attributes="0"/>
+                                  <Group type="102" alignment="0" attributes="0">
+                                      <Group type="103" groupAlignment="1" max="-2" attributes="0">
+                                          <Component id="jLabel_dayOfBought5" max="32767" attributes="0"/>
+                                          <Component id="jLabel_dayOfBought4" max="32767" attributes="0"/>
+                                      </Group>
+                                      <EmptySpace min="-2" pref="36" max="-2" attributes="0"/>
+                                      <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                                          <Component id="jButton_readBook5" pref="115" max="32767" attributes="0"/>
+                                          <Component id="jButton_readBook4" max="32767" attributes="0"/>
+                                      </Group>
+                                      <Group type="103" groupAlignment="0" attributes="0">
+                                          <Group type="102" alignment="0" attributes="0">
+                                              <EmptySpace type="separate" max="-2" attributes="0"/>
+                                              <Component id="jButton_Download4" min="-2" pref="79" max="-2" attributes="0"/>
+                                          </Group>
+                                          <Group type="102" alignment="1" attributes="0">
+                                              <EmptySpace min="-2" pref="18" max="-2" attributes="0"/>
+                                              <Component id="jButton_Download5" min="-2" max="-2" attributes="0"/>
+                                          </Group>
+                                      </Group>
+                                  </Group>
+                                  <Group type="102" alignment="0" attributes="0">
+                                      <Component id="jLabel_dateOfBought" max="32767" attributes="0"/>
+                                      <EmptySpace min="-2" pref="32" max="-2" attributes="0"/>
+                                      <Component id="jButton_readBook1" min="-2" pref="115" max="-2" attributes="0"/>
+                                      <EmptySpace min="-2" pref="18" max="-2" attributes="0"/>
+                                      <Component id="jButton_Download" min="-2" pref="79" max="-2" attributes="0"/>
                                   </Group>
                               </Group>
                           </Group>
                       </Group>
-                      <EmptySpace max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="1" max="-2" attributes="0">
-                          <Group type="102" alignment="1" attributes="0">
-                              <EmptySpace min="12" pref="12" max="-2" attributes="0"/>
-                              <Component id="jButton_next" min="-2" max="-2" attributes="0"/>
-                          </Group>
-                          <Group type="103" alignment="0" groupAlignment="0" attributes="0">
-                              <Component id="jButton_extend2" alignment="1" min="-2" max="-2" attributes="0"/>
-                              <Component id="jButton_extend1" alignment="0" min="-2" max="-2" attributes="0"/>
-                              <Component id="jButton_extend3" alignment="1" min="-2" max="-2" attributes="0"/>
-                              <Component id="jButton_extend4" alignment="1" min="-2" max="-2" attributes="0"/>
-                              <Component id="jButton_extend5" alignment="1" min="-2" max="-2" attributes="0"/>
-                          </Group>
-                      </Group>
+                      <EmptySpace min="-2" pref="109" max="-2" attributes="0"/>
                   </Group>
               </Group>
-              <EmptySpace min="-2" pref="45" max="-2" attributes="0"/>
-          </Group>
-          <Group type="102" alignment="0" attributes="0">
-              <Component id="jLabel_logo" min="-2" pref="239" max="-2" attributes="0"/>
-              <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
     <DimensionLayout dim="1">
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" alignment="0" attributes="0">
-              <Component id="jLabel_logo" min="-2" pref="131" max="-2" attributes="0"/>
-              <EmptySpace type="unrelated" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="142" max="-2" attributes="0"/>
               <Component id="jLabel_personalLibrary" min="-2" max="-2" attributes="0"/>
               <EmptySpace min="-2" pref="42" max="-2" attributes="0"/>
               <Component id="jLabel_rentedBooks" min="-2" max="-2" attributes="0"/>
@@ -121,36 +134,36 @@
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="jButton_readBook1" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="jLabel_title1" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="jLabel_deadline1" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="jButton_extend1" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="jLabel_dateOfBought" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="jButton_Download" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace min="-2" pref="11" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="jButton_readBook2" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="jButton_Download2" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="jLabel_title2" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="jLabel_deadline2" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="jButton_extend2" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="jLabel_dayOfBought2" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="jButton_readBook2" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace type="unrelated" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="jButton_readBook3" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="jButton_Download3" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="jLabel_title3" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="jLabel_deadline3" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="jButton_extend3" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="jLabel_dayOfBought3" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="jButton_readBook3" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace type="unrelated" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="jButton_readBook4" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="jButton_Download4" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="jLabel_title4" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="jLabel_deadline4" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="jButton_extend4" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="jLabel_dayOfBought4" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="jButton_readBook4" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace type="unrelated" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="jButton_readBook5" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="jButton_Download5" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="jLabel_title5" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="jLabel_deadline5" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="jButton_extend5" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="jLabel_dayOfBought5" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="jButton_readBook5" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace pref="28" max="32767" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
@@ -164,14 +177,6 @@
     </DimensionLayout>
   </Layout>
   <SubComponents>
-    <Component class="javax.swing.JLabel" name="jLabel_logo">
-      <Properties>
-        <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-          <Image iconType="3" name="/Images/logo.png"/>
-        </Property>
-        <Property name="text" type="java.lang.String" value="jLabel2"/>
-      </Properties>
-    </Component>
     <Component class="javax.swing.JLabel" name="jLabel_personalLibrary">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
@@ -182,15 +187,15 @@
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel_rentedBooks">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Rented Books:"/>
+        <Property name="text" type="java.lang.String" value="Bought Books:"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JButton" name="jButton_readBook5">
+    <Component class="javax.swing.JButton" name="jButton_Download5">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Read Book"/>
+        <Property name="text" type="java.lang.String" value="Download"/>
       </Properties>
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton_readBook5ActionPerformed"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton_Download5ActionPerformed"/>
       </Events>
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel_title5">
@@ -198,18 +203,10 @@
         <Property name="text" type="java.lang.String" value="Graphics under C"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JLabel" name="jLabel_deadline5">
+    <Component class="javax.swing.JLabel" name="jLabel_dayOfBought5">
       <Properties>
-        <Property name="text" type="java.lang.String" value="1 day left"/>
+        <Property name="text" type="java.lang.String" value="day of bought"/>
       </Properties>
-    </Component>
-    <Component class="javax.swing.JButton" name="jButton_extend5">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="Extend"/>
-      </Properties>
-      <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton_extend5ActionPerformed"/>
-      </Events>
     </Component>
     <Component class="javax.swing.JButton" name="jButton_return">
       <Properties>
@@ -221,7 +218,7 @@
     </Component>
     <Component class="javax.swing.JButton" name="jButton_readBook1">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Read Book"/>
+        <Property name="text" type="java.lang.String" value="Read in Browser"/>
       </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton_readBook1ActionPerformed"/>
@@ -232,25 +229,17 @@
         <Property name="text" type="java.lang.String" value="Graphics under C"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JLabel" name="jLabel_deadline1">
+    <Component class="javax.swing.JLabel" name="jLabel_dateOfBought">
       <Properties>
-        <Property name="text" type="java.lang.String" value="1 day left"/>
+        <Property name="text" type="java.lang.String" value="date of bought"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JButton" name="jButton_extend1">
+    <Component class="javax.swing.JButton" name="jButton_Download2">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Extend"/>
+        <Property name="text" type="java.lang.String" value="Download"/>
       </Properties>
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton_extend1ActionPerformed"/>
-      </Events>
-    </Component>
-    <Component class="javax.swing.JButton" name="jButton_readBook2">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="Read Book"/>
-      </Properties>
-      <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton_readBook2ActionPerformed"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton_Download2ActionPerformed"/>
       </Events>
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel_title2">
@@ -258,25 +247,17 @@
         <Property name="text" type="java.lang.String" value="Graphics under C"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JLabel" name="jLabel_deadline2">
+    <Component class="javax.swing.JLabel" name="jLabel_dayOfBought2">
       <Properties>
-        <Property name="text" type="java.lang.String" value="1 day left"/>
+        <Property name="text" type="java.lang.String" value="day of bought"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JButton" name="jButton_extend2">
+    <Component class="javax.swing.JButton" name="jButton_Download3">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Extend"/>
+        <Property name="text" type="java.lang.String" value="Download"/>
       </Properties>
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton_extend2ActionPerformed"/>
-      </Events>
-    </Component>
-    <Component class="javax.swing.JButton" name="jButton_readBook3">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="Read Book"/>
-      </Properties>
-      <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton_readBook3ActionPerformed"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton_Download3ActionPerformed"/>
       </Events>
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel_title3">
@@ -284,25 +265,17 @@
         <Property name="text" type="java.lang.String" value="Graphics under C"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JLabel" name="jLabel_deadline3">
+    <Component class="javax.swing.JLabel" name="jLabel_dayOfBought3">
       <Properties>
-        <Property name="text" type="java.lang.String" value="1 day left"/>
+        <Property name="text" type="java.lang.String" value="day of bought"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JButton" name="jButton_extend3">
+    <Component class="javax.swing.JButton" name="jButton_Download4">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Extend"/>
+        <Property name="text" type="java.lang.String" value="Download"/>
       </Properties>
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton_extend3ActionPerformed"/>
-      </Events>
-    </Component>
-    <Component class="javax.swing.JButton" name="jButton_readBook4">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="Read Book"/>
-      </Properties>
-      <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton_readBook4ActionPerformed"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton_Download4ActionPerformed"/>
       </Events>
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel_title4">
@@ -310,18 +283,10 @@
         <Property name="text" type="java.lang.String" value="Graphics under C"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JLabel" name="jLabel_deadline4">
+    <Component class="javax.swing.JLabel" name="jLabel_dayOfBought4">
       <Properties>
-        <Property name="text" type="java.lang.String" value="1 day left"/>
+        <Property name="text" type="java.lang.String" value="day of bought"/>
       </Properties>
-    </Component>
-    <Component class="javax.swing.JButton" name="jButton_extend4">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="Extend"/>
-      </Properties>
-      <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton_extend4ActionPerformed"/>
-      </Events>
     </Component>
     <Component class="javax.swing.JButton" name="jButton_next">
       <Properties>
@@ -337,6 +302,46 @@
       </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton_previousActionPerformed"/>
+      </Events>
+    </Component>
+    <Component class="javax.swing.JButton" name="jButton_Download">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Download "/>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton_DownloadActionPerformed"/>
+      </Events>
+    </Component>
+    <Component class="javax.swing.JButton" name="jButton_readBook3">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Read in Browser"/>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton_readBook3ActionPerformed"/>
+      </Events>
+    </Component>
+    <Component class="javax.swing.JButton" name="jButton_readBook2">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Read in Browser"/>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton_readBook2ActionPerformed"/>
+      </Events>
+    </Component>
+    <Component class="javax.swing.JButton" name="jButton_readBook4">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Read in Browser"/>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton_readBook4ActionPerformed"/>
+      </Events>
+    </Component>
+    <Component class="javax.swing.JButton" name="jButton_readBook5">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Read in Browser"/>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton_readBook5ActionPerformed"/>
       </Events>
     </Component>
   </SubComponents>

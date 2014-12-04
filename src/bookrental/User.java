@@ -112,12 +112,14 @@ public class User extends javax.swing.JFrame {
            } 
         });
        try{
-       Message message = new MimeMessage(session);
-        message.setFrom(new InternetAddress(username));
-        message.setRecipients(Message.RecipientType.TO,InternetAddress.parse(email));
-        message.setSubject("Complete your registration");
-        message.setContent("<h><img src='http://s7.directupload.net/images/140624/7zf3ocup.png'><br><p>Congratulations! <br><br> To finish your registration please enter this activation code after logging in: "+random+"</p></h>","text/html");
+           
+        Message message = new MimeMessage(session);
+            message.setFrom(new InternetAddress(username));
+            message.setRecipients(Message.RecipientType.TO,InternetAddress.parse(email));
+            message.setSubject("Complete your registration");
+            message.setContent("<h><img src='http://http://fs1.directupload.net/images/141205/temp/qxjttzl5.png'><br><p>Congratulations! <br><br> To finish your registration please enter this activation code after logging in: "+random+"</p></h>","text/html");
         Transport.send(message);
+        
        }catch(MessagingException e){
            throw new RuntimeException();
        }
@@ -573,7 +575,6 @@ public class User extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jLabel_logo = new javax.swing.JLabel();
         jCombo_price = new javax.swing.JComboBox();
         jCombo_genre = new javax.swing.JComboBox();
         jCombo_ageRating = new javax.swing.JComboBox();
@@ -617,9 +618,6 @@ public class User extends javax.swing.JFrame {
         jLabelLastLogin = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-
-        jLabel_logo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/logo.png"))); // NOI18N
-        jLabel_logo.setText("jLabel2");
 
         jCombo_price.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Price", "3.99", "2.99", "1.99" }));
         jCombo_price.addItemListener(new java.awt.event.ItemListener() {
@@ -907,11 +905,9 @@ public class User extends javax.swing.JFrame {
                                 .addComponent(jButton_search)))
                         .addGap(18, 18, 18))))
             .addGroup(layout.createSequentialGroup()
-                .addComponent(jLabel_logo, javax.swing.GroupLayout.PREFERRED_SIZE, 241, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(41, 41, 41)
+                .addGap(282, 282, 282)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(jButton_account)
                         .addGap(18, 18, 18)
                         .addComponent(jButton_bookLibrary)
@@ -925,17 +921,14 @@ public class User extends javax.swing.JFrame {
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(jLabelLastLogin)
-                        .addGap(23, 23, 23)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jButton_account)
-                            .addComponent(jButton_bookLibrary)
-                            .addComponent(jButton_logOut)))
-                    .addComponent(jLabel_logo, javax.swing.GroupLayout.PREFERRED_SIZE, 141, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addContainerGap()
+                .addComponent(jLabelLastLogin)
+                .addGap(23, 23, 23)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jButton_account)
+                    .addComponent(jButton_bookLibrary)
+                    .addComponent(jButton_logOut))
+                .addGap(90, 90, 90)
                 .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(27, 27, 27)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
@@ -1178,7 +1171,6 @@ public class User extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel_img7;
     private javax.swing.JLabel jLabel_img8;
     private javax.swing.JLabel jLabel_img9;
-    private javax.swing.JLabel jLabel_logo;
     private javax.swing.JLabel jLabel_newest;
     private javax.swing.JLabel jLabel_search;
     private javax.swing.JLabel jLabel_top10;

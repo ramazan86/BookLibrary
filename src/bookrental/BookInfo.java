@@ -18,7 +18,11 @@ import java.util.logging.Logger;
 import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
 
-
+/**
+ * @author Ali Hannoun & Ramazan Cinardere
+ * 
+ * 
+ */
 
 public class BookInfo extends javax.swing.JFrame {
 
@@ -28,6 +32,7 @@ public class BookInfo extends javax.swing.JFrame {
     public BookInfo(User obj, Book obj2) throws MalformedURLException {
         initComponents();
         setLocationRelativeTo(null);
+       
         book = obj2;
         user = obj;
         
@@ -38,10 +43,12 @@ public class BookInfo extends javax.swing.JFrame {
         jTextArea_description.setBorder(null);
         jLabel_title.setText(book.getTitle());
         jLabelRelease.setText(book.getreleaseYear());
-        jLabelDuration.setText(book.getDuration());
+        jLabelAuthor.setText(book.getAuthor());
+        jLabelPrice.setText(book.getPrice());
         jLabelGenre.setText(book.getGenre());
         jLabelAgeRating.setText(book.getAgerating() + " Years");
         jLabelRating.setText(book.getRating());
+       
         if(book.getLanguage2().equals("")){
             jLabelLanguage.setText(book.getLanguage());
         }else{
@@ -72,21 +79,23 @@ public class BookInfo extends javax.swing.JFrame {
         jLabel_ageRating = new javax.swing.JLabel();
         jLabel_rating = new javax.swing.JLabel();
         jLabel_description = new javax.swing.JLabel();
-        jButton_rentBook = new javax.swing.JButton();
+        jButton_buyBook = new javax.swing.JButton();
         jButton_return = new javax.swing.JButton();
         jLabel_language = new javax.swing.JLabel();
         jLabel_release = new javax.swing.JLabel();
-        jLabel_duration = new javax.swing.JLabel();
+        jLabel_author = new javax.swing.JLabel();
         jCombo_rating = new javax.swing.JComboBox();
         jButton_rateBook = new javax.swing.JButton();
         jLabelRelease = new javax.swing.JLabel();
-        jLabelDuration = new javax.swing.JLabel();
+        jLabelAuthor = new javax.swing.JLabel();
         jLabelGenre = new javax.swing.JLabel();
         jLabelAgeRating = new javax.swing.JLabel();
         jLabelRating = new javax.swing.JLabel();
         jLabelLanguage = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTextArea_description = new javax.swing.JTextArea();
+        jLabel_price = new javax.swing.JLabel();
+        jLabelPrice = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -109,10 +118,10 @@ public class BookInfo extends javax.swing.JFrame {
 
         jLabel_description.setText("Description:");
 
-        jButton_rentBook.setText("Rent Book");
-        jButton_rentBook.addActionListener(new java.awt.event.ActionListener() {
+        jButton_buyBook.setText("Buy Book");
+        jButton_buyBook.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton_rentBookActionPerformed(evt);
+                jButton_buyBookActionPerformed(evt);
             }
         });
 
@@ -127,7 +136,7 @@ public class BookInfo extends javax.swing.JFrame {
 
         jLabel_release.setText("Release:");
 
-        jLabel_duration.setText("Duration:");
+        jLabel_author.setText("Author:");
 
         jCombo_rating.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "5", "4", "3", "2", "1" }));
         jCombo_rating.addActionListener(new java.awt.event.ActionListener() {
@@ -145,7 +154,7 @@ public class BookInfo extends javax.swing.JFrame {
 
         jLabelRelease.setText("jLabel1");
 
-        jLabelDuration.setText("jLabel1");
+        jLabelAuthor.setText("jLabel1");
 
         jLabelGenre.setText("jLabel1");
 
@@ -164,6 +173,10 @@ public class BookInfo extends javax.swing.JFrame {
         jTextArea_description.setEnabled(false);
         jScrollPane1.setViewportView(jTextArea_description);
 
+        jLabel_price.setText("Price:");
+
+        jLabelPrice.setText("jLabel1");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -180,16 +193,18 @@ public class BookInfo extends javax.swing.JFrame {
                             .addGroup(layout.createSequentialGroup()
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(jLabel_ageRating)
-                                    .addComponent(jLabel_rating))
+                                    .addComponent(jLabel_rating)
+                                    .addComponent(jLabel_price))
                                 .addGap(23, 23, 23)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(jLabelRating, javax.swing.GroupLayout.PREFERRED_SIZE, 141, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jLabelAgeRating, javax.swing.GroupLayout.PREFERRED_SIZE, 141, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                    .addComponent(jLabelAgeRating, javax.swing.GroupLayout.PREFERRED_SIZE, 141, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jLabelPrice, javax.swing.GroupLayout.PREFERRED_SIZE, 141, javax.swing.GroupLayout.PREFERRED_SIZE)))
                             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                .addComponent(jLabelDuration, javax.swing.GroupLayout.PREFERRED_SIZE, 141, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(jLabelAuthor, javax.swing.GroupLayout.PREFERRED_SIZE, 141, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGroup(layout.createSequentialGroup()
                                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addComponent(jLabel_duration)
+                                        .addComponent(jLabel_author)
                                         .addComponent(jLabel_genre)
                                         .addComponent(jLabel_release))
                                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -216,7 +231,7 @@ public class BookInfo extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jButton_rateBook)
                         .addGap(30, 30, 30)
-                        .addComponent(jButton_rentBook)))
+                        .addComponent(jButton_buyBook)))
                 .addGap(27, 27, 27))
             .addGroup(layout.createSequentialGroup()
                 .addComponent(jLabel_logo, javax.swing.GroupLayout.PREFERRED_SIZE, 239, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -226,10 +241,10 @@ public class BookInfo extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jLabel_logo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jLabel_logo, javax.swing.GroupLayout.DEFAULT_SIZE, 224, Short.MAX_VALUE)
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel_imgLink, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jLabel_imgLink, javax.swing.GroupLayout.DEFAULT_SIZE, 368, Short.MAX_VALUE)
                     .addGroup(layout.createSequentialGroup()
                         .addGap(86, 86, 86)
                         .addComponent(jLabel5)
@@ -242,8 +257,8 @@ public class BookInfo extends javax.swing.JFrame {
                             .addComponent(jLabelRelease))
                         .addGap(18, 18, 18)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel_duration)
-                            .addComponent(jLabelDuration))
+                            .addComponent(jLabel_author)
+                            .addComponent(jLabelAuthor))
                         .addGap(18, 18, 18)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel_genre)
@@ -256,7 +271,11 @@ public class BookInfo extends javax.swing.JFrame {
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel_rating)
                             .addComponent(jLabelRating))))
-                .addGap(314, 314, 314)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel_price)
+                    .addComponent(jLabelPrice))
+                .addGap(114, 114, 114)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel_language)
                     .addComponent(jLabelLanguage))
@@ -266,7 +285,7 @@ public class BookInfo extends javax.swing.JFrame {
                     .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 129, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(11, 11, 11)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton_rentBook)
+                    .addComponent(jButton_buyBook)
                     .addComponent(jButton_return)
                     .addComponent(jCombo_rating, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jButton_rateBook)))
@@ -280,6 +299,7 @@ public class BookInfo extends javax.swing.JFrame {
     }//GEN-LAST:event_jCombo_ratingActionPerformed
 
     private void jButton_rateBookActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton_rateBookActionPerformed
+        
         if(user.getUid().equals("0")){
             JOptionPane.showMessageDialog(null, "Please log in first.");
         }else{
@@ -290,6 +310,7 @@ public class BookInfo extends javax.swing.JFrame {
             try {
                 stmt = conn.createStatement();
                 ResultSet rs = stmt.executeQuery("SELECT * FROM rates where uid = '"+user.getUid()+"' and mid = '"+book.getMid()+"' ");
+                
                 if( rs.first() ){
                     JOptionPane.showMessageDialog(null, "You have already rated this book!");
                 } else {        
@@ -307,7 +328,7 @@ public class BookInfo extends javax.swing.JFrame {
         dispose();
     }//GEN-LAST:event_jButton_returnActionPerformed
 
-    private void jButton_rentBookActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton_rentBookActionPerformed
+    private void jButton_buyBookActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton_buyBookActionPerformed
         if(user.getUid().equals("0")){
             JOptionPane.showMessageDialog(null, "Please log in first.");
         }else if(user.getPrename().equals("") || user.getSurname().equals("")|| user.getStreet().equals("")|| user.getZipcode().equals("")|| user.getCity().equals("") || user.getIban() == null || user.getBic() == null || user.getIban().equals("")|| user.getBic().equals("")){
@@ -321,7 +342,7 @@ public class BookInfo extends javax.swing.JFrame {
 
             dispose();
         }
-    }//GEN-LAST:event_jButton_rentBookActionPerformed
+    }//GEN-LAST:event_jButton_buyBookActionPerformed
 
     /**
      * @param args the command line arguments
@@ -362,24 +383,26 @@ public class BookInfo extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton jButton_buyBook;
     private javax.swing.JButton jButton_rateBook;
-    private javax.swing.JButton jButton_rentBook;
     private javax.swing.JButton jButton_return;
     private javax.swing.JComboBox jCombo_rating;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabelAgeRating;
-    private javax.swing.JLabel jLabelDuration;
+    private javax.swing.JLabel jLabelAuthor;
     private javax.swing.JLabel jLabelGenre;
     private javax.swing.JLabel jLabelLanguage;
+    private javax.swing.JLabel jLabelPrice;
     private javax.swing.JLabel jLabelRating;
     private javax.swing.JLabel jLabelRelease;
     private javax.swing.JLabel jLabel_ageRating;
+    private javax.swing.JLabel jLabel_author;
     private javax.swing.JLabel jLabel_description;
-    private javax.swing.JLabel jLabel_duration;
     private javax.swing.JLabel jLabel_genre;
     private javax.swing.JLabel jLabel_imgLink;
     private javax.swing.JLabel jLabel_language;
     private javax.swing.JLabel jLabel_logo;
+    private javax.swing.JLabel jLabel_price;
     private javax.swing.JLabel jLabel_rating;
     private javax.swing.JLabel jLabel_release;
     private javax.swing.JLabel jLabel_title;

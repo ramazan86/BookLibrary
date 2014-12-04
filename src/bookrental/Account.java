@@ -6,13 +6,7 @@
 
 package bookrental;
 
-import java.io.IOException;
-import java.io.UnsupportedEncodingException;
-import java.security.NoSuchAlgorithmException;
-import java.sql.Connection;
-import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.sql.Statement;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JLabel;
@@ -78,7 +72,6 @@ public class Account extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jLabel_logo = new javax.swing.JLabel();
         jLabel_account = new javax.swing.JLabel();
         jLabel_username = new javax.swing.JLabel();
         jLabel_passWord = new javax.swing.JLabel();
@@ -106,9 +99,6 @@ public class Account extends javax.swing.JFrame {
         jLabel_Zipcode = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-
-        jLabel_logo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/logo.png"))); // NOI18N
-        jLabel_logo.setText("jLabel2");
 
         jLabel_account.setFont(new java.awt.Font("Calibri", 0, 24)); // NOI18N
         jLabel_account.setText("Account");
@@ -225,15 +215,11 @@ public class Account extends javax.swing.JFrame {
                                     .addComponent(jLabel_Bic)
                                     .addComponent(jLabel_Iban))))
                         .addGap(76, 76, 76))))
-            .addGroup(layout.createSequentialGroup()
-                .addComponent(jLabel_logo, javax.swing.GroupLayout.PREFERRED_SIZE, 237, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addComponent(jLabel_logo, javax.swing.GroupLayout.PREFERRED_SIZE, 124, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGap(135, 135, 135)
                 .addComponent(jLabel_account)
                 .addGap(41, 41, 41)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -381,7 +367,6 @@ public class Account extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel_city;
     private javax.swing.JLabel jLabel_eMail;
     private javax.swing.JLabel jLabel_iban;
-    private javax.swing.JLabel jLabel_logo;
     private javax.swing.JLabel jLabel_passWord;
     private javax.swing.JLabel jLabel_preName;
     private javax.swing.JLabel jLabel_surname;

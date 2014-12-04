@@ -19,7 +19,7 @@ import javax.swing.JOptionPane;
 
 public class Registry extends javax.swing.JFrame {
     String username,email,prename,surname,address,password,password2,birthday,day,month,year,city,zipcode,bic,iban;
-    String pattern = "^[_A-Za-z0-9-](?=.*[!@#$%]).{7,50}";
+    String pattern = "^[_A-Za-z0-9-](?=.*[!@#$%]).{7,50}";              //7,50 => minth 7 at most 50 digits/char
     String emailreg = "^[_A-Za-z0-9-]+(\\.[_A-Za-z0-9-]+)*@[A-Za-z0-9]+(\\.[A-Za-z0-9]+)*(\\.[A-Za-z]{2,})$";
     String dayreg = "(0?[1-9]|[12][0-9]|3[01])";
     String monthreg = "(0?[1-9]|1[012])";
@@ -63,7 +63,6 @@ public class Registry extends javax.swing.JFrame {
         jLabel_pointDandM = new javax.swing.JLabel();
         jTextField_username = new javax.swing.JTextField();
         jTextField_month = new javax.swing.JTextField();
-        jLabel_logo = new javax.swing.JLabel();
         jLabel_surname = new javax.swing.JLabel();
         jLabel_adress = new javax.swing.JLabel();
         jLabel_zipcode = new javax.swing.JLabel();
@@ -127,9 +126,6 @@ public class Registry extends javax.swing.JFrame {
         jLabel_optionalField.setText("Optional Fields");
 
         jLabel_pointDandM.setText(".");
-
-        jLabel_logo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/logo.png"))); // NOI18N
-        jLabel_logo.setText("jLabel2");
 
         jLabel_surname.setText("Surname :");
 
@@ -254,10 +250,7 @@ public class Registry extends javax.swing.JFrame {
                 .addGroup(layout.createSequentialGroup()
                     .addGap(15, 15, 15)
                     .addComponent(jLabel_registry)
-                    .addContainerGap(536, Short.MAX_VALUE))
-                .addGroup(layout.createSequentialGroup()
-                    .addComponent(jLabel_logo, javax.swing.GroupLayout.PREFERRED_SIZE, 239, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGap(0, 0, Short.MAX_VALUE)))
+                    .addContainerGap(536, Short.MAX_VALUE)))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -331,9 +324,7 @@ public class Registry extends javax.swing.JFrame {
                 .addContainerGap())
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(layout.createSequentialGroup()
-                    .addContainerGap()
-                    .addComponent(jLabel_logo)
-                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                    .addGap(143, 143, 143)
                     .addComponent(jLabel_registry)
                     .addContainerGap(371, Short.MAX_VALUE)))
         );
@@ -469,7 +460,6 @@ public class Registry extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel_city;
     private javax.swing.JLabel jLabel_eMail;
     private javax.swing.JLabel jLabel_iban;
-    private javax.swing.JLabel jLabel_logo;
     private javax.swing.JLabel jLabel_mandatoryField;
     private javax.swing.JLabel jLabel_optionalField;
     private javax.swing.JLabel jLabel_passworSpecial;
