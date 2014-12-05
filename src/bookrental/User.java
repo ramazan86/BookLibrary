@@ -96,8 +96,8 @@ public class User extends javax.swing.JFrame {
        }
     
        
-       final String mailname = "bookjunkie.progex@gmail.com";
-       final String mailpassword = "bookjunkie";
+       final String mailname = "booklibrary.project@gmail.com";
+       final String mailpassword = "booklibrary12345";
         
         Properties props = new Properties();
         props.put("mail.smtp.auth","true");
@@ -117,7 +117,7 @@ public class User extends javax.swing.JFrame {
             message.setFrom(new InternetAddress(username));
             message.setRecipients(Message.RecipientType.TO,InternetAddress.parse(email));
             message.setSubject("Complete your registration");
-            message.setContent("<h><img src='http://http://fs1.directupload.net/images/141205/temp/qxjttzl5.png'><br><p>Congratulations! <br><br> To finish your registration please enter this activation code after logging in: "+random+"</p></h>","text/html");
+            message.setContent("<h><img src='http://fs1.directupload.net/images/141205/qxjttzl5.png'><br><p>Congratulations! <br><br> To finish your registration please enter this activation code after logging in: "+random+"</p></h>","text/html");
         Transport.send(message);
         
        }catch(MessagingException e){

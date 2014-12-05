@@ -655,7 +655,9 @@ public class Login extends javax.swing.JFrame { // Login, Register and Forgotten
 
     private void jButton_loginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton_loginActionPerformed
         if (evt.getSource() == jButton_login) {
+           
             User user = new User();
+            
             try {
                 if ((user.login(jTextField_userName.getText(), new String(jPassword.getPassword()))) == 1) {
                     dispose();
