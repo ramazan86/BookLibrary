@@ -26,13 +26,13 @@ import javax.swing.JOptionPane;
  *
  * @author stefano
  */
-public class Rent extends javax.swing.JFrame {
+public class Bought extends javax.swing.JFrame {
 
     Book book;
     User user;
     static int previous = 0;
 
-    public Rent(User obj, Book obj2) throws MalformedURLException, SQLException {
+    public Bought(User obj, Book obj2) throws MalformedURLException, SQLException {
         initComponents();
         setLocationRelativeTo(null);
         setResizable(false);
@@ -41,12 +41,7 @@ public class Rent extends javax.swing.JFrame {
         Date now = new Date();
         Calendar calendar = new GregorianCalendar();
         calendar.setTime(now);         // add 5 days to calendar instance
-        if (!book.getDeadline().equals("")) {
-            calendar.add(Calendar.DAY_OF_MONTH, Integer.valueOf(book.getDeadline()) + 2);
-        } else {
-            calendar.add(Calendar.DAY_OF_MONTH, 2);
-        }
-
+     
         Date future = calendar.getTime(); // get the date instance
         DateFormat dateFormat = new SimpleDateFormat("dd.MM.yyyy");         // print out the dates...
 
@@ -60,7 +55,6 @@ public class Rent extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jLabel_logo = new javax.swing.JLabel();
         jLabel_rent = new javax.swing.JLabel();
         jLabel_image = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
@@ -75,9 +69,6 @@ public class Rent extends javax.swing.JFrame {
         jLabelPrice = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-
-        jLabel_logo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/logo.png"))); // NOI18N
-        jLabel_logo.setText("jLabel2");
 
         jLabel_rent.setFont(new java.awt.Font("Calibri", 0, 24)); // NOI18N
         jLabel_rent.setText("Rent");
@@ -143,8 +134,7 @@ public class Rent extends javax.swing.JFrame {
                                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                             .addComponent(jLabelDeadline, javax.swing.GroupLayout.DEFAULT_SIZE, 61, Short.MAX_VALUE)
                                             .addComponent(jLabelPrice, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-                                    .addComponent(jLabel_title, javax.swing.GroupLayout.PREFERRED_SIZE, 361, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                            .addComponent(jLabel_logo, javax.swing.GroupLayout.PREFERRED_SIZE, 238, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addComponent(jLabel_title, javax.swing.GroupLayout.PREFERRED_SIZE, 361, javax.swing.GroupLayout.PREFERRED_SIZE))))
                         .addContainerGap(89, Short.MAX_VALUE))
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(jButton_return)
@@ -155,8 +145,7 @@ public class Rent extends javax.swing.JFrame {
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addComponent(jLabel_logo, javax.swing.GroupLayout.PREFERRED_SIZE, 126, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGap(132, 132, 132)
                 .addComponent(jLabel_rent)
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -171,7 +160,7 @@ public class Rent extends javax.swing.JFrame {
                             .addComponent(jLabel_price)
                             .addComponent(jLabelPrice))
                         .addGap(0, 138, Short.MAX_VALUE))
-                    .addComponent(jLabel_image, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
+                    .addComponent(jLabel_image, javax.swing.GroupLayout.DEFAULT_SIZE, 0, Short.MAX_VALUE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel3)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -191,17 +180,17 @@ public class Rent extends javax.swing.JFrame {
     private void jButton_returnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton_returnActionPerformed
         if (evt.getSource() == jButton_return) {
             dispose();
-            if (Rent.previous == 0) {
+            if (Bought.previous == 0) {
                 try {
                     new BookInfo(user, book).setVisible(true);
                 } catch (MalformedURLException ex) {
-                    Logger.getLogger(Rent.class.getName()).log(Level.SEVERE, null, ex);
+                    Logger.getLogger(Bought.class.getName()).log(Level.SEVERE, null, ex);
                 }
             } else {
                 try {
                     new BookLibrary(user).setVisible(true);
                 } catch (SQLException ex) {
-                    Logger.getLogger(Rent.class.getName()).log(Level.SEVERE, null, ex);
+                    Logger.getLogger(Bought.class.getName()).log(Level.SEVERE, null, ex);
                 }
             }
         }
@@ -235,16 +224,16 @@ public class Rent extends javax.swing.JFrame {
                         }
                     }
                 } else {
-                    if (JOptionPane.showConfirmDialog(null, "Do you want to rent the book " + book.getTitle() + "?") == 0) {
+                    if (JOptionPane.showConfirmDialog(null, "Do you want to buy the book " + book.getTitle() + "?") == 0) {
                         Statement stmtinsert = conn.createStatement();
-                        stmt.executeUpdate("INSERT INTO rents (uid, mid, deadline, time) VALUES ('" + user.getUid() + "', '" + book.getMid() + "', (SELECT DATE_ADD( {fn curdate()} , INTERVAL 2 DAY)), now() )");
-                        JOptionPane.showMessageDialog(null, "Congratulations! You can now watch the book in your video library.");
+                        stmt.executeUpdate("INSERT INTO bought (uid, mid, time) VALUES ('" + user.getUid() + "', '" + book.getMid() + "', now() )");
+                        JOptionPane.showMessageDialog(null, "Congratulations! You can now read the book in your book library.");
                         dispose();
                         new BookLibrary(user).setVisible(true);
                     }
                 }
             } catch (SQLException ex) {
-                Logger.getLogger(Rent.class.getName()).log(Level.SEVERE, null, ex);
+                Logger.getLogger(Bought.class.getName()).log(Level.SEVERE, null, ex);
             }
         } else {
             JOptionPane.showMessageDialog(null, "Please accept the Direct Debit Payment and the GTC!");
@@ -253,7 +242,7 @@ public class Rent extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton_rentActionPerformed
 
     public static void setPrevious(int previous) {
-        Rent.previous = previous;
+        Bought.previous = previous;
     }
 
     /**
@@ -265,6 +254,7 @@ public class Rent extends javax.swing.JFrame {
         /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
          * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
          */
+        
         try {
             for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
                 if ("Nimbus".equals(info.getName())) {
@@ -273,14 +263,16 @@ public class Rent extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(Rent.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Bought.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(Rent.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Bought.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(Rent.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Bought.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(Rent.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Bought.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
+        //</editor-fold>
         //</editor-fold>
         //</editor-fold>
 
@@ -301,7 +293,6 @@ public class Rent extends javax.swing.JFrame {
     private javax.swing.JLabel jLabelPrice;
     private javax.swing.JLabel jLabel_deadline;
     private javax.swing.JLabel jLabel_image;
-    private javax.swing.JLabel jLabel_logo;
     private javax.swing.JLabel jLabel_price;
     private javax.swing.JLabel jLabel_rent;
     private javax.swing.JLabel jLabel_title;

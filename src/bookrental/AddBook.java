@@ -7,6 +7,8 @@ import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 
 import static bookrental.Book.addBook;
+import javax.swing.JFrame;
+import javax.swing.WindowConstants;
 import org.apache.commons.lang.StringEscapeUtils;
 
 
@@ -28,7 +30,7 @@ public class AddBook extends javax.swing.JFrame {
         
         setLocationRelativeTo(null);
         setResizable(false);
-
+        setDefaultCloseOperation(JFrame.HIDE_ON_CLOSE);
     }
     
     public void releaseArea(){
@@ -82,8 +84,6 @@ public class AddBook extends javax.swing.JFrame {
         jTextField_PDFLink = new javax.swing.JTextField();
 
         jComboBox1.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         jLabel_author.setText("Author :");
 
@@ -312,9 +312,10 @@ public class AddBook extends javax.swing.JFrame {
            JOptionPane.showMessageDialog(null, "Please fill all fields.");
            
        }else{
-          try {
+           try {
                addBook(title,genre,agerating,description,releaseyear,author,imglink,price,language,language2, pdflink);
            } catch (SQLException ex) {
+               System.out.println(ex.getMessage());
                Logger.getLogger(AddBook.class.getName()).log(Level.SEVERE, null, ex);
            }
           releaseArea();

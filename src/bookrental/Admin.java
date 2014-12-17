@@ -40,9 +40,9 @@ public class Admin extends javax.swing.JFrame {
         this.user = user;
         initComponents();
         this.setSize(870,700);
-        books = Book.getNewestAndTop10();
-        this.Newest10();
-        this.Top10();
+//        books = Book.getNewestAndTop10();
+//        this.Newest10();
+//        this.Top10();
         setLocationRelativeTo(null);
         this.setVisible(true);
         jButton_previous.setVisible(false);
@@ -326,7 +326,7 @@ public class Admin extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jButton_rentalBook = new javax.swing.JButton();
+        jButton_saledBook = new javax.swing.JButton();
         jCombo_price = new javax.swing.JComboBox();
         jCombo_language = new javax.swing.JComboBox();
         jCombo_rating = new javax.swing.JComboBox();
@@ -373,10 +373,10 @@ public class Admin extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setResizable(false);
 
-        jButton_rentalBook.setText("Rented Book");
-        jButton_rentalBook.addActionListener(new java.awt.event.ActionListener() {
+        jButton_saledBook.setText("Bought Book");
+        jButton_saledBook.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton_rentalBookActionPerformed(evt);
+                jButton_saledBookActionPerformed(evt);
             }
         });
 
@@ -656,7 +656,7 @@ public class Admin extends javax.swing.JFrame {
                                 .addGap(17, 17, 17)
                                 .addComponent(jButton_overwiew)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(jButton_rentalBook)
+                                .addComponent(jButton_saledBook)
                                 .addGap(18, 18, 18)
                                 .addComponent(jButton_logOut))
                             .addComponent(jLabelLastLogin, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
@@ -693,7 +693,7 @@ public class Admin extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButton_addBook)
                     .addComponent(jButton_changeBook)
-                    .addComponent(jButton_rentalBook)
+                    .addComponent(jButton_saledBook)
                     .addComponent(jButton_logOut)
                     .addComponent(jButton_overwiew))
                 .addGap(63, 63, 63)
@@ -718,13 +718,13 @@ public class Admin extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton_rentalBookActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton_rentalBookActionPerformed
+    private void jButton_saledBookActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton_saledBookActionPerformed
         try {
-            new RentedBook().setVisible(true);
+            new SaledBook().setVisible(true);
         } catch (SQLException ex) {
             Logger.getLogger(Admin.class.getName()).log(Level.SEVERE, null, ex);
         }
-    }//GEN-LAST:event_jButton_rentalBookActionPerformed
+    }//GEN-LAST:event_jButton_saledBookActionPerformed
 
     private void jCombo_priceItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_jCombo_priceItemStateChanged
         // TODO add your handling code here:
@@ -936,8 +936,8 @@ public class Admin extends javax.swing.JFrame {
     private javax.swing.JButton jButton_next;
     private javax.swing.JButton jButton_overwiew;
     private javax.swing.JButton jButton_previous;
-    private javax.swing.JButton jButton_rentalBook;
     private javax.swing.JButton jButton_return;
+    private javax.swing.JButton jButton_saledBook;
     private javax.swing.JButton jButton_search;
     private javax.swing.JComboBox jCombo_ageRating;
     private javax.swing.JComboBox jCombo_genre;

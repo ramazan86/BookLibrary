@@ -12,7 +12,9 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.WindowConstants;
 
 /**
  *
@@ -27,6 +29,8 @@ public class Overview extends javax.swing.JFrame {
         initComponents();
         setLocationRelativeTo(null);
         setResizable(false);
+        setDefaultCloseOperation(JFrame.HIDE_ON_CLOSE);
+        
         Verbindung db = new Verbindung();
         db.start();
         Connection conn = db.getVerbindung();
@@ -39,7 +43,7 @@ public class Overview extends javax.swing.JFrame {
         
         // Amount of active books
         Statement stmt2 = conn.createStatement();
-        ResultSet rs2 = stmt2.executeQuery("SELECT count(*) as amount FROM book where inactive = 0");
+        ResultSet rs2 = stmt2.executeQuery("SELECT count(*) as amount FROM book where bought = 1");
         rs2.next();
         jLabel_booksAktiv.setText(rs2.getString("amount") + " books");
         
@@ -59,7 +63,6 @@ public class Overview extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jLabel_logo = new javax.swing.JLabel();
         jLabel_overview = new javax.swing.JLabel();
         jLabel_amountBooksActiv = new javax.swing.JLabel();
         jLabel_amountOfUsers = new javax.swing.JLabel();
@@ -69,15 +72,10 @@ public class Overview extends javax.swing.JFrame {
         jLabel_amountBooksInactiv = new javax.swing.JLabel();
         jLabel_booksInaktiv = new javax.swing.JLabel();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-
-        jLabel_logo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/logo.png"))); // NOI18N
-        jLabel_logo.setText("jLabel2");
-
         jLabel_overview.setFont(new java.awt.Font("Calibri", 0, 24)); // NOI18N
         jLabel_overview.setText("Overview");
 
-        jLabel_amountBooksActiv.setText("Amount of movies(only active): ");
+        jLabel_amountBooksActiv.setText("Amount of books(only active): ");
 
         jLabel_amountOfUsers.setText("Amount of users: ");
 
@@ -92,9 +90,9 @@ public class Overview extends javax.swing.JFrame {
             }
         });
 
-        jLabel_amountBooksInactiv.setText("Amount of movies(with inactive): ");
+        jLabel_amountBooksInactiv.setText("Amount of books(with inactive): ");
 
-        jLabel_booksInaktiv.setText("34 Movies");
+        jLabel_booksInaktiv.setText("34 Books");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -118,15 +116,13 @@ public class Overview extends javax.swing.JFrame {
                                     .addComponent(jLabel_booksInaktiv)))))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(25, 25, 25)
-                        .addComponent(jButton_return))
-                    .addComponent(jLabel_logo, javax.swing.GroupLayout.PREFERRED_SIZE, 238, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(368, Short.MAX_VALUE))
+                        .addComponent(jButton_return)))
+                .addContainerGap(373, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addComponent(jLabel_logo, javax.swing.GroupLayout.PREFERRED_SIZE, 157, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
+                .addGap(175, 175, 175)
                 .addComponent(jLabel_overview)
                 .addGap(41, 41, 41)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -176,7 +172,6 @@ public class Overview extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel_amountOfUsers;
     private javax.swing.JLabel jLabel_booksAktiv;
     private javax.swing.JLabel jLabel_booksInaktiv;
-    private javax.swing.JLabel jLabel_logo;
     private javax.swing.JLabel jLabel_overview;
     // End of variables declaration//GEN-END:variables
 }

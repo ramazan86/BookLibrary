@@ -75,18 +75,28 @@ public class Book {
         Connection conn = db.getVerbindung();
 
         Statement stmt = conn.createStatement();
-        stmt.executeUpdate("INSERT INTO book(`title`, `genre`, `ageRating`, `description`, `releaseYear`, `author`, `picture`, `price`, `pdflink`, `language`, `language2`) VALUES "
+        Statement stmt2 = conn.createStatement();
+       
+        try {
+            stmt.executeUpdate("INSERT INTO book(`title`, `genre`, `ageRating`, `description`, `releaseYear`, `author`, `picture`, `price`, `pdflink`, `language`, `language2`) VALUES "
                            + "('" + title + "', '" + genre + "', '" + agerating + "', \"" + description + "\"," +  releaseyear + ",'" + author + "','" + imglink + "'," + price + ",'" + PDFlink + "', '" +language +"', " + "'" +language2 +"')");
 
-        Statement stmt2 = conn.createStatement();
-        stmt2.executeUpdate("INSERT INTO haslang (`Mid`,`Language`) VALUES ((SELECT mid FROM book WHERE title = '"+ title +"'),'"+ language + "')");
+             stmt2.executeUpdate("INSERT INTO haslang (`Mid`,`Language`) VALUES ((SELECT mid FROM book WHERE title = '"+ title +"'),'"+ language + "')");
 
-        if(language2.equals("Second")){
-        JOptionPane.showMessageDialog(null, "book was added.");
-        }else{
-        stmt2.executeUpdate("INSERT INTO haslang (`Mid`,`Language`) VALUES ((SELECT mid FROM book WHERE title = '"+ title +"'),'"+ language2 + "')");
-        JOptionPane.showMessageDialog(null, "book was added.");
+            if(language2.equals("Second")){
+               JOptionPane.showMessageDialog(null, "book was added.");
+            }else{
+                stmt2.executeUpdate("INSERT INTO haslang (`Mid`,`Language`) VALUES ((SELECT mid FROM book WHERE title = '"+ title +"'),'"+ language2 + "')");
+                JOptionPane.showMessageDialog(null, "book was added.");
+            }
+            
+            
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, "a book with the title: \"" + title + "\" already exists");
         }
+        
+        
+       
     }
     
     //Connects to the database and update
@@ -120,9 +130,9 @@ public class Book {
            
         ResultSet rs2 = stmt2.executeQuery("Select * from book natural join haslang where mid = "+rs.getString("mid")+" ");
         rs2.next();
-        String lang = rs2.getString("Language");
+        String lang = rs2.getString("language");
         rs2.last();
-        String lang2 = rs2.getString("Language");
+        String lang2 = rs2.getString("language");
         
         if(lang2.equals(lang))
             lang2 = "";

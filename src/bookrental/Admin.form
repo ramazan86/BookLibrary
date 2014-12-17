@@ -41,7 +41,7 @@
                               <EmptySpace min="-2" pref="17" max="-2" attributes="0"/>
                               <Component id="jButton_overwiew" min="-2" max="-2" attributes="0"/>
                               <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                              <Component id="jButton_rentalBook" min="-2" max="-2" attributes="0"/>
+                              <Component id="jButton_saledBook" min="-2" max="-2" attributes="0"/>
                               <EmptySpace type="separate" max="-2" attributes="0"/>
                               <Component id="jButton_logOut" min="-2" max="-2" attributes="0"/>
                           </Group>
@@ -89,7 +89,7 @@
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="jButton_addBook" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="jButton_changeBook" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="jButton_rentalBook" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="jButton_saledBook" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="jButton_logOut" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="jButton_overwiew" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
@@ -117,12 +117,12 @@
     </DimensionLayout>
   </Layout>
   <SubComponents>
-    <Component class="javax.swing.JButton" name="jButton_rentalBook">
+    <Component class="javax.swing.JButton" name="jButton_saledBook">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Rented Book"/>
+        <Property name="text" type="java.lang.String" value="Bought Book"/>
       </Properties>
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton_rentalBookActionPerformed"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton_saledBookActionPerformed"/>
       </Events>
     </Component>
     <Component class="javax.swing.JComboBox" name="jCombo_price">

@@ -335,7 +335,7 @@ public class BookInfo extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null, "You have to change your account information and fill in all fields.");
         }else{
             try {
-                new Rent(user, book).setVisible(true);
+                new Bought(user, book).setVisible(true);
             } catch (MalformedURLException | SQLException ex) {
                 Logger.getLogger(BookInfo.class.getName()).log(Level.SEVERE, null, ex);
             }

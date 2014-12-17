@@ -2,6 +2,8 @@ package bookrental;
 
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
+import java.awt.event.WindowEvent;
+import java.awt.event.WindowListener;
 import java.io.IOException;
 import java.io.UnsupportedEncodingException;
 import java.net.MalformedURLException;
@@ -15,10 +17,13 @@ import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.ImageIcon;
+import javax.swing.JFrame;
+import javax.swing.JOptionPane;
 import javax.swing.UIManager;
 import javax.swing.UnsupportedLookAndFeelException;
+import javax.swing.WindowConstants;
 
-public class Login extends javax.swing.JFrame { // Login, Register and ForgottenPassword Function
+public class Login extends javax.swing.JFrame implements WindowListener { // Login, Register and ForgottenPassword Function
 
     Login login;
     User user = new User();
@@ -32,7 +37,9 @@ public class Login extends javax.swing.JFrame { // Login, Register and Forgotten
     Statement stmt, stmt2, stmt3, stmt4, stmtNewest, stmtNewest2, stmtSearch, stmtTop10, stmt2Top10;
     ResultSet rs, rs2, rs3, rsNewest, rsNewest2, rsSearch, rsTop10, rs2Top10;
     static int seitenanzahl = 0; // Checks wether the user has pressed next after searching
-
+    Object[] options = {"Yes", "Abort"};
+    
+    
     public Login() throws IOException, SQLException {
         user.setUid("0");
         initComponents();
@@ -45,6 +52,8 @@ public class Login extends javax.swing.JFrame { // Login, Register and Forgotten
         jButton_previous.setVisible(false);
         jButton_next.setVisible(false);
         jButton_return.setVisible(false);
+        
+        this.addWindowListener(this);
     }
 
     // Shows the result of the search
@@ -880,6 +889,50 @@ public class Login extends javax.swing.JFrame { // Login, Register and Forgotten
     private javax.swing.JTextPane jTextField_search;
     private javax.swing.JTextField jTextField_userName;
     // End of variables declaration//GEN-END:variables
+
+    @Override
+    public void windowOpened(WindowEvent e) {
+    }
+
+    @Override
+    public void windowClosing(WindowEvent e) {
+        
+        
+        int n = JOptionPane.showOptionDialog(this,
+                                                "Are you sure to terminating the program?", 
+                                                "Program finishing", 
+                                                JOptionPane.YES_NO_OPTION, 
+                                                JOptionPane.QUESTION_MESSAGE, 
+                                                null,           //do not use a custiom Icon
+                                                options, 
+                                                options[1]);
+        switch(n) {
+            case 0: setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE); break;
+            case 1: setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE); break;
+            default : break;
+        }
+        
+    }
+
+    @Override
+    public void windowClosed(WindowEvent e) {
+    }
+
+    @Override
+    public void windowIconified(WindowEvent e) {
+    }
+
+    @Override
+    public void windowDeiconified(WindowEvent e) {
+    }
+
+    @Override
+    public void windowActivated(WindowEvent e) {
+    }
+
+    @Override
+    public void windowDeactivated(WindowEvent e) {
+    }
 
     //Class MouseImpl is responsible for the Mouselistener
     class MouseImpl extends MouseAdapter {

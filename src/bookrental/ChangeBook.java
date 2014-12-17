@@ -54,6 +54,7 @@ public class ChangeBook extends javax.swing.JFrame {
         initComponents();
         setLocationRelativeTo(null);
         setResizable(false);
+        setDefaultCloseOperation(JFrame.HIDE_ON_CLOSE);
     }//ende Konstruktor
 
     public void releaseArea() {
@@ -178,8 +179,6 @@ public class ChangeBook extends javax.swing.JFrame {
         jCombo_language2 = new javax.swing.JComboBox();
         jButton_delete = new javax.swing.JButton();
         jTextField_PDFLink = new javax.swing.JTextField();
-
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         jLabel_author.setText("Author :");
 

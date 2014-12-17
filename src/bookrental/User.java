@@ -50,9 +50,9 @@ public class User extends javax.swing.JFrame {
         this.setSize(870,700);
         setLocationRelativeTo(null);
         user = obj;
-        books = Book.getNewestAndTop10(); 
-        this.Newest10();
-        this.Top10();
+    //    books = Book.getNewestAndTop10(); 
+    //    this.Newest10();
+    //    this.Top10();
         this.setVisible(true);
         if(!(user.lastLogin == null) ) // If isn't the user's first login
             jLabelLastLogin.setText("Your last login was on the " + user.lastLogin + ".");

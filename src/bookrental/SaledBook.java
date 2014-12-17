@@ -12,40 +12,44 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.WindowConstants;
 
 /**
  *
  * @author stefano
  */
-public class RentedBook extends javax.swing.JFrame {
+public class SaledBook extends javax.swing.JFrame {
 
     /**
      * Creates new form RentedBooks
      */
-    public RentedBook() throws SQLException {
+    public SaledBook() throws SQLException {
         initComponents();
         setLocationRelativeTo(null);
         setResizable(false);
+        setDefaultCloseOperation(JFrame.HIDE_ON_CLOSE);
+        
         Verbindung db = new Verbindung();
         db.start();
         Connection conn = db.getVerbindung();
 
         // Last 24 Hours
         Statement stmt = conn.createStatement();
-        ResultSet rs24 = stmt.executeQuery("SELECT * FROM rents WHERE DATEDIFF(now(), time) < 1");
+        ResultSet rs24 = stmt.executeQuery("SELECT * FROM bought WHERE DATEDIFF(now(), time) < 1");
         rs24.last();
         jLabel_last24Hours.setText(String.valueOf(rs24.getRow()) + " Books");
         
         // Last 7 Days
         Statement stmt2 = conn.createStatement();
-        ResultSet rs7 = stmt2.executeQuery("SELECT * FROM rents WHERE DATEDIFF(now(), time) < 7");
+        ResultSet rs7 = stmt2.executeQuery("SELECT * FROM bought WHERE DATEDIFF(now(), time) < 7");
         rs7.last();
         jLabel_last7Days.setText(String.valueOf(rs7.getRow()) + " Books");
        
         // Last 30 Days
         Statement stmt3 = conn.createStatement();
-        ResultSet rs30 = stmt3.executeQuery("SELECT * FROM rents WHERE DATEDIFF(now(), time) < 30");
+        ResultSet rs30 = stmt3.executeQuery("SELECT * FROM bought WHERE DATEDIFF(now(), time) < 30");
         rs30.last();
         jLabel_last30Days.setText(String.valueOf(rs30.getRow()) + " Books");
     }
@@ -69,13 +73,11 @@ public class RentedBook extends javax.swing.JFrame {
         jLabel_last24Hours = new javax.swing.JLabel();
         jButton_return = new javax.swing.JButton();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-
         jLabel_logo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/logo.png"))); // NOI18N
         jLabel_logo.setText("jLabel2");
 
         jLabel_rentedBook.setFont(new java.awt.Font("Calibri", 0, 24)); // NOI18N
-        jLabel_rentedBook.setText("Rented Books");
+        jLabel_rentedBook.setText("Saled Books");
 
         jLabel_last30D.setText("Last 30 days:");
 
@@ -160,9 +162,9 @@ public class RentedBook extends javax.swing.JFrame {
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
                 try {
-                    new RentedBook().setVisible(true);
+                    new SaledBook().setVisible(true);
                 } catch (SQLException ex) {
-                    Logger.getLogger(RentedBook.class.getName()).log(Level.SEVERE, null, ex);
+                    Logger.getLogger(SaledBook.class.getName()).log(Level.SEVERE, null, ex);
                 }
             }
         });
