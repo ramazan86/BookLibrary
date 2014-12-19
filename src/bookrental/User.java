@@ -2,6 +2,7 @@ package bookrental;
 
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
+import java.awt.event.MouseListener;
 import java.io.IOException;
 import java.io.UnsupportedEncodingException;
 import java.net.MalformedURLException;
@@ -16,13 +17,17 @@ import java.util.ArrayList;
 import java.util.Properties;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+
 import javax.mail.*;
 import javax.mail.internet.InternetAddress;
 import javax.mail.internet.MimeMessage;
 import javax.swing.ImageIcon;
+import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.UIManager;
 import javax.swing.UnsupportedLookAndFeelException;
+
+import bookrental.Login.MyMouseListener;
 
 
 public class User extends javax.swing.JFrame {
@@ -51,7 +56,7 @@ public class User extends javax.swing.JFrame {
         setLocationRelativeTo(null);
         user = obj;
         //books = Book.getNewestAndTop10(); 
-    //    this.Newest10();
+        this.Newest10();
     //    this.Top10();
         this.setVisible(true);
         if(!(user.lastLogin == null) ) // If isn't the user's first login
@@ -374,10 +379,10 @@ public class User extends javax.swing.JFrame {
     
    // Shows the result of the search
    public void searchResult(ArrayList<Book> books2) throws MalformedURLException{
-        jLabe_img1.setVisible(false);
+        jLabel_img1.setVisible(false);
         jLabel_img2.setVisible(false);
         jLabel_img3.setVisible(false);
-        jLabelimg4.setVisible(false);
+        jLabel_img4.setVisible(false);
         jLabel_img5.setVisible(false);
         jLabel_img6.setVisible(false);
         jLabel_img7.setVisible(false);
@@ -399,11 +404,11 @@ public class User extends javax.swing.JFrame {
         jLabel_newest.setText("Search Result for '"+ suchetext +"':");
 
         if(!(books2.get(0+seitenanzahl).getTitle().equals(""))){
-        jLabe_img1.setIcon(new ImageIcon(new URL(books2.get(0+seitenanzahl).getImglink())));
-        jLabe_img1.setText(null);
-        jLabe_img1.setVisible(true);
+        jLabel_img1.setIcon(new ImageIcon(new URL(books2.get(0+seitenanzahl).getImglink())));
+        jLabel_img1.setText(null);
+        jLabel_img1.setVisible(true);
         }else{
-        jLabe_img1.setVisible(false);
+        jLabel_img1.setVisible(false);
         }
         if(!(books2.get(1+seitenanzahl).getTitle().equals(""))){
         jLabel_img2.setIcon(new ImageIcon(new URL(books2.get(1+seitenanzahl).getImglink())));
@@ -420,11 +425,11 @@ public class User extends javax.swing.JFrame {
         jLabel_img3.setVisible(false);
         }
         if(!(books2.get(3+seitenanzahl).getTitle().equals(""))){
-        jLabelimg4.setIcon(new ImageIcon(new URL(books2.get(3+seitenanzahl).getImglink())));
-        jLabelimg4.setText(null);
-        jLabelimg4.setVisible(true);
+        jLabel_img4.setIcon(new ImageIcon(new URL(books2.get(3+seitenanzahl).getImglink())));
+        jLabel_img4.setText(null);
+        jLabel_img4.setVisible(true);
         }else{
-        jLabelimg4.setVisible(false);
+        jLabel_img4.setVisible(false);
         }
         if(!(books2.get(4+seitenanzahl).getTitle().equals(""))){
         jLabel_img5.setIcon(new ImageIcon(new URL(books2.get(4+seitenanzahl).getImglink())));
@@ -486,45 +491,32 @@ public class User extends javax.swing.JFrame {
         MouseAdapter listener = new MouseImpl();
            
       
-        jLabe_img1.setIcon(new ImageIcon(new URL(books.get(0).getImglink())));
-        jLabe_img1.setText(null);
-        jLabe_img1.addMouseListener(listener);
+        books = Book.getNewestAndTop10();
         
-        jLabel_img2.setIcon(new ImageIcon(new URL(books.get(1).getImglink())));
-        jLabel_img2.setText(null);
-        jLabel_img2.addMouseListener(listener);
         
-        jLabel_img3.setIcon(new ImageIcon(new URL(books.get(2).getImglink())));
-        jLabel_img3.setText(null);
-        jLabel_img3.addMouseListener(listener);
+        JLabel[] j = new JLabel[10];
+        j[0] = jLabel_img1;
+        j[1] = jLabel_img2;
+        j[2] = jLabel_img3;
+        j[3] = jLabel_img4;
+        j[4] = jLabel_img5;
+        j[5] = jLabel_img6;
+        j[6] = jLabel_img7;
+        j[7] = jLabel_img8;
+        j[8] = jLabel_img9;
+        j[9] = jLabel_img10;
+        
 
-        jLabelimg4.setIcon(new ImageIcon(new URL(books.get(3).getImglink())));
-        jLabelimg4.setText(null);
-        jLabelimg4.addMouseListener(listener);
-        
-        jLabel_img5.setIcon(new ImageIcon(new URL(books.get(4).getImglink())));
-        jLabel_img5.setText(null);
-        jLabel_img5.addMouseListener(listener);
-        
-        jLabel_img6.setIcon(new ImageIcon(new URL(books.get(5).getImglink())));
-        jLabel_img6.setText(null);
-        jLabel_img6.addMouseListener(listener);
-        
-        jLabel_img7.setIcon(new ImageIcon(new URL(books.get(6).getImglink())));
-        jLabel_img7.setText(null);
-        jLabel_img7.addMouseListener(listener);
-        
-        jLabel_img8.setIcon(new ImageIcon(new URL(books.get(7).getImglink())));
-        jLabel_img8.setText(null);
-        jLabel_img8.addMouseListener(listener);
-        
-        jLabel_img9.setIcon(new ImageIcon(new URL(books.get(8).getImglink())));
-        jLabel_img9.setText(null);
-        jLabel_img9.addMouseListener(listener);
-        
-        jLabel_img10.setIcon(new ImageIcon(new URL(books.get(9).getImglink())));
-        jLabel_img10.setText(null);
-        jLabel_img10.addMouseListener(listener);
+	    for(int i = 0; i<books.size(); i++) {
+	    	j[i].setIcon(new ImageIcon(new URL(books.get(i).getImglink())));
+	    	j[i].setText(null);
+	    	j[i].addMouseListener(new MyMouseListener(books.get(i)));
+	    }
+	    
+	    for(int i = books.size(); i<j.length; i++) {
+	    	j[i].setVisible(false);
+	    }
+       
     }
    // Shows the Top10 books
    public void Top10() throws SQLException, MalformedURLException{
@@ -594,7 +586,7 @@ public class User extends javax.swing.JFrame {
         jLabelimg12 = new javax.swing.JLabel();
         jLabel_img20 = new javax.swing.JLabel();
         jLabel_img5 = new javax.swing.JLabel();
-        jLabelimg4 = new javax.swing.JLabel();
+        jLabel_img4 = new javax.swing.JLabel();
         jLabel_img9 = new javax.swing.JLabel();
         jLabel_img7 = new javax.swing.JLabel();
         jLabel_newest = new javax.swing.JLabel();
@@ -603,7 +595,7 @@ public class User extends javax.swing.JFrame {
         jLabel_img11 = new javax.swing.JLabel();
         jButton_return = new javax.swing.JButton();
         jLabel_img18 = new javax.swing.JLabel();
-        jLabe_img1 = new javax.swing.JLabel();
+        jLabel_img1 = new javax.swing.JLabel();
         jButton_previous = new javax.swing.JButton();
         jLabel_img16 = new javax.swing.JLabel();
         jLabel_img15 = new javax.swing.JLabel();
@@ -692,7 +684,7 @@ public class User extends javax.swing.JFrame {
 
         jLabel_img5.setText("img5");
 
-        jLabelimg4.setText("img4");
+        jLabel_img4.setText("img4");
 
         jLabel_img9.setText("img9");
 
@@ -716,7 +708,7 @@ public class User extends javax.swing.JFrame {
 
         jLabel_img18.setText("img18");
 
-        jLabe_img1.setText("img1");
+        jLabel_img1.setText("img1");
 
         jButton_previous.setText("<");
         jButton_previous.addActionListener(new java.awt.event.ActionListener() {
@@ -787,7 +779,7 @@ public class User extends javax.swing.JFrame {
                                     .addGroup(jPanel1Layout.createSequentialGroup()
                                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                             .addComponent(jLabel_img6, javax.swing.GroupLayout.DEFAULT_SIZE, 138, Short.MAX_VALUE)
-                                            .addComponent(jLabe_img1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                            .addComponent(jLabel_img1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                                         .addGap(18, 18, 18)
                                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                             .addComponent(jLabel_img2)
@@ -798,7 +790,7 @@ public class User extends javax.swing.JFrame {
                                             .addComponent(jLabel_img3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                                         .addGap(18, 18, 18)
                                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addComponent(jLabelimg4, javax.swing.GroupLayout.PREFERRED_SIZE, 137, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addComponent(jLabel_img4, javax.swing.GroupLayout.PREFERRED_SIZE, 137, javax.swing.GroupLayout.PREFERRED_SIZE)
                                             .addComponent(jLabel_img9, javax.swing.GroupLayout.PREFERRED_SIZE, 133, javax.swing.GroupLayout.PREFERRED_SIZE))
                                         .addGap(18, 18, 18)
                                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
@@ -822,10 +814,10 @@ public class User extends javax.swing.JFrame {
                 .addComponent(jLabel_newest)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jLabe_img1)
+                    .addComponent(jLabel_img1)
                     .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(jLabel_img3)
-                        .addComponent(jLabelimg4)
+                        .addComponent(jLabel_img4)
                         .addComponent(jLabel_img5)
                         .addComponent(jLabel_img2)))
                 .addGap(20, 20, 20)
@@ -1152,7 +1144,7 @@ public class User extends javax.swing.JFrame {
     private javax.swing.JComboBox jCombo_language;
     private javax.swing.JComboBox jCombo_price;
     private javax.swing.JComboBox jCombo_rating;
-    private javax.swing.JLabel jLabe_img1;
+    private javax.swing.JLabel jLabel_img1;
     private javax.swing.JLabel jLabelLastLogin;
     private javax.swing.JLabel jLabel_img10;
     private javax.swing.JLabel jLabel_img11;
@@ -1175,7 +1167,7 @@ public class User extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel_search;
     private javax.swing.JLabel jLabel_top10;
     private javax.swing.JLabel jLabelimg12;
-    private javax.swing.JLabel jLabelimg4;
+    private javax.swing.JLabel jLabel_img4;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
@@ -1188,7 +1180,7 @@ public class User extends javax.swing.JFrame {
     @Override
     public void mouseClicked(MouseEvent e) {
         Object source = e.getSource();
-        if (source == jLabe_img1) {
+        if (source == jLabel_img1) {
             try {
                 new BookInfo(user,books.get(0+seitenanzahl)).setVisible(true);
             } catch (MalformedURLException ex) {
@@ -1214,7 +1206,7 @@ public class User extends javax.swing.JFrame {
                 Logger.getLogger(Login.class.getName()).log(Level.SEVERE, null, ex);
             }
         }
-        if (source == jLabelimg4) {
+        if (source == jLabel_img4) {
              try {
                 BookInfo window = new BookInfo(user,books.get(3+seitenanzahl));
                 window.pack();
@@ -1368,5 +1360,47 @@ public class User extends javax.swing.JFrame {
         }
         }
     }
+    
+    private class MyMouseListener implements MouseListener {
+
+    	Book objBook = null;
+    	
+    	public MyMouseListener(Book objBook) {
+    		this.objBook = objBook;
+    	}
+    	
+		@Override
+		public void mouseClicked(MouseEvent e) {
+			
+			 try {
+                 BookInfo window = new BookInfo(user, objBook);
+                 window.pack();
+                 window.setVisible(true);
+             } catch (MalformedURLException ex) {
+                 Logger.getLogger(Login.class.getName()).log(Level.SEVERE, null, ex);
+             }
+			
+		}
+
+		@Override
+		public void mouseEntered(MouseEvent arg0) {
+		}
+
+		@Override
+		public void mouseExited(MouseEvent arg0) {
+		}
+
+		@Override
+		public void mousePressed(MouseEvent arg0) {
+		}
+
+		@Override
+		public void mouseReleased(MouseEvent arg0) {
+		}
+		
+
+		
+		
+	}//MyMouseListener closing
 }
 

@@ -79,7 +79,6 @@ public class BookLibrary extends javax.swing.JFrame {
 
         while (rs.next()) {
     	   
-        	System.out.println(rs.getCursorName());
         	
         	String mid   = rs.getString("mid");
             String date  = rs.getDate("time").toString();

@@ -375,14 +375,12 @@
                       <EmptySpace min="-2" pref="36" max="-2" attributes="0"/>
                       <Component id="jLabel_newest" min="-2" max="-2" attributes="0"/>
                       <EmptySpace min="-2" pref="30" max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="1" attributes="0">
-                          <Component id="jLabel_img1" alignment="1" min="-2" max="-2" attributes="0"/>
-                          <Group type="103" alignment="1" groupAlignment="3" attributes="0">
-                              <Component id="jLabel_img3" alignment="3" min="-2" max="-2" attributes="0"/>
-                              <Component id="jLabel_img4" alignment="3" min="-2" max="-2" attributes="0"/>
-                              <Component id="jLabel_img5" alignment="3" min="-2" max="-2" attributes="0"/>
-                              <Component id="jLabel_img2" alignment="3" min="-2" max="-2" attributes="0"/>
-                          </Group>
+                      <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="jLabel_img3" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="jLabel_img4" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="jLabel_img5" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="jLabel_img2" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="jLabel_img1" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace min="-2" pref="20" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">

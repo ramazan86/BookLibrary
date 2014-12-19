@@ -179,6 +179,7 @@ public class Login extends javax.swing.JFrame implements WindowListener { // Log
 
         books = Book.getNewestAndTop10();
         
+        
         JLabel[] j = new JLabel[10];
 	        j[0] = jLabel_img1;
 	        j[1] = jLabel_img2;
@@ -198,6 +199,10 @@ public class Login extends javax.swing.JFrame implements WindowListener { // Log
 	    	j[i].addMouseListener(new MyMouseListener(books.get(i)));
 	    }
         
+	    for(int i = books.size(); i<j.length; i++) {
+	    	j[i].setVisible(false);
+	    }
+	    
         System.out.println("Zeile178/Login.java " +books.size());
         
       
@@ -1109,7 +1114,7 @@ public class Login extends javax.swing.JFrame implements WindowListener { // Log
 	
     }
 
-    private class MyMouseListener implements MouseListener {
+    public class MyMouseListener implements MouseListener {
 
     	Book objBook = null;
     	

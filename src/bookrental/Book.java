@@ -168,7 +168,8 @@ public class Book {
           price = rs.getString("price"); 
           pdflink = rs.getString("pdflink");
     	  
-    	   
+    	System.out.println("1 " + mid + " " + title + " " +imglink + " " +average + " " +description + " " +genre 
+    			+ " " + agerating + " " + releaseyear + " " +price + " " +pdflink);   
     	   
        ResultSet rs2 = stmt2.executeQuery("Select * from book natural join haslang where mid = "+rs.getString("mid")+" ");
        rs2.next();
@@ -188,9 +189,11 @@ public class Book {
         books.add(book);
        }
        
+       System.out.println("Z-192: " +books.size());
+       
        //Top10 are stored in "books"
    
-       Statement stmt3 = conn.createStatement();     
+     /*  Statement stmt3 = conn.createStatement();     
        ResultSet rs2 = stmt3.executeQuery("Select *, avg(rating) as average from book natural left join rates group by mid order by average desc LIMIT 0,10");
        
        Statement stmt4 = conn.createStatement();
@@ -206,15 +209,12 @@ public class Book {
             lang2 = "";
        
         
-        Book book = new Book(mid,
-                			title,imglink,
-			                average, description,
-			                genre, agerating,
-			                releaseyear,
-			                "",lang, lang2, price, pdflink);
-			               
-       books.add(book);
-       }
+       //books.add(book);
+       System.out.println("Z-220: " +books.size());
+
+       
+       
+       }*/
        return books;
     }//getNewestAndTop10
     

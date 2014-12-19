@@ -19,7 +19,9 @@ import java.util.GregorianCalendar;
 import java.util.Locale;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+
 import javax.swing.ImageIcon;
+import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 
 /**
@@ -55,25 +57,25 @@ public class Bought extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jLabel_rent = new javax.swing.JLabel();
+        jLabel_buy = new javax.swing.JLabel();
         jLabel_image = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         jLabel_title = new javax.swing.JLabel();
         jLabel_deadline = new javax.swing.JLabel();
         jLabel_price = new javax.swing.JLabel();
-        jButton_rent = new javax.swing.JButton();
+        jButton_buy = new javax.swing.JButton();
         jButton_return = new javax.swing.JButton();
         jCheck_GTC = new javax.swing.JCheckBox();
         jCheck_directDebitPayment = new javax.swing.JCheckBox();
         jLabelDeadline = new javax.swing.JLabel();
         jLabelPrice = new javax.swing.JLabel();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.HIDE_ON_CLOSE);
 
-        jLabel_rent.setFont(new java.awt.Font("Calibri", 0, 24)); // NOI18N
-        jLabel_rent.setText("Rent");
+        jLabel_buy.setFont(new java.awt.Font("Calibri", 0, 24)); // NOI18N
+        jLabel_buy.setText("Buy");
 
-        jLabel_image.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/graphicsUderC2.png"))); // NOI18N
+        jLabel_image.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/bookLibrary.png"))); // NOI18N
 
         jLabel_title.setFont(new java.awt.Font("Calibri", 0, 24)); // NOI18N
         jLabel_title.setText("Graphics under C");
@@ -82,10 +84,10 @@ public class Bought extends javax.swing.JFrame {
 
         jLabel_price.setText("Price:");
 
-        jButton_rent.setText("Rent");
-        jButton_rent.addActionListener(new java.awt.event.ActionListener() {
+        jButton_buy.setText("OK");
+        jButton_buy.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton_rentActionPerformed(evt);
+                jButton_buyActionPerformed(evt);
             }
         });
 
@@ -116,7 +118,7 @@ public class Bought extends javax.swing.JFrame {
                             .addGroup(layout.createSequentialGroup()
                                 .addGap(47, 47, 47)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLabel_rent)
+                                    .addComponent(jLabel_buy)
                                     .addComponent(jCheck_directDebitPayment)
                                     .addComponent(jCheck_GTC)
                                     .addGroup(layout.createSequentialGroup()
@@ -139,14 +141,14 @@ public class Bought extends javax.swing.JFrame {
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(jButton_return)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jButton_rent)
+                        .addComponent(jButton_buy)
                         .addGap(40, 40, 40))))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGap(132, 132, 132)
-                .addComponent(jLabel_rent)
+                .addComponent(jLabel_buy)
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
@@ -169,7 +171,7 @@ public class Bought extends javax.swing.JFrame {
                 .addComponent(jCheck_directDebitPayment)
                 .addGap(22, 22, 22)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton_rent)
+                    .addComponent(jButton_buy)
                     .addComponent(jButton_return))
                 .addGap(21, 21, 21))
         );
@@ -196,42 +198,55 @@ public class Bought extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_jButton_returnActionPerformed
 
-    private void jButton_rentActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton_rentActionPerformed
+    private void jButton_buyActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton_rentActionPerformed
 
         Verbindung db = new Verbindung();
         db.start();
         Connection conn = db.getVerbindung();
+        Object[] options = {"Yes", "No"};
+        
         if (jCheck_directDebitPayment.isSelected() && jCheck_GTC.isSelected()) {
             JOptionPane.setDefaultLocale(Locale.ENGLISH);
             try {
                 Statement stmt = conn.createStatement();
-                ResultSet rs = stmt.executeQuery("Select *,DATEDIFF(deadline,now()) as deadlinex from bought where uid = '" + user.getUid() + "' and mid = '" + book.getMid() + "'");
+                
+                System.out.println("Line-210; Bought.java -> " +user.getUid() + " " +book.getMid());
+                
+                ResultSet rs = stmt.executeQuery("Select * from bought natural join user where uid = '" + user.getUid() + "' and mid = '" + book.getMid() + "'");
+              
                 if (rs.next()) {
-                    Statement stmtupdate = conn.createStatement();
-                    if (Integer.parseInt(rs.getString("deadlinex")) < 0) {
-                        if (JOptionPane.showConfirmDialog(null, "Do you want to rent the book " + book.getTitle() + "?") == 0) {
-                            stmtupdate.executeUpdate("UPDATE bought SET deadline = (SELECT DATE_ADD( now() , INTERVAL 2 DAY) ), time = now() where uid = '" + user.getUid() + "' and mid = '" + book.getMid() + "'");
-                            JOptionPane.showMessageDialog(null, "Congratulations! You can now watch the book in your video library.");
-                            dispose();
-                            new BookLibrary(user).setVisible(true);
-                        }
-                    } else {
-                        if (JOptionPane.showConfirmDialog(null, "Do you want to extend the Deadline of the book " + book.getTitle() + "?") == 0) {
-                            stmtupdate.executeUpdate("UPDATE bought SET deadline = (SELECT DATE_ADD( deadline , INTERVAL 2 DAY) ), time = now() where uid = '" + user.getUid() + "' and mid = '" + book.getMid() + "'");
-                            JOptionPane.showMessageDialog(null, "Congratulations! You have extended the deadline for two days.");
-                            dispose();
-                            new BookLibrary(user).setVisible(true);
-                        }
-                    }
-                } else {
-                    if (JOptionPane.showConfirmDialog(null, "Do you want to buy the book " + book.getTitle() + "?") == 0) {
-                        Statement stmtinsert = conn.createStatement();
-                        stmt.executeUpdate("INSERT INTO bought (uid, mid, time) VALUES ('" + user.getUid() + "', '" + book.getMid() + "', now() )");
-                        JOptionPane.showMessageDialog(null, "Congratulations! You can now read the book in your book library.");
+                    
+                		JOptionPane.showMessageDialog(null, "You already have bought bought this book at " + rs.getString("time"));
                         dispose();
-                        new BookLibrary(user).setVisible(true);
-                    }
-                }
+                        // new BookLibrary(user).setVisible(true);
+               } else {
+            	   
+            	   
+            	   
+            	   int n = JOptionPane.showOptionDialog(this,
+                           "Do you want buy the book?", 
+                           "", 
+                           JOptionPane.YES_NO_OPTION, 
+                           JOptionPane.QUESTION_MESSAGE, 
+                           null,           //do not use a custiom Icon
+                           options, 
+                           options[1]);
+            	   
+            	   Statement stmInsert = conn.createStatement();
+            	   String insert = "Insert into bought (uid, mid, time) VALUES ('" +user.getUid() + "', '" +book.getMid() + "', now())";
+            	   
+					switch(n) {
+						case 0: stmInsert.executeUpdate(insert); 
+								JOptionPane.showMessageDialog(null, "Congratulations! You can now get the book in your book library.");
+								dispose();
+								new BookLibrary(user).setVisible(true);
+								break;
+						case 1: setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE); break;
+						default : break;
+					}
+		            	   
+		    } 
+                
             } catch (SQLException ex) {
                 Logger.getLogger(Bought.class.getName()).log(Level.SEVERE, null, ex);
             }
@@ -284,7 +299,7 @@ public class Bought extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton_rent;
+    private javax.swing.JButton jButton_buy;
     private javax.swing.JButton jButton_return;
     private javax.swing.JCheckBox jCheck_GTC;
     private javax.swing.JCheckBox jCheck_directDebitPayment;
@@ -294,7 +309,7 @@ public class Bought extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel_deadline;
     private javax.swing.JLabel jLabel_image;
     private javax.swing.JLabel jLabel_price;
-    private javax.swing.JLabel jLabel_rent;
+    private javax.swing.JLabel jLabel_buy;
     private javax.swing.JLabel jLabel_title;
     // End of variables declaration//GEN-END:variables
 }
