@@ -4,11 +4,14 @@ package bookrental;
 import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+
 import javax.swing.JOptionPane;
 
 import static bookrental.Book.addBook;
+
 import javax.swing.JFrame;
 import javax.swing.WindowConstants;
+
 import org.apache.commons.lang.StringEscapeUtils;
 
 

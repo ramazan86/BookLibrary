@@ -14,7 +14,7 @@ public class Book {
   
     /*Class-attributes*/
     
-    String mid, title, imglink,author, rating, description, genre, agerating, releaseYear, link, language, language2, price, PDFLink;
+    String mid, title, imglink,author, rating, description, genre, agerating, releaseYear, link, language, language2, price, PDFLink, saleDate;
     ArrayList<Book> books;
     static Verbindung db;
     static Connection conn;
@@ -22,10 +22,22 @@ public class Book {
     /*Class-Methods*/
     
     
+     Book(String mid,String title,String imglink, 
+    	  String rating, String description,String genre,String agerating,String releaseYear,
+    	  String link,String language, String language2, String price, String PDFLink, String author, String saleDate){ 
+    
+        this(mid, title, imglink, rating, description, genre, agerating, releaseYear, link, language, language2, price, PDFLink, author);
+        this.saleDate = saleDate;
+        
+    }
+    
+    
     Book(String mid,String title,String imglink, String rating, String description,String genre,String agerating,String releaseYear,String link,String language, String language2, String price, String PDFLink, String author){ 
     
         this(mid, title, imglink, rating, description, genre, agerating, releaseYear, link, language, language2, price, PDFLink);
         this.author = author;
+        
+
     }
     
     
@@ -33,7 +45,9 @@ public class Book {
          String description,String genre,String agerating,
          String releaseYear,String link, 
          String language, String language2, String price, String PDFLink){
-   
+
+
+    	
         this.mid = mid;
         this.title = title;
         this.imglink = imglink;
@@ -123,26 +137,54 @@ public class Book {
        db.start();
        conn = db.getVerbindung();
        Statement stmt = conn.createStatement();     
+      
+       String mid 			= "", 
+    		  title 		= "", 
+    		  imglink 		= "", 
+    		  average 		= "", 
+    		  description 	= "", 
+    		  genre 		= "", 
+    		  agerating 	= "", 
+    		  releaseyear	= "", 
+    		  pdflink 		= "", 
+    		  price 		= "";
+       
+       
+       
        ResultSet rs = stmt.executeQuery("Select *, avg(rating) as average from book natural left join rates group by mid order by mid desc LIMIT 0,10");
        
        Statement stmt2 = conn.createStatement();
+      
        while(rs.next()){
-           
-        ResultSet rs2 = stmt2.executeQuery("Select * from book natural join haslang where mid = "+rs.getString("mid")+" ");
-        rs2.next();
-        String lang = rs2.getString("language");
-        rs2.last();
-        String lang2 = rs2.getString("language");
+       
+    	  mid = rs.getString("mid");
+    	  title = rs.getString("title");
+    	  imglink = rs.getString("picture");
+    	  average = rs.getString("average"); 
+    	  description = rs.getString("description");
+          genre = rs.getString("genre");
+          agerating = rs.getString("agerating");
+          releaseyear = rs.getString("releaseyear");
+          price = rs.getString("price"); 
+          pdflink = rs.getString("pdflink");
+    	  
+    	   
+    	   
+       ResultSet rs2 = stmt2.executeQuery("Select * from book natural join haslang where mid = "+rs.getString("mid")+" ");
+       rs2.next();
+       String lang = rs2.getString("language");
+       rs2.last();
+       String lang2 = rs2.getString("language2");
         
-        if(lang2.equals(lang))
-            lang2 = "";
+       if(lang2.equals(lang))
+           lang2 = "";
         
-       Book book = new Book(rs.getString("mid"),
-                            rs.getString("title"),rs.getString("picture"),
-                            rs.getString("average"), rs.getString("description"),
-                            rs.getString("genre"),rs.getString("agerating"),
-                            rs.getString("releaseyear"),
-                            rs.getString("pdflink"),lang, lang2, rs.getString("price"), rs.getString("pdflink"));
+       Book book = new Book(mid,
+                            title,imglink,
+                            average, description,
+                            genre, agerating,
+                            releaseyear,
+                            "",lang, lang2, price, pdflink);
         books.add(book);
        }
        
@@ -156,23 +198,25 @@ public class Book {
            
         ResultSet rs3 = stmt4.executeQuery("Select * from book natural join haslang where mid = "+rs2.getString("mid")+" ");
         rs3.next();
-        String lang = rs3.getString("Language");
+        String lang = rs3.getString("language");
         rs3.last();
-        String lang2 = rs3.getString("Language");
+        String lang2 = rs3.getString("language2");
     
         if(lang2.equals(lang))
             lang2 = "";
+       
         
-        Book book = new Book(rs.getString("mid"),
-                            rs.getString("title"),rs.getString("picture"),
-                            rs.getString("average"), rs.getString("description"),
-                            rs.getString("genre"),rs.getString("agerating"),
-                            rs.getString("releaseyear"),
-                            rs.getString("pdflink"),lang, lang2, rs.getString("price"), rs.getString("pdflink"));
-        books.add(book);
+        Book book = new Book(mid,
+                			title,imglink,
+			                average, description,
+			                genre, agerating,
+			                releaseyear,
+			                "",lang, lang2, price, pdflink);
+			               
+       books.add(book);
        }
        return books;
-    }
+    }//getNewestAndTop10
     
     public String getTitle() {
         return title;
@@ -228,6 +272,10 @@ public class Book {
 
     public String getAuthor() {
         return author;
+    }
+    
+    public String getSaleDate() {
+        return saleDate;
     }
     
 }

@@ -50,7 +50,7 @@ public class User extends javax.swing.JFrame {
         this.setSize(870,700);
         setLocationRelativeTo(null);
         user = obj;
-    //    books = Book.getNewestAndTop10(); 
+        //books = Book.getNewestAndTop10(); 
     //    this.Newest10();
     //    this.Top10();
         this.setVisible(true);
@@ -182,13 +182,13 @@ public class User extends javax.swing.JFrame {
         return Integer.parseInt(this.isAdmin);
     }
     
-    //Insert into database if a user rents a book
+    //Insert into database if a user bought a book
     public int rentbook(String mid) throws SQLException{
         Verbindung db = new Verbindung();
         db.start();
         Connection conn = db.getVerbindung();
         Statement stmt = conn.createStatement();
-        if(stmt.executeUpdate("INSERT INTO rents VALUES ('"+this.uid+"','"+mid+"',now())") == 1)
+        if(stmt.executeUpdate("INSERT INTO bought VALUES ('"+this.uid+"','"+mid+"',now())") == 1)
             return 1;
         else
             return 0;

@@ -97,7 +97,7 @@ public class BookInfo extends javax.swing.JFrame {
         jLabel_price = new javax.swing.JLabel();
         jLabelPrice = new javax.swing.JLabel();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.HIDE_ON_CLOSE);
 
         jLabel_title.setFont(new java.awt.Font("Calibri", 0, 24)); // NOI18N
         jLabel_title.setText("Graphics under C");
@@ -105,7 +105,7 @@ public class BookInfo extends javax.swing.JFrame {
         jLabel_logo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/logo.png"))); // NOI18N
         jLabel_logo.setText("jLabel2");
 
-        jLabel_imgLink.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/graphicsUderC.png"))); // NOI18N
+        jLabel_imgLink.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/bookLibrary.png"))); // NOI18N
         jLabel_imgLink.setText("jLabel1");
 
         jLabel5.setFont(new java.awt.Font("Calibri", 0, 14)); // NOI18N

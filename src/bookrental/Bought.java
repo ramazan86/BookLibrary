@@ -205,19 +205,19 @@ public class Bought extends javax.swing.JFrame {
             JOptionPane.setDefaultLocale(Locale.ENGLISH);
             try {
                 Statement stmt = conn.createStatement();
-                ResultSet rs = stmt.executeQuery("Select *,DATEDIFF(deadline,now()) as deadlinex from rents where uid = '" + user.getUid() + "' and mid = '" + book.getMid() + "'");
+                ResultSet rs = stmt.executeQuery("Select *,DATEDIFF(deadline,now()) as deadlinex from bought where uid = '" + user.getUid() + "' and mid = '" + book.getMid() + "'");
                 if (rs.next()) {
                     Statement stmtupdate = conn.createStatement();
                     if (Integer.parseInt(rs.getString("deadlinex")) < 0) {
                         if (JOptionPane.showConfirmDialog(null, "Do you want to rent the book " + book.getTitle() + "?") == 0) {
-                            stmtupdate.executeUpdate("UPDATE rents SET deadline = (SELECT DATE_ADD( now() , INTERVAL 2 DAY) ), time = now() where uid = '" + user.getUid() + "' and mid = '" + book.getMid() + "'");
+                            stmtupdate.executeUpdate("UPDATE bought SET deadline = (SELECT DATE_ADD( now() , INTERVAL 2 DAY) ), time = now() where uid = '" + user.getUid() + "' and mid = '" + book.getMid() + "'");
                             JOptionPane.showMessageDialog(null, "Congratulations! You can now watch the book in your video library.");
                             dispose();
                             new BookLibrary(user).setVisible(true);
                         }
                     } else {
                         if (JOptionPane.showConfirmDialog(null, "Do you want to extend the Deadline of the book " + book.getTitle() + "?") == 0) {
-                            stmtupdate.executeUpdate("UPDATE rents SET deadline = (SELECT DATE_ADD( deadline , INTERVAL 2 DAY) ), time = now() where uid = '" + user.getUid() + "' and mid = '" + book.getMid() + "'");
+                            stmtupdate.executeUpdate("UPDATE bought SET deadline = (SELECT DATE_ADD( deadline , INTERVAL 2 DAY) ), time = now() where uid = '" + user.getUid() + "' and mid = '" + book.getMid() + "'");
                             JOptionPane.showMessageDialog(null, "Congratulations! You have extended the deadline for two days.");
                             dispose();
                             new BookLibrary(user).setVisible(true);

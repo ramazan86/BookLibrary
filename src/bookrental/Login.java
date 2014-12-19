@@ -2,6 +2,7 @@ package bookrental;
 
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
+import java.awt.event.MouseListener;
 import java.awt.event.WindowEvent;
 import java.awt.event.WindowListener;
 import java.io.IOException;
@@ -16,12 +17,17 @@ import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+
 import javax.swing.ImageIcon;
 import javax.swing.JFrame;
+import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.UIManager;
 import javax.swing.UnsupportedLookAndFeelException;
 import javax.swing.WindowConstants;
+
+import org.w3c.dom.events.EventTarget;
+import org.w3c.dom.views.AbstractView;
 
 public class Login extends javax.swing.JFrame implements WindowListener { // Login, Register and ForgottenPassword Function
 
@@ -45,7 +51,7 @@ public class Login extends javax.swing.JFrame implements WindowListener { // Log
         initComponents();
         this.setSize(870, 700);
         setLocationRelativeTo(null);
-      //  this.Newest10();
+        this.Newest10();
       //  this.Top10();
         this.setVisible(true);
         getRootPane().setDefaultButton(jButton_login);
@@ -170,49 +176,31 @@ public class Login extends javax.swing.JFrame implements WindowListener { // Log
     // Shows the Newest10 books
 
     public void Newest10() throws SQLException, MalformedURLException, IOException {
-        MouseAdapter listener = new MouseImpl();
 
         books = Book.getNewestAndTop10();
-
-        jLabel_img1.setIcon(new ImageIcon(new URL(books.get(0).getImglink())));
-        jLabel_img1.setText(null);
-        jLabel_img1.addMouseListener(listener);
-
-        jLabel_img2.setIcon(new ImageIcon(new URL(books.get(1).getImglink())));
-        jLabel_img2.setText(null);
-        jLabel_img2.addMouseListener(listener);
-
-        jLabel_img3.setIcon(new ImageIcon(new URL(books.get(2).getImglink())));
-        jLabel_img3.setText(null);
-        jLabel_img3.addMouseListener(listener);
-
-        jLabel_img4.setIcon(new ImageIcon(new URL(books.get(3).getImglink())));
-        jLabel_img4.setText(null);
-        jLabel_img4.addMouseListener(listener);
-
-        jLabel_img5.setIcon(new ImageIcon(new URL(books.get(4).getImglink())));
-        jLabel_img5.setText(null);
-        jLabel_img5.addMouseListener(listener);
-
-        jLabel_img6.setIcon(new ImageIcon(new URL(books.get(5).getImglink())));
-        jLabel_img6.setText(null);
-        jLabel_img6.addMouseListener(listener);
-
-        jLabel_img7.setIcon(new ImageIcon(new URL(books.get(6).getImglink())));
-        jLabel_img7.setText(null);
-        jLabel_img7.addMouseListener(listener);
-
-        jLabel_img8.setIcon(new ImageIcon(new URL(books.get(7).getImglink())));
-        jLabel_img8.setText(null);
-        jLabel_img8.addMouseListener(listener);
-
-        jLabel_img9.setIcon(new ImageIcon(new URL(books.get(8).getImglink())));
-        jLabel_img9.setText(null);
-        jLabel_img9.addMouseListener(listener);
-
-        jLabel_img10.setIcon(new ImageIcon(new URL(books.get(9).getImglink())));
-        jLabel_img10.setText(null);
-        jLabel_img10.addMouseListener(listener);
+        
+        JLabel[] j = new JLabel[10];
+	        j[0] = jLabel_img1;
+	        j[1] = jLabel_img2;
+	        j[2] = jLabel_img3;
+	        j[3] = jLabel_img4;
+	        j[4] = jLabel_img5;
+	        j[5] = jLabel_img6;
+	        j[6] = jLabel_img7;
+	        j[7] = jLabel_img8;
+	        j[8] = jLabel_img9;
+	        j[9] = jLabel_img10;
+        
+     
+	    for(int i = 0; i<books.size(); i++) {
+	    	j[i].setIcon(new ImageIcon(new URL(books.get(i).getImglink())));
+	    	j[i].setText(null);
+	    	j[i].addMouseListener(new MyMouseListener(books.get(i)));
+	    }
+        
+        System.out.println("Zeile178/Login.java " +books.size());
+        
+      
     }
 
     // Shows the Top10 books
@@ -391,7 +379,7 @@ public class Login extends javax.swing.JFrame implements WindowListener { // Log
             }
         });
 
-        jScrollPane2.setHorizontalScrollBarPolicy(javax.swing.ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
+        jScrollPane2.setHorizontalScrollBarPolicy(javax.swing.ScrollPaneConstants.HORIZONTAL_SCROLLBAR_AS_NEEDED);
         jScrollPane2.setPreferredSize(new java.awt.Dimension(893, 468));
 
         jLabel_img2.setText("jLabel18");
@@ -1117,6 +1105,50 @@ public class Login extends javax.swing.JFrame implements WindowListener { // Log
                 }
             }
         }
+
+	
     }
 
+    private class MyMouseListener implements MouseListener {
+
+    	Book objBook = null;
+    	
+    	public MyMouseListener(Book objBook) {
+    		this.objBook = objBook;
+    	}
+    	
+		@Override
+		public void mouseClicked(MouseEvent e) {
+			
+			 try {
+                 BookInfo window = new BookInfo(user, objBook);
+                 window.pack();
+                 window.setVisible(true);
+             } catch (MalformedURLException ex) {
+                 Logger.getLogger(Login.class.getName()).log(Level.SEVERE, null, ex);
+             }
+			
+		}
+
+		@Override
+		public void mouseEntered(MouseEvent arg0) {
+		}
+
+		@Override
+		public void mouseExited(MouseEvent arg0) {
+		}
+
+		@Override
+		public void mousePressed(MouseEvent arg0) {
+		}
+
+		@Override
+		public void mouseReleased(MouseEvent arg0) {
+		}
+		
+
+		
+		
+	}//MyMouseListener closing
+    
 }

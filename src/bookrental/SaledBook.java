@@ -13,8 +13,6 @@ import java.sql.Statement;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JFrame;
-import javax.swing.JLabel;
-import javax.swing.WindowConstants;
 
 /**
  *
@@ -25,7 +23,7 @@ public class SaledBook extends javax.swing.JFrame {
     /**
      * Creates new form RentedBooks
      */
-    public SaledBook() throws SQLException {
+    public SaledBook(){
         initComponents();
         setLocationRelativeTo(null);
         setResizable(false);
@@ -34,24 +32,28 @@ public class SaledBook extends javax.swing.JFrame {
         Verbindung db = new Verbindung();
         db.start();
         Connection conn = db.getVerbindung();
-
         // Last 24 Hours
-        Statement stmt = conn.createStatement();
-        ResultSet rs24 = stmt.executeQuery("SELECT * FROM bought WHERE DATEDIFF(now(), time) < 1");
-        rs24.last();
-        jLabel_last24Hours.setText(String.valueOf(rs24.getRow()) + " Books");
-        
-        // Last 7 Days
-        Statement stmt2 = conn.createStatement();
-        ResultSet rs7 = stmt2.executeQuery("SELECT * FROM bought WHERE DATEDIFF(now(), time) < 7");
-        rs7.last();
-        jLabel_last7Days.setText(String.valueOf(rs7.getRow()) + " Books");
        
-        // Last 30 Days
-        Statement stmt3 = conn.createStatement();
-        ResultSet rs30 = stmt3.executeQuery("SELECT * FROM bought WHERE DATEDIFF(now(), time) < 30");
-        rs30.last();
-        jLabel_last30Days.setText(String.valueOf(rs30.getRow()) + " Books");
+        try {    
+            Statement stmt = conn.createStatement();
+            ResultSet rs24 = stmt.executeQuery("SELECT * FROM bought WHERE DATEDIFF(now(), time) < 1");
+            rs24.last();
+            jLabel_last24Hours.setText(String.valueOf(rs24.getRow()) + " Books");
+
+            // Last 7 Days
+            Statement stmt2 = conn.createStatement();
+            ResultSet rs7 = stmt2.executeQuery("SELECT * FROM bought WHERE DATEDIFF(now(), time) < 7");
+            rs7.last();
+            jLabel_last7Days.setText(String.valueOf(rs7.getRow()) + " Books");
+
+            // Last 30 Days
+            Statement stmt3 = conn.createStatement();
+            ResultSet rs30 = stmt3.executeQuery("SELECT * FROM bought WHERE DATEDIFF(now(), time) < 30");
+            rs30.last();
+            jLabel_last30Days.setText(String.valueOf(rs30.getRow()) + " Books");
+        }catch(Exception e){
+            System.out.println(e.getCause());
+        }
     }
 
     /**
@@ -163,7 +165,7 @@ public class SaledBook extends javax.swing.JFrame {
             public void run() {
                 try {
                     new SaledBook().setVisible(true);
-                } catch (SQLException ex) {
+                } catch (Exception ex) {
                     Logger.getLogger(SaledBook.class.getName()).log(Level.SEVERE, null, ex);
                 }
             }

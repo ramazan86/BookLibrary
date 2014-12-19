@@ -721,7 +721,7 @@ public class Admin extends javax.swing.JFrame {
     private void jButton_saledBookActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton_saledBookActionPerformed
         try {
             new SaledBook().setVisible(true);
-        } catch (SQLException ex) {
+        } catch (Exception ex) {
             Logger.getLogger(Admin.class.getName()).log(Level.SEVERE, null, ex);
         }
     }//GEN-LAST:event_jButton_saledBookActionPerformed

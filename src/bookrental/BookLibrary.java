@@ -15,6 +15,7 @@ import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+
 import javax.swing.JOptionPane;
 
 public class BookLibrary extends javax.swing.JFrame {
@@ -22,7 +23,11 @@ public class BookLibrary extends javax.swing.JFrame {
     User user;
     static int count = 0; // Counts at which page the user is
     ArrayList<Book> books;
-
+    
+    
+    
+    
+    
     public BookLibrary(User obj) throws SQLException {
         initComponents();
         setLocationRelativeTo(null);
@@ -69,14 +74,33 @@ public class BookLibrary extends javax.swing.JFrame {
         Connection conn = db.getVerbindung();
         
         Statement stmt = conn.createStatement();
-        ResultSet rs = stmt.executeQuery("Select * from bought natural join book natural join user where uid = '" + /*user.getUid()*/String.valueOf("2") + "'");
+        
+        ResultSet rs = stmt.executeQuery("Select * from bought natural join book natural join user where uid = '" + user.getUid() + "'");
 
-       while (rs.next()) {
+        while (rs.next()) {
+    	   
+        	System.out.println(rs.getCursorName());
+        	
+        	String mid   = rs.getString("mid");
+            String date  = rs.getDate("time").toString();
+            String title = rs.getString("title");
+            String genre =  rs.getString("genre");
+            String ageRating = rs.getString("agerating");
+            String description = rs.getString("description");
+            String releaseYear = rs.getString("releaseYear");
+            String author = rs.getString("author");
+            String picture =  rs.getString("picture");
+            String price = rs.getString("price");
+            String pdfLink = rs.getString("pdflink");
+            String language = rs.getString("language");
+            String language2 = rs.getString("language2");
             
-            Book book = new Book(rs.getString("mid"), rs.getString("title"), rs.getString("picture"), 
-                                 null, rs.getString("description"), rs.getString("genre"), rs.getString("agerating"), 
-                                rs.getString("releaseYear"), rs.getString("author"), 
-                                rs.getString("pdflink"), "", "", rs.getString("price"));
+            Book book = new Book(mid, title,picture, 
+                                 null, description ,genre, ageRating, 
+                                 releaseYear, "", 
+                                 language, language2,price, pdfLink, author,date);
+            
+            
             books.add(book);
         }
            
@@ -85,6 +109,9 @@ public class BookLibrary extends javax.swing.JFrame {
             Book dump = new Book("", "", "", null, "", "", "", "", "", "", "", "", "", "");
             books.add(dump);
         }
+        
+        
+       // rs.getString(null)
 
         jLabel_title1.setVisible(true);
         jLabel_dateOfBought.setVisible(true);
@@ -103,72 +130,55 @@ public class BookLibrary extends javax.swing.JFrame {
         jButton_Download5.setVisible(true);
 
         
+        System.out.println(books.get(0).getSaleDate());
+        
         
         if (books.get(0 + count).getTitle().isEmpty()) {
             jLabel_title1.setVisible(false);
             jLabel_dateOfBought.setVisible(false);
             jButton_readBook1.setVisible(false);
         } 
-        /*else {
+        else {
             jLabel_title1.setText(books.get(0 + count).getTitle());
-            if (books.get(0 + count).getDeadline().equals("1")) {
-                jLabel_deadline1.setText(books.get(0 + count).getDeadline() + " Day left");
-            } else {
-                jLabel_deadline1.setText(books.get(0 + count).getDeadline() + " Days left");
-            }
-        }*/
+            jLabel_dateOfBought.setText(books.get(0 + count).getSaleDate());
+            
+        }
 
         if (books.get(1 + count).getTitle().isEmpty()) {
             jLabel_title2.setVisible(false);
             jLabel_dayOfBought2.setVisible(false);
             jButton_Download2.setVisible(false);
-        } /*else {
+        } else {
             jLabel_title2.setText(books.get(1 + count).getTitle());
-            if (books.get(1 + count).getDeadline().equals("1")) {
-                jLabel_deadline2.setText(books.get(1 + count).getDeadline() + " Day left");
-            } else {
-                jLabel_deadline2.setText(books.get(1 + count).getDeadline() + " Days left");
-            }
-        }*/
+            jLabel_dayOfBought2.setText(books.get(1 + count).getSaleDate());
+        }
 
         if (books.get(2 + count).getTitle().isEmpty()) {
             jLabel_title3.setVisible(false);
             jLabel_dayOfBought3.setVisible(false);
             jButton_Download3.setVisible(false);
-        } /*else {
+        } else {
             jLabel_title3.setText(books.get(2 + count).getTitle());
-            if (books.get(2 + count).getDeadline().equals("1")) {
-                jLabel_deadline3.setText(books.get(2 + count).getDeadline() + " Day left");
-            } else {
-                jLabel_deadline3.setText(books.get(2 + count).getDeadline() + " Days left");
-            }
-        }*/
+            jLabel_dayOfBought3.setText(books.get(2 + count).getSaleDate());
+        }
         
         if (books.get(3 + count).getTitle().isEmpty()) {
             jLabel_title4.setVisible(false);
             jLabel_dayOfBought4.setVisible(false);
             jButton_Download4.setVisible(false);
-        } /*else {
+        } else {
             jLabel_title4.setText(books.get(3 + count).getTitle());
-            if (books.get(3 + count).getDeadline().equals("1")) {
-                jLabel_deadline4.setText(books.get(3 + count).getDeadline() + " Day left");
-            } else {
-                jLabel_deadline4.setText(books.get(3 + count).getDeadline() + " Days left");
-            }
-        }*/
+            jLabel_dayOfBought4.setText(books.get(3 + count).getSaleDate());
+        }
 
         if (books.get(4 + count).getTitle().isEmpty()) {
             jLabel_title5.setVisible(false);
             jLabel_dayOfBought5.setVisible(false);
             jButton_Download5.setVisible(false);
-        } /*else {
+        } else {
             jLabel_title5.setText(books.get(4 + count).getTitle());
-            if (books.get(4 + count).getDeadline().equals("1")) {
-                jLabel_deadline5.setText(books.get(4 + count).getDeadline() + " Day left");
-            } else {
-                jLabel_deadline5.setText(books.get(4 + count).getDeadline() + " Days left");
-            }
-        }*/
+            jLabel_dayOfBought5.setText(books.get(4 + count).getSaleDate());
+        }
 
         if (books.size() - count > 5) {
             jButton_next.setVisible(true);

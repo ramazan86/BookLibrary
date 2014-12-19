@@ -6,19 +6,23 @@
 
 package bookrental;
 
+import java.awt.event.WindowEvent;
+import java.awt.event.WindowListener;
 import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JPasswordField;
+import javax.swing.WindowConstants;
 
 /**
  *
  * @author Ali Hannoun & Ramazan Cinardere
  */
-public class Account extends javax.swing.JFrame {
+public class Account extends javax.swing.JFrame implements WindowListener {
 
     /*Class Attributes*/
     
@@ -29,6 +33,8 @@ public class Account extends javax.swing.JFrame {
     
     public Account() {
         initComponents();
+        setDefaultCloseOperation(JFrame.HIDE_ON_CLOSE);
+        addWindowListener(this);
     }
     
     public Account(User obj) {
@@ -97,8 +103,6 @@ public class Account extends javax.swing.JFrame {
         jLabel_City = new javax.swing.JLabel();
         jLabel_zipCode = new javax.swing.JLabel();
         jLabel_Zipcode = new javax.swing.JLabel();
-
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         jLabel_account.setFont(new java.awt.Font("Calibri", 0, 24)); // NOI18N
         jLabel_account.setText("Account");
@@ -374,4 +378,34 @@ public class Account extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel_username;
     private javax.swing.JLabel jLabel_zipCode;
     // End of variables declaration//GEN-END:variables
+
+    @Override
+    public void windowOpened(WindowEvent e) {
+    }
+
+    @Override
+    public void windowClosing(WindowEvent e) {
+        setDefaultCloseOperation(JFrame.HIDE_ON_CLOSE);
+        dispose();
+    }
+
+    @Override
+    public void windowClosed(WindowEvent e) {
+    }
+
+    @Override
+    public void windowIconified(WindowEvent e) {
+    }
+
+    @Override
+    public void windowDeiconified(WindowEvent e) {
+    }
+
+    @Override
+    public void windowActivated(WindowEvent e) {
+    }
+
+    @Override
+    public void windowDeactivated(WindowEvent e) {
+    }
 }
