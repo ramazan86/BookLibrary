@@ -23,6 +23,10 @@ import java.util.logging.Logger;
 import javax.swing.ImageIcon;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
+import javax.swing.JLabel;
+import javax.swing.GroupLayout.Alignment;
+import javax.swing.GroupLayout;
+import javax.swing.LayoutStyle.ComponentPlacement;
 
 /**
  *
@@ -105,76 +109,85 @@ public class Bought extends javax.swing.JFrame {
         jLabelDeadline.setText("jLabel4");
 
         jLabelPrice.setText("jLabel4");
+        
+        lblNewLabel = new JLabel("");
+        lblNewLabel.setIcon(new ImageIcon("D:\\IT\\Eclipse\\WorkSpace\\BookLibrary\\src\\Images\\mylog2.png"));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(26, 26, 26)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(47, 47, 47)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLabel_buy)
-                                    .addComponent(jCheck_directDebitPayment)
-                                    .addComponent(jCheck_GTC)
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addGap(147, 147, 147)
-                                        .addComponent(jLabel3))))
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(jLabel_image, javax.swing.GroupLayout.PREFERRED_SIZE, 172, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                            .addComponent(jLabel_price, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                            .addComponent(jLabel_deadline))
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                            .addComponent(jLabelDeadline, javax.swing.GroupLayout.DEFAULT_SIZE, 61, Short.MAX_VALUE)
-                                            .addComponent(jLabelPrice, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-                                    .addComponent(jLabel_title, javax.swing.GroupLayout.PREFERRED_SIZE, 361, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                        .addContainerGap(89, Short.MAX_VALUE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(jButton_return)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jButton_buy)
-                        .addGap(40, 40, 40))))
+        	layout.createParallelGroup(Alignment.LEADING)
+        		.addGroup(layout.createSequentialGroup()
+        			.addGap(26)
+        			.addGroup(layout.createParallelGroup(Alignment.LEADING)
+        				.addGroup(layout.createSequentialGroup()
+        					.addGroup(layout.createParallelGroup(Alignment.LEADING)
+        						.addGroup(layout.createSequentialGroup()
+        							.addGap(47)
+        							.addGroup(layout.createParallelGroup(Alignment.LEADING)
+        								.addComponent(jLabel_buy)
+        								.addComponent(jCheck_directDebitPayment)
+        								.addComponent(jCheck_GTC)
+        								.addGroup(layout.createSequentialGroup()
+        									.addGap(147)
+        									.addComponent(jLabel3))))
+        						.addGroup(layout.createSequentialGroup()
+        							.addComponent(jLabel_image, GroupLayout.PREFERRED_SIZE, 172, GroupLayout.PREFERRED_SIZE)
+        							.addPreferredGap(ComponentPlacement.RELATED)
+        							.addGroup(layout.createParallelGroup(Alignment.LEADING)
+        								.addGroup(layout.createSequentialGroup()
+        									.addGroup(layout.createParallelGroup(Alignment.TRAILING, false)
+        										.addComponent(jLabel_price, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+        										.addComponent(jLabel_deadline))
+        									.addPreferredGap(ComponentPlacement.RELATED)
+        									.addGroup(layout.createParallelGroup(Alignment.LEADING, false)
+        										.addComponent(jLabelDeadline, GroupLayout.DEFAULT_SIZE, 61, Short.MAX_VALUE)
+        										.addComponent(jLabelPrice, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+        								.addComponent(jLabel_title, GroupLayout.PREFERRED_SIZE, 361, GroupLayout.PREFERRED_SIZE))))
+        					.addContainerGap(89, Short.MAX_VALUE))
+        				.addGroup(layout.createSequentialGroup()
+        					.addComponent(jButton_return)
+        					.addPreferredGap(ComponentPlacement.RELATED, 476, Short.MAX_VALUE)
+        					.addComponent(jButton_buy)
+        					.addGap(40))))
+        		.addGroup(layout.createSequentialGroup()
+        			.addContainerGap()
+        			.addComponent(lblNewLabel)
+        			.addContainerGap(598, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(132, 132, 132)
-                .addComponent(jLabel_buy)
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(jLabel_title)
-                        .addGap(34, 34, 34)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel_deadline)
-                            .addComponent(jLabelDeadline))
-                        .addGap(18, 18, 18)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel_price)
-                            .addComponent(jLabelPrice))
-                        .addGap(0, 138, Short.MAX_VALUE))
-                    .addComponent(jLabel_image, javax.swing.GroupLayout.DEFAULT_SIZE, 0, Short.MAX_VALUE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabel3)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jCheck_GTC)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jCheck_directDebitPayment)
-                .addGap(22, 22, 22)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton_buy)
-                    .addComponent(jButton_return))
-                .addGap(21, 21, 21))
+        	layout.createParallelGroup(Alignment.LEADING)
+        		.addGroup(layout.createSequentialGroup()
+        			.addContainerGap()
+        			.addComponent(lblNewLabel)
+        			.addGap(107)
+        			.addComponent(jLabel_buy)
+        			.addGap(18)
+        			.addGroup(layout.createParallelGroup(Alignment.LEADING)
+        				.addGroup(layout.createSequentialGroup()
+        					.addComponent(jLabel_title)
+        					.addGap(34)
+        					.addGroup(layout.createParallelGroup(Alignment.BASELINE)
+        						.addComponent(jLabel_deadline)
+        						.addComponent(jLabelDeadline))
+        					.addGap(18)
+        					.addGroup(layout.createParallelGroup(Alignment.BASELINE)
+        						.addComponent(jLabel_price)
+        						.addComponent(jLabelPrice))
+        					.addGap(0, 138, Short.MAX_VALUE))
+        				.addComponent(jLabel_image, GroupLayout.DEFAULT_SIZE, 0, Short.MAX_VALUE))
+        			.addPreferredGap(ComponentPlacement.RELATED)
+        			.addComponent(jLabel3)
+        			.addPreferredGap(ComponentPlacement.RELATED)
+        			.addComponent(jCheck_GTC)
+        			.addPreferredGap(ComponentPlacement.UNRELATED)
+        			.addComponent(jCheck_directDebitPayment)
+        			.addGap(22)
+        			.addGroup(layout.createParallelGroup(Alignment.BASELINE)
+        				.addComponent(jButton_buy)
+        				.addComponent(jButton_return))
+        			.addGap(21))
         );
+        getContentPane().setLayout(layout);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -209,6 +222,7 @@ public class Bought extends javax.swing.JFrame {
             JOptionPane.setDefaultLocale(Locale.ENGLISH);
             try {
                 Statement stmt = conn.createStatement();
+                Statement update = conn.createStatement();
                 
                 System.out.println("Line-210; Bought.java -> " +user.getUid() + " " +book.getMid());
                 
@@ -234,9 +248,10 @@ public class Bought extends javax.swing.JFrame {
             	   
             	   Statement stmInsert = conn.createStatement();
             	   String insert = "Insert into bought (uid, mid, time) VALUES ('" +user.getUid() + "', '" +book.getMid() + "', now())";
-            	   
+            	   String upd = "Update book set bought = bought + 1 where mid = "+book.getMid();
 					switch(n) {
-						case 0: stmInsert.executeUpdate(insert); 
+						case 0: stmInsert.executeUpdate(insert);
+								stmInsert.executeUpdate(upd);
 								JOptionPane.showMessageDialog(null, "Congratulations! You can now get the book in your book library.");
 								dispose();
 								new BookLibrary(user).setVisible(true);
@@ -311,5 +326,6 @@ public class Bought extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel_price;
     private javax.swing.JLabel jLabel_buy;
     private javax.swing.JLabel jLabel_title;
+    private JLabel lblNewLabel;
     // End of variables declaration//GEN-END:variables
 }

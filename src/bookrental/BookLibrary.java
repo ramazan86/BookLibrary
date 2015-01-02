@@ -1,6 +1,8 @@
 package bookrental;
 
 import java.awt.Desktop;
+import java.awt.event.MouseEvent;
+import java.awt.event.MouseListener;
 import java.io.IOException;
 import java.io.InputStream;
 import java.net.MalformedURLException;
@@ -17,16 +19,42 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 
 import javax.swing.JOptionPane;
+import javax.swing.GroupLayout.Alignment;
+import javax.swing.LayoutStyle.ComponentPlacement;
+import javax.swing.GroupLayout;
+import javax.swing.JLabel;
+import javax.swing.ImageIcon;
+import java.awt.Font;
 
-public class BookLibrary extends javax.swing.JFrame {
+public class BookLibrary extends javax.swing.JFrame implements MouseListener {
 
     User user;
     static int count = 0; // Counts at which page the user is
     ArrayList<Book> books;
     
-    
-    
-    
+    private javax.swing.ButtonGroup buttonGroup1;
+    private javax.swing.JButton jButton_next;
+    private javax.swing.JButton jButton_previous;
+    private javax.swing.JButton jButton_return;
+    private javax.swing.JLabel jLabel_dateOfBought;
+    private javax.swing.JLabel jLabel_dayOfBought2;
+    private javax.swing.JLabel jLabel_dayOfBought3;
+    private javax.swing.JLabel jLabel_dayOfBought4;
+    private javax.swing.JLabel jLabel_dayOfBought5;
+    private javax.swing.JLabel jLabel_personalLibrary;
+    private javax.swing.JLabel jLabel_boughtBooks;
+    private javax.swing.JLabel jLabel_title1;
+    private javax.swing.JLabel jLabel_title2;
+    private javax.swing.JLabel jLabel_title3;
+    private javax.swing.JLabel jLabel_title4;
+    private javax.swing.JLabel jLabel_title5;
+    private JLabel jLabel_Browser;
+    private JLabel jLabel_Browser_2;
+    private JLabel jLabel_Browser_3;
+    private JLabel jLabel_Browser_4;
+    private JLabel jLabel_Browser_5;
+    private JLabel lblNewLabel;
+    private JLabel lblNewLabel_1;
     
     public BookLibrary(User obj) throws SQLException {
         initComponents();
@@ -34,10 +62,11 @@ public class BookLibrary extends javax.swing.JFrame {
         setResizable(false);
         user = obj;
 
-        this.listBooks();
+        listBooks();
     }
 
-    public void openBrowser(String bookTitle) {
+
+	public void openBrowser(String bookTitle) {
     
         try { 
             URI uri = new URI("http://ramazan.bplaced.net/BookLibrary/Test.pdf");
@@ -103,81 +132,49 @@ public class BookLibrary extends javax.swing.JFrame {
             books.add(book);
         }
            
-        //Fill up the Arraylist with dump books
-        while (books.size() % 5 != 0 || books.isEmpty()) {
-            Book dump = new Book("", "", "", null, "", "", "", "", "", "", "", "", "", "");
-            books.add(dump);
-        }
-        
         
        // rs.getString(null)
 
-        jLabel_title1.setVisible(true);
-        jLabel_dateOfBought.setVisible(true);
-        jButton_readBook1.setVisible(true);
-        jLabel_title2.setVisible(true);
-        jLabel_dayOfBought2.setVisible(true);
-        jButton_Download2.setVisible(true);
-        jLabel_title3.setVisible(true);
-        jLabel_dayOfBought3.setVisible(true);
-        jButton_Download3.setVisible(true);
-        jLabel_title4.setVisible(true);
-        jLabel_dayOfBought4.setVisible(true);
-        jButton_Download4.setVisible(true);
-        jLabel_title5.setVisible(true);
-        jLabel_dayOfBought5.setVisible(true);
-        jButton_Download5.setVisible(true);
-
         
-        System.out.println(books.get(0).getSaleDate());
+        JLabel[] labelsTitle = new JLabel[5];
+        	labelsTitle[0] = jLabel_title1;
+        	labelsTitle[1] = jLabel_title2;
+        	labelsTitle[2] = jLabel_title3;
+        	labelsTitle[3] = jLabel_title4;
+        	labelsTitle[4] = jLabel_title5;
+        	
+        JLabel[] labelsDate = new JLabel[5];
+        	labelsDate[0] = jLabel_dateOfBought;
+        	labelsDate[1] = jLabel_dayOfBought2;
+        	labelsDate[2] = jLabel_dayOfBought3;
+        	labelsDate[3] = jLabel_dayOfBought4;
+        	labelsDate[4] = jLabel_dayOfBought5;
+    
+        JLabel[] jlabels = new JLabel[5];
+			
+	        jlabels[0] = jLabel_Browser;
+			jlabels[1] = jLabel_Browser_2;
+			jlabels[2] = jLabel_Browser_3;
+	        jlabels[3] = jLabel_Browser_4;
+	        jlabels[4] = jLabel_Browser_5;
+	        
+        	System.out.println("BookLibrary/Line 172 : " +books.size());
         
-        
-        if (books.get(0 + count).getTitle().isEmpty()) {
-            jLabel_title1.setVisible(false);
-            jLabel_dateOfBought.setVisible(false);
-            jButton_readBook1.setVisible(false);
-        } 
-        else {
-            jLabel_title1.setText(books.get(0 + count).getTitle());
-            jLabel_dateOfBought.setText(books.get(0 + count).getSaleDate());
-            
-        }
-
-        if (books.get(1 + count).getTitle().isEmpty()) {
-            jLabel_title2.setVisible(false);
-            jLabel_dayOfBought2.setVisible(false);
-            jButton_Download2.setVisible(false);
-        } else {
-            jLabel_title2.setText(books.get(1 + count).getTitle());
-            jLabel_dayOfBought2.setText(books.get(1 + count).getSaleDate());
-        }
-
-        if (books.get(2 + count).getTitle().isEmpty()) {
-            jLabel_title3.setVisible(false);
-            jLabel_dayOfBought3.setVisible(false);
-            jButton_Download3.setVisible(false);
-        } else {
-            jLabel_title3.setText(books.get(2 + count).getTitle());
-            jLabel_dayOfBought3.setText(books.get(2 + count).getSaleDate());
+        for(int i = 0; i<books.size(); i++) {
+        	
+        	if(books.get(i+count).getTitle().isEmpty()) {
+        		labelsTitle[i].setVisible(false);
+        		labelsDate [i].setVisible(false);
+        	}
+        	else {
+        		labelsTitle[i].setText(books.get(i+count).getTitle());
+        		labelsDate [i].setText(books.get(i + count).getSaleDate());
+        	}
+        	
+        		System.out.println(i);
+        		jlabels[i].setVisible(true);
         }
         
-        if (books.get(3 + count).getTitle().isEmpty()) {
-            jLabel_title4.setVisible(false);
-            jLabel_dayOfBought4.setVisible(false);
-            jButton_Download4.setVisible(false);
-        } else {
-            jLabel_title4.setText(books.get(3 + count).getTitle());
-            jLabel_dayOfBought4.setText(books.get(3 + count).getSaleDate());
-        }
-
-        if (books.get(4 + count).getTitle().isEmpty()) {
-            jLabel_title5.setVisible(false);
-            jLabel_dayOfBought5.setVisible(false);
-            jButton_Download5.setVisible(false);
-        } else {
-            jLabel_title5.setText(books.get(4 + count).getTitle());
-            jLabel_dayOfBought5.setText(books.get(4 + count).getSaleDate());
-        }
 
         if (books.size() - count > 5) {
             jButton_next.setVisible(true);
@@ -190,6 +187,8 @@ public class BookLibrary extends javax.swing.JFrame {
         } else {
             jButton_previous.setVisible(false);
         }
+        
+        
 
     }//listBooks closing
 
@@ -198,57 +197,30 @@ public class BookLibrary extends javax.swing.JFrame {
     private void initComponents() {
 
         buttonGroup1 = new javax.swing.ButtonGroup();
-        jButton_readBook8 = new javax.swing.JButton();
         jLabel_personalLibrary = new javax.swing.JLabel();
-        jLabel_rentedBooks = new javax.swing.JLabel();
-        jButton_Download5 = new javax.swing.JButton();
+        jLabel_boughtBooks = new javax.swing.JLabel();
+        jLabel_boughtBooks.setFont(new Font("Tahoma", Font.BOLD, 11));
         jLabel_title5 = new javax.swing.JLabel();
         jLabel_dayOfBought5 = new javax.swing.JLabel();
         jButton_return = new javax.swing.JButton();
-        jButton_readBook1 = new javax.swing.JButton();
         jLabel_title1 = new javax.swing.JLabel();
         jLabel_dateOfBought = new javax.swing.JLabel();
-        jButton_Download2 = new javax.swing.JButton();
         jLabel_title2 = new javax.swing.JLabel();
         jLabel_dayOfBought2 = new javax.swing.JLabel();
-        jButton_Download3 = new javax.swing.JButton();
         jLabel_title3 = new javax.swing.JLabel();
         jLabel_dayOfBought3 = new javax.swing.JLabel();
-        jButton_Download4 = new javax.swing.JButton();
         jLabel_title4 = new javax.swing.JLabel();
         jLabel_dayOfBought4 = new javax.swing.JLabel();
         jButton_next = new javax.swing.JButton();
         jButton_previous = new javax.swing.JButton();
-        jButton_Download = new javax.swing.JButton();
-        jButton_readBook3 = new javax.swing.JButton();
-        jButton_readBook2 = new javax.swing.JButton();
-        jButton_readBook4 = new javax.swing.JButton();
-        jButton_readBook5 = new javax.swing.JButton();
 
-        jButton_readBook8.setText("Read in Browser");
-        jButton_readBook8.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton_readBook8ActionPerformed(evt);
-            }
-        });
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         jLabel_personalLibrary.setFont(new java.awt.Font("Calibri", 0, 24)); // NOI18N
         jLabel_personalLibrary.setText("Personal  Library");
 
-        jLabel_rentedBooks.setText("Bought Books:");
-
-        jButton_Download5.setText("Download");
-        jButton_Download5.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton_Download5ActionPerformed(evt);
-            }
-        });
-
-        jLabel_title5.setText("Graphics under C");
-
-        jLabel_dayOfBought5.setText("day of bought");
+        jLabel_boughtBooks.setText("Bought Books:");
 
         jButton_return.setText("Return");
         jButton_return.addActionListener(new java.awt.event.ActionListener() {
@@ -257,50 +229,11 @@ public class BookLibrary extends javax.swing.JFrame {
             }
         });
 
-        jButton_readBook1.setText("Read in Browser");
-        jButton_readBook1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton_readBook1ActionPerformed(evt);
-            }
-        });
-
-        jLabel_title1.setText("Graphics under C");
-
-        jLabel_dateOfBought.setText("date of bought");
-
-        jButton_Download2.setText("Download");
-        jButton_Download2.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton_Download2ActionPerformed(evt);
-            }
-        });
-
-        jLabel_title2.setText("Graphics under C");
-
-        jLabel_dayOfBought2.setText("day of bought");
-
-        jButton_Download3.setText("Download");
-        jButton_Download3.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton_Download3ActionPerformed(evt);
-            }
-        });
-
-        jLabel_title3.setText("Graphics under C");
-
-        jLabel_dayOfBought3.setText("day of bought");
-
-        jButton_Download4.setText("Download");
-        jButton_Download4.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton_Download4ActionPerformed(evt);
-            }
-        });
-
-        jLabel_title4.setText("Graphics under C");
-
-        jLabel_dayOfBought4.setText("day of bought");
-
+        
+        jLabel_title5.setText("");
+        
+        jLabel_dayOfBought5.setText("");
+        
         jButton_next.setText("Next");
         jButton_next.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -314,154 +247,142 @@ public class BookLibrary extends javax.swing.JFrame {
                 jButton_previousActionPerformed(evt);
             }
         });
+        
+        jLabel_Browser = new JLabel("");
+        jLabel_Browser.addMouseListener(this);
+        jLabel_Browser.setIcon(new ImageIcon("D:\\IT\\Eclipse\\WorkSpace\\BookLibrary\\src\\Images\\read_24.png"));
+        jLabel_Browser.setVisible(false);
+        
+        jLabel_Browser_2 = new JLabel("");
+        jLabel_Browser_2.addMouseListener(this);
+        jLabel_Browser_2.setIcon(new ImageIcon("D:\\IT\\Eclipse\\WorkSpace\\BookLibrary\\src\\Images\\read_24.png"));
+        jLabel_Browser_2.setVisible(false);
 
-        jButton_Download.setText("Download ");
-        jButton_Download.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton_DownloadActionPerformed(evt);
-            }
-        });
+        jLabel_Browser_3 = new JLabel("");
+        jLabel_Browser_3.addMouseListener(this);
+        jLabel_Browser_3.setIcon(new ImageIcon("D:\\IT\\Eclipse\\WorkSpace\\BookLibrary\\src\\Images\\read_24.png"));
+        jLabel_Browser_3.setVisible(false);
 
-        jButton_readBook3.setText("Read in Browser");
-        jButton_readBook3.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton_readBook3ActionPerformed(evt);
-            }
-        });
+        jLabel_Browser_4 = new JLabel("");
+        jLabel_Browser_4.addMouseListener(this);
+        jLabel_Browser_4.setIcon(new ImageIcon("D:\\IT\\Eclipse\\WorkSpace\\BookLibrary\\src\\Images\\read_24.png"));
+        jLabel_Browser_4.setVisible(false);
 
-        jButton_readBook2.setText("Read in Browser");
-        jButton_readBook2.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton_readBook2ActionPerformed(evt);
-            }
-        });
+        jLabel_Browser_5 = new JLabel("");
+        jLabel_Browser_5.addMouseListener(this);
+        jLabel_Browser_5.setIcon(new ImageIcon("D:\\IT\\Eclipse\\WorkSpace\\BookLibrary\\src\\Images\\read_24.png"));
+        jLabel_Browser_5.setVisible(false);
+        
+        lblNewLabel = new JLabel("");
+        
+        lblNewLabel_1 = new JLabel("");
+        lblNewLabel_1.setIcon(new ImageIcon("D:\\IT\\Eclipse\\WorkSpace\\BookLibrary\\src\\Images\\mylog2.png"));
 
-        jButton_readBook4.setText("Read in Browser");
-        jButton_readBook4.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton_readBook4ActionPerformed(evt);
-            }
-        });
-
-        jButton_readBook5.setText("Read in Browser");
-        jButton_readBook5.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton_readBook5ActionPerformed(evt);
-            }
-        });
-
+        
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(35, 35, 35)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel_rentedBooks)
-                            .addComponent(jLabel_personalLibrary))
-                        .addGap(45, 45, 45))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(jButton_return)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jButton_previous)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(jButton_next)
-                                .addGap(8, 8, 8))
-                            .addGroup(layout.createSequentialGroup()
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                        .addComponent(jLabel_title1, javax.swing.GroupLayout.DEFAULT_SIZE, 204, Short.MAX_VALUE)
-                                        .addComponent(jLabel_title2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                        .addComponent(jLabel_title3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                                    .addComponent(jLabel_title4, javax.swing.GroupLayout.DEFAULT_SIZE, 232, Short.MAX_VALUE)
-                                    .addComponent(jLabel_title5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addComponent(jLabel_dayOfBought2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                            .addComponent(jLabel_dayOfBought3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                                        .addGap(20, 20, 20)
-                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                            .addGroup(layout.createSequentialGroup()
-                                                .addComponent(jButton_readBook3, javax.swing.GroupLayout.PREFERRED_SIZE, 115, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                .addGap(18, 18, 18)
-                                                .addComponent(jButton_Download3, javax.swing.GroupLayout.PREFERRED_SIZE, 79, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                            .addGroup(layout.createSequentialGroup()
-                                                .addComponent(jButton_readBook2, javax.swing.GroupLayout.PREFERRED_SIZE, 115, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                .addGap(18, 18, 18)
-                                                .addComponent(jButton_Download2, javax.swing.GroupLayout.PREFERRED_SIZE, 79, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                            .addComponent(jLabel_dayOfBought5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                            .addComponent(jLabel_dayOfBought4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                                        .addGap(36, 36, 36)
-                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                            .addComponent(jButton_readBook5, javax.swing.GroupLayout.DEFAULT_SIZE, 115, Short.MAX_VALUE)
-                                            .addComponent(jButton_readBook4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addGroup(layout.createSequentialGroup()
-                                                .addGap(18, 18, 18)
-                                                .addComponent(jButton_Download4, javax.swing.GroupLayout.PREFERRED_SIZE, 79, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                                .addGap(18, 18, 18)
-                                                .addComponent(jButton_Download5))))
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addComponent(jLabel_dateOfBought, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                        .addGap(32, 32, 32)
-                                        .addComponent(jButton_readBook1, javax.swing.GroupLayout.PREFERRED_SIZE, 115, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addGap(18, 18, 18)
-                                        .addComponent(jButton_Download, javax.swing.GroupLayout.PREFERRED_SIZE, 79, javax.swing.GroupLayout.PREFERRED_SIZE)))))
-                        .addGap(109, 109, 109))))
+        	layout.createParallelGroup(Alignment.LEADING)
+        		.addGroup(layout.createSequentialGroup()
+        			.addGroup(layout.createParallelGroup(Alignment.LEADING)
+        				.addGroup(layout.createSequentialGroup()
+        					.addGap(35)
+        					.addGroup(layout.createParallelGroup(Alignment.LEADING)
+        						.addGroup(layout.createSequentialGroup()
+        							.addGroup(layout.createParallelGroup(Alignment.LEADING)
+        								.addComponent(jLabel_boughtBooks)
+        								.addComponent(jLabel_personalLibrary)
+        								.addGroup(layout.createSequentialGroup()
+        									.addComponent(jButton_return)
+        									.addPreferredGap(ComponentPlacement.RELATED)
+        									.addComponent(jButton_previous)))
+        							.addPreferredGap(ComponentPlacement.RELATED)
+        							.addComponent(jButton_next))
+        						.addGroup(layout.createSequentialGroup()
+        							.addGroup(layout.createParallelGroup(Alignment.LEADING)
+        								.addGroup(layout.createParallelGroup(Alignment.LEADING, false)
+        									.addComponent(jLabel_title1, GroupLayout.DEFAULT_SIZE, 204, Short.MAX_VALUE)
+        									.addComponent(jLabel_title2, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+        									.addComponent(jLabel_title3, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        								.addComponent(jLabel_title4, GroupLayout.PREFERRED_SIZE, 176, GroupLayout.PREFERRED_SIZE)
+        								.addComponent(jLabel_title5, GroupLayout.PREFERRED_SIZE, 195, GroupLayout.PREFERRED_SIZE))
+        							.addPreferredGap(ComponentPlacement.RELATED)
+        							.addGroup(layout.createParallelGroup(Alignment.LEADING)
+        								.addGroup(layout.createSequentialGroup()
+        									.addGroup(layout.createParallelGroup(Alignment.TRAILING, false)
+        										.addComponent(jLabel_dayOfBought3, Alignment.LEADING, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+        										.addComponent(jLabel_dayOfBought2, Alignment.LEADING, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+        										.addComponent(jLabel_dateOfBought, Alignment.LEADING, GroupLayout.DEFAULT_SIZE, 120, Short.MAX_VALUE))
+        									.addGap(31)
+        									.addGroup(layout.createParallelGroup(Alignment.TRAILING)
+        										.addComponent(jLabel_Browser_2)
+        										.addComponent(jLabel_Browser)
+        										.addComponent(jLabel_Browser_3)))
+        								.addGroup(layout.createSequentialGroup()
+        									.addGroup(layout.createParallelGroup(Alignment.LEADING)
+        										.addComponent(jLabel_dayOfBought4, GroupLayout.PREFERRED_SIZE, 133, GroupLayout.PREFERRED_SIZE)
+        										.addComponent(jLabel_dayOfBought5, GroupLayout.PREFERRED_SIZE, 113, GroupLayout.PREFERRED_SIZE))
+        									.addGap(18)
+        									.addGroup(layout.createParallelGroup(Alignment.LEADING)
+        										.addComponent(jLabel_Browser_5)
+        										.addComponent(jLabel_Browser_4)))))))
+        				.addComponent(lblNewLabel)
+        				.addGroup(layout.createSequentialGroup()
+        					.addContainerGap()
+        					.addComponent(lblNewLabel_1)))
+        			.addContainerGap(367, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(142, 142, 142)
-                .addComponent(jLabel_personalLibrary)
-                .addGap(42, 42, 42)
-                .addComponent(jLabel_rentedBooks)
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton_readBook1)
-                    .addComponent(jLabel_title1)
-                    .addComponent(jLabel_dateOfBought)
-                    .addComponent(jButton_Download))
-                .addGap(11, 11, 11)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton_Download2)
-                    .addComponent(jLabel_title2)
-                    .addComponent(jLabel_dayOfBought2)
-                    .addComponent(jButton_readBook2))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton_Download3)
-                    .addComponent(jLabel_title3)
-                    .addComponent(jLabel_dayOfBought3)
-                    .addComponent(jButton_readBook3))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton_Download4)
-                    .addComponent(jLabel_title4)
-                    .addComponent(jLabel_dayOfBought4)
-                    .addComponent(jButton_readBook4))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton_Download5)
-                    .addComponent(jLabel_title5)
-                    .addComponent(jLabel_dayOfBought5)
-                    .addComponent(jButton_readBook5))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 28, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton_return)
-                    .addComponent(jButton_next)
-                    .addComponent(jButton_previous))
-                .addGap(40, 40, 40))
+        	layout.createParallelGroup(Alignment.LEADING)
+        		.addGroup(layout.createSequentialGroup()
+        			.addComponent(lblNewLabel)
+        			.addPreferredGap(ComponentPlacement.RELATED)
+        			.addComponent(lblNewLabel_1)
+        			.addGap(98)
+        			.addGroup(layout.createParallelGroup(Alignment.TRAILING)
+        				.addGroup(layout.createSequentialGroup()
+        					.addComponent(jLabel_personalLibrary)
+        					.addGap(42)
+        					.addComponent(jLabel_boughtBooks)
+        					.addGap(18)
+        					.addGroup(layout.createParallelGroup(Alignment.BASELINE)
+        						.addComponent(jLabel_title1)
+        						.addComponent(jLabel_dateOfBought)))
+        				.addComponent(jLabel_Browser))
+        			.addGap(11)
+        			.addGroup(layout.createParallelGroup(Alignment.LEADING)
+        				.addGroup(layout.createParallelGroup(Alignment.BASELINE)
+        					.addComponent(jLabel_title2)
+        					.addComponent(jLabel_dayOfBought2))
+        				.addComponent(jLabel_Browser_2))
+        			.addGap(10)
+        			.addGroup(layout.createParallelGroup(Alignment.LEADING)
+        				.addComponent(jLabel_Browser_3)
+        				.addGroup(layout.createParallelGroup(Alignment.BASELINE)
+        					.addComponent(jLabel_title3)
+        					.addComponent(jLabel_dayOfBought3)))
+        			.addGap(12)
+        			.addGroup(layout.createParallelGroup(Alignment.LEADING)
+        				.addGroup(layout.createParallelGroup(Alignment.BASELINE)
+        					.addComponent(jLabel_title4)
+        					.addComponent(jLabel_dayOfBought4))
+        				.addComponent(jLabel_Browser_4))
+        			.addGap(10)
+        			.addGroup(layout.createParallelGroup(Alignment.LEADING)
+        				.addGroup(layout.createSequentialGroup()
+        					.addGroup(layout.createParallelGroup(Alignment.BASELINE)
+        						.addComponent(jLabel_title5)
+        						.addComponent(jLabel_dayOfBought5))
+        					.addPreferredGap(ComponentPlacement.RELATED, 94, Short.MAX_VALUE)
+        					.addGroup(layout.createParallelGroup(Alignment.BASELINE)
+        						.addComponent(jButton_return)
+        						.addComponent(jButton_previous)
+        						.addComponent(jButton_next))
+        					.addGap(40))
+        				.addGroup(layout.createSequentialGroup()
+        					.addComponent(jLabel_Browser_5)
+        					.addGap(122))))
         );
+        getContentPane().setLayout(layout);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -484,68 +405,10 @@ public class BookLibrary extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_jButton_previousActionPerformed
 
-    private void jButton_readBook1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton_readBook1ActionPerformed
-        
-        this.openBrowser("Hier kommt der Titel vom Buch");
-        
-        
-    }//GEN-LAST:event_jButton_readBook1ActionPerformed
-
-    private void jButton_Download2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton_Download2ActionPerformed
-        JOptionPane.showMessageDialog(null, "This function is not included in this version.");
-    }//GEN-LAST:event_jButton_Download2ActionPerformed
-
-    private void jButton_Download3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton_Download3ActionPerformed
-        JOptionPane.showMessageDialog(null, "This function is not included in this version.");
-    }//GEN-LAST:event_jButton_Download3ActionPerformed
-
-    private void jButton_Download4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton_Download4ActionPerformed
-        JOptionPane.showMessageDialog(null, "This function is not included in this version.");
-    }//GEN-LAST:event_jButton_Download4ActionPerformed
-
-    private void jButton_Download5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton_Download5ActionPerformed
-        JOptionPane.showMessageDialog(null, "This function is not included in this version.");
-    }//GEN-LAST:event_jButton_Download5ActionPerformed
-
     private void jButton_returnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton_returnActionPerformed
         this.dispose();
     }//GEN-LAST:event_jButton_returnActionPerformed
 
-    private void jButton_DownloadActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton_DownloadActionPerformed
-       
-        try {
-            URL url = new URL("http://ramazan.bplaced.net/BookLibrary/Test.pdf");
-            url.openConnection();
-            InputStream in = url.openStream();
-            
-            in.close();
-            
-        } catch (MalformedURLException ex) {
-            Logger.getLogger(BookLibrary.class.getName()).log(Level.SEVERE, null, ex);
-        } catch (IOException ex) {
-            Logger.getLogger(BookLibrary.class.getName()).log(Level.SEVERE, null, ex);
-        }
-    }//GEN-LAST:event_jButton_DownloadActionPerformed
-
-    private void jButton_readBook3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton_readBook3ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton_readBook3ActionPerformed
-
-    private void jButton_readBook2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton_readBook2ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton_readBook2ActionPerformed
-
-    private void jButton_readBook8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton_readBook8ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton_readBook8ActionPerformed
-
-    private void jButton_readBook4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton_readBook4ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton_readBook4ActionPerformed
-
-    private void jButton_readBook5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton_readBook5ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton_readBook5ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -590,33 +453,36 @@ public class BookLibrary extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.ButtonGroup buttonGroup1;
-    private javax.swing.JButton jButton_Download;
-    private javax.swing.JButton jButton_Download2;
-    private javax.swing.JButton jButton_Download3;
-    private javax.swing.JButton jButton_Download4;
-    private javax.swing.JButton jButton_Download5;
-    private javax.swing.JButton jButton_next;
-    private javax.swing.JButton jButton_previous;
-    private javax.swing.JButton jButton_readBook1;
-    private javax.swing.JButton jButton_readBook2;
-    private javax.swing.JButton jButton_readBook3;
-    private javax.swing.JButton jButton_readBook4;
-    private javax.swing.JButton jButton_readBook5;
-    private javax.swing.JButton jButton_readBook8;
-    private javax.swing.JButton jButton_return;
-    private javax.swing.JLabel jLabel_dateOfBought;
-    private javax.swing.JLabel jLabel_dayOfBought2;
-    private javax.swing.JLabel jLabel_dayOfBought3;
-    private javax.swing.JLabel jLabel_dayOfBought4;
-    private javax.swing.JLabel jLabel_dayOfBought5;
-    private javax.swing.JLabel jLabel_personalLibrary;
-    private javax.swing.JLabel jLabel_rentedBooks;
-    private javax.swing.JLabel jLabel_title1;
-    private javax.swing.JLabel jLabel_title2;
-    private javax.swing.JLabel jLabel_title3;
-    private javax.swing.JLabel jLabel_title4;
-    private javax.swing.JLabel jLabel_title5;
+
     // End of variables declaration//GEN-END:variables
+
+
+	@Override
+	public void mouseClicked(MouseEvent e) {
+		openBrowser("");
+	}
+
+
+	@Override
+	public void mouseEntered(MouseEvent arg0) {
+	}
+
+
+	@Override
+	public void mouseExited(MouseEvent arg0) {
+	}
+
+
+	@Override
+	public void mousePressed(MouseEvent arg0) {
+	}
+
+
+	@Override
+	public void mouseReleased(MouseEvent arg0) {
+	}
+
+
+
 
 }

@@ -1,60 +1,125 @@
 /*
- * To change this license header, choose License Headers in Project Properties.
+  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
 
 package bookrental;
 
+import java.awt.Color;
+import java.awt.Dimension;
+import java.awt.Font;
+import java.awt.SystemColor;
+import java.awt.event.MouseEvent;
+import java.awt.event.MouseListener;
+import java.awt.event.WindowEvent;
+import java.awt.event.WindowListener;
+import java.net.MalformedURLException;
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
-import java.util.logging.Level;
-import java.util.logging.Logger;
+import java.util.ArrayList;
+
+import javax.swing.GroupLayout;
+import javax.swing.GroupLayout.Alignment;
+import javax.swing.ImageIcon;
+import javax.swing.JDialog;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
-import javax.swing.WindowConstants;
+import javax.swing.JPanel;
+import javax.swing.JSeparator;
+import javax.swing.LayoutStyle.ComponentPlacement;
 
 /**
  *
- * @author stefano
+ * @author Ali Hannoun & Ramazan Cinardere
  */
 public class Overview extends javax.swing.JFrame {
 
-    /**
-     * Creates new form RentedBookovies
-     */
-    public Overview() throws SQLException {
+	private static final long serialVersionUID = 1L;
+	
+	private Statement stmt;
+	private ResultSet rs;
+	
+	
+    public Overview(){
+    	
         initComponents();
         setLocationRelativeTo(null);
-        setResizable(false);
         setDefaultCloseOperation(JFrame.HIDE_ON_CLOSE);
         
+       try {
+    	   showGUI();
+       } catch (Exception e) {
+    	   System.out.println(e.getClass().getName() + " " +e.getMessage() + " " +e.getCause());
+       }
+    }
+
+    
+    private void showGUI() throws SQLException {
+    	 
         Verbindung db = new Verbindung();
         db.start();
         Connection conn = db.getVerbindung();
 
-        // Amount of Users
-        Statement stmt = conn.createStatement();
-        ResultSet rs = stmt.executeQuery("SELECT count(*) as amount FROM user");
+      //Amount of Admin
+        String showAdmin = "Select count(*) as amount from user where isAdmin = 1";
+        stmt = conn.createStatement();
+        rs = stmt.executeQuery(showAdmin);
         rs.next();
-        jLabel_ammountOfUser.setText(rs.getString("amount") + " Users");
+        String amountAdmin = rs.getString("amount");
+        jLabel_ammountOfAdmin.setText(amountAdmin);
         
-        // Amount of active books
-        Statement stmt2 = conn.createStatement();
-        ResultSet rs2 = stmt2.executeQuery("SELECT count(*) as amount FROM book where bought = 1");
-        rs2.next();
-        jLabel_booksAktiv.setText(rs2.getString("amount") + " books");
         
-        // Amount of all books
-        Statement stmt3 = conn.createStatement();
-        ResultSet rs3 = stmt3.executeQuery("SELECT count(*) as amount FROM book");
-        rs3.next();
-        jLabel_booksInaktiv.setText(rs3.getString("amount") + " books");
-    }
-
-    /**
+     //Amount of User
+        
+        //all user
+        String uAll = "select count(*) as amount from user";
+        stmt = conn.createStatement();
+        rs = stmt.executeQuery(uAll);
+        rs.next();
+        String amountTotalUser = rs.getString("amount");
+        jLabel_UserAllAmount.setText(amountTotalUser);
+        
+        
+        //all user without admin
+        String uwa = String.valueOf(Integer.valueOf(amountTotalUser) - Integer.valueOf(amountAdmin));
+        jLabel_userWithoutAdmin.setText(uwa);
+        
+        
+        //active User
+        String activated = "Select count(*) as amount from user where activated = 1";
+        stmt = conn.createStatement();
+        rs = stmt.executeQuery(activated);
+        rs.next();
+        jLabel_amountOfActiveUser.setText(rs.getString("amount"));
+        
+        //inactive User
+        String inactive = "Select count(*) as amount from user where activated = 0";
+        stmt = conn.createStatement();
+        rs = stmt.executeQuery(inactive);
+        rs.next();
+        jLabel_inactiveAmount.setText(rs.getString("amount"));
+        
+    // Books
+        //all books
+        String all = "SELECT count(*) as amount FROM book";
+        stmt = conn.createStatement();
+        rs = stmt.executeQuery(all);
+        rs.next();
+        jLabel_amountOfAllBooks.setText(rs.getString("amount") + " books");
+    	
+        //saled books
+        String saled = "select sum(bought) as amount from book where bought != 0";
+        stmt = conn.createStatement();
+        rs = stmt.executeQuery(saled);
+        rs.next();
+        jLabel_amountOfSaledBooks.setText(rs.getString("amount"));
+        
+	}
+    
+	/**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
      * regenerated by the Form Editor.
@@ -65,23 +130,23 @@ public class Overview extends javax.swing.JFrame {
 
         jLabel_overview = new javax.swing.JLabel();
         jLabel_amountBooksActiv = new javax.swing.JLabel();
-        jLabel_amountOfUsers = new javax.swing.JLabel();
-        jLabel_booksAktiv = new javax.swing.JLabel();
-        jLabel_ammountOfUser = new javax.swing.JLabel();
+        jLabel_amountBooksActiv.setFont(new Font("Tahoma", Font.PLAIN, 11));
+        jLabel_amountOfAdmin = new javax.swing.JLabel();
+        jLabel_ammountOfAdmin = new javax.swing.JLabel();
         jButton_return = new javax.swing.JButton();
+        jButton_return.setFocusable(false);
         jLabel_amountBooksInactiv = new javax.swing.JLabel();
-        jLabel_booksInaktiv = new javax.swing.JLabel();
+        jLabel_amountBooksInactiv.setFont(new Font("Tahoma", Font.PLAIN, 11));
+        jLabel_amountOfAllBooks = new javax.swing.JLabel();
 
-        jLabel_overview.setFont(new java.awt.Font("Calibri", 0, 24)); // NOI18N
+        jLabel_overview.setFont(new Font("Calibri", Font.BOLD, 26)); // NOI18N
         jLabel_overview.setText("Overview");
 
-        jLabel_amountBooksActiv.setText("Amount of books(only active): ");
+        jLabel_amountBooksActiv.setText("Saled:");
 
-        jLabel_amountOfUsers.setText("Amount of users: ");
+        jLabel_amountOfAdmin.setText("Admin:");
 
-        jLabel_booksAktiv.setText("34 Books");
-
-        jLabel_ammountOfUser.setText("8 Books");
+        jLabel_ammountOfAdmin.setText("8 Books");
 
         jButton_return.setText("Return");
         jButton_return.addActionListener(new java.awt.event.ActionListener() {
@@ -90,58 +155,166 @@ public class Overview extends javax.swing.JFrame {
             }
         });
 
-        jLabel_amountBooksInactiv.setText("Amount of books(with inactive): ");
-
-        jLabel_booksInaktiv.setText("34 Books");
+        jLabel_amountBooksInactiv.setText("All:");
+        
+        JLabel lblUser = new JLabel("User");
+        lblUser.setFont(new Font("Tahoma", Font.BOLD, 14));
+        
+        jLabe_User = new JLabel("User:");
+        
+        jLabel_InfoBook_All = new JLabel("");
+        jLabel_InfoBook_All.setIcon(new ImageIcon("D:\\IT\\Eclipse\\WorkSpace\\BookLibrary\\src\\Images\\info_16.png"));
+        jLabel_InfoBook_All.addMouseListener(new MyMouseListener());
+        
+        jLabel_Active = new JLabel("active:");
+        
+        jLabel_amountOfActiveUser = new JLabel("amount");
+        
+        jLabel_amountOfSaledBooks = new JLabel("New label");
+        
+        jLabel_infoAmountOfSaledBooks = new JLabel("");
+        jLabel_infoAmountOfSaledBooks.setIcon(new ImageIcon("D:\\IT\\Eclipse\\WorkSpace\\BookLibrary\\src\\Images\\info_16.png"));
+        jLabel_infoAmountOfSaledBooks.addMouseListener(new MyMouseListener());
+        
+        jPanel = new JPanel();
+        jPanel.setLayout(null);
+        
+        separator = new JSeparator();
+        separator.setFont(new Font("Dialog", Font.PLAIN, 12));
+        separator.setBounds(42, 26, 417, 19);
+        separator.setForeground(SystemColor.activeCaption);
+        separator.setBackground(Color.WHITE);
+        jPanel.add(separator);
+        
+        jLabel_UserAllAmount = new JLabel("New label");
+        
+        jLabel_AdminInfo = new JLabel("");
+        jLabel_AdminInfo.setIcon(new ImageIcon("D:\\IT\\Eclipse\\WorkSpace\\BookLibrary\\src\\Images\\info_16.png"));
+        jLabel_AdminInfo.addMouseListener(new MyMouseListener());
+        
+        jLabel_userWithoutAdmin = new JLabel("New label");
+        
+        label_2 = new JLabel("Book");
+        label_2.setFont(new Font("Tahoma", Font.BOLD, 14));
+        
+        lblInactive = new JLabel("inactive:");
+        
+        jLabel_inactiveAmount = new JLabel("<dynamic>");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(44, 44, 44)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel_overview)
-                            .addGroup(layout.createSequentialGroup()
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLabel_amountBooksInactiv, javax.swing.GroupLayout.PREFERRED_SIZE, 181, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jLabel_amountBooksActiv)
-                                    .addComponent(jLabel_amountOfUsers))
-                                .addGap(18, 18, 18)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLabel_booksAktiv)
-                                    .addComponent(jLabel_ammountOfUser)
-                                    .addComponent(jLabel_booksInaktiv)))))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(25, 25, 25)
-                        .addComponent(jButton_return)))
-                .addContainerGap(373, Short.MAX_VALUE))
+        	layout.createParallelGroup(Alignment.LEADING)
+        		.addGroup(layout.createSequentialGroup()
+        			.addGroup(layout.createParallelGroup(Alignment.LEADING)
+        				.addGroup(layout.createSequentialGroup()
+        					.addGap(0)
+        					.addGroup(layout.createParallelGroup(Alignment.LEADING)
+        						.addGroup(layout.createSequentialGroup()
+        							.addGap(54)
+        							.addGroup(layout.createParallelGroup(Alignment.LEADING)
+        								.addGroup(layout.createSequentialGroup()
+        									.addGroup(layout.createParallelGroup(Alignment.LEADING)
+        										.addComponent(lblUser)
+        										.addGroup(layout.createSequentialGroup()
+        											.addGap(40)
+        											.addGroup(layout.createParallelGroup(Alignment.LEADING)
+        												.addComponent(jLabel_Active)
+        												.addComponent(lblInactive))))
+        									.addGap(28)
+        									.addGroup(layout.createParallelGroup(Alignment.LEADING)
+        										.addComponent(jLabel_amountOfActiveUser)
+        										.addComponent(jLabel_inactiveAmount)
+        										.addGroup(layout.createSequentialGroup()
+        											.addGap(101)
+        											.addComponent(jLabel_AdminInfo, GroupLayout.PREFERRED_SIZE, 16, GroupLayout.PREFERRED_SIZE))
+        										.addComponent(jLabel_UserAllAmount)
+        										.addComponent(jLabel_userWithoutAdmin, GroupLayout.PREFERRED_SIZE, 28, GroupLayout.PREFERRED_SIZE)
+        										.addComponent(jLabel_ammountOfAdmin)))
+        								.addGroup(layout.createSequentialGroup()
+        									.addGap(24)
+        									.addGroup(layout.createParallelGroup(Alignment.LEADING)
+        										.addComponent(jLabel_amountBooksInactiv)
+        										.addComponent(jLabel_amountBooksActiv))
+        									.addGap(23)
+        									.addGroup(layout.createParallelGroup(Alignment.LEADING)
+        										.addComponent(jLabel_amountOfAllBooks, GroupLayout.PREFERRED_SIZE, 105, GroupLayout.PREFERRED_SIZE)
+        										.addComponent(jLabel_amountOfSaledBooks, GroupLayout.PREFERRED_SIZE, 79, GroupLayout.PREFERRED_SIZE))
+        									.addPreferredGap(ComponentPlacement.UNRELATED)
+        									.addGroup(layout.createParallelGroup(Alignment.LEADING)
+        										.addComponent(jLabel_infoAmountOfSaledBooks, GroupLayout.PREFERRED_SIZE, 16, GroupLayout.PREFERRED_SIZE)
+        										.addComponent(jLabel_InfoBook_All)))))
+        						.addGroup(layout.createSequentialGroup()
+        							.addGap(76)
+        							.addGroup(layout.createParallelGroup(Alignment.LEADING)
+        								.addComponent(jLabel_amountOfAdmin)
+        								.addComponent(jLabe_User)))))
+        				.addGroup(layout.createSequentialGroup()
+        					.addContainerGap()
+        					.addComponent(jPanel, GroupLayout.PREFERRED_SIZE, 627, GroupLayout.PREFERRED_SIZE))
+        				.addGroup(layout.createSequentialGroup()
+        					.addGap(49)
+        					.addComponent(label_2, GroupLayout.PREFERRED_SIZE, 36, GroupLayout.PREFERRED_SIZE))
+        				.addGroup(layout.createSequentialGroup()
+        					.addGap(26)
+        					.addComponent(jButton_return))
+        				.addGroup(layout.createSequentialGroup()
+        					.addGap(44)
+        					.addComponent(jLabel_overview)))
+        			.addContainerGap(97, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(175, 175, 175)
-                .addComponent(jLabel_overview)
-                .addGap(41, 41, 41)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel_amountOfUsers)
-                    .addComponent(jLabel_ammountOfUser))
-                .addGap(39, 39, 39)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel_amountBooksActiv)
-                    .addComponent(jLabel_booksAktiv))
-                .addGap(39, 39, 39)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel_amountBooksInactiv)
-                    .addComponent(jLabel_booksInaktiv))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 90, Short.MAX_VALUE)
-                .addComponent(jButton_return)
-                .addGap(18, 18, 18))
+        	layout.createParallelGroup(Alignment.TRAILING)
+        		.addGroup(layout.createSequentialGroup()
+        			.addContainerGap()
+        			.addComponent(jLabel_overview)
+        			.addGap(33)
+        			.addGroup(layout.createParallelGroup(Alignment.BASELINE)
+        				.addComponent(lblUser)
+        				.addComponent(jLabel_UserAllAmount))
+        			.addGap(18)
+        			.addGroup(layout.createParallelGroup(Alignment.LEADING)
+        				.addGroup(Alignment.TRAILING, layout.createSequentialGroup()
+        					.addGroup(layout.createParallelGroup(Alignment.BASELINE)
+        						.addComponent(jLabel_amountOfAdmin)
+        						.addComponent(jLabel_ammountOfAdmin))
+        					.addGap(18)
+        					.addGroup(layout.createParallelGroup(Alignment.BASELINE)
+        						.addComponent(jLabe_User)
+        						.addComponent(jLabel_userWithoutAdmin))
+        					.addGap(18)
+        					.addGroup(layout.createParallelGroup(Alignment.BASELINE)
+        						.addComponent(jLabel_Active)
+        						.addComponent(jLabel_amountOfActiveUser))
+        					.addGap(6))
+        				.addComponent(jLabel_AdminInfo, GroupLayout.PREFERRED_SIZE, 16, GroupLayout.PREFERRED_SIZE))
+        			.addPreferredGap(ComponentPlacement.RELATED)
+        			.addGroup(layout.createParallelGroup(Alignment.BASELINE)
+        				.addComponent(lblInactive)
+        				.addComponent(jLabel_inactiveAmount))
+        			.addGap(65)
+        			.addComponent(jPanel, GroupLayout.PREFERRED_SIZE, 50, GroupLayout.PREFERRED_SIZE)
+        			.addGap(29)
+        			.addGroup(layout.createParallelGroup(Alignment.TRAILING)
+        				.addGroup(layout.createSequentialGroup()
+        					.addComponent(label_2, GroupLayout.PREFERRED_SIZE, 17, GroupLayout.PREFERRED_SIZE)
+        					.addGap(18)
+        					.addGroup(layout.createParallelGroup(Alignment.BASELINE)
+        						.addComponent(jLabel_amountBooksInactiv)
+        						.addComponent(jLabel_amountOfAllBooks)))
+        				.addComponent(jLabel_InfoBook_All))
+        			.addGap(15)
+        			.addGroup(layout.createParallelGroup(Alignment.TRAILING)
+        				.addGroup(layout.createParallelGroup(Alignment.BASELINE)
+        					.addComponent(jLabel_amountBooksActiv)
+        					.addComponent(jLabel_amountOfSaledBooks))
+        				.addComponent(jLabel_infoAmountOfSaledBooks, GroupLayout.PREFERRED_SIZE, 16, GroupLayout.PREFERRED_SIZE))
+        			.addGap(167)
+        			.addComponent(jButton_return)
+        			.addGap(20))
         );
+        getContentPane().setLayout(layout);
+        setSize(new Dimension(750, 700));
 
-        pack();
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton_returnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton_returnActionPerformed
@@ -155,23 +328,322 @@ public class Overview extends javax.swing.JFrame {
         
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                try {
-                    new Overview().setVisible(true);
-                } catch (SQLException ex) {
-                    Logger.getLogger(Overview.class.getName()).log(Level.SEVERE, null, ex);
-                }
+                new Overview().setVisible(true);
             }
         });
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton_return;
-    private javax.swing.JLabel jLabel_ammountOfUser;
+    private javax.swing.JLabel jLabel_ammountOfAdmin;
     private javax.swing.JLabel jLabel_amountBooksActiv;
     private javax.swing.JLabel jLabel_amountBooksInactiv;
-    private javax.swing.JLabel jLabel_amountOfUsers;
-    private javax.swing.JLabel jLabel_booksAktiv;
-    private javax.swing.JLabel jLabel_booksInaktiv;
+    private javax.swing.JLabel jLabel_amountOfAdmin;
+    private javax.swing.JLabel jLabel_amountOfAllBooks;
     private javax.swing.JLabel jLabel_overview;
-    // End of variables declaration//GEN-END:variables
+    private JLabel jLabe_User;
+    private JLabel jLabel_InfoBook_All;
+    private JLabel jLabel_Active;
+    private JLabel jLabel_amountOfActiveUser;
+    private JLabel jLabel_amountOfSaledBooks;
+    private JLabel jLabel_infoAmountOfSaledBooks;
+    private JPanel jPanel;
+    private JSeparator separator;
+    private JLabel jLabel_UserAllAmount;
+    private JLabel jLabel_AdminInfo;
+    private JLabel jLabel_userWithoutAdmin;
+    private JLabel label_2;
+    private JLabel lblInactive;
+    private JLabel jLabel_inactiveAmount;
+    
+    
+    private class MyWindowListener implements WindowListener {
+
+		@Override
+		public void windowActivated(WindowEvent arg0) {
+		}
+
+		@Override
+		public void windowClosed(WindowEvent arg0) {
+		}
+
+		@Override
+		public void windowClosing(WindowEvent e) {
+			
+			if(e.getSource() instanceof JFrame) {
+				Overview.this.setVisible(true);
+			}
+		}
+
+		@Override
+		public void windowDeactivated(WindowEvent arg0) {
+		}
+
+		@Override
+		public void windowDeiconified(WindowEvent arg0) {
+		}
+
+		@Override
+		public void windowIconified(WindowEvent arg0) {
+		}
+
+		@Override
+		public void windowOpened(WindowEvent arg0) {
+		}
+    	
+    }
+    
+    private class MyMouseListener implements MouseListener {
+
+    	Verbindung db;
+    	Connection conn; 
+    	JDialog jd;
+    	Statement stmt;
+    	ResultSet rs;
+    	JFrame frame;
+    	JLabel label, myLabel;
+    	ArrayList<Book> booksList = new ArrayList<Book>();
+    	Book book, bookObj;
+    	
+    	
+    	public MyMouseListener() {
+		}
+    	
+    	public MyMouseListener(JLabel myLabel, Book bookObj) {
+    		
+    		this.myLabel = myLabel;
+    		this.bookObj = bookObj;
+    		
+    	}
+    	
+    	
+    	
+		@Override
+		public void mouseClicked(MouseEvent e) {
+			
+			db = new Verbindung();
+		    db.start();
+		    conn = db.getVerbindung();
+			
+		    frame = new JFrame();
+			frame.setBounds(100, 100, 450, 300);
+			frame.setDefaultCloseOperation(JFrame.HIDE_ON_CLOSE);
+			frame.getContentPane().setLayout(null);
+		    frame.addWindowListener(new MyWindowListener());
+		    
+			JPanel panel = new JPanel();
+			panel.setBounds(0, 0, 434, 262);
+			frame.getContentPane().add(panel);
+			panel.setLayout(null);
+		    
+			if(e.getSource() == jLabel_AdminInfo) {
+				
+				JLabel lblAdmin = new JLabel("Admin");
+				lblAdmin.setFont(new Font("Calibri", Font.BOLD, 16));
+				lblAdmin.setBounds(23, 24, 53, 25);
+				panel.add(lblAdmin);
+
+			    try {
+			    	String adm = "select * from user where isAdmin = 1";
+					stmt = conn.createStatement();
+					rs = stmt.executeQuery(adm);
+					
+					int counter = 0;
+					int width = lblAdmin.getX()+10, 
+					   height = 50;
+					
+					while(rs.next()) {
+						JLabel label = new JLabel();
+						label.setBounds(0, 0, 100, 30);
+						label.setFont(new Font("Calibri",Font.PLAIN, 14));
+						label.setLocation(width, height);
+						label.setText((counter+1)+".    " +rs.getString("username"));
+						counter++;
+						panel.add(label);
+						height += 20;
+					}
+					
+
+					Overview.this.setVisible(false);
+				    
+					frame.add(panel);
+					frame.setVisible(true);
+					
+				} catch (Exception ex) {
+					System.out.println(ex.getClass().getName() + " " +ex.getCause());
+				}
+			}
+			
+			if(e.getSource() == jLabel_InfoBook_All) {
+				
+				JLabel lblAdmin = new JLabel("Books");
+				lblAdmin.setFont(new Font("Calibri", Font.BOLD, 16));
+				lblAdmin.setBounds(23, 24, 53, 25);
+				panel.add(lblAdmin);
+				
+			    try {
+			    	String adm = "select * from book";
+					stmt = conn.createStatement();
+					rs = stmt.executeQuery(adm);
+					
+					int counter = 0;
+					int width = lblAdmin.getX()+10, 
+					   height = 50;
+					
+					while(rs.next()) {
+						
+						  String mid 			= rs.getString("mid");
+				    	  String title 			= rs.getString("title");
+				    	  String imglink 		= rs.getString("picture");
+				    	  String description 	= rs.getString("description");
+				    	  String genre 			= rs.getString("genre");
+				    	  String agerating 		= rs.getString("agerating");
+				    	  String releaseyear 	= rs.getString("releaseyear");
+				    	  String price 			= rs.getString("price"); 
+				    	  String pdflink 		= rs.getString("pdflink");
+				    	  String language 		= rs.getString("language");
+				    	  String language2 		= rs.getString("language2");
+				    	  String author 		= rs.getString("author");
+						
+						try {
+							 book = new Book(mid, title, imglink, "", description, genre, agerating, releaseyear, "", language2, language2, price, pdflink, author);
+							 booksList.add(book);
+							 
+						}catch (Exception ex) {
+							System.out.println(ex.getCause() + " " +ex.getMessage()  + " in " +ex.getClass().getName());
+						}
+						
+						label = new JLabel();
+						label.setBounds(0, 0, frame.getWidth()-10, 35);
+						label.setFont(new Font("Calibri",Font.PLAIN, 14));
+						label.setLocation(width, height);
+						label.setText((counter+1)+".    " +title);
+						label.addMouseListener(new MyMouseListener(label, booksList.get(counter)));
+						counter++;
+						panel.add(label);
+						panel.setSize(frame.getWidth(), panel.getHeight()+20);
+						panel.repaint();
+						height += 20;
+						frame.setSize(frame.getWidth(), frame.getHeight()+20);
+						frame.repaint();
+					}
+
+					Overview.this.setVisible(false);
+				    
+					frame.add(panel);
+					frame.setVisible(true);
+				} catch (Exception ex) {
+					System.out.println("Line:537" +ex.getClass().getName() + " " +ex.getCause());
+				}
+			}
+			
+			
+			if(e.getSource() == jLabel_infoAmountOfSaledBooks) {
+				
+				JLabel lblAdmin = new JLabel("Books (saled)");
+				lblAdmin.setFont(new Font("Calibri", Font.BOLD, 16));
+				lblAdmin.setBounds(23, 24, 100, 25);
+				panel.add(lblAdmin);
+				
+			    try {
+			    	String adm = "select * from book where bought != 0";
+					stmt = conn.createStatement();
+					rs = stmt.executeQuery(adm);
+					
+					int counter = 0;
+					int width = lblAdmin.getX()+10, 
+					   height = 50;
+					
+					while(rs.next()) {
+						
+						  String mid 			= rs.getString("mid");
+				    	  String title 			= rs.getString("title");
+				    	  String imglink 		= rs.getString("picture");
+				    	  String description 	= rs.getString("description");
+				    	  String genre 			= rs.getString("genre");
+				    	  String agerating 		= rs.getString("agerating");
+				    	  String releaseyear 	= rs.getString("releaseyear");
+				    	  String price 			= rs.getString("price"); 
+				    	  String pdflink 		= rs.getString("pdflink");
+				    	  String language 		= rs.getString("language");
+				    	  String language2 		= rs.getString("language2");
+				    	  String author 		= rs.getString("author");
+						
+						try {
+							 book = new Book(mid, title, imglink, "", description, genre, agerating, releaseyear, "", language2, language2, price, pdflink, author);
+							 booksList.add(book);
+							 
+						} catch (Exception ex) {
+							System.out.println(ex.getCause() + " " +ex.getMessage()  + " in " +ex.getClass().getName());
+						}
+						
+						System.out.println(booksList.size());
+						
+						
+						label = new JLabel();
+						label.setBounds(0, 0, frame.getWidth()-10, 35);
+						label.setFont(new Font("Calibri",Font.PLAIN, 14));
+						label.setLocation(width, height);
+						label.setText((counter+1)+".    " +title + " (" +rs.getString("bought") +")");
+						label.addMouseListener(new MyMouseListener(label, booksList.get(counter)));
+						counter++;
+						panel.add(label);
+						panel.setSize(frame.getWidth(), panel.getHeight()+20);
+						panel.repaint();
+						height += 20;
+						frame.setSize(frame.getWidth(), frame.getHeight()+20);
+						frame.repaint();
+					}
+
+					Overview.this.setVisible(false);
+				    
+					frame.add(panel);
+					frame.setVisible(true);
+				} catch (Exception ex) {
+					System.out.println("Line:537" +ex.getClass().getName() + " " +ex.getCause());
+				}
+
+				
+				
+				
+				
+				
+			}
+			
+			if(e.getSource() == myLabel) {
+				
+				try {
+					new BookInfo(bookObj).setVisible(true);;
+				} catch (MalformedURLException e1) {
+					System.out.println(e1.getMessage());
+				}
+				
+			}
+			
+			
+			
+			
+			
+			
+			
+			
+		}
+
+		@Override
+		public void mouseEntered(MouseEvent arg0) {
+		}
+
+		@Override
+		public void mouseExited(MouseEvent arg0) {
+		}
+
+		@Override
+		public void mousePressed(MouseEvent arg0) {
+		}
+
+		@Override
+		public void mouseReleased(MouseEvent arg0) {
+		}
+    	
+    }
 }

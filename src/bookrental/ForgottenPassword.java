@@ -137,7 +137,7 @@ public class ForgottenPassword extends javax.swing.JFrame {
                if(User.forgottenPassword(jText_username.getText(),jTextField_eMail.getText()))
                    dispose();
            } catch (   SQLException | UnsupportedEncodingException | NoSuchAlgorithmException ex) {
-               Logger.getLogger(ForgottenPassword.class.getName()).log(Level.SEVERE, null, ex);
+        	   System.out.println(ex.getCause() + " " +ex.getMessage());
            }
        }
     }//GEN-LAST:event_jButton_sendActionPerformed
